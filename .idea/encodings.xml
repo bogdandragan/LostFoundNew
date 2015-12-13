@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/controllers/Account.scala" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/controllers/Announcement.scala" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/account/forgot.scala.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/account/newpassword.scala.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/account/regconfirm.scala.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/announcement/newannouncement.scala.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/announcement/newconfirm.scala.html" charset="UTF-8" />
+  </component>
+</project>

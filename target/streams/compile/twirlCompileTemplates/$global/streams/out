@@ -1,0 +1,4 @@
+[error] /home/bogdan/LostFoundNew/app/views/index.scala.html:14: Expected ending '}'
+[error]                 var name = data.email.substring(0, data.email.lastIndexOf("@"));
+[error]                                                                            ^
+[error] (compile:twirlCompileTemplates) Twirl compilation failed
