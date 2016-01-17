@@ -36,6 +36,14 @@ class Account @Inject()(mailer: MailerClient) extends Controller  with HasDataba
     }
   }
 
+  def myAnnouncements = Action { implicit request =>
+    request.session.get("id").map { user =>
+      Ok(views.html.account.announcements())
+    }.getOrElse {
+      Ok(views.html.account.signin())
+    }
+  }
+
   def register = Action {
     Ok(views.html.account.register())
   }
@@ -138,27 +146,6 @@ class Account @Inject()(mailer: MailerClient) extends Controller  with HasDataba
     }
   }
 
-  def sendRegConfirmation(sendTo: String, hash: String){
-    val email = Email(
-      "Confirm registration email",
-      "info@znahidka.pp.ua <info@znahidka.pp.ua>",
-      Seq("<"+sendTo+">"),
-      bodyText = Some(play.Play.application().configuration().getString("application.baseUrl")+"account/register/confirm?email="+sendTo+"&hash="+hash),
-      bodyHtml = Some("<html><body><p>"+play.Play.application().configuration().getString("application.baseUrl")+"account/register/confirm?email="+sendTo+"&hash="+hash+"</p></body></html>")
-    )
-    val id = mailer.send(email)
-  }
-
-  def sendForgotEmail(sendTo: String, hash: String){
-    val email = Email(
-      "Restore password email",
-      "info@znahidka.pp.ua <info@znahidka.pp.ua>",
-      Seq("<"+sendTo+">"),
-      bodyText = Some("Restore password link: "+play.Play.application().configuration().getString("application.baseUrl")+"account/signin/newpassword?email="+sendTo+"&hash="+hash),
-      bodyHtml = Some("<html><body><p>"+"Restore password link: "+play.Play.application().configuration().getString("application.baseUrl")+"account/signin/newpassword?email="+sendTo+"&hash="+hash+"</p></body></html>")
-    )
-    val id = mailer.send(email)
-  }
 
   def regConfirm = Action {
     Ok(views.html.account.regconfirm())
@@ -331,6 +318,28 @@ class Account @Inject()(mailer: MailerClient) extends Controller  with HasDataba
         }
       }
     )
+  }
+
+  def sendRegConfirmation(sendTo: String, hash: String){
+    val email = Email(
+      "Confirm registration email",
+      "info@znahidka.pp.ua <info@znahidka.pp.ua>",
+      Seq("<"+sendTo+">"),
+      bodyText = Some(play.Play.application().configuration().getString("application.baseUrl")+"account/register/confirm?email="+sendTo+"&hash="+hash),
+      bodyHtml = Some("<html><body><p>"+play.Play.application().configuration().getString("application.baseUrl")+"account/register/confirm?email="+sendTo+"&hash="+hash+"</p></body></html>")
+    )
+    val id = mailer.send(email)
+  }
+
+  def sendForgotEmail(sendTo: String, hash: String){
+    val email = Email(
+      "Restore password email",
+      "info@znahidka.pp.ua <info@znahidka.pp.ua>",
+      Seq("<"+sendTo+">"),
+      bodyText = Some("Restore password link: "+play.Play.application().configuration().getString("application.baseUrl")+"account/signin/newpassword?email="+sendTo+"&hash="+hash),
+      bodyHtml = Some("<html><body><p>"+"Restore password link: "+play.Play.application().configuration().getString("application.baseUrl")+"account/signin/newpassword?email="+sendTo+"&hash="+hash+"</p></body></html>")
+    )
+    val id = mailer.send(email)
   }
 
 }

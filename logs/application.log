@@ -3053,3 +3053,61 @@ play.sbt.PlayExceptions$CompilationException: Compilation error[identifier expec
 2016-01-17 02:20:36,034 [WARN] from application in application-akka.actor.default-dispatcher-133 - Logger configuration in conf files is deprecated and has no effect. Use a logback configuration file instead.
 2016-01-17 02:20:36,622 [INFO] from play.api.libs.concurrent.ActorSystemProvider in application-akka.actor.default-dispatcher-133 - Starting application default Akka system: application
 2016-01-17 02:20:37,508 [INFO] from play.api.Play$ in application-akka.actor.default-dispatcher-133 - Application started (Dev)
+2016-01-17 02:53:57,134 [INFO] from play.api.libs.concurrent.ActorSystemProvider in application-akka.actor.default-dispatcher-45 - Shutdown application default Akka system: application
+2016-01-17 02:53:57,165 [WARN] from application in application-akka.actor.default-dispatcher-33 - Logger configuration in conf files is deprecated and has no effect. Use a logback configuration file instead.
+2016-01-17 02:53:57,203 [INFO] from play.api.libs.concurrent.ActorSystemProvider in application-akka.actor.default-dispatcher-33 - Starting application default Akka system: application
+2016-01-17 02:53:57,379 [INFO] from play.api.Play$ in application-akka.actor.default-dispatcher-33 - Application started (Dev)
+2016-01-17 12:35:55,606 [INFO] from play.api.libs.concurrent.ActorSystemProvider in application-akka.actor.default-dispatcher-17 - Shutdown application default Akka system: application
+2016-01-17 12:35:55,687 [WARN] from application in application-akka.actor.default-dispatcher-12 - Logger configuration in conf files is deprecated and has no effect. Use a logback configuration file instead.
+2016-01-17 12:35:55,841 [INFO] from play.api.libs.concurrent.ActorSystemProvider in application-akka.actor.default-dispatcher-12 - Starting application default Akka system: application
+2016-01-17 12:35:56,099 [INFO] from play.api.Play$ in application-akka.actor.default-dispatcher-12 - Application started (Dev)
+2016-01-17 12:41:30,547 [ERROR] from application in New I/O worker #8 - 
+
+! @6ongdk2gg - Internal server error, for (GET) [/account/announcements] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[value myAnnouncements is not a member of controllers.ReverseAccount]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27) ~[na:na]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.11.6.jar:na]
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49) ~[na:na]
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.11.6.jar:na]
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44) ~[na:na]
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40) ~[na:na]
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17) ~[na:na]
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.11.6.jar:na]
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17) ~[na:na]
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$2.apply(PlayRun.scala:60) ~[na:na]
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$2.apply(PlayRun.scala:60) ~[na:na]
+	at play.runsupport.Reloader.reload(Reloader.scala:305) ~[na:na]
+	at play.core.server.DevServerStart$$anonfun$mainDev$1$$anon$1$$anonfun$get$1.apply(DevServerStart.scala:113) ~[play-server_2.11-2.4.0.jar:2.4.0]
+	at play.core.server.DevServerStart$$anonfun$mainDev$1$$anon$1$$anonfun$get$1.apply(DevServerStart.scala:111) ~[play-server_2.11-2.4.0.jar:2.4.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.11.6.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.11.6.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40) ~[akka-actor_2.11-2.3.11.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:397) ~[akka-actor_2.11-2.3.11.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.11.6.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.11.6.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.11.6.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.11.6.jar:na]
+2016-01-17 12:42:44,428 [INFO] from play.api.libs.concurrent.ActorSystemProvider in application-akka.actor.default-dispatcher-13 - Shutdown application default Akka system: application
+2016-01-17 12:42:44,467 [WARN] from application in application-akka.actor.default-dispatcher-6 - Logger configuration in conf files is deprecated and has no effect. Use a logback configuration file instead.
+2016-01-17 12:42:44,601 [INFO] from play.api.libs.concurrent.ActorSystemProvider in application-akka.actor.default-dispatcher-6 - Starting application default Akka system: application
+2016-01-17 12:42:44,733 [INFO] from play.api.Play$ in application-akka.actor.default-dispatcher-6 - Application started (Dev)
+2016-01-17 12:44:45,670 [INFO] from play.api.libs.concurrent.ActorSystemProvider in application-akka.actor.default-dispatcher-8 - Shutdown application default Akka system: application
+2016-01-17 12:44:45,724 [WARN] from application in application-akka.actor.default-dispatcher-9 - Logger configuration in conf files is deprecated and has no effect. Use a logback configuration file instead.
+2016-01-17 12:44:45,815 [INFO] from play.api.libs.concurrent.ActorSystemProvider in application-akka.actor.default-dispatcher-9 - Starting application default Akka system: application
+2016-01-17 12:44:46,028 [INFO] from play.api.Play$ in application-akka.actor.default-dispatcher-9 - Application started (Dev)
+2016-01-17 12:45:05,421 [INFO] from play.api.libs.concurrent.ActorSystemProvider in application-akka.actor.default-dispatcher-8 - Shutdown application default Akka system: application
+2016-01-17 12:45:05,462 [WARN] from application in application-akka.actor.default-dispatcher-4 - Logger configuration in conf files is deprecated and has no effect. Use a logback configuration file instead.
+2016-01-17 12:45:05,528 [INFO] from play.api.libs.concurrent.ActorSystemProvider in application-akka.actor.default-dispatcher-4 - Starting application default Akka system: application
+2016-01-17 12:45:05,653 [INFO] from play.api.Play$ in application-akka.actor.default-dispatcher-4 - Application started (Dev)
+2016-01-17 12:45:28,780 [INFO] from play.api.libs.concurrent.ActorSystemProvider in application-akka.actor.default-dispatcher-4 - Shutdown application default Akka system: application
+2016-01-17 12:45:28,813 [WARN] from application in application-akka.actor.default-dispatcher-2 - Logger configuration in conf files is deprecated and has no effect. Use a logback configuration file instead.
+2016-01-17 12:45:28,867 [INFO] from play.api.libs.concurrent.ActorSystemProvider in application-akka.actor.default-dispatcher-2 - Starting application default Akka system: application
+2016-01-17 12:45:28,969 [INFO] from play.api.Play$ in application-akka.actor.default-dispatcher-2 - Application started (Dev)
+2016-01-17 12:50:05,744 [INFO] from play.api.libs.concurrent.ActorSystemProvider in application-akka.actor.default-dispatcher-10 - Shutdown application default Akka system: application
+2016-01-17 12:50:05,781 [WARN] from application in application-akka.actor.default-dispatcher-6 - Logger configuration in conf files is deprecated and has no effect. Use a logback configuration file instead.
+2016-01-17 12:50:05,827 [INFO] from play.api.libs.concurrent.ActorSystemProvider in application-akka.actor.default-dispatcher-6 - Starting application default Akka system: application
+2016-01-17 12:50:05,978 [INFO] from play.api.Play$ in application-akka.actor.default-dispatcher-6 - Application started (Dev)

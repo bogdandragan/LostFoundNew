@@ -13,29 +13,22 @@ POST        /test2                             @controllers.Home.doFilter()
 
 #Account
 GET         /account                           @controllers.Account.index
-
 GET         /account/register                  @controllers.Account.register
 POST        /account/register                  @controllers.Account.doRegister
-
 GET         /account/register/confirm          @controllers.Account.regConfirm
 POST        /account/register/confirm          @controllers.Account.checkRegistration
-
 GET         /account/signin                    @controllers.Account.signin
 POST        /account/signin                    @controllers.Account.doSignin
-
 GET         /account/signin/forgot             @controllers.Account.forgot
 POST        /account/signin/forgot             @controllers.Account.doForgot
-
 GET         /account/signin/newpassword        @controllers.Account.newPassword
 POST        /account/signin/newpassword        @controllers.Account.doNewPassword
-
 POST        /account/checkSession              @controllers.Account.checkSession
 POST        /account/logout                    @controllers.Account.logout
-
 GET         /account/getuser                   @controllers.Account.getUserData
 POST        /account/deleteUserById            @controllers.Account.deleteUserById()
-POST        /account/updateUser               @controllers.Account.updateUser()
-
+POST        /account/updateUser                @controllers.Account.updateUser()
+GET         /account/announcements             @controllers.Account.myAnnouncements()
 
 #Announcement
 GET         /announcement/new                  @controllers.Announcement.newAnnouncement
@@ -52,6 +45,7 @@ POST        /announcement/getRegion            @controllers.Announcement.getRegi
 POST        /announcement/getCategory          @controllers.Announcement.getCategoryById()
 POST        /announcement/deleteById           @controllers.Announcement.deleteAnnouncementById()
 GET         /announcement/notfound             @controllers.Announcement.notFound()
+
 #Search
 GET         /results                           @controllers.Home.searchResult(key: Option[String] ?= None, regionId: Option[Int] ?= None, cityId: Option[Int] ?= None, categoryId: Option[Int] ?= None)
 POST        /results                           @controllers.Announcement.doFilter()
