@@ -165,15 +165,6 @@ class Home extends Controller with HasDatabaseConfig[JdbcProfile]{
       },
       searchParams => {
         Future.successful(Ok(Json.obj("error"->"")))
-
-        /*val q = db.run(Announcements.filter(_.id === key.toInt).join(Categories).on(_.categoryId === _.id)
-     .join(Regions).on(_._1.regionId === _.id)
-     .join(Cities).on(_._1._1.cityId === _.id)
-     .map(m=>(m._1._1._1.id, m._1._1._1.title, m._1._1._1.description, m._1._1._1.contact, m._1._1._1.photo, m._1._1._1.email, m._1._1._2.name, m._1._2.name, m._2.name, m._1._1._1.`type`)).take(12).sortBy(s => s._1.desc).result)
-
-   q.map(
-     res => Ok(Json.toJson(res))
-   )*/
       }
     )
   }
