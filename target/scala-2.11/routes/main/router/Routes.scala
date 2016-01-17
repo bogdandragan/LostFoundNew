@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/bogdan/IdeaProjects/LostFoundNew/conf/routes
-// @DATE:Sat Jan 16 22:34:21 EET 2016
+// @DATE:Sun Jan 17 12:42:33 EET 2016
 
 package router
 
@@ -19,11 +19,11 @@ class Routes(
   Home_3: javax.inject.Provider[controllers.Home],
   // @LINE:15
   Account_0: javax.inject.Provider[controllers.Account],
-  // @LINE:41
+  // @LINE:34
   Announcement_1: javax.inject.Provider[controllers.Announcement],
-  // @LINE:60
+  // @LINE:54
   Administration_2: javax.inject.Provider[controllers.Administration],
-  // @LINE:70
+  // @LINE:64
   Assets_4: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -34,11 +34,11 @@ class Routes(
     Home_3: javax.inject.Provider[controllers.Home],
     // @LINE:15
     Account_0: javax.inject.Provider[controllers.Account],
-    // @LINE:41
+    // @LINE:34
     Announcement_1: javax.inject.Provider[controllers.Announcement],
-    // @LINE:60
+    // @LINE:54
     Administration_2: javax.inject.Provider[controllers.Administration],
-    // @LINE:70
+    // @LINE:64
     Assets_4: controllers.Assets
   ) = this(errorHandler, Home_3, Account_0, Announcement_1, Administration_2, Assets_4, "/")
 
@@ -75,6 +75,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """account/getuser""", """@controllers.Account@.getUserData"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """account/deleteUserById""", """@controllers.Account@.deleteUserById()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """account/updateUser""", """@controllers.Account@.updateUser()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """account/announcements""", """@controllers.Account@.myAnnouncements()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """announcement/new""", """@controllers.Announcement@.newAnnouncement"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """announcement/new""", """@controllers.Announcement@.postAnnouncement"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """announcement/addconfirm""", """@controllers.Announcement@.newConfirm"""),
@@ -209,7 +210,7 @@ class Routes(
     )
   )
 
-  // @LINE:17
+  // @LINE:16
   private[this] lazy val controllers_Account_register6_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/register")))
   )
@@ -226,7 +227,7 @@ class Routes(
     )
   )
 
-  // @LINE:18
+  // @LINE:17
   private[this] lazy val controllers_Account_doRegister7_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/register")))
   )
@@ -243,7 +244,7 @@ class Routes(
     )
   )
 
-  // @LINE:20
+  // @LINE:18
   private[this] lazy val controllers_Account_regConfirm8_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/register/confirm")))
   )
@@ -260,7 +261,7 @@ class Routes(
     )
   )
 
-  // @LINE:21
+  // @LINE:19
   private[this] lazy val controllers_Account_checkRegistration9_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/register/confirm")))
   )
@@ -277,7 +278,7 @@ class Routes(
     )
   )
 
-  // @LINE:23
+  // @LINE:20
   private[this] lazy val controllers_Account_signin10_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/signin")))
   )
@@ -294,7 +295,7 @@ class Routes(
     )
   )
 
-  // @LINE:24
+  // @LINE:21
   private[this] lazy val controllers_Account_doSignin11_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/signin")))
   )
@@ -311,7 +312,7 @@ class Routes(
     )
   )
 
-  // @LINE:26
+  // @LINE:22
   private[this] lazy val controllers_Account_forgot12_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/signin/forgot")))
   )
@@ -328,7 +329,7 @@ class Routes(
     )
   )
 
-  // @LINE:27
+  // @LINE:23
   private[this] lazy val controllers_Account_doForgot13_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/signin/forgot")))
   )
@@ -345,7 +346,7 @@ class Routes(
     )
   )
 
-  // @LINE:29
+  // @LINE:24
   private[this] lazy val controllers_Account_newPassword14_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/signin/newpassword")))
   )
@@ -362,7 +363,7 @@ class Routes(
     )
   )
 
-  // @LINE:30
+  // @LINE:25
   private[this] lazy val controllers_Account_doNewPassword15_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/signin/newpassword")))
   )
@@ -379,7 +380,7 @@ class Routes(
     )
   )
 
-  // @LINE:32
+  // @LINE:26
   private[this] lazy val controllers_Account_checkSession16_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/checkSession")))
   )
@@ -396,7 +397,7 @@ class Routes(
     )
   )
 
-  // @LINE:33
+  // @LINE:27
   private[this] lazy val controllers_Account_logout17_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/logout")))
   )
@@ -413,7 +414,7 @@ class Routes(
     )
   )
 
-  // @LINE:35
+  // @LINE:28
   private[this] lazy val controllers_Account_getUserData18_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/getuser")))
   )
@@ -430,7 +431,7 @@ class Routes(
     )
   )
 
-  // @LINE:36
+  // @LINE:29
   private[this] lazy val controllers_Account_deleteUserById19_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/deleteUserById")))
   )
@@ -447,7 +448,7 @@ class Routes(
     )
   )
 
-  // @LINE:37
+  // @LINE:30
   private[this] lazy val controllers_Account_updateUser20_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/updateUser")))
   )
@@ -464,11 +465,28 @@ class Routes(
     )
   )
 
-  // @LINE:41
-  private[this] lazy val controllers_Announcement_newAnnouncement21_route = Route("GET",
+  // @LINE:31
+  private[this] lazy val controllers_Account_myAnnouncements21_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/announcements")))
+  )
+  private[this] lazy val controllers_Account_myAnnouncements21_invoker = createInvoker(
+    Account_0.get.myAnnouncements(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.Account",
+      "myAnnouncements",
+      Nil,
+      "GET",
+      """""",
+      this.prefix + """account/announcements"""
+    )
+  )
+
+  // @LINE:34
+  private[this] lazy val controllers_Announcement_newAnnouncement22_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("announcement/new")))
   )
-  private[this] lazy val controllers_Announcement_newAnnouncement21_invoker = createInvoker(
+  private[this] lazy val controllers_Announcement_newAnnouncement22_invoker = createInvoker(
     Announcement_1.get.newAnnouncement,
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -481,11 +499,11 @@ class Routes(
     )
   )
 
-  // @LINE:42
-  private[this] lazy val controllers_Announcement_postAnnouncement22_route = Route("POST",
+  // @LINE:35
+  private[this] lazy val controllers_Announcement_postAnnouncement23_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("announcement/new")))
   )
-  private[this] lazy val controllers_Announcement_postAnnouncement22_invoker = createInvoker(
+  private[this] lazy val controllers_Announcement_postAnnouncement23_invoker = createInvoker(
     Announcement_1.get.postAnnouncement,
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -498,11 +516,11 @@ class Routes(
     )
   )
 
-  // @LINE:43
-  private[this] lazy val controllers_Announcement_newConfirm23_route = Route("GET",
+  // @LINE:36
+  private[this] lazy val controllers_Announcement_newConfirm24_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("announcement/addconfirm")))
   )
-  private[this] lazy val controllers_Announcement_newConfirm23_invoker = createInvoker(
+  private[this] lazy val controllers_Announcement_newConfirm24_invoker = createInvoker(
     Announcement_1.get.newConfirm,
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -515,11 +533,11 @@ class Routes(
     )
   )
 
-  // @LINE:44
-  private[this] lazy val controllers_Announcement_getAddress24_route = Route("GET",
+  // @LINE:37
+  private[this] lazy val controllers_Announcement_getAddress25_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("announcement/getaddress")))
   )
-  private[this] lazy val controllers_Announcement_getAddress24_invoker = createInvoker(
+  private[this] lazy val controllers_Announcement_getAddress25_invoker = createInvoker(
     Announcement_1.get.getAddress,
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -532,11 +550,11 @@ class Routes(
     )
   )
 
-  // @LINE:45
-  private[this] lazy val controllers_Announcement_getCategories25_route = Route("GET",
+  // @LINE:38
+  private[this] lazy val controllers_Announcement_getCategories26_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("announcement/getcategories")))
   )
-  private[this] lazy val controllers_Announcement_getCategories25_invoker = createInvoker(
+  private[this] lazy val controllers_Announcement_getCategories26_invoker = createInvoker(
     Announcement_1.get.getCategories,
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -549,11 +567,11 @@ class Routes(
     )
   )
 
-  // @LINE:46
-  private[this] lazy val controllers_Announcement_getLast1226_route = Route("GET",
+  // @LINE:39
+  private[this] lazy val controllers_Announcement_getLast1227_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("announcement/getrecent")))
   )
-  private[this] lazy val controllers_Announcement_getLast1226_invoker = createInvoker(
+  private[this] lazy val controllers_Announcement_getLast1227_invoker = createInvoker(
     Announcement_1.get.getLast12,
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -566,11 +584,11 @@ class Routes(
     )
   )
 
-  // @LINE:47
-  private[this] lazy val controllers_Announcement_showAd27_route = Route("GET",
+  // @LINE:40
+  private[this] lazy val controllers_Announcement_showAd28_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("announcement/show")))
   )
-  private[this] lazy val controllers_Announcement_showAd27_invoker = createInvoker(
+  private[this] lazy val controllers_Announcement_showAd28_invoker = createInvoker(
     Announcement_1.get.showAd(fakeValue[Option[String]]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -583,11 +601,11 @@ class Routes(
     )
   )
 
-  // @LINE:48
-  private[this] lazy val controllers_Announcement_loadAd28_route = Route("POST",
+  // @LINE:41
+  private[this] lazy val controllers_Announcement_loadAd29_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("announcement/show")))
   )
-  private[this] lazy val controllers_Announcement_loadAd28_invoker = createInvoker(
+  private[this] lazy val controllers_Announcement_loadAd29_invoker = createInvoker(
     Announcement_1.get.loadAd(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -600,11 +618,11 @@ class Routes(
     )
   )
 
-  // @LINE:49
-  private[this] lazy val controllers_Announcement_loadMoreAd29_route = Route("POST",
+  // @LINE:42
+  private[this] lazy val controllers_Announcement_loadMoreAd30_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("announcement/showMore")))
   )
-  private[this] lazy val controllers_Announcement_loadMoreAd29_invoker = createInvoker(
+  private[this] lazy val controllers_Announcement_loadMoreAd30_invoker = createInvoker(
     Announcement_1.get.loadMoreAd(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -617,11 +635,11 @@ class Routes(
     )
   )
 
-  // @LINE:50
-  private[this] lazy val controllers_Announcement_getCityById30_route = Route("POST",
+  // @LINE:43
+  private[this] lazy val controllers_Announcement_getCityById31_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("announcement/getCity")))
   )
-  private[this] lazy val controllers_Announcement_getCityById30_invoker = createInvoker(
+  private[this] lazy val controllers_Announcement_getCityById31_invoker = createInvoker(
     Announcement_1.get.getCityById(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -634,11 +652,11 @@ class Routes(
     )
   )
 
-  // @LINE:51
-  private[this] lazy val controllers_Announcement_getRegionById31_route = Route("POST",
+  // @LINE:44
+  private[this] lazy val controllers_Announcement_getRegionById32_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("announcement/getRegion")))
   )
-  private[this] lazy val controllers_Announcement_getRegionById31_invoker = createInvoker(
+  private[this] lazy val controllers_Announcement_getRegionById32_invoker = createInvoker(
     Announcement_1.get.getRegionById(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -651,11 +669,11 @@ class Routes(
     )
   )
 
-  // @LINE:52
-  private[this] lazy val controllers_Announcement_getCategoryById32_route = Route("POST",
+  // @LINE:45
+  private[this] lazy val controllers_Announcement_getCategoryById33_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("announcement/getCategory")))
   )
-  private[this] lazy val controllers_Announcement_getCategoryById32_invoker = createInvoker(
+  private[this] lazy val controllers_Announcement_getCategoryById33_invoker = createInvoker(
     Announcement_1.get.getCategoryById(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -668,11 +686,11 @@ class Routes(
     )
   )
 
-  // @LINE:53
-  private[this] lazy val controllers_Announcement_deleteAnnouncementById33_route = Route("POST",
+  // @LINE:46
+  private[this] lazy val controllers_Announcement_deleteAnnouncementById34_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("announcement/deleteById")))
   )
-  private[this] lazy val controllers_Announcement_deleteAnnouncementById33_invoker = createInvoker(
+  private[this] lazy val controllers_Announcement_deleteAnnouncementById34_invoker = createInvoker(
     Announcement_1.get.deleteAnnouncementById(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -685,11 +703,11 @@ class Routes(
     )
   )
 
-  // @LINE:54
-  private[this] lazy val controllers_Announcement_notFound34_route = Route("GET",
+  // @LINE:47
+  private[this] lazy val controllers_Announcement_notFound35_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("announcement/notfound")))
   )
-  private[this] lazy val controllers_Announcement_notFound34_invoker = createInvoker(
+  private[this] lazy val controllers_Announcement_notFound35_invoker = createInvoker(
     Announcement_1.get.notFound(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -702,11 +720,11 @@ class Routes(
     )
   )
 
-  // @LINE:56
-  private[this] lazy val controllers_Home_searchResult35_route = Route("GET",
+  // @LINE:50
+  private[this] lazy val controllers_Home_searchResult36_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("results")))
   )
-  private[this] lazy val controllers_Home_searchResult35_invoker = createInvoker(
+  private[this] lazy val controllers_Home_searchResult36_invoker = createInvoker(
     Home_3.get.searchResult(fakeValue[Option[String]], fakeValue[Option[Int]], fakeValue[Option[Int]], fakeValue[Option[Int]]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -719,11 +737,11 @@ class Routes(
     )
   )
 
-  // @LINE:57
-  private[this] lazy val controllers_Announcement_doFilter36_route = Route("POST",
+  // @LINE:51
+  private[this] lazy val controllers_Announcement_doFilter37_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("results")))
   )
-  private[this] lazy val controllers_Announcement_doFilter36_invoker = createInvoker(
+  private[this] lazy val controllers_Announcement_doFilter37_invoker = createInvoker(
     Announcement_1.get.doFilter(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -736,11 +754,11 @@ class Routes(
     )
   )
 
-  // @LINE:60
-  private[this] lazy val controllers_Administration_getAdminAnnouncements37_route = Route("POST",
+  // @LINE:54
+  private[this] lazy val controllers_Administration_getAdminAnnouncements38_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("management/announcements")))
   )
-  private[this] lazy val controllers_Administration_getAdminAnnouncements37_invoker = createInvoker(
+  private[this] lazy val controllers_Administration_getAdminAnnouncements38_invoker = createInvoker(
     Administration_2.get.getAdminAnnouncements(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -753,11 +771,11 @@ class Routes(
     )
   )
 
-  // @LINE:61
-  private[this] lazy val controllers_Administration_getAdminUsers38_route = Route("POST",
+  // @LINE:55
+  private[this] lazy val controllers_Administration_getAdminUsers39_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("management/users")))
   )
-  private[this] lazy val controllers_Administration_getAdminUsers38_invoker = createInvoker(
+  private[this] lazy val controllers_Administration_getAdminUsers39_invoker = createInvoker(
     Administration_2.get.getAdminUsers(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -770,11 +788,11 @@ class Routes(
     )
   )
 
-  // @LINE:62
-  private[this] lazy val controllers_Administration_index39_route = Route("GET",
+  // @LINE:56
+  private[this] lazy val controllers_Administration_index40_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("management/announcements")))
   )
-  private[this] lazy val controllers_Administration_index39_invoker = createInvoker(
+  private[this] lazy val controllers_Administration_index40_invoker = createInvoker(
     Administration_2.get.index(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -787,11 +805,11 @@ class Routes(
     )
   )
 
-  // @LINE:63
-  private[this] lazy val controllers_Administration_users40_route = Route("GET",
+  // @LINE:57
+  private[this] lazy val controllers_Administration_users41_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("management/users")))
   )
-  private[this] lazy val controllers_Administration_users40_invoker = createInvoker(
+  private[this] lazy val controllers_Administration_users41_invoker = createInvoker(
     Administration_2.get.users(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -804,11 +822,11 @@ class Routes(
     )
   )
 
-  // @LINE:64
-  private[this] lazy val controllers_Administration_loginAdmin41_route = Route("GET",
+  // @LINE:58
+  private[this] lazy val controllers_Administration_loginAdmin42_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("management")))
   )
-  private[this] lazy val controllers_Administration_loginAdmin41_invoker = createInvoker(
+  private[this] lazy val controllers_Administration_loginAdmin42_invoker = createInvoker(
     Administration_2.get.loginAdmin(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -821,11 +839,11 @@ class Routes(
     )
   )
 
-  // @LINE:65
-  private[this] lazy val controllers_Administration_checkAdminRole42_route = Route("POST",
+  // @LINE:59
+  private[this] lazy val controllers_Administration_checkAdminRole43_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("management/checkRole")))
   )
-  private[this] lazy val controllers_Administration_checkAdminRole42_invoker = createInvoker(
+  private[this] lazy val controllers_Administration_checkAdminRole43_invoker = createInvoker(
     Administration_2.get.checkAdminRole,
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -838,11 +856,11 @@ class Routes(
     )
   )
 
-  // @LINE:66
-  private[this] lazy val controllers_Administration_doAdminLogin43_route = Route("POST",
+  // @LINE:60
+  private[this] lazy val controllers_Administration_doAdminLogin44_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("management/login")))
   )
-  private[this] lazy val controllers_Administration_doAdminLogin43_invoker = createInvoker(
+  private[this] lazy val controllers_Administration_doAdminLogin44_invoker = createInvoker(
     Administration_2.get.doAdminLogin(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -855,11 +873,11 @@ class Routes(
     )
   )
 
-  // @LINE:67
-  private[this] lazy val controllers_Administration_doAdminLogout44_route = Route("POST",
+  // @LINE:61
+  private[this] lazy val controllers_Administration_doAdminLogout45_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("management/logout")))
   )
-  private[this] lazy val controllers_Administration_doAdminLogout44_invoker = createInvoker(
+  private[this] lazy val controllers_Administration_doAdminLogout45_invoker = createInvoker(
     Administration_2.get.doAdminLogout(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -872,11 +890,11 @@ class Routes(
     )
   )
 
-  // @LINE:70
-  private[this] lazy val controllers_Assets_at45_route = Route("GET",
+  // @LINE:64
+  private[this] lazy val controllers_Assets_at46_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at45_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_at46_invoker = createInvoker(
     Assets_4.at(fakeValue[String], fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -928,244 +946,250 @@ class Routes(
         controllers_Account_index5_invoker.call(Account_0.get.index)
       }
   
-    // @LINE:17
+    // @LINE:16
     case controllers_Account_register6_route(params) =>
       call { 
         controllers_Account_register6_invoker.call(Account_0.get.register)
       }
   
-    // @LINE:18
+    // @LINE:17
     case controllers_Account_doRegister7_route(params) =>
       call { 
         controllers_Account_doRegister7_invoker.call(Account_0.get.doRegister)
       }
   
-    // @LINE:20
+    // @LINE:18
     case controllers_Account_regConfirm8_route(params) =>
       call { 
         controllers_Account_regConfirm8_invoker.call(Account_0.get.regConfirm)
       }
   
-    // @LINE:21
+    // @LINE:19
     case controllers_Account_checkRegistration9_route(params) =>
       call { 
         controllers_Account_checkRegistration9_invoker.call(Account_0.get.checkRegistration)
       }
   
-    // @LINE:23
+    // @LINE:20
     case controllers_Account_signin10_route(params) =>
       call { 
         controllers_Account_signin10_invoker.call(Account_0.get.signin)
       }
   
-    // @LINE:24
+    // @LINE:21
     case controllers_Account_doSignin11_route(params) =>
       call { 
         controllers_Account_doSignin11_invoker.call(Account_0.get.doSignin)
       }
   
-    // @LINE:26
+    // @LINE:22
     case controllers_Account_forgot12_route(params) =>
       call { 
         controllers_Account_forgot12_invoker.call(Account_0.get.forgot)
       }
   
-    // @LINE:27
+    // @LINE:23
     case controllers_Account_doForgot13_route(params) =>
       call { 
         controllers_Account_doForgot13_invoker.call(Account_0.get.doForgot)
       }
   
-    // @LINE:29
+    // @LINE:24
     case controllers_Account_newPassword14_route(params) =>
       call { 
         controllers_Account_newPassword14_invoker.call(Account_0.get.newPassword)
       }
   
-    // @LINE:30
+    // @LINE:25
     case controllers_Account_doNewPassword15_route(params) =>
       call { 
         controllers_Account_doNewPassword15_invoker.call(Account_0.get.doNewPassword)
       }
   
-    // @LINE:32
+    // @LINE:26
     case controllers_Account_checkSession16_route(params) =>
       call { 
         controllers_Account_checkSession16_invoker.call(Account_0.get.checkSession)
       }
   
-    // @LINE:33
+    // @LINE:27
     case controllers_Account_logout17_route(params) =>
       call { 
         controllers_Account_logout17_invoker.call(Account_0.get.logout)
       }
   
-    // @LINE:35
+    // @LINE:28
     case controllers_Account_getUserData18_route(params) =>
       call { 
         controllers_Account_getUserData18_invoker.call(Account_0.get.getUserData)
       }
   
-    // @LINE:36
+    // @LINE:29
     case controllers_Account_deleteUserById19_route(params) =>
       call { 
         controllers_Account_deleteUserById19_invoker.call(Account_0.get.deleteUserById())
       }
   
-    // @LINE:37
+    // @LINE:30
     case controllers_Account_updateUser20_route(params) =>
       call { 
         controllers_Account_updateUser20_invoker.call(Account_0.get.updateUser())
       }
   
-    // @LINE:41
-    case controllers_Announcement_newAnnouncement21_route(params) =>
+    // @LINE:31
+    case controllers_Account_myAnnouncements21_route(params) =>
       call { 
-        controllers_Announcement_newAnnouncement21_invoker.call(Announcement_1.get.newAnnouncement)
+        controllers_Account_myAnnouncements21_invoker.call(Account_0.get.myAnnouncements())
+      }
+  
+    // @LINE:34
+    case controllers_Announcement_newAnnouncement22_route(params) =>
+      call { 
+        controllers_Announcement_newAnnouncement22_invoker.call(Announcement_1.get.newAnnouncement)
+      }
+  
+    // @LINE:35
+    case controllers_Announcement_postAnnouncement23_route(params) =>
+      call { 
+        controllers_Announcement_postAnnouncement23_invoker.call(Announcement_1.get.postAnnouncement)
+      }
+  
+    // @LINE:36
+    case controllers_Announcement_newConfirm24_route(params) =>
+      call { 
+        controllers_Announcement_newConfirm24_invoker.call(Announcement_1.get.newConfirm)
+      }
+  
+    // @LINE:37
+    case controllers_Announcement_getAddress25_route(params) =>
+      call { 
+        controllers_Announcement_getAddress25_invoker.call(Announcement_1.get.getAddress)
+      }
+  
+    // @LINE:38
+    case controllers_Announcement_getCategories26_route(params) =>
+      call { 
+        controllers_Announcement_getCategories26_invoker.call(Announcement_1.get.getCategories)
+      }
+  
+    // @LINE:39
+    case controllers_Announcement_getLast1227_route(params) =>
+      call { 
+        controllers_Announcement_getLast1227_invoker.call(Announcement_1.get.getLast12)
+      }
+  
+    // @LINE:40
+    case controllers_Announcement_showAd28_route(params) =>
+      call(params.fromQuery[Option[String]]("id", Some(None))) { (id) =>
+        controllers_Announcement_showAd28_invoker.call(Announcement_1.get.showAd(id))
+      }
+  
+    // @LINE:41
+    case controllers_Announcement_loadAd29_route(params) =>
+      call { 
+        controllers_Announcement_loadAd29_invoker.call(Announcement_1.get.loadAd())
       }
   
     // @LINE:42
-    case controllers_Announcement_postAnnouncement22_route(params) =>
+    case controllers_Announcement_loadMoreAd30_route(params) =>
       call { 
-        controllers_Announcement_postAnnouncement22_invoker.call(Announcement_1.get.postAnnouncement)
+        controllers_Announcement_loadMoreAd30_invoker.call(Announcement_1.get.loadMoreAd())
       }
   
     // @LINE:43
-    case controllers_Announcement_newConfirm23_route(params) =>
+    case controllers_Announcement_getCityById31_route(params) =>
       call { 
-        controllers_Announcement_newConfirm23_invoker.call(Announcement_1.get.newConfirm)
+        controllers_Announcement_getCityById31_invoker.call(Announcement_1.get.getCityById())
       }
   
     // @LINE:44
-    case controllers_Announcement_getAddress24_route(params) =>
+    case controllers_Announcement_getRegionById32_route(params) =>
       call { 
-        controllers_Announcement_getAddress24_invoker.call(Announcement_1.get.getAddress)
+        controllers_Announcement_getRegionById32_invoker.call(Announcement_1.get.getRegionById())
       }
   
     // @LINE:45
-    case controllers_Announcement_getCategories25_route(params) =>
+    case controllers_Announcement_getCategoryById33_route(params) =>
       call { 
-        controllers_Announcement_getCategories25_invoker.call(Announcement_1.get.getCategories)
+        controllers_Announcement_getCategoryById33_invoker.call(Announcement_1.get.getCategoryById())
       }
   
     // @LINE:46
-    case controllers_Announcement_getLast1226_route(params) =>
+    case controllers_Announcement_deleteAnnouncementById34_route(params) =>
       call { 
-        controllers_Announcement_getLast1226_invoker.call(Announcement_1.get.getLast12)
+        controllers_Announcement_deleteAnnouncementById34_invoker.call(Announcement_1.get.deleteAnnouncementById())
       }
   
     // @LINE:47
-    case controllers_Announcement_showAd27_route(params) =>
-      call(params.fromQuery[Option[String]]("id", Some(None))) { (id) =>
-        controllers_Announcement_showAd27_invoker.call(Announcement_1.get.showAd(id))
-      }
-  
-    // @LINE:48
-    case controllers_Announcement_loadAd28_route(params) =>
+    case controllers_Announcement_notFound35_route(params) =>
       call { 
-        controllers_Announcement_loadAd28_invoker.call(Announcement_1.get.loadAd())
-      }
-  
-    // @LINE:49
-    case controllers_Announcement_loadMoreAd29_route(params) =>
-      call { 
-        controllers_Announcement_loadMoreAd29_invoker.call(Announcement_1.get.loadMoreAd())
+        controllers_Announcement_notFound35_invoker.call(Announcement_1.get.notFound())
       }
   
     // @LINE:50
-    case controllers_Announcement_getCityById30_route(params) =>
-      call { 
-        controllers_Announcement_getCityById30_invoker.call(Announcement_1.get.getCityById())
+    case controllers_Home_searchResult36_route(params) =>
+      call(params.fromQuery[Option[String]]("key", Some(None)), params.fromQuery[Option[Int]]("regionId", Some(None)), params.fromQuery[Option[Int]]("cityId", Some(None)), params.fromQuery[Option[Int]]("categoryId", Some(None))) { (key, regionId, cityId, categoryId) =>
+        controllers_Home_searchResult36_invoker.call(Home_3.get.searchResult(key, regionId, cityId, categoryId))
       }
   
     // @LINE:51
-    case controllers_Announcement_getRegionById31_route(params) =>
+    case controllers_Announcement_doFilter37_route(params) =>
       call { 
-        controllers_Announcement_getRegionById31_invoker.call(Announcement_1.get.getRegionById())
-      }
-  
-    // @LINE:52
-    case controllers_Announcement_getCategoryById32_route(params) =>
-      call { 
-        controllers_Announcement_getCategoryById32_invoker.call(Announcement_1.get.getCategoryById())
-      }
-  
-    // @LINE:53
-    case controllers_Announcement_deleteAnnouncementById33_route(params) =>
-      call { 
-        controllers_Announcement_deleteAnnouncementById33_invoker.call(Announcement_1.get.deleteAnnouncementById())
+        controllers_Announcement_doFilter37_invoker.call(Announcement_1.get.doFilter())
       }
   
     // @LINE:54
-    case controllers_Announcement_notFound34_route(params) =>
+    case controllers_Administration_getAdminAnnouncements38_route(params) =>
       call { 
-        controllers_Announcement_notFound34_invoker.call(Announcement_1.get.notFound())
+        controllers_Administration_getAdminAnnouncements38_invoker.call(Administration_2.get.getAdminAnnouncements())
+      }
+  
+    // @LINE:55
+    case controllers_Administration_getAdminUsers39_route(params) =>
+      call { 
+        controllers_Administration_getAdminUsers39_invoker.call(Administration_2.get.getAdminUsers())
       }
   
     // @LINE:56
-    case controllers_Home_searchResult35_route(params) =>
-      call(params.fromQuery[Option[String]]("key", Some(None)), params.fromQuery[Option[Int]]("regionId", Some(None)), params.fromQuery[Option[Int]]("cityId", Some(None)), params.fromQuery[Option[Int]]("categoryId", Some(None))) { (key, regionId, cityId, categoryId) =>
-        controllers_Home_searchResult35_invoker.call(Home_3.get.searchResult(key, regionId, cityId, categoryId))
+    case controllers_Administration_index40_route(params) =>
+      call { 
+        controllers_Administration_index40_invoker.call(Administration_2.get.index())
       }
   
     // @LINE:57
-    case controllers_Announcement_doFilter36_route(params) =>
+    case controllers_Administration_users41_route(params) =>
       call { 
-        controllers_Announcement_doFilter36_invoker.call(Announcement_1.get.doFilter())
+        controllers_Administration_users41_invoker.call(Administration_2.get.users())
+      }
+  
+    // @LINE:58
+    case controllers_Administration_loginAdmin42_route(params) =>
+      call { 
+        controllers_Administration_loginAdmin42_invoker.call(Administration_2.get.loginAdmin())
+      }
+  
+    // @LINE:59
+    case controllers_Administration_checkAdminRole43_route(params) =>
+      call { 
+        controllers_Administration_checkAdminRole43_invoker.call(Administration_2.get.checkAdminRole)
       }
   
     // @LINE:60
-    case controllers_Administration_getAdminAnnouncements37_route(params) =>
+    case controllers_Administration_doAdminLogin44_route(params) =>
       call { 
-        controllers_Administration_getAdminAnnouncements37_invoker.call(Administration_2.get.getAdminAnnouncements())
+        controllers_Administration_doAdminLogin44_invoker.call(Administration_2.get.doAdminLogin())
       }
   
     // @LINE:61
-    case controllers_Administration_getAdminUsers38_route(params) =>
+    case controllers_Administration_doAdminLogout45_route(params) =>
       call { 
-        controllers_Administration_getAdminUsers38_invoker.call(Administration_2.get.getAdminUsers())
-      }
-  
-    // @LINE:62
-    case controllers_Administration_index39_route(params) =>
-      call { 
-        controllers_Administration_index39_invoker.call(Administration_2.get.index())
-      }
-  
-    // @LINE:63
-    case controllers_Administration_users40_route(params) =>
-      call { 
-        controllers_Administration_users40_invoker.call(Administration_2.get.users())
+        controllers_Administration_doAdminLogout45_invoker.call(Administration_2.get.doAdminLogout())
       }
   
     // @LINE:64
-    case controllers_Administration_loginAdmin41_route(params) =>
-      call { 
-        controllers_Administration_loginAdmin41_invoker.call(Administration_2.get.loginAdmin())
-      }
-  
-    // @LINE:65
-    case controllers_Administration_checkAdminRole42_route(params) =>
-      call { 
-        controllers_Administration_checkAdminRole42_invoker.call(Administration_2.get.checkAdminRole)
-      }
-  
-    // @LINE:66
-    case controllers_Administration_doAdminLogin43_route(params) =>
-      call { 
-        controllers_Administration_doAdminLogin43_invoker.call(Administration_2.get.doAdminLogin())
-      }
-  
-    // @LINE:67
-    case controllers_Administration_doAdminLogout44_route(params) =>
-      call { 
-        controllers_Administration_doAdminLogout44_invoker.call(Administration_2.get.doAdminLogout())
-      }
-  
-    // @LINE:70
-    case controllers_Assets_at45_route(params) =>
+    case controllers_Assets_at46_route(params) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at45_invoker.call(Assets_4.at(path, file))
+        controllers_Assets_at46_invoker.call(Assets_4.at(path, file))
       }
   }
 }
