@@ -6,7 +6,7 @@ import models.Tables._
 import org.mindrot.jbcrypt.BCrypt
 import play.api.Play
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfig}
-import play.api.libs.json.Json
+import play.api.libs.json.{JsPath, Reads, JsError, Json}
 import play.api.libs.mailer._
 import play.api.mvc._
 import slick.driver.JdbcProfile
@@ -14,6 +14,8 @@ import slick.driver.MySQLDriver.api._
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
+import play.api.libs.functional.syntax._
+
 
 class Account @Inject()(mailer: MailerClient) extends Controller  with HasDatabaseConfig[JdbcProfile] {
   val dbConfig = DatabaseConfigProvider.get[JdbcProfile](Play.current)
@@ -49,17 +51,17 @@ class Account @Inject()(mailer: MailerClient) extends Controller  with HasDataba
   def checkSession = Action.async { implicit request =>
     request.session.get("id").map { user =>
 
-      val q = db.run(Users.filter(f => f.sessionId === user).map{case(c) => c.email}.result.headOption)
+      val q = db.run(Users.filter(f => f.sessionId === user).map(m=>(m.email, m.phone, m.contact)).result.headOption)
 
       q.map(
         res =>
           if(res.nonEmpty)
-            Ok(Json.obj("error" -> "", "email" -> Some(res)))
+            Ok(Json.obj("error" -> "", "email" -> Some(res.map(_._1)), "phone" -> Some(res.map(_._2)), "contact" -> Some(res.map(_._3))))
           else
-            Ok(Json.obj("error" -> "invalid session"))
+            Ok(Json.obj("error" -> "invalid session")).withNewSession
       )
     }.getOrElse {
-      Future.successful(Ok(Json.obj("error" -> "invalid session")))
+      Future.successful(Ok(Json.obj("error" -> "invalid session")).withNewSession)
     }
   }
 
@@ -71,36 +73,13 @@ class Account @Inject()(mailer: MailerClient) extends Controller  with HasDataba
     }
   }
 
-
-  /* def login = Action.async { implicit rs =>
-    //val action: DBIO[Seq[String]] = Users.map(_.email).result
-    //val res: Future[Seq[String]] = db.run(action)
-    // val i = Users.map(c=>(c.id, c.email, c.password, c.sessionId)).result
-    //val json = Json.toJson(res)
-    //res.map{r => Ok(json)}
-    val resultingUsers = db.run(Users.filter(_.email === "bogdahn@dragan.com.ua").result)
-
-    if(resultingUsers == null){
-      resultingUsers.map{
-        users => Ok(Json.toJson(users))
-      }
-    }
-    else{
-      resultingUsers.map{
-        users => Ok(Json.toJson(users))
-      }
-    }
-
-  }*/
   def doSignin() = Action.async { implicit request =>
     val json = request.body.asJson.get
 
     val action = (json \ "action").as[String]
 
     if (action != "login") {
-      //val futureInt = Future { BadRequest }
       Future.successful(BadRequest)
-      // futureInt.map(i => Ok("Got result: " + i))
     }
     else {
       val params = json \ "params"
@@ -121,20 +100,7 @@ class Account @Inject()(mailer: MailerClient) extends Controller  with HasDataba
             Ok(Json.obj("error" -> "User not found"))
           }
       }
-      //Future.successful(Ok(q.))
     }
-    // BadRequest("invalid requeuuuuust")
-    //insert
-    /*val user = new UsersRow(0,"de","dede",Some("e3ed33333333"))
-   db.run(Users += user)*/
-
-    //update
-    /*val user = new UsersRow(0,"de","dede",Some("e3ed33333333"))
-   db.run(Users.filter(_.id === 0).map(_.password).update("ede"))*/
-
-    //select
-    //db.run(Users.result).map
-    //val q = Users.map(u=>u.email)
   }
 
   def doRegister() = Action.async { implicit request =>
@@ -175,9 +141,9 @@ class Account @Inject()(mailer: MailerClient) extends Controller  with HasDataba
   def sendRegConfirmation(sendTo: String, hash: String){
     val email = Email(
       "Confirm registration email",
-      "Unreply <from@email.com>",
-      Seq("Miss TO <"+sendTo+">"),
-      bodyText = Some("A text message"),
+      "info@znahidka.pp.ua <info@znahidka.pp.ua>",
+      Seq("<"+sendTo+">"),
+      bodyText = Some(play.Play.application().configuration().getString("application.baseUrl")+"account/register/confirm?email="+sendTo+"&hash="+hash),
       bodyHtml = Some("<html><body><p>"+play.Play.application().configuration().getString("application.baseUrl")+"account/register/confirm?email="+sendTo+"&hash="+hash+"</p></body></html>")
     )
     val id = mailer.send(email)
@@ -186,10 +152,10 @@ class Account @Inject()(mailer: MailerClient) extends Controller  with HasDataba
   def sendForgotEmail(sendTo: String, hash: String){
     val email = Email(
       "Restore password email",
-      "Unreply <from@email.com>",
-      Seq("Miss TO <"+sendTo+">"),
-      bodyText = Some("A text message"),
-      bodyHtml = Some("<html><body><p>"+play.Play.application().configuration().getString("application.baseUrl")+"account/signin/newpassword?email="+sendTo+"&hash="+hash+"</p></body></html>")
+      "info@znahidka.pp.ua <info@znahidka.pp.ua>",
+      Seq("<"+sendTo+">"),
+      bodyText = Some("Restore password link: "+play.Play.application().configuration().getString("application.baseUrl")+"account/signin/newpassword?email="+sendTo+"&hash="+hash),
+      bodyHtml = Some("<html><body><p>"+"Restore password link: "+play.Play.application().configuration().getString("application.baseUrl")+"account/signin/newpassword?email="+sendTo+"&hash="+hash+"</p></body></html>")
     )
     val id = mailer.send(email)
   }
@@ -216,7 +182,10 @@ class Account @Inject()(mailer: MailerClient) extends Controller  with HasDataba
       q.map(
         u =>
           if(u > 0){
-            Ok(Json.obj("error" -> ""))
+            val sessionId = BCrypt.hashpw(System.currentTimeMillis.toString, BCrypt.gensalt())
+            val q = db.run(Users.filter(f=> f.email === email).map(_.sessionId).update(Some(sessionId)))
+
+            Ok(Json.obj("error" -> "")).withSession("id" -> sessionId)
           }
           else{
             Ok(Json.obj("error" -> "User not found"))
@@ -294,6 +263,74 @@ class Account @Inject()(mailer: MailerClient) extends Controller  with HasDataba
       Future.successful(Ok(Json.obj("error" -> "invalid")))
     }
 
+  }
+
+  case class AcParam (action:String, id: String)
+  implicit val anParam2Reads: Reads[AcParam] = (
+    (JsPath \ "action").read[String] and
+      (JsPath \ "id").read[String]
+    )(AcParam.apply _)
+
+  def deleteUserById() = Action.async(parse.json) { implicit request =>
+    request.body.validate[AcParam].fold (
+      errors => {
+        Future.successful(BadRequest("Invalid json:" + JsError.toJson(errors)))
+      },
+      param => {
+        val q = db.run(Users.filter(_.id === param.id.toInt).delete)
+
+        q.map(
+          res =>
+            if(res > 0){
+              Ok(Json.obj("error"->""))
+            }
+            else{
+              Ok(Json.obj("error"->"empty result"))
+            }
+        )
+      }
+    )
+  }
+
+  case class UpdateUserParam (email:String, contact: String, phone: String, password: String)
+  implicit val updateUserParam2Reads: Reads[UpdateUserParam] = (
+    (JsPath \ "email").read[String] and
+      (JsPath \ "contact").read[String] and
+      (JsPath \ "phone").read[String] and
+      (JsPath \ "password").read[String]
+    )(UpdateUserParam.apply _)
+
+  def updateUser() = Action.async(parse.json) { implicit request =>
+    request.body.validate[UpdateUserParam].fold (
+      errors => {
+        Future.successful(BadRequest("Invalid json:" + JsError.toJson(errors)))
+      },
+      param => {
+        if(param.password == ""){
+          val q = db.run(Users.filter(f=> f.email === param.email).map(m=>(m.contact, m.phone)).update(Option(param.contact), Option(param.phone)))
+          q.map(
+            res =>
+              if(res > 0){
+                Ok(Json.obj("error"->""))
+              }else{
+                Ok(Json.obj("error"->"empty result"))
+              }
+          )
+        }
+        else{
+          val newPasswordHash : String = BCrypt.hashpw(param.password, BCrypt.gensalt())
+          val q = db.run(Users.filter(f=> f.email === param.email).map(m=>(m.contact, m.phone, m.password)).update(Option(param.contact), Option(param.phone),newPasswordHash))
+          q.map(
+            res =>
+              if(res > 0){
+                Ok(Json.obj("error"->""))
+              }else{
+                Ok(Json.obj("error"->"empty result"))
+              }
+          )
+        }
+      }
+    )
   }
 
 }

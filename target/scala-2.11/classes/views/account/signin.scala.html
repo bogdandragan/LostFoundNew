@@ -1,59 +1,90 @@
 
 @main("Вход") {
+        <section class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5 login-form">
+                        <div class="panel panel-default" ng-controller="loginCtrl">
+                            <div class="panel-intro text-center">
+                                <h1 class="logo"><i class="fa fa-recycle"></i> Вход</h1>
+                            </div>
+                            <div class="panel-body">
+                                <form id="login" ng-submit="doLogin()">
+                                    <div class="form-group">
+                                        <input type="email" placeholder="Email-адрес" class="form-control input-lg" ng-model="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" placeholder="Пароль" class="form-control input-lg" ng-model="password" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-block btn-custom">Войти</button>
+                                    </div>
+                                </form>
+                                <div class="alert alert-danger" id="error" style="display: none;">
 
-    <div class="container" style="margin-top: 70px;">
-        <div class="well col-md-4" style="margin: 0 auto; float: none;">
-            <form id="login">
-                <fieldset>
-                    <legend>Войти</legend>
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="email" placeholder="Email-адрес" required>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <p class="text-center pull-right"> <a href="/account/signin/forgot"> Забыли пароль? </a> </p>
+                                <div style=" clear:both"></div>
+                            </div>
+                        </div>
+                        <p class="text-center">Еще нет аккаунта? <a href="/account/register"><strong>Регистрация</strong></a></p>
                     </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="password" placeholder="Пароль" required>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary" style="width: 100%">Войти</button>
-                    </div>
-                    <div style="float: left;">
-                        <a href="/account/signin/forgot">Забыли пароль?</a>
-                    </div>
-                    <div style="float : right;">
-                        <a href="/account/register">Регистрация</a>
-                    </div>
-                </fieldset>
-            </form>
-            <div class="alert alert-danger" id="error" style="display: none;">
-
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
 
     <script>
-        $( "#login" ).submit(function(event) {
-    		event.preventDefault();
-    		var request = {"action":"login", "params":{"email":$("#email").val(), "password":$("#password").val()}};
-
-    		$.ajax({
-    			type: "POST",
-    			url: "@routes.Account.doSignin()",
-    			data: JSON.stringify(request),
-    			contentType: "application/json; charset=utf-8",
-    			success: function(data){
-    			    if(data.error == ""){
-    			        window.location.replace("/account");
-    			    }
-    			    else{
-    			       $("#error").text("Пользователь не найден");
-                       $("#error").addClass('alert-danger').delay(3000).fadeOut("slow");
-                       $("#error").css({"display": "block", "text-align": "center" });
-    			    }
-    				console.log(data);
-    			}
-			});
-		});
 
           angular.module('lostfoundApp', ['ui.bootstrap'])
+          .controller('mainCtrl', function($scope, $http, $timeout) {
+
+                $scope.checkSession = function(){
+                    $scope.showUserMenu = false;
+                    $scope.showProfileLink = false;
+                    $http.post('@routes.Account.checkSession()')
+                    .success(function(data){
+                        if(data.error == ""){
+                            $scope.showUserMenu = true;
+                            $scope.profile = data.email.substring(0, data.email.lastIndexOf("@@"));
+                        }
+                        else{
+                            $scope.showProfileLink = true;
+                        }
+                    }).error(function(data){
+                        console.log(data);
+                    });
+                }
+
+                $scope.doLogout = function(){
+                    $http.post('@routes.Account.logout()')
+                    .success(function(data){
+                        window.location.replace("/");
+                    }).error(function(data, status){
+                        console.log(data);
+                    });
+                }
+        })
+          .controller('loginCtrl', function($scope, $http) {
+
+            $scope.doLogin = function(){
+                var request = {"action":"login", "params":{"email":$scope.email, "password":$scope.password}};
+                $http.post('@routes.Account.doSignin()', request)
+                 .success(function(data){
+                    if(data.error == ""){
+                        window.location.replace("/account");
+                    }
+                    else{
+                       $("#error").text("Пользователь не найден");
+                       $("#error").addClass('alert-danger').delay(3000).fadeOut("slow");
+                       $("#error").css({"display": "block", "text-align": "center" });
+                    }
+                 }).error(function(data){
+                    console.log(data);
+                 });
+            }
+          })
     </script>
 
 }

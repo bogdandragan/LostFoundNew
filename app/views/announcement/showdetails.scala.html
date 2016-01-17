@@ -1,0 +1,266 @@
+@main("Детали") {
+        <section class="main" ng-controller="showAnCtrl" ng-cloak>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="breadcrumb pull-left">
+                            <li><a href="/">Главная</a></li>
+                            <li><a ng-href="/results?key=&regionId=0&cityId=0&categoryId={{announcement.categoryId}}">{{announcement.category}}</a></li>
+                            <li>Детали</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8 col-sm-8">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="post" ng-cloak>
+                                    <div ng-if="announcement.type == 'found'" class="found-item">
+                                        Найдено
+                                    </div>
+                                    <div ng-if="announcement.type == 'lost'" class="lost-item">
+                                        Потеряно
+                                    </div>
+                                    <div class="post-title">
+                                        <h2>{{announcement.title}}</h2>
+                                    </div>
+                                    <div class="post-meta">
+                                        <ul>
+                                            <li><i class="fa fa-clock-o"></i> {{convertToLocalDate(announcement.timestamp)}}</li>
+                                            <li><i class="fa fa-bars"></i> <a ng-href="/results?key=&regionId=0&cityId=0&categoryId={{announcement.categoryId}}">{{announcement.category}}</a></li>
+                                            <li><i class="fa fa-map-marker"></i> <a href="">{{announcement.city}}, {{announcement.region}}</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="flexslider post-images">
+                                        <img style="max-height: 400px; max-width: 100%" alt="" ng-src="/assets/{{announcement.photo}}" />
+                                    </div>
+                                    <div class="post-body">
+                                        <h4><strong>Описание</strong></h4>
+                                        <p>
+                                            {{announcement.description}}
+                                        </p>
+                                    </div>
+                                    <div class="post-footer">
+                                        <div class="row">
+                                            <div class="col-xs-8">
+                                                <button class="btn btn-info"><i class="fa fa-whatsapp"></i> <span class="hidden-xs hidden-sm">{{announcement.phone}}</span></button>
+                                                <button class="btn btn-success" data-target="#sendMessageModal" data-toggle="modal"><i class="fa fa-envelope"></i> <span class="hidden-xs hidden-sm">Написать</span></button>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <div class="item-action pull-right">
+                                                    <div class="addthis_sharing_toolbox"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section-header">
+                                    <h2>Еще обьявления {{announcement.contact}}</h2>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4" ng-repeat="announcement in moreAnn">
+                                        <div class="item-ads-grid">
+                                            <div ng-if="announcement.type == 'lost'" class="item-badge-grid lost-ads">
+                                                <a ng-href="/announcement/show?id={{announcement.id}}">Потеря</a>
+                                            </div>
+                                            <div ng-if="announcement.type == 'found'" class="item-badge-grid found-ads">
+                                                <a ng-href="/announcement/show?id={{announcement.id}}">Находка</a>
+                                            </div>
+                                            <div class="item-img-grid">
+                                                <a ng-href="/announcement/show?id={{announcement.id}}"><img alt="" ng-src="/assets/{{announcement.photo}}" class="img-responsive img-center"></a>
+                                            </div>
+                                            <div class="item-title">
+                                                <a ng-href="/announcement/show?id={{announcement.id}}"><h4>{{announcement.title | limitTo:35}}{{announcement.title.length > 35 ? '...' : ''}}</h4></a>
+                                            </div>
+                                            <div class="item-meta">
+                                                <ul>
+                                                    <li class="item-date"><i class="fa fa-clock-o"></i> {{convertToLocalDate(announcement.timestamp)}}</li>
+                                                    <li class="item-cat"><i class="fa fa-bars"></i> <a ng-href="/results?key=&regionId=0&cityId=0&categoryId={{announcement.categoryId}}"> {{announcement.category}}</a></li>
+                                                    <li class="item-location"><a href=""><i class="fa fa-map-marker"></i> {{announcement.city}}, {{announcement.region}}</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="widget">
+                            <div class="widget-header">
+                                <h3>Местоположение</h3>
+                            </div>
+                            <div class="widget-body text-center">
+                                <div id="map" style="width:100%; height : 200px;"></div>
+                                <h2 class="seller-name">{{announcement.contact}}</h2>
+                            </div>
+                            <div class="widget-footer">
+                                <div class="row">
+                                    <div class="col-sm-12" style="margin-bottom: 5px;">
+                                        <button class="btn btn-info btn-block"><i class="fa fa-whatsapp"></i> {{announcement.phone}}</button>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <button class="btn btn-success btn-block" data-target="#sendMessageModal" data-toggle="modal"><i class="fa fa-envelope"></i> Написать</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <div class="widget-header">
+                                <h3>Поиск по рубрикам</h3>
+                            </div>
+                            <div class="widget-body">
+                                <ul class="trends">
+                                    <li><a href="/results?key=&regionId=0&cityId=0&categoryId=2">Документы</a></li>
+                                    <li><a href="/results?key=&regionId=0&cityId=0&categoryId=1">Животные</a></li>
+                                    <li><a href="/results?key=&regionId=0&cityId=0&categoryId=5">Люди</a></li>
+                                    <li><a href="/results?key=&regionId=0&cityId=0&categoryId=3">Электроника</a></li>
+                                    <li><a href="/results?key=&regionId=0&cityId=0&categoryId=4">Сумки/Кошельки</a></li>
+                                    <li><a href="/results?key=&regionId=0&cityId=0&categoryId=7">Одежда/Обувь</a></li>
+                                    <li><a href="/results?key=&regionId=0&cityId=0&categoryId=6">Транспорт</a></li>
+                                    <li><a href="/results?key=&regionId=0&cityId=0&categoryId=8">Другое</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Send Message Modal -->
+    <div aria-labelledby="sendMessageModalLabel" role="dialog" tabindex="-1" id="sendMessageModal" class="modal fade in">
+        <div role="document" class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span></button>
+                    <h4 id="sendMessageModalLabel" class="modal-title">Send Message</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label class="control-label">Name:</label>
+                            <input type="text" class="form-control input-lg" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Email:</label>
+                            <input type="email" class="form-control input-lg" placeholder="Your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="message-text">Message:</label>
+                            <textarea id="message-text" class="form-control input-lg" placeholder="Your message" required></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                    <button class="btn btn-custom" type="button"><i class="fa fa-paper-plane"></i> Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56997e9e63975794" async="async"></script>
+
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdAiuh1TXb3JpZ5qz7aX_wqREgLmEUp2w">
+    </script>
+
+    <script>
+        angular.module('lostfoundApp', ['ui.bootstrap'])
+        .controller('mainCtrl', function($scope, $http, $timeout) {
+
+                $scope.checkSession = function(){
+                    $scope.showUserMenu = false;
+                    $scope.showProfileLink = false;
+                    $http.post('@routes.Account.checkSession()')
+                    .success(function(data){
+                        if(data.error == ""){
+                            $scope.showUserMenu = true;
+                            $scope.profile = data.email.substring(0, data.email.lastIndexOf("@@"));
+                        }
+                        else{
+                            $scope.showProfileLink = true;
+                        }
+                    }).error(function(data){
+                        console.log(data);
+                    });
+                }
+
+                $scope.doLogout = function(){
+                    $http.post('@routes.Account.logout()')
+                    .success(function(data){
+                        window.location.replace("/");
+                    }).error(function(data, status){
+                        console.log(data);
+                    });
+                }
+        })
+
+        .controller('showAnCtrl', function($scope, $http) {
+
+            $scope.getMoreUserAnnouncements = function(){
+                console.log({"id":$scope.announcement.id,"email":$scope.announcement.email});
+                $http.post('@routes.Announcement.loadMoreAd()', {"id":$scope.announcement.id,"email":$scope.announcement.email})
+                    .success(function(data){
+                        $scope.moreAnn = data;
+                    }).error(function(data, status){
+                        console.log(data);
+                    });
+            }
+
+           var params = {"action":"load", "id":url('?id')};
+            console.log(params);
+            $http.post("@routes.Announcement.loadAd()", params)
+                 .success(function(data){
+                    if(data.length == 0)
+                        window.location.replace("/announcement/notfound");
+                    $scope.announcement = data[0];
+                    console.log($scope.announcement);
+                    $scope.getMoreUserAnnouncements();
+                    var city = $scope.announcement.city.replace(/\s+/g, '');
+                    var region = $scope.announcement.region.replace(/\s+/g, '');
+                    $http.get("http://maps.googleapis.com/maps/api/geocode/json?address="+city+","+region+"&sensor=false")
+                    .success(function(data){
+                        console.log(data);
+                        var lat = data.results[0].geometry.location.lat;
+                        var lng = data.results[0].geometry.location.lng;
+                        var myPos = {lat: lat, lng: lng};
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            center: myPos,
+                            zoom: 11,
+                            url: "http://maps.google.com/?q="+myPos.lat+","+myPos.lng
+                        });
+
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: myPos,
+                            title: 'Местоположение'
+                        });
+
+                        map.addListener('click', function() {
+                            window.open(map.url, '_blank');
+                        });
+                    }).error(function(data, status){
+                        console.log(data+" "+status);
+                    });
+                 }).error(function(data){
+                    console.log(data);
+                 });
+
+                $scope.convertToLocalDate = function(timestamp){
+                    var t = timestamp + moment(timestamp).utcOffset()*60000;
+                    var current =  moment(moment(t) - moment().utcOffset()).format('DD-MM-YYYY HH:mm:ss');
+                    return current;
+                };
+
+            });
+
+    </script>
+
+}

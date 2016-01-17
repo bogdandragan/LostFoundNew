@@ -23,60 +23,91 @@ class signin extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Form
 
 
 Seq[Any](_display_(/*2.2*/main("Вход")/*2.14*/ {_display_(Seq[Any](format.raw/*2.16*/("""
+        """),format.raw/*3.9*/("""<section class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5 login-form">
+                        <div class="panel panel-default" ng-controller="loginCtrl">
+                            <div class="panel-intro text-center">
+                                <h1 class="logo">Вход</h1>
+                            </div>
+                            <div class="panel-body">
+                                <form id="login" ng-submit="doLogin()">
+                                    <div class="form-group">
+                                        <input type="email" placeholder="Email-адрес" class="form-control input-lg" ng-model="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" placeholder="Пароль" class="form-control input-lg" ng-model="password" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-block btn-custom">Войти</button>
+                                    </div>
+                                </form>
+                                <div class="alert alert-danger" id="error" style="display: none;">
 
-    """),format.raw/*4.5*/("""<div class="container" style="margin-top: 70px;">
-        <div class="well col-md-4" style="margin: 0 auto; float: none;">
-            <form id="login">
-                <fieldset>
-                    <legend>Войти</legend>
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="email" placeholder="Email-адрес" required>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <p class="text-center pull-right"> <a href="/account/signin/forgot"> Забыли пароль? </a> </p>
+                                <div style=" clear:both"></div>
+                            </div>
+                        </div>
+                        <p class="text-center">Еще нет аккаунта? <a href="/account/register"><strong>Регистрация</strong></a></p>
                     </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="password" placeholder="Пароль" required>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary" style="width: 100%">Войти</button>
-                    </div>
-                    <div style="float: left;">
-                        <a href="/account/signin/forgot">Забыли пароль?</a>
-                    </div>
-                    <div style="float : right;">
-                        <a href="/account/register">Регистрация</a>
-                    </div>
-                </fieldset>
-            </form>
-            <div class="alert alert-danger" id="error" style="display: none;">
-
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
 
     <script>
-        $( "#login" ).submit(function(event) """),format.raw/*33.46*/("""{"""),format.raw/*33.47*/("""
-    		"""),format.raw/*34.7*/("""event.preventDefault();
-    		var request = """),format.raw/*35.21*/("""{"""),format.raw/*35.22*/(""""action":"login", "params":"""),format.raw/*35.49*/("""{"""),format.raw/*35.50*/(""""email":$("#email").val(), "password":$("#password").val()"""),format.raw/*35.108*/("""}"""),format.raw/*35.109*/("""}"""),format.raw/*35.110*/(""";
-
-    		$.ajax("""),format.raw/*37.14*/("""{"""),format.raw/*37.15*/("""
-    			"""),format.raw/*38.8*/("""type: "POST",
-    			url: """"),_display_(/*39.15*/routes/*39.21*/.Account.doSignin()),format.raw/*39.40*/("""",
-    			data: JSON.stringify(request),
-    			contentType: "application/json; charset=utf-8",
-    			success: function(data)"""),format.raw/*42.31*/("""{"""),format.raw/*42.32*/("""
-    			    """),format.raw/*43.12*/("""if(data.error == "")"""),format.raw/*43.32*/("""{"""),format.raw/*43.33*/("""
-    			        """),format.raw/*44.16*/("""window.location.replace("/account");
-    			    """),format.raw/*45.12*/("""}"""),format.raw/*45.13*/("""
-    			    """),format.raw/*46.12*/("""else"""),format.raw/*46.16*/("""{"""),format.raw/*46.17*/("""
-    			       """),format.raw/*47.15*/("""$("#error").text("Пользователь не найден");
-                       $("#error").addClass('alert-danger').delay(3000).fadeOut("slow");
-                       $("#error").css("""),format.raw/*49.40*/("""{"""),format.raw/*49.41*/(""""display": "block", "text-align": "center" """),format.raw/*49.84*/("""}"""),format.raw/*49.85*/(""");
-    			    """),format.raw/*50.12*/("""}"""),format.raw/*50.13*/("""
-    				"""),format.raw/*51.9*/("""console.log(data);
-    			"""),format.raw/*52.8*/("""}"""),format.raw/*52.9*/("""
-			"""),format.raw/*53.4*/("""}"""),format.raw/*53.5*/(""");
-		"""),format.raw/*54.3*/("""}"""),format.raw/*54.4*/(""");
 
           angular.module('lostfoundApp', ['ui.bootstrap'])
+          .controller('mainCtrl', function($scope, $http, $timeout) """),format.raw/*41.69*/("""{"""),format.raw/*41.70*/("""
+
+                """),format.raw/*43.17*/("""$scope.checkSession = function()"""),format.raw/*43.49*/("""{"""),format.raw/*43.50*/("""
+                    """),format.raw/*44.21*/("""$scope.showUserMenu = false;
+                    $scope.showProfileLink = false;
+                    $http.post('"""),_display_(/*46.34*/routes/*46.40*/.Account.checkSession()),format.raw/*46.63*/("""')
+                    .success(function(data)"""),format.raw/*47.44*/("""{"""),format.raw/*47.45*/("""
+                        """),format.raw/*48.25*/("""if(data.error == "")"""),format.raw/*48.45*/("""{"""),format.raw/*48.46*/("""
+                            """),format.raw/*49.29*/("""$scope.showUserMenu = true;
+                            $scope.profile = data.email.substring(0, data.email.lastIndexOf("@"));
+                        """),format.raw/*51.25*/("""}"""),format.raw/*51.26*/("""
+                        """),format.raw/*52.25*/("""else"""),format.raw/*52.29*/("""{"""),format.raw/*52.30*/("""
+                            """),format.raw/*53.29*/("""$scope.showProfileLink = true;
+                        """),format.raw/*54.25*/("""}"""),format.raw/*54.26*/("""
+                    """),format.raw/*55.21*/("""}"""),format.raw/*55.22*/(""").error(function(data)"""),format.raw/*55.44*/("""{"""),format.raw/*55.45*/("""
+                        """),format.raw/*56.25*/("""console.log(data);
+                    """),format.raw/*57.21*/("""}"""),format.raw/*57.22*/(""");
+                """),format.raw/*58.17*/("""}"""),format.raw/*58.18*/("""
+
+                """),format.raw/*60.17*/("""$scope.doLogout = function()"""),format.raw/*60.45*/("""{"""),format.raw/*60.46*/("""
+                    """),format.raw/*61.21*/("""$http.post('"""),_display_(/*61.34*/routes/*61.40*/.Account.logout()),format.raw/*61.57*/("""')
+                    .success(function(data)"""),format.raw/*62.44*/("""{"""),format.raw/*62.45*/("""
+                        """),format.raw/*63.25*/("""window.location.replace("/");
+                    """),format.raw/*64.21*/("""}"""),format.raw/*64.22*/(""").error(function(data, status)"""),format.raw/*64.52*/("""{"""),format.raw/*64.53*/("""
+                        """),format.raw/*65.25*/("""console.log(data);
+                    """),format.raw/*66.21*/("""}"""),format.raw/*66.22*/(""");
+                """),format.raw/*67.17*/("""}"""),format.raw/*67.18*/("""
+        """),format.raw/*68.9*/("""}"""),format.raw/*68.10*/(""")
+          .controller('loginCtrl', function($scope, $http) """),format.raw/*69.60*/("""{"""),format.raw/*69.61*/("""
+
+            """),format.raw/*71.13*/("""$scope.doLogin = function()"""),format.raw/*71.40*/("""{"""),format.raw/*71.41*/("""
+                """),format.raw/*72.17*/("""var request = """),format.raw/*72.31*/("""{"""),format.raw/*72.32*/(""""action":"login", "params":"""),format.raw/*72.59*/("""{"""),format.raw/*72.60*/(""""email":$scope.email, "password":$scope.password"""),format.raw/*72.108*/("""}"""),format.raw/*72.109*/("""}"""),format.raw/*72.110*/(""";
+                $http.post('"""),_display_(/*73.30*/routes/*73.36*/.Account.doSignin()),format.raw/*73.55*/("""', request)
+                 .success(function(data)"""),format.raw/*74.41*/("""{"""),format.raw/*74.42*/("""
+                    """),format.raw/*75.21*/("""if(data.error == "")"""),format.raw/*75.41*/("""{"""),format.raw/*75.42*/("""
+                        """),format.raw/*76.25*/("""window.location.replace("/account");
+                    """),format.raw/*77.21*/("""}"""),format.raw/*77.22*/("""
+                    """),format.raw/*78.21*/("""else"""),format.raw/*78.25*/("""{"""),format.raw/*78.26*/("""
+                       """),format.raw/*79.24*/("""$("#error").text("Пользователь не найден");
+                       $("#error").addClass('alert-danger').delay(3000).fadeOut("slow");
+                       $("#error").css("""),format.raw/*81.40*/("""{"""),format.raw/*81.41*/(""""display": "block", "text-align": "center" """),format.raw/*81.84*/("""}"""),format.raw/*81.85*/(""");
+                    """),format.raw/*82.21*/("""}"""),format.raw/*82.22*/("""
+                 """),format.raw/*83.18*/("""}"""),format.raw/*83.19*/(""").error(function(data)"""),format.raw/*83.41*/("""{"""),format.raw/*83.42*/("""
+                    """),format.raw/*84.21*/("""console.log(data);
+                 """),format.raw/*85.18*/("""}"""),format.raw/*85.19*/(""");
+            """),format.raw/*86.13*/("""}"""),format.raw/*86.14*/("""
+          """),format.raw/*87.11*/("""}"""),format.raw/*87.12*/(""")
     </script>
 
 """)))}))
@@ -99,11 +130,11 @@ Seq[Any](_display_(/*2.2*/main("Вход")/*2.14*/ {_display_(Seq[Any](format.ra
 object signin extends signin_Scope0.signin
               /*
                   -- GENERATED --
-                  DATE: Sat Sep 05 14:50:46 EEST 2015
+                  DATE: Fri Jan 15 22:40:35 EET 2016
                   SOURCE: /home/bogdan/IdeaProjects/LostFoundNew/app/views/account/signin.scala.html
-                  HASH: c90e29ad72ee5597fcb37c118d4ba9b9a974fd7f
-                  MATRIX: 619->2|639->14|678->16|710->22|2033->1317|2062->1318|2096->1325|2168->1369|2197->1370|2252->1397|2281->1398|2368->1456|2398->1457|2428->1458|2472->1474|2501->1475|2536->1483|2591->1511|2606->1517|2646->1536|2800->1662|2829->1663|2869->1675|2917->1695|2946->1696|2990->1712|3066->1760|3095->1761|3135->1773|3167->1777|3196->1778|3239->1793|3439->1965|3468->1966|3539->2009|3568->2010|3610->2024|3639->2025|3675->2034|3728->2060|3756->2061|3787->2065|3815->2066|3847->2071|3875->2072
-                  LINES: 25->2|25->2|25->2|27->4|56->33|56->33|57->34|58->35|58->35|58->35|58->35|58->35|58->35|58->35|60->37|60->37|61->38|62->39|62->39|62->39|65->42|65->42|66->43|66->43|66->43|67->44|68->45|68->45|69->46|69->46|69->46|70->47|72->49|72->49|72->49|72->49|73->50|73->50|74->51|75->52|75->52|76->53|76->53|77->54|77->54
+                  HASH: 008b695c26befa4eb070a4f19f236dfffc955d8b
+                  MATRIX: 619->2|639->14|678->16|713->25|2837->2121|2866->2122|2912->2140|2972->2172|3001->2173|3050->2194|3191->2308|3206->2314|3250->2337|3324->2383|3353->2384|3406->2409|3454->2429|3483->2430|3540->2459|3719->2611|3748->2612|3801->2637|3833->2641|3862->2642|3919->2671|4002->2726|4031->2727|4080->2748|4109->2749|4159->2771|4188->2772|4241->2797|4308->2836|4337->2837|4384->2856|4413->2857|4459->2875|4515->2903|4544->2904|4593->2925|4633->2938|4648->2944|4686->2961|4760->3007|4789->3008|4842->3033|4920->3083|4949->3084|5007->3114|5036->3115|5089->3140|5156->3179|5185->3180|5232->3199|5261->3200|5297->3209|5326->3210|5415->3271|5444->3272|5486->3286|5541->3313|5570->3314|5615->3331|5657->3345|5686->3346|5741->3373|5770->3374|5847->3422|5877->3423|5907->3424|5965->3455|5980->3461|6020->3480|6100->3532|6129->3533|6178->3554|6226->3574|6255->3575|6308->3600|6393->3657|6422->3658|6471->3679|6503->3683|6532->3684|6584->3708|6784->3880|6813->3881|6884->3924|6913->3925|6964->3948|6993->3949|7039->3967|7068->3968|7118->3990|7147->3991|7196->4012|7260->4048|7289->4049|7332->4064|7361->4065|7400->4076|7429->4077
+                  LINES: 25->2|25->2|25->2|26->3|64->41|64->41|66->43|66->43|66->43|67->44|69->46|69->46|69->46|70->47|70->47|71->48|71->48|71->48|72->49|74->51|74->51|75->52|75->52|75->52|76->53|77->54|77->54|78->55|78->55|78->55|78->55|79->56|80->57|80->57|81->58|81->58|83->60|83->60|83->60|84->61|84->61|84->61|84->61|85->62|85->62|86->63|87->64|87->64|87->64|87->64|88->65|89->66|89->66|90->67|90->67|91->68|91->68|92->69|92->69|94->71|94->71|94->71|95->72|95->72|95->72|95->72|95->72|95->72|95->72|95->72|96->73|96->73|96->73|97->74|97->74|98->75|98->75|98->75|99->76|100->77|100->77|101->78|101->78|101->78|102->79|104->81|104->81|104->81|104->81|105->82|105->82|106->83|106->83|106->83|106->83|107->84|108->85|108->85|109->86|109->86|110->87|110->87
                   -- GENERATED --
               */
           

@@ -7,19 +7,37 @@
 		revision="1.0"
 		conf="runtime"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20151205195458"/>
+		date="20160113002350"/>
 	<dependencies>
+		<module organisation="joda-time" name="joda-time">
+			<revision name="2.9.1" status="release" pubdate="20151112140326" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.joda.org/joda-time/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="67">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="6469" time="0" location="/home/bogdan/.ivy2/cache/joda-time/joda-time/ivy-2.9.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/joda-time/joda-time/2.9.1/joda-time-2.9.1.pom"/>
+				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.9.1" rev-constraint-default="2.9.1" rev-constraint-dynamic="2.9.1" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="joda-time" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="764946" time="0" location="/home/bogdan/.ivy2/cache/joda-time/joda-time/srcs/joda-time-2.9.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/joda-time/joda-time/2.9.1/joda-time-2.9.1-sources.jar"/>
+					</artifact>
+					<artifact name="joda-time" type="jar" ext="jar" status="no" details="" size="625986" time="0" location="/home/bogdan/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.9.1.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/joda-time/joda-time/2.9.1/joda-time-2.9.1.jar"/>
+					</artifact>
+					<artifact name="joda-time" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="1320802" time="0" location="/home/bogdan/.ivy2/cache/joda-time/joda-time/docs/joda-time-2.9.1-javadoc.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/joda-time/joda-time/2.9.1/joda-time-2.9.1-javadoc.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
 		<module organisation="com.typesafe.play" name="play-mailer_2.11">
-			<revision name="3.0.1" status="release" pubdate="20150604084034" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-mailer" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="67">
+			<revision name="3.0.1" status="release" pubdate="20150604084034" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-mailer" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="66">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="2977" time="0" location="/home/bogdan/.ivy2/cache/com.typesafe.play/play-mailer_2.11/ivy-3.0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-mailer_2.11/3.0.1/play-mailer_2.11-3.0.1.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="3.0.1" rev-constraint-default="3.0.1" rev-constraint-dynamic="3.0.1" callerrev="1.0"/>
 				<artifacts>
-					<artifact name="play-mailer_2.11" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="6277" time="0" location="/home/bogdan/.ivy2/cache/com.typesafe.play/play-mailer_2.11/srcs/play-mailer_2.11-3.0.1-sources.jar">
-						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/play/play-mailer_2.11/3.0.1/play-mailer_2.11-3.0.1-sources.jar"/>
-					</artifact>
 					<artifact name="play-mailer_2.11" type="jar" ext="jar" status="no" details="" size="84698" time="0" location="/home/bogdan/.ivy2/cache/com.typesafe.play/play-mailer_2.11/jars/play-mailer_2.11-3.0.1.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/play/play-mailer_2.11/3.0.1/play-mailer_2.11-3.0.1.jar"/>
+					</artifact>
+					<artifact name="play-mailer_2.11" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="6277" time="0" location="/home/bogdan/.ivy2/cache/com.typesafe.play/play-mailer_2.11/srcs/play-mailer_2.11-3.0.1-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/play/play-mailer_2.11/3.0.1/play-mailer_2.11-3.0.1-sources.jar"/>
 					</artifact>
 					<artifact name="play-mailer_2.11" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="405929" time="0" location="/home/bogdan/.ivy2/cache/com.typesafe.play/play-mailer_2.11/docs/play-mailer_2.11-3.0.1-javadoc.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/play/play-mailer_2.11/3.0.1/play-mailer_2.11-3.0.1-javadoc.jar"/>
@@ -28,7 +46,7 @@
 			</revision>
 		</module>
 		<module organisation="org.apache.commons" name="commons-email">
-			<revision name="1.3.3" status="release" pubdate="20140705182515" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-email/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="64">
+			<revision name="1.3.3" status="release" pubdate="20140705182515" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-email/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="63">
 				<metadata-artifact status="no" details="" size="11308" time="0" location="/home/bogdan/.ivy2/cache/org.apache.commons/commons-email/ivy-1.3.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/commons/commons-email/1.3.3/commons-email-1.3.3.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.3.3" rev-constraint-default="1.3.3" rev-constraint-dynamic="1.3.3" callerrev="1.0"/>
 				<artifacts>
@@ -45,7 +63,7 @@
 			</revision>
 		</module>
 		<module organisation="javax.mail" name="mail">
-			<revision name="1.4.5" status="release" pubdate="20120324000414" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="65">
+			<revision name="1.4.5" status="release" pubdate="20120324000414" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="64">
 				<metadata-artifact status="no" details="" size="6883" time="0" location="/home/bogdan/.ivy2/cache/javax.mail/mail/ivy-1.4.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/javax/mail/mail/1.4.5/mail-1.4.5.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.4.5" rev-constraint-default="1.4.5" rev-constraint-dynamic="1.4.5" callerrev="1.0"/>
 				<artifacts>
@@ -62,7 +80,7 @@
 			</revision>
 		</module>
 		<module organisation="org.mindrot" name="jbcrypt">
-			<revision name="0.3m" status="release" pubdate="20100517054639" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.mindrot.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="63">
+			<revision name="0.3m" status="release" pubdate="20100517054639" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.mindrot.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="62">
 				<license name="ISC/BSD License"/>
 				<metadata-artifact status="no" details="" size="2828" time="0" location="/home/bogdan/.ivy2/cache/org.mindrot/jbcrypt/ivy-0.3m.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/mindrot/jbcrypt/0.3m/jbcrypt-0.3m.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="0.3m" rev-constraint-default="0.3m" rev-constraint-dynamic="0.3m" callerrev="1.0"/>
@@ -80,7 +98,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.slick" name="slick-codegen_2.11">
-			<revision name="3.0.1" status="release" pubdate="20150806143721" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://slick.typesafe.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="62">
+			<revision name="3.0.1" status="release" pubdate="20150806143721" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://slick.typesafe.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="61">
 				<license name="Two-clause BSD-style license" url="http://github.com/slick/slick/blob/master/LICENSE.txt"/>
 				<metadata-artifact status="no" details="" size="3314" time="0" location="/home/bogdan/.ivy2/cache/com.typesafe.slick/slick-codegen_2.11/ivy-3.0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/slick/slick-codegen_2.11/3.0.1/slick-codegen_2.11-3.0.1.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="3.0.1" rev-constraint-default="3.0.1" rev-constraint-dynamic="3.0.1" callerrev="1.0"/>
@@ -98,7 +116,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="play-slick_2.11">
-			<revision name="1.0.1" status="release" pubdate="20150807151221" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-slick" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="58">
+			<revision name="1.0.1" status="release" pubdate="20150807151221" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-slick" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="57">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="3118" time="0" location="/home/bogdan/.ivy2/cache/com.typesafe.play/play-slick_2.11/ivy-1.0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-slick_2.11/1.0.1/play-slick_2.11-1.0.1.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.0.1" rev-constraint-default="1.0.1" rev-constraint-dynamic="1.0.1" callerrev="1.0"/>
@@ -116,7 +134,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.slick" name="slick_2.11">
-			<revision name="3.0.1" status="release" pubdate="20150806143747" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://slick.typesafe.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="59">
+			<revision name="3.0.1" status="release" pubdate="20150806143747" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://slick.typesafe.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="58">
 				<license name="Two-clause BSD-style license" url="http://github.com/slick/slick/blob/master/LICENSE.txt"/>
 				<metadata-artifact status="no" details="" size="3127" time="0" location="/home/bogdan/.ivy2/cache/com.typesafe.slick/slick_2.11/ivy-3.0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/slick/slick_2.11/3.0.1/slick_2.11-3.0.1.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="3.0.1" rev-constraint-default="3.0.1" rev-constraint-dynamic="3.0.1" callerrev="1.0"/>
@@ -134,7 +152,7 @@
 			</revision>
 		</module>
 		<module organisation="com.zaxxer" name="HikariCP-java6">
-			<revision name="2.3.7" status="release" pubdate="20150422035742" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/brettwooldridge/HikariCP" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="61">
+			<revision name="2.3.7" status="release" pubdate="20150422035742" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/brettwooldridge/HikariCP" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="60">
 				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="5868" time="0" location="/home/bogdan/.ivy2/cache/com.zaxxer/HikariCP-java6/ivy-2.3.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/zaxxer/HikariCP-java6/2.3.7/HikariCP-java6-2.3.7.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.3.7" rev-constraint-default="2.3.7" rev-constraint-dynamic="2.3.7" callerrev="1.0"/>
@@ -152,7 +170,7 @@
 			</revision>
 		</module>
 		<module organisation="org.reactivestreams" name="reactive-streams">
-			<revision name="1.0.0" status="release" pubdate="20150429191454" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.reactive-streams.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="60">
+			<revision name="1.0.0" status="release" pubdate="20150429191454" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.reactive-streams.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="59">
 				<license name="CC0" url="http://creativecommons.org/publicdomain/zero/1.0/"/>
 				<metadata-artifact status="no" details="" size="2397" time="0" location="/home/bogdan/.ivy2/cache/org.reactivestreams/reactive-streams/ivy-1.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/reactivestreams/reactive-streams/1.0.0/reactive-streams-1.0.0.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="1.0"/>
@@ -170,7 +188,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="play-ws_2.11">
-			<revision name="2.4.0" status="release" pubdate="20150527081435" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="50">
+			<revision name="2.4.0" status="release" pubdate="20150527081435" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="49">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="3989" time="0" location="/home/bogdan/.ivy2/cache/com.typesafe.play/play-ws_2.11/ivy-2.4.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-ws_2.11/2.4.0/play-ws_2.11-2.4.0.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.4.0" rev-constraint-default="2.4.0" rev-constraint-dynamic="2.4.0" callerrev="1.0"/>
@@ -188,7 +206,7 @@
 			</revision>
 		</module>
 		<module organisation="oauth.signpost" name="signpost-commonshttp4">
-			<revision name="1.2.1.2" status="release" pubdate="20120226101621" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="54">
+			<revision name="1.2.1.2" status="release" pubdate="20120226101621" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="53">
 				<metadata-artifact status="no" details="" size="3834" time="0" location="/home/bogdan/.ivy2/cache/oauth.signpost/signpost-commonshttp4/ivy-1.2.1.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/oauth/signpost/signpost-commonshttp4/1.2.1.2/signpost-commonshttp4-1.2.1.2.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.2.1.2" rev-constraint-default="1.2.1.2" rev-constraint-dynamic="1.2.1.2" callerrev="1.0"/>
 				<artifacts>
@@ -205,7 +223,7 @@
 			</revision>
 		</module>
 		<module organisation="org.apache.httpcomponents" name="httpclient">
-			<revision name="4.0.1" status="release" pubdate="20091209212018" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-client" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="56">
+			<revision name="4.0.1" status="release" pubdate="20091209212018" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-client" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="55">
 				<license name="Apache License" url="../LICENSE.txt"/>
 				<metadata-artifact status="no" details="" size="5052" time="0" location="/home/bogdan/.ivy2/cache/org.apache.httpcomponents/httpclient/ivy-4.0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.0.1/httpclient-4.0.1.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="4.0.1" rev-constraint-default="4.0.1" rev-constraint-dynamic="4.0.1" callerrev="1.0"/>
@@ -220,7 +238,7 @@
 			</revision>
 		</module>
 		<module organisation="org.apache.httpcomponents" name="httpcore">
-			<revision name="4.0.1" status="release" pubdate="20090621140836" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-core/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="55">
+			<revision name="4.0.1" status="release" pubdate="20090621140836" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-core/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="54">
 				<license name="Apache License" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="4334" time="0" location="/home/bogdan/.ivy2/cache/org.apache.httpcomponents/httpcore/ivy-4.0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.0.1/httpcore-4.0.1.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="4.0.1" rev-constraint-default="4.0.1" rev-constraint-dynamic="4.0.1" callerrev="1.0"/>
@@ -235,7 +253,7 @@
 			</revision>
 		</module>
 		<module organisation="oauth.signpost" name="signpost-core">
-			<revision name="1.2.1.2" status="release" pubdate="20120226101606" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="53">
+			<revision name="1.2.1.2" status="release" pubdate="20120226101606" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="52">
 				<metadata-artifact status="no" details="" size="3158" time="0" location="/home/bogdan/.ivy2/cache/oauth.signpost/signpost-core/ivy-1.2.1.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/oauth/signpost/signpost-core/1.2.1.2/signpost-core-1.2.1.2.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.2.1.2" rev-constraint-default="1.2.1.2" rev-constraint-dynamic="1.2.1.2" callerrev="1.0"/>
 				<artifacts>
@@ -252,7 +270,7 @@
 			</revision>
 		</module>
 		<module organisation="com.ning" name="async-http-client">
-			<revision name="1.9.21" status="release" pubdate="20150506154545" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/AsyncHttpClient/async-http-client" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="52">
+			<revision name="1.9.21" status="release" pubdate="20150506154545" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/AsyncHttpClient/async-http-client" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="51">
 				<license name="Apache License 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="6755" time="0" location="/home/bogdan/.ivy2/cache/com.ning/async-http-client/ivy-1.9.21.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/ning/async-http-client/1.9.21/async-http-client-1.9.21.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.9.21" rev-constraint-default="1.9.21" rev-constraint-dynamic="1.9.21" callerrev="1.0"/>
@@ -270,7 +288,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="play-cache_2.11">
-			<revision name="2.4.0" status="release" pubdate="20150527081432" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="48">
+			<revision name="2.4.0" status="release" pubdate="20150527081432" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="47">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="3308" time="0" location="/home/bogdan/.ivy2/cache/com.typesafe.play/play-cache_2.11/ivy-2.4.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-cache_2.11/2.4.0/play-cache_2.11-2.4.0.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.4.0" rev-constraint-default="2.4.0" rev-constraint-dynamic="2.4.0" callerrev="1.0"/>
@@ -288,7 +306,7 @@
 			</revision>
 		</module>
 		<module organisation="net.sf.ehcache" name="ehcache-core">
-			<revision name="2.6.11" status="release" pubdate="20150422201931" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://ehcache.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="49">
+			<revision name="2.6.11" status="release" pubdate="20150422201931" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://ehcache.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="48">
 				<license name="The Apache Software License, Version 2.0" url="src/assemble/EHCACHE-CORE-LICENSE.txt"/>
 				<metadata-artifact status="no" details="" size="8415" time="0" location="/home/bogdan/.ivy2/cache/net.sf.ehcache/ehcache-core/ivy-2.6.11.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/net/sf/ehcache/ehcache-core/2.6.11/ehcache-core-2.6.11.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.6.11" rev-constraint-default="2.6.11" rev-constraint-dynamic="2.6.11" callerrev="1.0"/>
@@ -306,7 +324,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="play-jdbc_2.11">
-			<revision name="2.4.0" status="release" pubdate="20150527081428" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="43">
+			<revision name="2.4.0" status="release" pubdate="20150527081428" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="42">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="3840" time="0" location="/home/bogdan/.ivy2/cache/com.typesafe.play/play-jdbc_2.11/ivy-2.4.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-jdbc_2.11/2.4.0/play-jdbc_2.11-2.4.0.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.4.0" rev-constraint-default="2.4.0" rev-constraint-dynamic="2.4.0" callerrev="1.0"/>
@@ -324,7 +342,7 @@
 			</revision>
 		</module>
 		<module organisation="com.h2database" name="h2">
-			<revision name="1.4.187" status="release" pubdate="20150410193333" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="47">
+			<revision name="1.4.187" status="release" pubdate="20150410193333" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="46">
 				<metadata-artifact status="no" details="" size="2181" time="0" location="/home/bogdan/.ivy2/cache/com.h2database/h2/ivy-1.4.187.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/h2database/h2/1.4.187/h2-1.4.187.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.4.187" rev-constraint-default="1.4.187" rev-constraint-dynamic="1.4.187" callerrev="1.0"/>
 				<artifacts>
@@ -341,7 +359,7 @@
 			</revision>
 		</module>
 		<module organisation="com.zaxxer" name="HikariCP">
-			<revision name="2.3.7" status="release" pubdate="20150422035645" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/brettwooldridge/HikariCP" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="46">
+			<revision name="2.3.7" status="release" pubdate="20150422035645" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/brettwooldridge/HikariCP" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="45">
 				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="5962" time="0" location="/home/bogdan/.ivy2/cache/com.zaxxer/HikariCP/ivy-2.3.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/zaxxer/HikariCP/2.3.7/HikariCP-2.3.7.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.3.7" rev-constraint-default="2.3.7" rev-constraint-dynamic="2.3.7" callerrev="1.0"/>
@@ -359,7 +377,7 @@
 			</revision>
 		</module>
 		<module organisation="com.jolbox" name="bonecp">
-			<revision name="0.8.0.RELEASE" status="release" pubdate="20131023144844" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="45">
+			<revision name="0.8.0.RELEASE" status="release" pubdate="20131023144844" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="44">
 				<metadata-artifact status="no" details="" size="9318" time="0" location="/home/bogdan/.ivy2/cache/com.jolbox/bonecp/ivy-0.8.0.RELEASE.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/jolbox/bonecp/0.8.0.RELEASE/bonecp-0.8.0.RELEASE.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="0.8.0.RELEASE" rev-constraint-default="0.8.0.RELEASE" rev-constraint-dynamic="0.8.0.RELEASE" callerrev="1.0"/>
 				<artifacts>
@@ -376,7 +394,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="play-jdbc-api_2.11">
-			<revision name="2.4.0" status="release" pubdate="20150527081308" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="44">
+			<revision name="2.4.0" status="release" pubdate="20150527081308" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="43">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="2681" time="0" location="/home/bogdan/.ivy2/cache/com.typesafe.play/play-jdbc-api_2.11/ivy-2.4.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-jdbc-api_2.11/2.4.0/play-jdbc-api_2.11-2.4.0.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.4.0" rev-constraint-default="2.4.0" rev-constraint-dynamic="2.4.0" callerrev="1.0"/>
@@ -394,7 +412,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="play-netty-server_2.11">
-			<revision name="2.4.0" status="release" pubdate="20150527081325" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="40">
+			<revision name="2.4.0" status="release" pubdate="20150527081325" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="39">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="3358" time="0" location="/home/bogdan/.ivy2/cache/com.typesafe.play/play-netty-server_2.11/ivy-2.4.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-netty-server_2.11/2.4.0/play-netty-server_2.11-2.4.0.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.4.0" rev-constraint-default="2.4.0" rev-constraint-dynamic="2.4.0" callerrev="1.0"/>
@@ -412,7 +430,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.netty" name="netty-http-pipelining">
-			<revision name="1.1.4" status="release" pubdate="20150413031740" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/typesafehub/netty-http-pipelining" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="42">
+			<revision name="1.1.4" status="release" pubdate="20150413031740" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/typesafehub/netty-http-pipelining" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="41">
 				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="2944" time="0" location="/home/bogdan/.ivy2/cache/com.typesafe.netty/netty-http-pipelining/ivy-1.1.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/netty/netty-http-pipelining/1.1.4/netty-http-pipelining-1.1.4.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.1.4" rev-constraint-default="1.1.4" rev-constraint-dynamic="1.1.4" callerrev="1.0"/>
@@ -430,7 +448,7 @@
 			</revision>
 		</module>
 		<module organisation="io.netty" name="netty">
-			<revision name="3.10.3.Final" status="release" pubdate="20150508183154" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://netty.io/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="41">
+			<revision name="3.10.3.Final" status="release" pubdate="20150508183154" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://netty.io/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="40">
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
 				<metadata-artifact status="no" details="" size="7071" time="0" location="/home/bogdan/.ivy2/cache/io.netty/netty/ivy-3.10.3.Final.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/netty/netty/3.10.3.Final/netty-3.10.3.Final.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="3.10.3.Final" rev-constraint-default="3.10.3.Final" rev-constraint-dynamic="3.10.3.Final" callerrev="1.0"/>
@@ -448,7 +466,7 @@
 			</revision>
 		</module>
 		<module organisation="commons-logging" name="commons-logging">
-			<revision name="1.1.1" status="release" pubdate="20071126222410" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/logging" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="57">
+			<revision name="1.1.1" status="release" pubdate="20071126222410" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/logging" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="56">
 				<metadata-artifact status="no" details="" size="3971" time="0" location="/home/bogdan/.ivy2/cache/commons-logging/commons-logging/ivy-1.1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.1.1" rev-constraint-default="1.1.1" rev-constraint-dynamic="1.1.1" callerrev="1.0"/>
 				<artifacts>
@@ -465,7 +483,7 @@
 			</revision>
 		</module>
 		<module organisation="javax.activation" name="activation">
-			<revision name="1.1.1" status="release" pubdate="20091023212603" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://java.sun.com/javase/technologies/desktop/javabeans/jaf/index.jsp" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="66">
+			<revision name="1.1.1" status="release" pubdate="20091023212603" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://java.sun.com/javase/technologies/desktop/javabeans/jaf/index.jsp" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="65">
 				<license name="COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0" url="https://glassfish.dev.java.net/public/CDDLv1.0.html"/>
 				<metadata-artifact status="no" details="" size="2518" time="0" location="/home/bogdan/.ivy2/cache/javax.activation/activation/ivy-1.1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/javax/activation/activation/1.1.1/activation-1.1.1.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.1.1" rev-constraint-default="1.1.1" rev-constraint-dynamic="1.1.1" callerrev="1.0"/>
@@ -516,7 +534,7 @@
 			</revision>
 		</module>
 		<module organisation="com.google.guava" name="guava">
-			<revision name="18.0" status="release" pubdate="20140825214834" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="51">
+			<revision name="18.0" status="release" pubdate="20140825214834" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="50">
 				<metadata-artifact status="no" details="" size="5765" time="0" location="/home/bogdan/.ivy2/cache/com.google.guava/guava/ivy-18.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/google/guava/guava/18.0/guava-18.0.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="18.0" rev-constraint-default="18.0" rev-constraint-dynamic="18.0" callerrev="1.0"/>
 				<artifacts>
@@ -533,8 +551,8 @@
 			</revision>
 		</module>
 		<module organisation="com.google.inject.extensions" name="guice-assistedinject">
-			<revision name="4.0" status="release" pubdate="20150428233500" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="39">
-				<metadata-artifact status="successful" details="" size="549" time="167" location="/home/bogdan/.ivy2/cache/com.google.inject.extensions/guice-assistedinject/ivy-4.0.xml" searched="true" original-local-location="/home/bogdan/.ivy2/cache/com.google.inject.extensions/guice-assistedinject/ivy-4.0.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/google/inject/extensions/guice-assistedinject/4.0/guice-assistedinject-4.0.pom"/>
+			<revision name="4.0" status="release" pubdate="20150428233500" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="38">
+				<metadata-artifact status="successful" details="" size="549" time="199" location="/home/bogdan/.ivy2/cache/com.google.inject.extensions/guice-assistedinject/ivy-4.0.xml" searched="true" original-local-location="/home/bogdan/.ivy2/cache/com.google.inject.extensions/guice-assistedinject/ivy-4.0.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/google/inject/extensions/guice-assistedinject/4.0/guice-assistedinject-4.0.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="4.0" rev-constraint-default="4.0" rev-constraint-dynamic="4.0" callerrev="1.0"/>
 				<artifacts>
 					<artifact name="guice-assistedinject" type="jar" ext="jar" status="no" details="" size="43425" time="0" location="/home/bogdan/.ivy2/cache/com.google.inject.extensions/guice-assistedinject/jars/guice-assistedinject-4.0.jar">
@@ -550,7 +568,7 @@
 			</revision>
 		</module>
 		<module organisation="com.google.inject" name="guice">
-			<revision name="4.0" status="release" pubdate="20150428233326" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="36">
+			<revision name="4.0" status="release" pubdate="20150428233326" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="35">
 				<metadata-artifact status="no" details="" size="5760" time="0" location="/home/bogdan/.ivy2/cache/com.google.inject/guice/ivy-4.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/google/inject/guice/4.0/guice-4.0.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="4.0" rev-constraint-default="4.0" rev-constraint-dynamic="4.0" callerrev="1.0"/>
 				<artifacts>
@@ -567,7 +585,7 @@
 			</revision>
 		</module>
 		<module organisation="aopalliance" name="aopalliance">
-			<revision name="1.0" status="release" pubdate="20070227004340" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://aopalliance.sourceforge.net" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="38">
+			<revision name="1.0" status="release" pubdate="20070227004340" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://aopalliance.sourceforge.net" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="37">
 				<license name="Public Domain"/>
 				<metadata-artifact status="no" details="" size="2291" time="0" location="/home/bogdan/.ivy2/cache/aopalliance/aopalliance/ivy-1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/aopalliance/aopalliance/1.0/aopalliance-1.0.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.0" rev-constraint-default="1.0" rev-constraint-dynamic="1.0" callerrev="1.0"/>
@@ -582,7 +600,7 @@
 			</revision>
 		</module>
 		<module organisation="javax.inject" name="javax.inject">
-			<revision name="1" status="release" pubdate="20091014023500" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://code.google.com/p/atinject/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="37">
+			<revision name="1" status="release" pubdate="20091014023500" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://code.google.com/p/atinject/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="36">
 				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="2380" time="0" location="/home/bogdan/.ivy2/cache/javax.inject/javax.inject/ivy-1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/javax/inject/javax.inject/1/javax.inject-1.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1" rev-constraint-default="1" rev-constraint-dynamic="1" callerrev="1.0"/>
@@ -600,7 +618,7 @@
 			</revision>
 		</module>
 		<module organisation="javax.transaction" name="jta">
-			<revision name="1.1" status="release" pubdate="20081028032721" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://java.sun.com/products/jta" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="35">
+			<revision name="1.1" status="release" pubdate="20081028032721" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://java.sun.com/products/jta" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="34">
 				<metadata-artifact status="no" details="" size="2353" time="0" location="/home/bogdan/.ivy2/cache/javax.transaction/jta/ivy-1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/javax/transaction/jta/1.1/jta-1.1.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.0"/>
 				<artifacts>
@@ -614,7 +632,7 @@
 			</revision>
 		</module>
 		<module organisation="xerces" name="xercesImpl">
-			<revision name="2.11.0" status="release" pubdate="20130220222006" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://xerces.apache.org/xerces2-j/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="33">
+			<revision name="2.11.0" status="release" pubdate="20130220222006" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://xerces.apache.org/xerces2-j/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="32">
 				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="4272" time="0" location="/home/bogdan/.ivy2/cache/xerces/xercesImpl/ivy-2.11.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.11.0" rev-constraint-default="2.11.0" rev-constraint-dynamic="2.11.0" callerrev="1.0"/>
@@ -632,7 +650,7 @@
 			</revision>
 		</module>
 		<module organisation="xml-apis" name="xml-apis">
-			<revision name="1.4.01" status="release" pubdate="20110820031111" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://xml.apache.org/commons/components/external/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="34">
+			<revision name="1.4.01" status="release" pubdate="20110820031111" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://xml.apache.org/commons/components/external/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="33">
 				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<license name="The SAX License" url="http://www.saxproject.org/copying.html"/>
 				<license name="The W3C License" url="http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/java-binding.zip"/>
@@ -652,7 +670,7 @@
 			</revision>
 		</module>
 		<module organisation="commons-codec" name="commons-codec">
-			<revision name="1.10" status="release" pubdate="20141106161535" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-codec/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="32">
+			<revision name="1.10" status="release" pubdate="20141106161535" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-codec/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="31">
 				<metadata-artifact status="no" details="" size="10380" time="0" location="/home/bogdan/.ivy2/cache/commons-codec/commons-codec/ivy-1.10.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/commons-codec/commons-codec/1.10/commons-codec-1.10.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.10" rev-constraint-default="1.10" rev-constraint-dynamic="1.10" callerrev="1.0"/>
 				<artifacts>
@@ -669,7 +687,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.akka" name="akka-slf4j_2.11">
-			<revision name="2.3.11" status="release" pubdate="20150508175040" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://akka.io/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="31">
+			<revision name="2.3.11" status="release" pubdate="20150508175040" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://akka.io/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="30">
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
 				<metadata-artifact status="no" details="" size="3076" time="0" location="/home/bogdan/.ivy2/cache/com.typesafe.akka/akka-slf4j_2.11/ivy-2.3.11.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-slf4j_2.11/2.3.11/akka-slf4j_2.11-2.3.11.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.3.11" rev-constraint-default="2.3.11" rev-constraint-dynamic="2.3.11" callerrev="1.0"/>
@@ -687,7 +705,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.akka" name="akka-actor_2.11">
-			<revision name="2.3.11" status="release" pubdate="20150508174512" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://akka.io/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="30">
+			<revision name="2.3.11" status="release" pubdate="20150508174512" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://akka.io/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="29">
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
 				<metadata-artifact status="no" details="" size="2667" time="0" location="/home/bogdan/.ivy2/cache/com.typesafe.akka/akka-actor_2.11/ivy-2.3.11.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.11/2.3.11/akka-actor_2.11-2.3.11.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.3.11" rev-constraint-default="2.3.11" rev-constraint-dynamic="2.3.11" callerrev="1.0"/>
@@ -705,7 +723,7 @@
 			</revision>
 		</module>
 		<module organisation="ch.qos.logback" name="logback-classic">
-			<revision name="1.1.3" status="release" pubdate="20150324130126" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="29">
+			<revision name="1.1.3" status="release" pubdate="20150324130126" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="28">
 				<metadata-artifact status="no" details="" size="9808" time="0" location="/home/bogdan/.ivy2/cache/ch.qos.logback/logback-classic/ivy-1.1.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.1.3/logback-classic-1.1.3.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.1.3" rev-constraint-default="1.1.3" rev-constraint-dynamic="1.1.3" callerrev="1.0"/>
 				<artifacts>
@@ -722,7 +740,7 @@
 			</revision>
 		</module>
 		<module organisation="ch.qos.logback" name="logback-core">
-			<revision name="1.1.3" status="release" pubdate="20150324130006" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="28">
+			<revision name="1.1.3" status="release" pubdate="20150324130006" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="27">
 				<metadata-artifact status="no" details="" size="8851" time="0" location="/home/bogdan/.ivy2/cache/ch.qos.logback/logback-core/ivy-1.1.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/ch/qos/logback/logback-core/1.1.3/logback-core-1.1.3.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.1.3" rev-constraint-default="1.1.3" rev-constraint-dynamic="1.1.3" callerrev="1.0"/>
 				<artifacts>
@@ -739,7 +757,7 @@
 			</revision>
 		</module>
 		<module organisation="org.scala-lang.modules" name="scala-parser-combinators_2.11">
-			<revision name="1.0.1" status="release" pubdate="20140416122222" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="27">
+			<revision name="1.0.1" status="release" pubdate="20140416122222" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="26">
 				<license name="BSD 3-clause" url="http://opensource.org/licenses/BSD-3-Clause"/>
 				<metadata-artifact status="no" details="" size="2803" time="0" location="/home/bogdan/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.11/ivy-1.0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.11/1.0.1/scala-parser-combinators_2.11-1.0.1.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.0.1" rev-constraint-default="1.0.1" rev-constraint-dynamic="1.0.1" callerrev="1.0"/>
@@ -757,7 +775,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="play-netty-utils">
-			<revision name="2.4.0" status="release" pubdate="20150527080930" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="23">
+			<revision name="2.4.0" status="release" pubdate="20150527080930" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="22">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="2810" time="0" location="/home/bogdan/.ivy2/cache/com.typesafe.play/play-netty-utils/ivy-2.4.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-netty-utils/2.4.0/play-netty-utils-2.4.0.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.4.0" rev-constraint-default="2.4.0" rev-constraint-dynamic="2.4.0" callerrev="1.0"/>
@@ -775,7 +793,7 @@
 			</revision>
 		</module>
 		<module organisation="org.slf4j" name="jcl-over-slf4j">
-			<revision name="1.7.12" status="release" pubdate="20150326225128" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.slf4j.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="26">
+			<revision name="1.7.12" status="release" pubdate="20150326225128" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.slf4j.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="25">
 				<metadata-artifact status="no" details="" size="5010" time="0" location="/home/bogdan/.ivy2/cache/org.slf4j/jcl-over-slf4j/ivy-1.7.12.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/slf4j/jcl-over-slf4j/1.7.12/jcl-over-slf4j-1.7.12.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.7.12" rev-constraint-default="1.7.12" rev-constraint-dynamic="1.7.12" callerrev="1.0"/>
 				<artifacts>
@@ -792,7 +810,7 @@
 			</revision>
 		</module>
 		<module organisation="org.slf4j" name="jul-to-slf4j">
-			<revision name="1.7.12" status="release" pubdate="20150326225151" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.slf4j.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="25">
+			<revision name="1.7.12" status="release" pubdate="20150326225151" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.slf4j.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="24">
 				<metadata-artifact status="no" details="" size="5049" time="0" location="/home/bogdan/.ivy2/cache/org.slf4j/jul-to-slf4j/ivy-1.7.12.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/slf4j/jul-to-slf4j/1.7.12/jul-to-slf4j-1.7.12.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.7.12" rev-constraint-default="1.7.12" rev-constraint-dynamic="1.7.12" callerrev="1.0"/>
 				<artifacts>
@@ -809,7 +827,7 @@
 			</revision>
 		</module>
 		<module organisation="org.slf4j" name="slf4j-api">
-			<revision name="1.7.12" status="release" pubdate="20150326225005" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.slf4j.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="24">
+			<revision name="1.7.12" status="release" pubdate="20150326225005" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.slf4j.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="23">
 				<metadata-artifact status="no" details="" size="4832" time="0" location="/home/bogdan/.ivy2/cache/org.slf4j/slf4j-api/ivy-1.7.12.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.12/slf4j-api-1.7.12.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.7.12" rev-constraint-default="1.7.12" rev-constraint-dynamic="1.7.12" callerrev="1.0"/>
 				<artifacts>
@@ -844,7 +862,7 @@
 			</revision>
 		</module>
 		<module organisation="com.fasterxml.jackson.datatype" name="jackson-datatype-jsr310">
-			<revision name="2.5.3" status="release" pubdate="20150425083033" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://wiki.fasterxml.com/JacksonModuleJSR310" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="22">
+			<revision name="2.5.3" status="release" pubdate="20150425083033" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://wiki.fasterxml.com/JacksonModuleJSR310" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="21">
 				<metadata-artifact status="no" details="" size="7058" time="0" location="/home/bogdan/.ivy2/cache/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/ivy-2.5.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.5.3/jackson-datatype-jsr310-2.5.3.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.5.3" rev-constraint-default="2.5.3" rev-constraint-dynamic="2.5.3" callerrev="1.0"/>
 				<artifacts>
@@ -861,7 +879,7 @@
 			</revision>
 		</module>
 		<module organisation="com.fasterxml.jackson.datatype" name="jackson-datatype-jdk8">
-			<revision name="2.5.3" status="release" pubdate="20150425082430" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="21">
+			<revision name="2.5.3" status="release" pubdate="20150425082430" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="20">
 				<metadata-artifact status="no" details="" size="7220" time="0" location="/home/bogdan/.ivy2/cache/com.fasterxml.jackson.datatype/jackson-datatype-jdk8/ivy-2.5.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.5.3/jackson-datatype-jdk8-2.5.3.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.5.3" rev-constraint-default="2.5.3" rev-constraint-dynamic="2.5.3" callerrev="1.0"/>
 				<artifacts>
@@ -878,7 +896,7 @@
 			</revision>
 		</module>
 		<module organisation="com.fasterxml.jackson.core" name="jackson-databind">
-			<revision name="2.5.3" status="release" pubdate="20150424202507" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/FasterXML/jackson" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="20">
+			<revision name="2.5.3" status="release" pubdate="20150424202507" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/FasterXML/jackson" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="19">
 				<metadata-artifact status="no" details="" size="8466" time="0" location="/home/bogdan/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/ivy-2.5.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.5.3/jackson-databind-2.5.3.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.5.3" rev-constraint-default="2.5.3" rev-constraint-dynamic="2.5.3" callerrev="1.0"/>
 				<artifacts>
@@ -895,7 +913,7 @@
 			</revision>
 		</module>
 		<module organisation="com.fasterxml.jackson.core" name="jackson-annotations">
-			<revision name="2.5.3" status="release" pubdate="20150424200544" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/FasterXML/jackson" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="19">
+			<revision name="2.5.3" status="release" pubdate="20150424200544" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/FasterXML/jackson" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="18">
 				<metadata-artifact status="no" details="" size="6175" time="0" location="/home/bogdan/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/ivy-2.5.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.5.3/jackson-annotations-2.5.3.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.5.3" rev-constraint-default="2.5.3" rev-constraint-dynamic="2.5.3" callerrev="1.0"/>
 				<artifacts>
@@ -912,7 +930,7 @@
 			</revision>
 		</module>
 		<module organisation="com.fasterxml.jackson.core" name="jackson-core">
-			<revision name="2.5.3" status="release" pubdate="20150424201654" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/FasterXML/jackson" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="18">
+			<revision name="2.5.3" status="release" pubdate="20150424201654" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/FasterXML/jackson" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="17">
 				<metadata-artifact status="no" details="" size="6623" time="0" location="/home/bogdan/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/ivy-2.5.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.5.3/jackson-core-2.5.3.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.5.3" rev-constraint-default="2.5.3" rev-constraint-dynamic="2.5.3" callerrev="1.0"/>
 				<artifacts>
@@ -929,7 +947,7 @@
 			</revision>
 		</module>
 		<module organisation="org.scala-lang" name="scala-reflect">
-			<revision name="2.11.6" status="release" pubdate="20150226030115" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.11.6/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="17">
+			<revision name="2.11.6" status="release" pubdate="20150226030115" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.11.6/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="16">
 				<license name="BSD 3-Clause" url="http://www.scala-lang.org/license.html"/>
 				<metadata-artifact status="no" details="" size="2825" time="0" location="/home/bogdan/.ivy2/cache/org.scala-lang/scala-reflect/ivy-2.11.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.11.6/scala-reflect-2.11.6.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.11.6" rev-constraint-default="2.11.6" rev-constraint-dynamic="2.11.6" callerrev="1.0" extra-info.apiURL="http://www.scala-lang.org/api/2.11.6/"/>
@@ -947,7 +965,7 @@
 			</revision>
 		</module>
 		<module organisation="org.joda" name="joda-convert">
-			<revision name="1.7" status="release" pubdate="20140804173718" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.joda.org/joda-convert/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="16">
+			<revision name="1.7" status="release" pubdate="20140804173718" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.joda.org/joda-convert/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="15">
 				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="6126" time="0" location="/home/bogdan/.ivy2/cache/org.joda/joda-convert/ivy-1.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/joda/joda-convert/1.7/joda-convert-1.7.pom"/>
 				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="1.7" rev-constraint-default="1.7" rev-constraint-dynamic="1.7" callerrev="1.0"/>
@@ -960,24 +978,6 @@
 					</artifact>
 					<artifact name="joda-convert" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="40304" time="0" location="/home/bogdan/.ivy2/cache/org.joda/joda-convert/srcs/joda-convert-1.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/joda/joda-convert/1.7/joda-convert-1.7-sources.jar"/>
-					</artifact>
-				</artifacts>
-			</revision>
-		</module>
-		<module organisation="joda-time" name="joda-time">
-			<revision name="2.7" status="release" pubdate="20150112025125" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.joda.org/joda-time/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="15">
-				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
-				<metadata-artifact status="no" details="" size="6460" time="0" location="/home/bogdan/.ivy2/cache/joda-time/joda-time/ivy-2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/joda-time/joda-time/2.7/joda-time-2.7.pom"/>
-				<caller organisation="lostfound" name="lostfound$sources_javadoc_2.11" conf="compile, runtime" rev="2.7" rev-constraint-default="2.7" rev-constraint-dynamic="2.7" callerrev="1.0"/>
-				<artifacts>
-					<artifact name="joda-time" type="jar" ext="jar" status="no" details="" size="589289" time="0" location="/home/bogdan/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.7.jar">
-						<origin-location is-local="false" location="https://repo1.maven.org/maven2/joda-time/joda-time/2.7/joda-time-2.7.jar"/>
-					</artifact>
-					<artifact name="joda-time" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="753961" time="0" location="/home/bogdan/.ivy2/cache/joda-time/joda-time/srcs/joda-time-2.7-sources.jar">
-						<origin-location is-local="false" location="https://repo1.maven.org/maven2/joda-time/joda-time/2.7/joda-time-2.7-sources.jar"/>
-					</artifact>
-					<artifact name="joda-time" type="doc" ext="jar" extra-classifier="javadoc" status="no" details="" size="1309080" time="0" location="/home/bogdan/.ivy2/cache/joda-time/joda-time/docs/joda-time-2.7-javadoc.jar">
-						<origin-location is-local="false" location="https://repo1.maven.org/maven2/joda-time/joda-time/2.7/joda-time-2.7-javadoc.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>

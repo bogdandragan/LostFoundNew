@@ -1,0 +1,45 @@
+@main("Страница не найдена") {
+
+    <section class="main no-padding" style="margin-top: 100px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 alert alert-danger" style="font-size: 22px; background-color: #d2322d; color: #FFF;">
+                    <i class="fa fa-warning"></i> Страница не найдена. (404)
+                </div>
+            </div>
+        </div>
+    </section>>
+
+    <script>
+        angular.module('lostfoundApp', ['ui.bootstrap'])
+        .controller('mainCtrl', function($scope, $http, $timeout) {
+
+                $scope.checkSession = function(){
+                    $scope.showUserMenu = false;
+                    $scope.showProfileLink = false;
+                    $http.post('@routes.Account.checkSession()')
+                    .success(function(data){
+                        if(data.error == ""){
+                            $scope.showUserMenu = true;
+                            $scope.profile = data.email.substring(0, data.email.lastIndexOf("@@"));
+                        }
+                        else{
+                            $scope.showProfileLink = true;
+                        }
+                    }).error(function(data){
+                        console.log(data);
+                    });
+                }
+
+                $scope.doLogout = function(){
+                    $http.post('@routes.Account.logout()')
+                    .success(function(data){
+                        window.location.replace("/");
+                    }).error(function(data, status){
+                        console.log(data);
+                    });
+                }
+        })
+    </script>
+
+}

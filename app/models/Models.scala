@@ -17,9 +17,38 @@ trait Tables {
   import slick.jdbc.{GetResult => GR}
 
   /** DDL for all tables. Call .create to execute. */
-  lazy val schema = Announcements.schema ++ Categories.schema ++ Cities.schema ++ Regions.schema ++ Users.schema
+  lazy val schema = Array(Admins.schema, Announcements.schema, Categories.schema, Cities.schema, Regions.schema, Users.schema).reduceLeft(_ ++ _)
   @deprecated("Use .schema instead of .ddl", "3.0")
   def ddl = schema
+
+  /** Entity class storing rows of table Admins
+    *  @param id Database column ID SqlType(INT)
+    *  @param email Database column email SqlType(VARCHAR), Length(50,true)
+    *  @param password Database column password SqlType(VARCHAR), Length(20,true)
+    *  @param token Database column token SqlType(VARCHAR), Length(250,true) */
+  case class AdminsRow(id: Int, email: String, password: String, token: String)
+  /** GetResult implicit for fetching AdminsRow objects using plain SQL queries */
+  implicit def GetResultAdminsRow(implicit e0: GR[Int], e1: GR[String]): GR[AdminsRow] = GR{
+    prs => import prs._
+      AdminsRow.tupled((<<[Int], <<[String], <<[String], <<[String]))
+  }
+  /** Table description of table admins. Objects of this class serve as prototypes for rows in queries. */
+  class Admins(_tableTag: Tag) extends Table[AdminsRow](_tableTag, "admins") {
+    def * = (id, email, password, token) <> (AdminsRow.tupled, AdminsRow.unapply)
+    /** Maps whole row to an option. Useful for outer joins. */
+    def ? = (Rep.Some(id), Rep.Some(email), Rep.Some(password), Rep.Some(token)).shaped.<>({r=>import r._; _1.map(_=> AdminsRow.tupled((_1.get, _2.get, _3.get, _4.get)))}, (_:Any) =>  throw new Exception("Inserting into ? projection not supported."))
+
+    /** Database column ID SqlType(INT) */
+    val id: Rep[Int] = column[Int]("ID")
+    /** Database column email SqlType(VARCHAR), Length(50,true) */
+    val email: Rep[String] = column[String]("email", O.Length(50,varying=true))
+    /** Database column password SqlType(VARCHAR), Length(20,true) */
+    val password: Rep[String] = column[String]("password", O.Length(20,varying=true))
+    /** Database column token SqlType(VARCHAR), Length(250,true) */
+    val token: Rep[String] = column[String]("token", O.Length(250,varying=true))
+  }
+  /** Collection-like TableQuery object for table Admins */
+  lazy val Admins = new TableQuery(tag => new Admins(tag))
 
   /** Entity class storing rows of table Announcements
     *  @param id Database column id SqlType(INT), AutoInc, PrimaryKey
@@ -30,19 +59,23 @@ trait Tables {
     *  @param regionId Database column region_id SqlType(INT)
     *  @param cityId Database column city_id SqlType(INT)
     *  @param contact Database column contact SqlType(VARCHAR), Length(50,true)
-    *  @param email Database column email SqlType(VARCHAR), Length(50,true) */
-  case class AnnouncementsRow(id: Int, title: String, `type`: String, categoryId: Int, description: String, regionId: Int, cityId: Int, contact: String, email: String)
+    *  @param email Database column email SqlType(VARCHAR), Length(50,true)
+    *  @param photo Database column photo SqlType(VARCHAR), Length(250,true)
+    *  @param date Database column date SqlType(TIMESTAMP), Default(None)
+    *  @param phone Database column phone SqlType(VARCHAR), Length(20,true)
+    *  @param userId Database column user_id SqlType(INT), Default(None) */
+  case class AnnouncementsRow(id: Int, title: String, `type`: String, categoryId: Int, description: String, regionId: Int, cityId: Int, contact: String, email: String, photo: String, date: Option[java.sql.Timestamp] = None, phone: String, userId: Option[Int] = None)
   /** GetResult implicit for fetching AnnouncementsRow objects using plain SQL queries */
-  implicit def GetResultAnnouncementsRow(implicit e0: GR[Int], e1: GR[String]): GR[AnnouncementsRow] = GR{
+  implicit def GetResultAnnouncementsRow(implicit e0: GR[Int], e1: GR[String], e2: GR[Option[java.sql.Timestamp]], e3: GR[Option[Int]]): GR[AnnouncementsRow] = GR{
     prs => import prs._
-      AnnouncementsRow.tupled((<<[Int], <<[String], <<[String], <<[Int], <<[String], <<[Int], <<[Int], <<[String], <<[String]))
+      AnnouncementsRow.tupled((<<[Int], <<[String], <<[String], <<[Int], <<[String], <<[Int], <<[Int], <<[String], <<[String], <<[String], <<?[java.sql.Timestamp], <<[String], <<?[Int]))
   }
   /** Table description of table announcements. Objects of this class serve as prototypes for rows in queries.
     *  NOTE: The following names collided with Scala keywords and were escaped: type */
   class Announcements(_tableTag: Tag) extends Table[AnnouncementsRow](_tableTag, "announcements") {
-    def * = (id, title, `type`, categoryId, description, regionId, cityId, contact, email) <> (AnnouncementsRow.tupled, AnnouncementsRow.unapply)
+    def * = (id, title, `type`, categoryId, description, regionId, cityId, contact, email, photo, date, phone, userId) <> (AnnouncementsRow.tupled, AnnouncementsRow.unapply)
     /** Maps whole row to an option. Useful for outer joins. */
-    def ? = (Rep.Some(id), Rep.Some(title), Rep.Some(`type`), Rep.Some(categoryId), Rep.Some(description), Rep.Some(regionId), Rep.Some(cityId), Rep.Some(contact), Rep.Some(email)).shaped.<>({r=>import r._; _1.map(_=> AnnouncementsRow.tupled((_1.get, _2.get, _3.get, _4.get, _5.get, _6.get, _7.get, _8.get, _9.get)))}, (_:Any) =>  throw new Exception("Inserting into ? projection not supported."))
+    def ? = (Rep.Some(id), Rep.Some(title), Rep.Some(`type`), Rep.Some(categoryId), Rep.Some(description), Rep.Some(regionId), Rep.Some(cityId), Rep.Some(contact), Rep.Some(email), Rep.Some(photo), date, Rep.Some(phone), userId).shaped.<>({r=>import r._; _1.map(_=> AnnouncementsRow.tupled((_1.get, _2.get, _3.get, _4.get, _5.get, _6.get, _7.get, _8.get, _9.get, _10.get, _11, _12.get, _13)))}, (_:Any) =>  throw new Exception("Inserting into ? projection not supported."))
 
     /** Database column id SqlType(INT), AutoInc, PrimaryKey */
     val id: Rep[Int] = column[Int]("id", O.AutoInc, O.PrimaryKey)
@@ -63,6 +96,14 @@ trait Tables {
     val contact: Rep[String] = column[String]("contact", O.Length(50,varying=true))
     /** Database column email SqlType(VARCHAR), Length(50,true) */
     val email: Rep[String] = column[String]("email", O.Length(50,varying=true))
+    /** Database column photo SqlType(VARCHAR), Length(250,true) */
+    val photo: Rep[String] = column[String]("photo", O.Length(250,varying=true))
+    /** Database column date SqlType(TIMESTAMP), Default(None) */
+    val date: Rep[Option[java.sql.Timestamp]] = column[Option[java.sql.Timestamp]]("date", O.Default(None))
+    /** Database column phone SqlType(VARCHAR), Length(20,true) */
+    val phone: Rep[String] = column[String]("phone", O.Length(20,varying=true))
+    /** Database column user_id SqlType(INT), Default(None) */
+    val userId: Rep[Option[Int]] = column[Option[Int]]("user_id", O.Default(None))
   }
   /** Collection-like TableQuery object for table Announcements */
   lazy val Announcements = new TableQuery(tag => new Announcements(tag))
@@ -151,18 +192,20 @@ trait Tables {
     *  @param password Database column password SqlType(VARCHAR), Length(255,true)
     *  @param sessionId Database column session_id SqlType(VARCHAR), Length(255,true), Default(None)
     *  @param newUser Database column new_user SqlType(TINYINT)
-    *  @param newPassword Database column new_password SqlType(VARCHAR), Length(255,true), Default(None) */
-  case class UsersRow(id: Int, email: String, password: String, sessionId: Option[String] = None, newUser: Byte, newPassword: Option[String] = None)
+    *  @param newPassword Database column new_password SqlType(VARCHAR), Length(255,true), Default(None)
+    *  @param phone Database column phone SqlType(VARCHAR), Length(20,true), Default(None)
+    *  @param contact Database column contact SqlType(VARCHAR), Length(50,true), Default(None) */
+  case class UsersRow(id: Int, email: String, password: String, sessionId: Option[String] = None, newUser: Byte, newPassword: Option[String] = None, phone: Option[String] = None, contact: Option[String] = None)
   /** GetResult implicit for fetching UsersRow objects using plain SQL queries */
   implicit def GetResultUsersRow(implicit e0: GR[Int], e1: GR[String], e2: GR[Option[String]], e3: GR[Byte]): GR[UsersRow] = GR{
     prs => import prs._
-      UsersRow.tupled((<<[Int], <<[String], <<[String], <<?[String], <<[Byte], <<?[String]))
+      UsersRow.tupled((<<[Int], <<[String], <<[String], <<?[String], <<[Byte], <<?[String], <<?[String], <<?[String]))
   }
   /** Table description of table users. Objects of this class serve as prototypes for rows in queries. */
   class Users(_tableTag: Tag) extends Table[UsersRow](_tableTag, "users") {
-    def * = (id, email, password, sessionId, newUser, newPassword) <> (UsersRow.tupled, UsersRow.unapply)
+    def * = (id, email, password, sessionId, newUser, newPassword, phone, contact) <> (UsersRow.tupled, UsersRow.unapply)
     /** Maps whole row to an option. Useful for outer joins. */
-    def ? = (Rep.Some(id), Rep.Some(email), Rep.Some(password), sessionId, Rep.Some(newUser), newPassword).shaped.<>({r=>import r._; _1.map(_=> UsersRow.tupled((_1.get, _2.get, _3.get, _4, _5.get, _6)))}, (_:Any) =>  throw new Exception("Inserting into ? projection not supported."))
+    def ? = (Rep.Some(id), Rep.Some(email), Rep.Some(password), sessionId, Rep.Some(newUser), newPassword, phone, contact).shaped.<>({r=>import r._; _1.map(_=> UsersRow.tupled((_1.get, _2.get, _3.get, _4, _5.get, _6, _7, _8)))}, (_:Any) =>  throw new Exception("Inserting into ? projection not supported."))
 
     /** Database column id SqlType(INT), AutoInc, PrimaryKey */
     val id: Rep[Int] = column[Int]("id", O.AutoInc, O.PrimaryKey)
@@ -176,6 +219,10 @@ trait Tables {
     val newUser: Rep[Byte] = column[Byte]("new_user")
     /** Database column new_password SqlType(VARCHAR), Length(255,true), Default(None) */
     val newPassword: Rep[Option[String]] = column[Option[String]]("new_password", O.Length(255,varying=true), O.Default(None))
+    /** Database column phone SqlType(VARCHAR), Length(20,true), Default(None) */
+    val phone: Rep[Option[String]] = column[Option[String]]("phone", O.Length(20,varying=true), O.Default(None))
+    /** Database column contact SqlType(VARCHAR), Length(50,true), Default(None) */
+    val contact: Rep[Option[String]] = column[Option[String]]("contact", O.Length(50,varying=true), O.Default(None))
   }
   /** Collection-like TableQuery object for table Users */
   lazy val Users = new TableQuery(tag => new Users(tag))

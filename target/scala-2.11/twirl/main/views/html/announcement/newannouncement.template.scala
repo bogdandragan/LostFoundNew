@@ -24,155 +24,214 @@ class newannouncement extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Append
 
 Seq[Any](_display_(/*1.2*/main("Новое объявление")/*1.26*/ {_display_(Seq[Any](format.raw/*1.28*/("""
 
-    """),format.raw/*3.5*/("""<div class="container" style="margin-top: 70px;" ng-controller="newAnnouncementCtrl">
-        <h4>Добавление объявления</h4>
-        <hr>
-        <form class="form-horizontal" ng-submit="submit()">
-            <div class="form-group">
-                <label for="title" class="col-sm-2 control-label">Заголовок</label>
-                <div class="col-sm-8">
-                    <input ng-model="title" type="text" name="title" id="title" class="form-control" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="category" class="col-sm-2 control-label">Раздел</label>
-                <div class="col-sm-4">
-                    <select ng-model="category" name="category" id="category" class="form-control" required>
-                        <option value=""></option>
-                        <option ng-repeat="category in categories" value=""""),format.raw/*18.75*/("""{"""),format.raw/*18.76*/("""{"""),format.raw/*18.77*/("""category.id"""),format.raw/*18.88*/("""}"""),format.raw/*18.89*/("""}"""),format.raw/*18.90*/("""">"""),format.raw/*18.92*/("""{"""),format.raw/*18.93*/("""{"""),format.raw/*18.94*/("""category.name"""),format.raw/*18.107*/("""}"""),format.raw/*18.108*/("""}"""),format.raw/*18.109*/("""</option>
+    """),format.raw/*3.5*/("""<section class="main no-padding" style="margin-top: 100px;" ng-controller="newAnnouncementCtrl">
+        <div class="container">
 
-                    </select>
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-md-push-9 col-sm-push-9">
+                    <div class="widget alert alert-warning-custom">
+                        <section><i class="fa fa-warning"></i> Для избежания мошенничества,
+                            не прикрепляете фото, на которых видно все детали найденных Вами вещей.</section>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="type" class="col-sm-2 control-label">Тип</label>
-                <div class="col-sm-4">
-                    <label class="radio-inline">
-                        <input ng-model="type" type="radio" name="type" id="lostRadio" value="lost"> Потеряно
-                    </label>
-                    <label class="radio-inline">
-                        <input ng-model="type" type="radio" name="type" id="foundRadio" value="found"> Найдено
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="description" class="col-sm-2 control-label">Описание</label>
-                <div class="col-sm-8">
-                    <textarea ng-model="description" name="description" id="description" class="form-control" rows="5" required></textarea>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="address" class="col-sm-2 control-label">Адрес</label>
-                <div class="col-sm-4">
-                    <input ng-model="address" type="text" ng-model="asyncSelected" typeahead="address.formatted_address for address in locations | limitTo:10" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control" required>
-                    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
-                    <div ng-show="noResults">
-                        <i class="glyphicon glyphicon-remove"></i> No Results Found
+                <div class="col-md-9 col-sm-9 col-md-pull-3 col-sm-pull-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Создание нового обьявления</h4>
+                        </div>
+
+                        <form accept-charset="utf-8" ng-submit="submit()" class="form-horizontal" name="form">
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Заголовок<i class="required-field">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input ng-model="title" type="text" name="title" id="title" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Тип<i class="required-field">*</i></label>
+                                    <div class="col-sm-4">
+                                        <label class="radio-inline">
+                                            <input ng-model="type" type="radio" name="type" id="lostRadio" value="lost"> Потеряно
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input ng-model="type" type="radio" name="type" id="foundRadio" value="found"> Найдено
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                     <label class="col-sm-3 control-label">Раздел<i class="required-field">*</i></label>
+                                     <div class="col-sm-4">
+                                         <select ng-model="category" name="category" id="category" class="form-control" required>
+                                             <option value=""></option>
+                                             <option ng-repeat="category in categories" value=""""),format.raw/*43.96*/("""{"""),format.raw/*43.97*/("""{"""),format.raw/*43.98*/("""category.id"""),format.raw/*43.109*/("""}"""),format.raw/*43.110*/("""}"""),format.raw/*43.111*/("""">"""),format.raw/*43.113*/("""{"""),format.raw/*43.114*/("""{"""),format.raw/*43.115*/("""category.name"""),format.raw/*43.128*/("""}"""),format.raw/*43.129*/("""}"""),format.raw/*43.130*/("""</option>
+
+                                         </select>
+                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Описание<i class="required-field">*</i></label>
+                                    <div class="col-sm-9">
+                                        <textarea ng-model="description" name="description" id="description" class="form-control" rows="5" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Адрес<i class="required-field">*</i></label>
+                                    <div class="col-sm-5">
+                                        <input type="text" ng-model="selectedAddr"
+                                        typeahead="address as address.formatted_address for address in locations | limitTo:10"
+                                        typeahead-loading="loadingLocations"
+                                        typeahead-no-results="noResults"
+                                        class="form-control"
+                                        autocomplete="off" required/>
+                                        <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh" ng-cloak></i>
+                                        <div ng-show="noResults" style="color: red;" ng-cloak>
+                                            <i class="glyphicon glyphicon-remove"></i> Выберите адрес
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Фото</label>
+                                    <div class="col-sm-5">
+                                        <input ng-model="photo" type="file" class="filestyle" name="photo" id="photo" maxsize="1024" data-buttonName="btn-default" data-buttonText=""
+                                        base-sixty-four-input accept="image/jpeg, image/png"/>
+                                        <span class="help-block" ng-show="form.photo.$error.maxsize">Фото должно быть не больше 1024КБ</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Контактное лицо<i class="required-field">*</i></label>
+                                    <div class="col-sm-4">
+                                        <input ng-model="contact" type="text" name="name" id="name" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Email-адрес<i class="required-field">*</i></label>
+                                    <div class="col-sm-4">
+                                        <input ng-model="email" type="email" name="email" id="email" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Номер телефона<i class="required-field">*</i></label>
+                                    <div class="col-sm-4">
+                                        <input ng-model="phone" type="tel" name="phone" id="phone" class="form-control" pattern="\d"""),format.raw/*92.132*/("""{"""),format.raw/*92.133*/("""7,12"""),format.raw/*92.137*/("""}"""),format.raw/*92.138*/("""" title="Номер телефона" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-offset-3 col-sm-9">
+                                        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Опубликовать</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="name" class="col-sm-2 control-label">Контактное лицо</label>
-                <div class="col-sm-4">
-                    <input ng-model="name" type="text" name="name" id="name" class="form-control" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="email" class="col-sm-2 control-label">Email-адрес</label>
-                <div class="col-sm-4">
-                    <input ng-model="email" type="email" name="email" id="email" class="form-control" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Отправить</button>
-                </div>
-            </div>
-        </form>
-    </div>
+        </div>
+    </section>
+
+    <script src="/assets/plugins/filestyle/bootstrap-filestyle.min.js"></script>
 
     <script>
 
+          angular.module('lostfoundApp', ['ui.bootstrap', 'naif.base64'])
+          .controller('mainCtrl', function($scope, $http, $timeout) """),format.raw/*115.69*/("""{"""),format.raw/*115.70*/("""
 
-        angular.module('lostfoundApp', ['ui.bootstrap'])
-        .controller('newAnnouncementCtrl', function($scope, $http) """),format.raw/*74.68*/("""{"""),format.raw/*74.69*/("""
+                """),format.raw/*117.17*/("""$scope.checkSession = function()"""),format.raw/*117.49*/("""{"""),format.raw/*117.50*/("""
+                    """),format.raw/*118.21*/("""$scope.showUserMenu = false;
+                    $scope.showProfileLink = false;
+                    $http.post('"""),_display_(/*120.34*/routes/*120.40*/.Account.checkSession()),format.raw/*120.63*/("""')
+                    .success(function(data)"""),format.raw/*121.44*/("""{"""),format.raw/*121.45*/("""
+                        """),format.raw/*122.25*/("""if(data.error == "")"""),format.raw/*122.45*/("""{"""),format.raw/*122.46*/("""
+                            """),format.raw/*123.29*/("""$scope.showUserMenu = true;
+                            $scope.profile = data.email.substring(0, data.email.lastIndexOf("@"));
+                            $scope.email = data.email;
+                            $scope.phone = data.phone;
+                            $scope.contact = data.contact;
+                            $('#email').prop('readonly', true);
+                        """),format.raw/*129.25*/("""}"""),format.raw/*129.26*/("""
+                        """),format.raw/*130.25*/("""else"""),format.raw/*130.29*/("""{"""),format.raw/*130.30*/("""
+                            """),format.raw/*131.29*/("""$scope.showProfileLink = true;
+                        """),format.raw/*132.25*/("""}"""),format.raw/*132.26*/("""
+                    """),format.raw/*133.21*/("""}"""),format.raw/*133.22*/(""").error(function(data)"""),format.raw/*133.44*/("""{"""),format.raw/*133.45*/("""
+                        """),format.raw/*134.25*/("""console.log(data);
+                    """),format.raw/*135.21*/("""}"""),format.raw/*135.22*/(""");
+                """),format.raw/*136.17*/("""}"""),format.raw/*136.18*/("""
 
-                 """),format.raw/*76.18*/("""$.ajax("""),format.raw/*76.25*/("""{"""),format.raw/*76.26*/("""
-            """),format.raw/*77.13*/("""type: 'POST',
-            url: '"""),_display_(/*78.20*/routes/*78.26*/.Account.checkSession()),format.raw/*78.49*/("""',
-            success: function(data)"""),format.raw/*79.36*/("""{"""),format.raw/*79.37*/("""
+                """),format.raw/*138.17*/("""$scope.doLogout = function()"""),format.raw/*138.45*/("""{"""),format.raw/*138.46*/("""
+                    """),format.raw/*139.21*/("""$http.post('"""),_display_(/*139.34*/routes/*139.40*/.Account.logout()),format.raw/*139.57*/("""')
+                    .success(function(data)"""),format.raw/*140.44*/("""{"""),format.raw/*140.45*/("""
+                        """),format.raw/*141.25*/("""window.location.replace("/");
+                    """),format.raw/*142.21*/("""}"""),format.raw/*142.22*/(""").error(function(data, status)"""),format.raw/*142.52*/("""{"""),format.raw/*142.53*/("""
+                        """),format.raw/*143.25*/("""console.log(data);
+                    """),format.raw/*144.21*/("""}"""),format.raw/*144.22*/(""");
+                """),format.raw/*145.17*/("""}"""),format.raw/*145.18*/("""
+        """),format.raw/*146.9*/("""}"""),format.raw/*146.10*/(""")
 
-                """),format.raw/*81.17*/("""if(data.error == "")"""),format.raw/*81.37*/("""{"""),format.raw/*81.38*/("""
-                    """),format.raw/*82.21*/("""var name = data.email.substring(0, data.email.lastIndexOf("@"));
-
-                    var menu = "<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>"+name+"<span class='caret'></span></a>"+
-                                "<ul class='dropdown-menu' role='menu'>"+
-                                "<li><a href='/account'>Профиль</a></li>"+
-                                "<li><a href='#'>Another action</a></li>"+
-                                "<li class='divider'></li>"+
-                                "<li id='signOut'><a href='#'>Выход</a></li>"+
-                                "</ul>";
-                    $("#profile-link").html(menu);
-                    $scope.email = data.email;
-                    $("#email").prop('disabled', true);
-
-                """),format.raw/*95.17*/("""}"""),format.raw/*95.18*/("""else"""),format.raw/*95.22*/("""{"""),format.raw/*95.23*/("""
-                     """),format.raw/*96.22*/("""$("#profile-link").html("<a href='/account/signin'>Профиль</a></li>");
-                """),format.raw/*97.17*/("""}"""),format.raw/*97.18*/("""
-            """),format.raw/*98.13*/("""}"""),format.raw/*98.14*/("""
-        """),format.raw/*99.9*/("""}"""),format.raw/*99.10*/(""");
+        .controller('newAnnouncementCtrl', function($scope, $http) """),format.raw/*148.68*/("""{"""),format.raw/*148.69*/("""
+                """),format.raw/*149.17*/("""$scope.type = "lost";
 
                 //get categories
-                $http.get('"""),_display_(/*102.29*/routes/*102.35*/.Announcement.getCategories()),format.raw/*102.64*/("""')
-                 .success(function(data)"""),format.raw/*103.41*/("""{"""),format.raw/*103.42*/("""
-                    """),format.raw/*104.21*/("""console.log(data);
+                $http.get('"""),_display_(/*152.29*/routes/*152.35*/.Announcement.getCategories()),format.raw/*152.64*/("""')
+                 .success(function(data)"""),format.raw/*153.41*/("""{"""),format.raw/*153.42*/("""
+                    """),format.raw/*154.21*/("""console.log(data);
                     $scope.categories = data;
-                 """),format.raw/*106.18*/("""}"""),format.raw/*106.19*/(""").error(function(data)"""),format.raw/*106.41*/("""{"""),format.raw/*106.42*/("""
-                    """),format.raw/*107.21*/("""console.log(data);
-                 """),format.raw/*108.18*/("""}"""),format.raw/*108.19*/(""");
+                 """),format.raw/*156.18*/("""}"""),format.raw/*156.19*/(""").error(function(data)"""),format.raw/*156.41*/("""{"""),format.raw/*156.42*/("""
+                    """),format.raw/*157.21*/("""console.log(data);
+                 """),format.raw/*158.18*/("""}"""),format.raw/*158.19*/(""");
 
 
-            $scope.$watch('address', function() """),format.raw/*111.49*/("""{"""),format.raw/*111.50*/("""
-               """),format.raw/*112.16*/("""return $http.get('"""),_display_(/*112.35*/routes/*112.41*/.Announcement.getAddress()),format.raw/*112.67*/("""', """),format.raw/*112.70*/("""{"""),format.raw/*112.71*/("""
-                """),format.raw/*113.17*/("""params: """),format.raw/*113.25*/("""{"""),format.raw/*113.26*/("""
-                """),format.raw/*114.17*/("""q: $scope.address
-                  """),format.raw/*115.19*/("""}"""),format.raw/*115.20*/("""
-                """),format.raw/*116.17*/("""}"""),format.raw/*116.18*/(""")
-               .then(function(response)"""),format.raw/*117.40*/("""{"""),format.raw/*117.41*/("""
-                    """),format.raw/*118.21*/("""console.log(response);
-                    //return response.data;
-                       $scope.locations = response.data;
-                      // сщтыщдуюдщп()
-               """),format.raw/*122.16*/("""}"""),format.raw/*122.17*/(""");
-            """),format.raw/*123.13*/("""}"""),format.raw/*123.14*/(""");
+            $scope.$watch('selectedAddr', function() """),format.raw/*161.54*/("""{"""),format.raw/*161.55*/("""
+               """),format.raw/*162.16*/("""return $http.get('"""),_display_(/*162.35*/routes/*162.41*/.Announcement.getAddress()),format.raw/*162.67*/("""', """),format.raw/*162.70*/("""{"""),format.raw/*162.71*/("""
+                """),format.raw/*163.17*/("""params: """),format.raw/*163.25*/("""{"""),format.raw/*163.26*/("""
+                """),format.raw/*164.17*/("""q: $scope.selectedAddr
+                  """),format.raw/*165.19*/("""}"""),format.raw/*165.20*/("""
+                """),format.raw/*166.17*/("""}"""),format.raw/*166.18*/(""")
+               .then(function(response)"""),format.raw/*167.40*/("""{"""),format.raw/*167.41*/("""
+                    """),format.raw/*168.21*/("""console.log(response);
+                    $scope.locations = response.data;
+               """),format.raw/*170.16*/("""}"""),format.raw/*170.17*/(""");
+            """),format.raw/*171.13*/("""}"""),format.raw/*171.14*/(""");
 
-            $scope.submit = function()"""),format.raw/*125.39*/("""{"""),format.raw/*125.40*/("""
 
-                """),format.raw/*127.17*/("""var city = $scope.address.substring(0, $scope.address.indexOf(","));
-                var region = $scope.address.substring($scope.address.indexOf(",")+2, $scope.address.length);
+            $scope.submit = function()"""),format.raw/*174.39*/("""{"""),format.raw/*174.40*/("""
+                """),format.raw/*175.17*/("""console.log($scope.selectedAddr);
 
-                var post_data = """),format.raw/*130.33*/("""{"""),format.raw/*130.34*/(""""action" : "postAd", "params" :
-                                                  """),format.raw/*131.51*/("""{"""),format.raw/*131.52*/(""""type" : $scope.type,
+                if(typeof($scope.selectedAddr.regionId) == 'undefined')"""),format.raw/*177.72*/("""{"""),format.raw/*177.73*/("""
+                    """),format.raw/*178.21*/("""$scope.noResults = true;
+                    return;
+                """),format.raw/*180.17*/("""}"""),format.raw/*180.18*/("""
+
+                """),format.raw/*182.17*/("""if($scope.photo == null)"""),format.raw/*182.41*/("""{"""),format.raw/*182.42*/("""
+                    """),format.raw/*183.21*/("""$scope.photo = """),format.raw/*183.36*/("""{"""),format.raw/*183.37*/(""""base64":"",filetype:"""""),format.raw/*183.60*/("""}"""),format.raw/*183.61*/("""
+                """),format.raw/*184.17*/("""}"""),format.raw/*184.18*/("""
+                """),format.raw/*185.17*/("""console.log($scope.photo);
+
+                var post_data = """),format.raw/*187.33*/("""{"""),format.raw/*187.34*/(""""_type" : $scope.type,
                                                   "title" : $scope.title,
                                                   "category" : $scope.category,
                                                   "description" : $scope.description,
-                                                  "region" : region,
-                                                  "city" : city,
-                                                  "contact" : $scope.name,
-                                                  "email" : $scope.email"""),format.raw/*138.73*/("""}"""),format.raw/*138.74*/("""}"""),format.raw/*138.75*/(""";
+                                                  "region" : $scope.selectedAddr.regionId,
+                                                  "city" : $scope.selectedAddr.cityId,
+                                                  "base64" : $scope.photo.base64,
+                                                  "filetype":$scope.photo.filetype,
+                                                  "contact" : $scope.contact,
+                                                  "email" : $scope.email,
+                                                  "phone" : $scope.phone"""),format.raw/*197.73*/("""}"""),format.raw/*197.74*/(""";
                 console.log(post_data);
-                $http.post('"""),_display_(/*140.30*/routes/*140.36*/.Announcement.postAnnouncement()),format.raw/*140.68*/("""', post_data)
-                .success(function(data)"""),format.raw/*141.40*/("""{"""),format.raw/*141.41*/("""
-                    """),format.raw/*142.21*/("""console.log(data.error);
-                    if(data.error == "")"""),format.raw/*143.41*/("""{"""),format.raw/*143.42*/("""
-                        """),format.raw/*144.25*/("""window.location.replace("/announcement/addconfirm");
-                    """),format.raw/*145.21*/("""}"""),format.raw/*145.22*/("""
-                """),format.raw/*146.17*/("""}"""),format.raw/*146.18*/(""").error(function(data)"""),format.raw/*146.40*/("""{"""),format.raw/*146.41*/("""
-                    """),format.raw/*147.21*/("""console.log(data);
-                """),format.raw/*148.17*/("""}"""),format.raw/*148.18*/(""");
-            """),format.raw/*149.13*/("""}"""),format.raw/*149.14*/("""
+                $http.post('"""),_display_(/*199.30*/routes/*199.36*/.Announcement.postAnnouncement()),format.raw/*199.68*/("""', post_data)
+                .success(function(data)"""),format.raw/*200.40*/("""{"""),format.raw/*200.41*/("""
+                    """),format.raw/*201.21*/("""console.log(data);
+                    if(data.error == "")"""),format.raw/*202.41*/("""{"""),format.raw/*202.42*/("""
+                       """),format.raw/*203.24*/("""window.location.href = "/announcement/addconfirm?id="+data.id;
+                    """),format.raw/*204.21*/("""}"""),format.raw/*204.22*/("""
+                """),format.raw/*205.17*/("""}"""),format.raw/*205.18*/(""").error(function(data)"""),format.raw/*205.40*/("""{"""),format.raw/*205.41*/("""
+                    """),format.raw/*206.21*/("""console.log(data);
+                """),format.raw/*207.17*/("""}"""),format.raw/*207.18*/(""");
+            """),format.raw/*208.13*/("""}"""),format.raw/*208.14*/("""
 
-        """),format.raw/*151.9*/("""}"""),format.raw/*151.10*/(""")
+        """),format.raw/*210.9*/("""}"""),format.raw/*210.10*/(""")
 
     </script>
 
@@ -196,11 +255,11 @@ Seq[Any](_display_(/*1.2*/main("Новое объявление")/*1.26*/ {_disp
 object newannouncement extends newannouncement_Scope0.newannouncement
               /*
                   -- GENERATED --
-                  DATE: Sat Sep 05 21:30:28 EEST 2015
+                  DATE: Sat Jan 16 22:08:37 EET 2016
                   SOURCE: /home/bogdan/IdeaProjects/LostFoundNew/app/views/announcement/newannouncement.scala.html
-                  HASH: ca35fdf68a761f952cf9d5c5942c8b1cda180ee2
-                  MATRIX: 642->1|674->25|713->27|745->33|1678->938|1707->939|1736->940|1775->951|1804->952|1833->953|1863->955|1892->956|1921->957|1963->970|1993->971|2023->972|4779->3700|4808->3701|4855->3720|4890->3727|4919->3728|4960->3741|5020->3774|5035->3780|5079->3803|5145->3841|5174->3842|5220->3860|5268->3880|5297->3881|5346->3902|6185->4714|6214->4715|6246->4719|6275->4720|6325->4742|6440->4829|6469->4830|6510->4843|6539->4844|6575->4853|6604->4854|6697->4919|6713->4925|6764->4954|6836->4997|6866->4998|6916->5019|7027->5101|7057->5102|7108->5124|7138->5125|7188->5146|7253->5182|7283->5183|7365->5236|7395->5237|7440->5253|7487->5272|7503->5278|7551->5304|7583->5307|7613->5308|7659->5325|7696->5333|7726->5334|7772->5351|7837->5387|7867->5388|7913->5405|7943->5406|8013->5447|8043->5448|8093->5469|8300->5647|8330->5648|8374->5663|8404->5664|8475->5706|8505->5707|8552->5725|8792->5936|8822->5937|8933->6019|8963->6020|9535->6563|9565->6564|9595->6565|9694->6636|9710->6642|9764->6674|9846->6727|9876->6728|9926->6749|10020->6814|10050->6815|10104->6840|10206->6913|10236->6914|10282->6931|10312->6932|10363->6954|10393->6955|10443->6976|10507->7011|10537->7012|10581->7027|10611->7028|10649->7038|10679->7039
-                  LINES: 25->1|25->1|25->1|27->3|42->18|42->18|42->18|42->18|42->18|42->18|42->18|42->18|42->18|42->18|42->18|42->18|98->74|98->74|100->76|100->76|100->76|101->77|102->78|102->78|102->78|103->79|103->79|105->81|105->81|105->81|106->82|119->95|119->95|119->95|119->95|120->96|121->97|121->97|122->98|122->98|123->99|123->99|126->102|126->102|126->102|127->103|127->103|128->104|130->106|130->106|130->106|130->106|131->107|132->108|132->108|135->111|135->111|136->112|136->112|136->112|136->112|136->112|136->112|137->113|137->113|137->113|138->114|139->115|139->115|140->116|140->116|141->117|141->117|142->118|146->122|146->122|147->123|147->123|149->125|149->125|151->127|154->130|154->130|155->131|155->131|162->138|162->138|162->138|164->140|164->140|164->140|165->141|165->141|166->142|167->143|167->143|168->144|169->145|169->145|170->146|170->146|170->146|170->146|171->147|172->148|172->148|173->149|173->149|175->151|175->151
+                  HASH: e55e13c8b8b5bc57786e0565a4af24303e4dc2bc
+                  MATRIX: 642->1|674->25|713->27|745->33|3590->2850|3619->2851|3648->2852|3688->2863|3718->2864|3748->2865|3779->2867|3809->2868|3839->2869|3881->2882|3911->2883|3941->2884|7759->6673|7789->6674|7822->6678|7852->6679|8835->7633|8865->7634|8912->7652|8973->7684|9003->7685|9053->7706|9195->7820|9211->7826|9256->7849|9331->7895|9361->7896|9415->7921|9464->7941|9494->7942|9552->7971|9965->8356|9995->8357|10049->8382|10082->8386|10112->8387|10170->8416|10254->8471|10284->8472|10334->8493|10364->8494|10415->8516|10445->8517|10499->8542|10567->8581|10597->8582|10645->8601|10675->8602|10722->8620|10779->8648|10809->8649|10859->8670|10900->8683|10916->8689|10955->8706|11030->8752|11060->8753|11114->8778|11193->8828|11223->8829|11282->8859|11312->8860|11366->8885|11434->8924|11464->8925|11512->8944|11542->8945|11579->8954|11609->8955|11708->9025|11738->9026|11784->9043|11896->9127|11912->9133|11963->9162|12035->9205|12065->9206|12115->9227|12226->9309|12256->9310|12307->9332|12337->9333|12387->9354|12452->9390|12482->9391|12569->9449|12599->9450|12644->9466|12691->9485|12707->9491|12755->9517|12787->9520|12817->9521|12863->9538|12900->9546|12930->9547|12976->9564|13046->9605|13076->9606|13122->9623|13152->9624|13222->9665|13252->9666|13302->9687|13423->9779|13453->9780|13497->9795|13527->9796|13599->9839|13629->9840|13675->9857|13810->9963|13840->9964|13890->9985|13988->10054|14018->10055|14065->10073|14118->10097|14148->10098|14198->10119|14242->10134|14272->10135|14324->10158|14354->10159|14400->10176|14430->10177|14476->10194|14565->10254|14595->10255|15455->11086|15485->11087|15584->11158|15600->11164|15654->11196|15736->11249|15766->11250|15816->11271|15904->11330|15934->11331|15987->11355|16099->11438|16129->11439|16175->11456|16205->11457|16256->11479|16286->11480|16336->11501|16400->11536|16430->11537|16474->11552|16504->11553|16542->11563|16572->11564
+                  LINES: 25->1|25->1|25->1|27->3|67->43|67->43|67->43|67->43|67->43|67->43|67->43|67->43|67->43|67->43|67->43|67->43|116->92|116->92|116->92|116->92|139->115|139->115|141->117|141->117|141->117|142->118|144->120|144->120|144->120|145->121|145->121|146->122|146->122|146->122|147->123|153->129|153->129|154->130|154->130|154->130|155->131|156->132|156->132|157->133|157->133|157->133|157->133|158->134|159->135|159->135|160->136|160->136|162->138|162->138|162->138|163->139|163->139|163->139|163->139|164->140|164->140|165->141|166->142|166->142|166->142|166->142|167->143|168->144|168->144|169->145|169->145|170->146|170->146|172->148|172->148|173->149|176->152|176->152|176->152|177->153|177->153|178->154|180->156|180->156|180->156|180->156|181->157|182->158|182->158|185->161|185->161|186->162|186->162|186->162|186->162|186->162|186->162|187->163|187->163|187->163|188->164|189->165|189->165|190->166|190->166|191->167|191->167|192->168|194->170|194->170|195->171|195->171|198->174|198->174|199->175|201->177|201->177|202->178|204->180|204->180|206->182|206->182|206->182|207->183|207->183|207->183|207->183|207->183|208->184|208->184|209->185|211->187|211->187|221->197|221->197|223->199|223->199|223->199|224->200|224->200|225->201|226->202|226->202|227->203|228->204|228->204|229->205|229->205|229->205|229->205|230->206|231->207|231->207|232->208|232->208|234->210|234->210
                   -- GENERATED --
               */
           

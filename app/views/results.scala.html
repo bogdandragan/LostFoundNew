@@ -1,0 +1,325 @@
+
+@main("Поиск") {
+<section ng-controller="searchCtrl">
+    <div class="category-search">
+        <div class="container">
+            <div class="row category-search-box">
+                <form ng-submit="search()">
+                    <div class="col-md-3 col-sm-3  cat-search-input">
+                        <input type="text" ng-model="key" class="form-control" id="searchkey" placeholder="Введите колючевое слово">
+                    </div>
+                    <div class="col-md-3 col-sm-3  cat-search-input">
+                        <input id="citysel" ng-model="selectedAddr" ng-change="cityInput()" type="text"
+                        typeahead="address as address.formatted_address for address in locations | limitTo:10"
+                        typeahead-loading="loadingLocations"
+                        typeahead-no-results="noResults"
+                        class="form-control"
+                        ng-class="{'cityRequired' : isRequired}"
+                        autocomplete="off"
+                        placeholder="Вся Украина">
+                        <span class="isRequired" ng-cloak ng-show="isRequired">Выберите город</span>
+                    </div>
+                    <div class="col-md-3 col-sm-3  cat-search-input">
+                        <select class="form-control"  ng-model="categories.selectedCat" ng-options="option.name for option in categories.availableCat track by option.id" id="searchcategory" placeholder="Выберите рубрику" autocomplete="off">
+                        </select>
+                    </div>
+                    <div class="col-md-3 col-sm-3  cat-search-input">
+                        <button type="submit" class="btn btn-custom btn-block"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <section class="category-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                        &nbsp;
+                </div>
+                <div class="col-md-6">
+                    <ul class="breadcrumb pull-right" ng-cloak>
+                        <li><a href="/">Главная</a></li>
+                        <li><a ng-href="/results?key=&regionId=0&cityId=0&categoryId={{selectedCategoryId}}">{{selectedCategory}}</a></li>
+                        <li>{{selectedAddress}}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-9 col-sm-9 col-md-push-3 col-sm-push-3">
+                    <div class="category-header no-margin-bottom">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="filter-results">
+                                    <li><a href="#" ng-click="showAll = true; showFound = false; showLost = false">Все</a></li>
+                                    <li><a href="#" ng-click="showAll = false; showFound = false; showLost = true">Потерянные</a></li>
+                                    <li><a href="#" ng-click="showAll = false; showFound = true; showLost = false">Найденные</a></li>
+                                    <li ng-show="showRegionFilter" ng-cloak><a ng-click="filterAllRegion()" href="#">Поиск по всей области</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search-results-box">
+                        <div class="row">
+                            <div class="col-md-12 search-results" ng-cloak>
+                                Результатов : <span>{{(results|filter:filterByType).length}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-results" ng-cloak>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="item-result" dir-paginate="announcement in results | filter:filterByType | itemsPerPage:10">
+
+                                    <div class="row">
+
+                                        <div class="col-xs-12 col-sm-5 col-md-3 item-img-wrap">
+                                            <div ng-if="announcement.type == 'found'"  class="item-badge found-ads">
+                                                <a href="#">Находка</a>
+                                            </div>
+                                            <div ng-if="announcement.type == 'lost'"  class="item-badge lost-ads">
+                                                <a href="#">Потеря</a>
+                                            </div>
+                                            <div class="item-img">
+                                                <a ng-href="/announcement/show?id={{announcement.id}}"><img alt="" ng-src="/assets/{{announcement.photo}}"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-7 col-md-9">
+                                            <div class="item-title">
+                                                <a ng-href="/announcement/show?id={{announcement.id}}"><h4>{{announcement.title}}</h4></a>
+                                            </div>
+                                            <div class="item-meta">
+                                                <ul>
+                                                    <li class="item-date"><i class="fa fa-clock-o"></i> {{convertToLocalDate(announcement.timestamp)}}</li>
+                                                    <li class="item-cat"><i class="fa fa-bars"></i> <a ng-href="/results?key=&regionId=0&cityId=0&categoryId={{announcement.categoryId}}"> {{announcement.category}}</a></li>
+                                                    <li class="item-location"><a href=""><i class="fa fa-map-marker"></i> {{announcement.city}}, {{announcement.region}}</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <dir-pagination-controls
+                            max-size="5"
+                            direction-links="true"
+                            boundary-links="true" >
+                            </dir-pagination-controls>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-md-pull-9 col-sm-pull-9">
+                    <div class="widget">
+                        <div class="widget-header">
+                            <h3>Поиск по рубрикам</h3>
+                        </div>
+                        <div class="widget-body">
+                            <ul class="trends">
+                                <li><a href="/results?key=&regionId=0&cityId=0&categoryId=2">Документы</a></li>
+                                <li><a href="/results?key=&regionId=0&cityId=0&categoryId=1">Животные</a></li>
+                                <li><a href="/results?key=&regionId=0&cityId=0&categoryId=5">Люди</a></li>
+                                <li><a href="/results?key=&regionId=0&cityId=0&categoryId=3">Электроника</a></li>
+                                <li><a href="/results?key=&regionId=0&cityId=0&categoryId=4">Сумки/Кошельки</a></li>
+                                <li><a href="/results?key=&regionId=0&cityId=0&categoryId=7">Одежда/Обувь</a></li>
+                                <li><a href="/results?key=&regionId=0&cityId=0&categoryId=6">Транспорт</a></li>
+                                <li><a href="/results?key=&regionId=0&cityId=0&categoryId=8">Другое</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+    <script src="assets/javascripts/dirPagination.js"></script>
+
+
+    <script>
+        angular.module('lostfoundApp', ['ui.bootstrap', 'angularUtils.directives.dirPagination'])
+        .controller('mainCtrl', function($scope, $http, $timeout) {
+
+                $scope.checkSession = function(){
+                    $scope.showUserMenu = false;
+                    $scope.showProfileLink = false;
+                    $http.post('@routes.Account.checkSession()')
+                    .success(function(data){
+                        if(data.error == ""){
+                            $scope.showUserMenu = true;
+                            $scope.profile = data.email.substring(0, data.email.lastIndexOf("@@"));
+                        }
+                        else{
+                            $scope.showProfileLink = true;
+                        }
+                    }).error(function(data){
+                        console.log(data);
+                    });
+                }
+
+                $scope.doLogout = function(){
+                    $http.post('@routes.Account.logout()')
+                    .success(function(data){
+                        window.location.replace("/");
+                    }).error(function(data, status){
+                        console.log(data);
+                    });
+                }
+        })
+
+        .controller('searchCtrl', function($scope, $http) {
+
+            var params = {"key":url('?key'), "region":url('?regionId'), "city":url('?cityId'), "category":url('?categoryId')};
+            $scope.selectedAddr = {"regionId":0,"cityId":0, formatted_address:""};
+            $scope.key = url('?key');
+
+            $scope.setRegionFilter = function(){
+                if(url('?regionId') != "0"){
+                    $scope.showRegionFilter = true;
+                }
+                else{
+                    $scope.showRegionFilter = false;
+                }
+            }
+
+            $scope.initTopLinks = function(){
+                $scope.selectedCategory = $scope.categories.selectedCat.name;
+                $scope.selectedCategoryId = $scope.categories.selectedCat.id;
+                $scope.selectedAddress = $scope.selectedAddr.formatted_address;
+                if($scope.selectedAddress == ""){
+                    $scope.selectedAddress = "Вся Украина";
+                }
+            }
+
+            $scope.doFilter = function(){
+                $http.post('@routes.Announcement.doFilter()', params)
+                    .success(function(data){
+                    console.log(data);
+                    $scope.results = data;
+                }).error(function(data){
+                    console.log(data);
+                });
+            }
+
+            if(url('?regionId')>0){
+                $http.post('@routes.Announcement.getRegionById()', {"action":"getRegion", "id":url('?regionId')})
+                .success(function(data){
+                var region = data.region;
+                if(url('?cityId')>0){
+                    $http.post('@routes.Announcement.getCityById()', {"action":"getCity", "id":url('?cityId')})
+                    .success(function(data){
+                        var city = data.city;
+                        $scope.selectedAddr = {"regionId":url('?regionId'),"cityId":url('?cityId'), formatted_address:city+", "+region};
+                        $scope.selectedAddress = $scope.selectedAddr.formatted_address;
+                        if($scope.selectedAddress == ""){
+                            $scope.selectedAddress = "Вся Украина";
+                        }
+                    }).error(function(data){
+                        console.log(data);
+                    });
+                }
+                }).error(function(data){
+                console.log(data);
+                });
+            }
+
+            $http.get('@routes.Announcement.getCategories()')
+            .success(function(data){
+                console.log(data);
+                var availableCat = data;
+                availableCat.unshift({"id":0,"name":"Все рубрики"});
+                var categories = {"availableCat":availableCat, "selectedCat":{"id":0,"name":"Все рубрики"}};
+                $scope.categories = categories;
+                $scope.initTopLinks();
+                if(url('?categoryId')>0){
+                    console.log($scope.categories);
+                    $http.post('@routes.Announcement.getCategoryById()', {"action":"getCategory", "id":url('?categoryId')})
+                    .success(function(data){
+                        $scope.categories.selectedCat.id = url('?categoryId');
+                        $scope.categories.selectedCat.name = data.category;
+                        $scope.selectedCategory = $scope.categories.selectedCat.name;
+                        $scope.selectedCategoryId = $scope.categories.selectedCat.id;
+                    }).error(function(data){
+                        console.log(data);
+                    });
+                }
+            }).error(function(data){
+                console.log(data);
+            });
+
+            $scope.showAll = true;
+            $scope.doFilter();
+            $scope.setRegionFilter();
+
+
+            $scope.$watch('selectedAddr', function() {
+               return $http.get('@routes.Announcement.getAddress()', {
+                params: {
+                q: $scope.selectedAddr
+                  }
+                })
+               .then(function(response){
+                    console.log(response);
+                    $scope.locations = response.data;
+               });
+            });
+
+            $scope.search = function(){
+                //console.log($scope.categories);
+                //console.log($scope.selectedAddr);
+                if($scope.selectedAddr == ""){
+                    $scope.selectedAddr = {"regionId":0,"cityId":0, formatted_address:""};
+                }
+                if(typeof($scope.selectedAddr.regionId) == "undefined"){
+                    $scope.isRequired = true;
+                    return false;
+                }
+
+                params = {"key":$scope.key, "region":$scope.selectedAddr.regionId.toString(), "city":$scope.selectedAddr.cityId.toString(), "category":$scope.categories.selectedCat.id.toString()};
+                console.log(params);
+                $scope.doFilter();
+                var newQuery = "?key="+$scope.key+"&regionId="+$scope.selectedAddr.regionId+"&cityId="+$scope.selectedAddr.cityId+"&categoryId="+$scope.categories.selectedCat.id;
+                var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + newQuery;
+                window.history.pushState({path:newUrl},'',newUrl);
+                 $scope.setRegionFilter();
+
+            }
+
+            $scope.cityInput = function(){
+                $scope.isRequired = false;
+            }
+
+            $scope.filterByType = function(item){
+                if($scope.showLost){
+                    return item.type == 'lost';
+                }
+                else if($scope.showFound){
+                    return item.type == 'found';
+                }
+                else if($scope.showAll){
+                    return item;
+                }
+
+            };
+
+            $scope.filterAllRegion = function(){
+                params = {"key":$scope.key, "region":$scope.selectedAddr.regionId.toString(), "city":"0", "category":$scope.categories.selectedCat.id.toString()};
+                console.log(params);
+                $scope.doFilter();
+                var newQuery = "?key="+$scope.key+"&regionId="+$scope.selectedAddr.regionId+"&cityId="+0+"&categoryId="+$scope.categories.selectedCat.id;
+                var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + newQuery;
+                window.history.pushState({path:newUrl},'',newUrl);
+            }
+
+            $scope.convertToLocalDate = function(timestamp){
+                var t = timestamp + moment(timestamp).utcOffset()*60000;
+                var current =  moment(moment(t) - moment().utcOffset()).format('DD-MM-YYYY HH:mm:ss');
+                return current;
+            };
+        })
+    </script>
+
+}

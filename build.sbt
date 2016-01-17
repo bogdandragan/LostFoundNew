@@ -17,9 +17,8 @@ libraryDependencies ++= Seq(
   "mysql" % "mysql-connector-java" % "5.1.12",
   "org.mindrot" % "jbcrypt" % "0.3m",
   "org.apache.commons" % "commons-email" % "1.3.3",
-  "com.typesafe.play" %% "play-mailer" % "3.0.1"
-
-
+  "com.typesafe.play" %% "play-mailer" % "3.0.1",
+  "joda-time" % "joda-time" % "2.9.1"
 )
 
 resolvers += "Scalaz Bintray Repo" at "http://dl.bintray.com/scalaz/releases"

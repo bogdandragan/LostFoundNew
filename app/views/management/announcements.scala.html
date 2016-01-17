@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Administration</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/paper.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap-datetimepicker.min.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/jquery-1.11.1.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/angular.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/bootstrap.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/dirPagination.js")" type="text/javascript"></script>
+
+        <script src="@routes.Assets.at("javascripts/moment-with-locales.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/bootstrap-datetimepicker.min.js")" type="text/javascript"></script>
+        <style>
+
+        </style>
+    </head>
+    <body ng-app="ManagementApp" ng-controller="announcementsCtrl">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainmenu" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Management</a>
+                </div>
+
+                <div class="navbar-collapse collapse" id="mainmenu" aria-expanded="false" style="height: 1px;">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Обьявления</a></li>
+                        <li><a href="/management/users">Пользователи</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <a href="#" ng-click="doLogout()" style="margin-top: 15px;" class="btn btn-warning">Выход</a>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="col-md-offset-1 col-md-10">
+            <div class="row">
+                <div class='col-md-5'>
+                    <div class="form-group">
+                        <div class='input-group date' id='dateFrom'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-md-5'>
+                    <div class="form-group">
+                        <div class='input-group date' id='dateTo'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-md-2 col-sm-12'>
+                    <button class="btn btn-primary" ng-click="getAnnouncements()" style="width :100%; margin-bottom: 10px;">Filter</button>
+                </div>
+            </div>
+            <div class="row options" style="margin-bottom: 20px;">
+                <div class="radio-inline col-md-2">
+                    <label>
+                        <input type="radio" name="optionsRadios1" ng-model="request.period" value="lasthour" ng-change="setLasthour()">
+                        Last hour
+                    </label>
+                </div>
+                <div class="radio-inline col-md-2">
+                    <label>
+                        <input type="radio" name="optionsRadios1"  ng-model="request.period" value="today" ng-change="setToday()">
+                        Today
+                    </label>
+                </div>
+                <div class="radio-inline col-md-2">
+                    <label>
+                        <input type="radio" name="optionsRadios1" ng-model="request.period" value="lastweek" ng-change="setLastweek()">
+                        Last week
+                    </label>
+                </div>
+                <div class="radio-inline col-md-2">
+                    <label>
+                        <input type="radio" name="optionsRadios1" ng-model="request.period" value="lastmonth" ng-change="setLastmonth()">
+                        Last month
+                    </label>
+                </div>
+
+            </div>
+            <div class="row">
+                <h5 class="col-md-12">From: {{startDate}} To: {{endDate}}</h5>
+            </div>
+            <p style="float: right; margin-bottom: 0px; margin-top: 20px;">Total: {{announcements.length}} announcement(s)</p>
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="text" ng-model="search" class="form-control" placeholder="Поиск">
+                </div>
+            </form>
+            <div class="load-bar">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <table id="result" class="table table-bordered table-hover" style="margin-top: 10px; display: none;">
+                <thead>
+                    <tr>
+                        <th ng-click="sort('id')">ID
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                        <th>Photo</th>
+                        <th ng-click="sort('title')">Title
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='title'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                        <th>Description</th>
+                        <th>Place</th>
+                        <th ng-click="sort('email')">Email
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='email'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                        <th ng-click="sort('timestamp')">Date
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='timestamp'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                        <th>Phone</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr dir-paginate="announcement in announcements |orderBy:sortKey:reverse | filter: search | itemsPerPage:10" ng-class="(announcement.type=='found') ? 'success' : 'warning'">
+                        <td>{{announcement.id}}</td>
+                        <td><img ng-src="/assets/{{announcement.photo}}" style="max-width : 100px;"/></td>
+                        <td>{{announcement.title}}</td>
+                        <td>{{announcement.description | limitTo:30}}{{announcement.description.length > 30 ? '...' : ''}}</td>
+                        <td>{{announcement.city}}, {{announcement.region}}</td>
+                        <td>{{announcement.email}}</td>
+                        <td>{{convertToLocalDate(announcement.timestamp)}}</td>
+                        <td>{{announcement.phone}}</td>
+                        <td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal" ng-click="deleteReq(announcement)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <dir-pagination-controls
+                    max-size="5"
+                    direction-links="true"
+                    boundary-links="true" >
+                    </dir-pagination-controls>
+                </div>
+            </div>
+            <div id="deleteModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h4>Удалить запись?</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" ng-click="deleteConfirm()">Удалить</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+        var date = new Date();
+        var fromTimestamp = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()-1, date.getMinutes()).getTime() +date.getTimezoneOffset()*60000;
+        var toTimestamp = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes()).getTime() +date.getTimezoneOffset()*60000;
+         $(function () {
+            $('#dateFrom').datetimepicker({format: 'DD/MM/YYYY HH:mm'});
+            $('#dateTo').datetimepicker({
+                useCurrent: false,
+                format: 'DD/MM/YYYY HH:mm'
+            });
+
+            $("#dateFrom").on("dp.change", function (e) {
+                $('#dateTo').data("DateTimePicker").minDate(e.date);
+                var moment = $('#dateFrom').data("DateTimePicker").date();
+                fromTimestamp = moment.unix()*1000 - moment.utcOffset()*60000;
+                console.log(fromTimestamp);
+            });
+            $("#dateTo").on("dp.change", function (e) {
+                $('#dateFrom').data("DateTimePicker").maxDate(e.date);
+                var moment = $('#dateTo').data("DateTimePicker").date();
+                toTimestamp = moment.unix()*1000 - moment.utcOffset()*60000;
+                console.log(toTimestamp);
+            });
+
+            $('#dateFrom').data("DateTimePicker").defaultDate(new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()-1, date.getMinutes()));
+            $('#dateTo').data("DateTimePicker").defaultDate(new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes()));
+        });
+    var ngApplication = angular.module('ManagementApp', ['angularUtils.directives.dirPagination']);
+    ngApplication.controller('announcementsCtrl', function($scope, $http, $location){
+
+        $scope.request = {
+            "period" : "lasthour"
+        }
+        console.log($scope.period);
+
+        $scope.getAnnouncements = function(){
+            $scope.startDate = moment(fromTimestamp+moment().utcOffset()*60000).format("DD-MM-YYYY HH:mm");
+            $scope.endDate = moment(toTimestamp+moment().utcOffset()*60000).format("DD-MM-YYYY HH:mm");
+            console.log(new Date(fromTimestamp));
+            console.log(new Date(toTimestamp));
+            var url = '@routes.Administration.getAdminAnnouncements()';
+            var request = $http.post(url, {from: fromTimestamp, to: toTimestamp });
+            $("#result").hide();
+            $(".load-bar").show();
+
+            request.success(function(data, status, headers, config) {
+                console.log(data);
+                $(".load-bar").hide();
+                $("#result").show();
+
+                $scope.announcements = data.result;
+                $scope.count = data.count;
+            });
+            request.error(function(data, status, headers, config) {
+                if(status == 401){
+                    window.location.replace("/management");
+                }
+                console.log("error:"+data.status);
+            });
+        };
+
+        $scope.getAnnouncements();
+
+        $scope.setLasthour = function(){
+            $scope.request.period = "lasthour";
+            var fromDate = moment().subtract(1, 'h');
+            var toDate = moment();
+            $('#dateFrom').data("DateTimePicker").date(fromDate);
+            $('#dateTo').data("DateTimePicker").date(toDate);
+        }
+
+        $scope.setToday = function(){
+            $scope.request.period = "today";
+            var fromDate = moment({hour: 0});
+            var toDate = moment();
+            $('#dateFrom').data("DateTimePicker").date(fromDate);
+            $('#dateTo').data("DateTimePicker").date(toDate);
+        }
+
+        $scope.setLastweek = function(){
+            $scope.request.period = "lastweek";
+            var fromDate = moment().subtract(1, 'w');
+            var toDate = moment();
+            $('#dateFrom').data("DateTimePicker").date(fromDate);
+            $('#dateTo').data("DateTimePicker").date(toDate);
+        }
+
+        $scope.setLastmonth = function(){
+            $scope.request.period = "lastmonth";
+            var fromDate = moment().subtract(1, 'M');
+            var toDate = moment();
+            $('#dateFrom').data("DateTimePicker").date(fromDate);
+            $('#dateTo').data("DateTimePicker").date(toDate);
+        }
+
+        $scope.sortKey = "timestamp";
+        $scope.reverse = true;
+        $scope.sort = function(keyname){
+            $scope.sortKey = keyname;   //set the sortKey to the param passed
+            $scope.reverse = !$scope.reverse; //if true make it false and vice versa
+        }
+
+        $scope.deleteReq = function(announcement){
+            $scope.currentIndex = $scope.announcements.indexOf(announcement);
+            $scope.indexToDelete = announcement.id;
+        }
+
+        $scope.deleteConfirm = function(){
+            var url = '@routes.Announcement.deleteAnnouncementById()';
+            var request = $http.post(url,{"action" : "deleteAnnouncement", "id": $scope.indexToDelete.toString()});
+
+            request.success(function(data, status, headers, config) {
+                if(data.error == ""){
+                    console.log($scope.currentIndex);
+                    $scope.announcements.splice($scope.currentIndex, 1);
+                    $('#deleteModal').modal('hide');
+                }
+            });
+            request.error(function(data, status, headers, config) {
+                console.log("error:"+status);
+            });
+        }
+
+        $scope.doLogout = function(){
+            var url = '@routes.Administration.doAdminLogout()';
+            var request = $http.post(url);
+
+            request.success(function(data, status, headers, config) {
+                window.location.replace("/management");
+            });
+            request.error(function(data, status, headers, config) {
+                console.log("error:"+status);
+            });
+        };
+
+         $scope.convertToLocalDate = function(timestamp){
+            var t = timestamp + moment(timestamp).utcOffset()*60000;
+            var current =  moment(moment(t) - moment().utcOffset()).format('DD-MM-YYYY HH:mm:ss');
+            return current;
+         };
+    });
+</script>
+    </body>
+</html>

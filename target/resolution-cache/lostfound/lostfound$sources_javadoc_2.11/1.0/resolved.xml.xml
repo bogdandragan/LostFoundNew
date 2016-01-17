@@ -4,7 +4,7 @@
 		module="lostfound$sources_javadoc_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20151205195458"
+		publication="20160113002350"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
@@ -83,10 +83,6 @@
 		<dependency org="com.typesafe.play" name="play-datacommons_2.11" rev="2.4.0" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile);docs->default(compile)">
 			<artifact name="play-datacommons_2.11" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="play-datacommons_2.11" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
-		</dependency>
-		<dependency org="joda-time" name="joda-time" rev="2.7" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile);docs->default(compile)">
-			<artifact name="joda-time" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-			<artifact name="joda-time" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.joda" name="joda-convert" rev="1.7" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile);docs->default(compile)">
 			<artifact name="joda-convert" type="src" ext="jar" conf="sources" e:classifier="sources"/>
@@ -290,6 +286,10 @@
 		<dependency org="com.typesafe.play" name="play-mailer_2.11" rev="3.0.1" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
 			<artifact name="play-mailer_2.11" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="play-mailer_2.11" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="joda-time" name="joda-time" rev="2.9.1" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
+			<artifact name="joda-time" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="joda-time" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="com.typesafe.play" name="play-test_2.11" rev="2.4.0" transitive="false" conf="test->default(compile);test-internal->default(compile)">
 			<artifact name="play-test_2.11" type="src" ext="jar" conf="sources" e:classifier="sources"/>
@@ -507,6 +507,10 @@
 		<dependency org="com.typesafe.play" name="play-docs_2.11" rev="2.4.0" transitive="false" conf="docs->default(compile)">
 			<artifact name="play-docs_2.11" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="play-docs_2.11" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="joda-time" name="joda-time" rev="2.7" transitive="false" conf="docs->default(compile)">
+			<artifact name="joda-time" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="joda-time" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="com.google.guava" name="guava" rev="16.0.1" transitive="false" conf="docs->default(compile)">
 			<artifact name="guava" type="src" ext="jar" conf="sources" e:classifier="sources"/>

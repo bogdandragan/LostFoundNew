@@ -27,6 +27,10 @@ class Home extends Controller with HasDatabaseConfig[JdbcProfile]{
     Ok(views.html.index())
   }
 
+  def searchResult(key: Option[String], regionId: Option[Int], cityId: Option[Int], categoryId: Option[Int]) = Action{
+    Ok(views.html.results())
+  }
+
   implicit val rds = (
     (__ \ "email").read[String] and
       (__ \ "password").read[String]
@@ -109,8 +113,69 @@ class Home extends Controller with HasDatabaseConfig[JdbcProfile]{
         }
       }
     )
+  }
 
+  case class NewAnnouncement (_type: String, title: String, category: String, contact: String, description: String, email: String, region: Int, city: Int, base64: String, filetype: String)
+  implicit val an2Reads: Reads[NewAnnouncement] = (
+    (JsPath \ "_type").read[String] and
+      (JsPath \ "title").read[String] and
+      (JsPath \ "category").read[String] and
+      (JsPath \ "contact").read[String] and
+      (JsPath \ "description").read[String] and
+      (JsPath \ "email").read[String] and
+      (JsPath \ "region").read[Int] and
+      (JsPath \ "city").read[Int] and
+      (JsPath \ "base64").read[String] and
+      (JsPath \ "filetype").read[String]
+    )(NewAnnouncement.apply _)
 
+  def postAnnouncement = Action.async(parse.json) { implicit request =>
+    request.body.validate[NewAnnouncement].fold (
+      errors => {
+        Future.successful(BadRequest("Invalid json:" + JsError.toJson(errors)))
+      },
+      announcement => {
+        val photoPath = ""//saveImage(announcement.base64, announcement.filetype)
+        if(announcement._type == "found"){
+//          val found = new AnnouncementsRow(0,announcement.title,"found",announcement.category.toInt,announcement.description,announcement.region,announcement.city,announcement.contact,announcement.email, photoPath)
+ //         db.run(models.Tables.Announcements += found)
+          Future.successful(Ok(Json.obj("error"->photoPath)))
+        }
+        else{
+   //       val lost = new AnnouncementsRow(0,announcement.title,"lost",announcement.category.toInt,announcement.description,announcement.region,announcement.city,announcement.contact,announcement.email, photoPath)
+     //     db.run(models.Tables.Announcements += lost)
+          Future.successful(Ok(Json.obj("error"->photoPath)))
+        }
+      }
+    )
+  }
+
+  case class SearchParams (key: String, region: String, city: String, category: String)
+  implicit val search2Reads: Reads[SearchParams] = (
+    (JsPath \ "key").read[String] and
+      (JsPath \ "region").read[String] and
+      (JsPath \ "city").read[String] and
+      (JsPath \ "category").read[String]
+    )(SearchParams.apply _)
+
+  def doFilter() = Action.async(parse.json){ implicit request =>
+    request.body.validate[SearchParams].fold (
+      errors => {
+        Future.successful(BadRequest("Invalid json:" + JsError.toJson(errors)))
+      },
+      searchParams => {
+        Future.successful(Ok(Json.obj("error"->"")))
+
+        /*val q = db.run(Announcements.filter(_.id === key.toInt).join(Categories).on(_.categoryId === _.id)
+     .join(Regions).on(_._1.regionId === _.id)
+     .join(Cities).on(_._1._1.cityId === _.id)
+     .map(m=>(m._1._1._1.id, m._1._1._1.title, m._1._1._1.description, m._1._1._1.contact, m._1._1._1.photo, m._1._1._1.email, m._1._1._2.name, m._1._2.name, m._2.name, m._1._1._1.`type`)).take(12).sortBy(s => s._1.desc).result)
+
+   q.map(
+     res => Ok(Json.toJson(res))
+   )*/
+      }
+    )
   }
 
 }
