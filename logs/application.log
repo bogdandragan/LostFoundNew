@@ -3111,3 +3111,7 @@ play.sbt.PlayExceptions$CompilationException: Compilation error[value myAnnounce
 2016-01-17 12:50:05,781 [WARN] from application in application-akka.actor.default-dispatcher-6 - Logger configuration in conf files is deprecated and has no effect. Use a logback configuration file instead.
 2016-01-17 12:50:05,827 [INFO] from play.api.libs.concurrent.ActorSystemProvider in application-akka.actor.default-dispatcher-6 - Starting application default Akka system: application
 2016-01-17 12:50:05,978 [INFO] from play.api.Play$ in application-akka.actor.default-dispatcher-6 - Application started (Dev)
+2016-01-17 20:46:59,409 [INFO] from play.api.libs.concurrent.ActorSystemProvider in application-akka.actor.default-dispatcher-29 - Shutdown application default Akka system: application
+2016-01-17 20:47:00,269 [WARN] from application in application-akka.actor.default-dispatcher-8 - Logger configuration in conf files is deprecated and has no effect. Use a logback configuration file instead.
+2016-01-17 20:47:01,383 [INFO] from play.api.libs.concurrent.ActorSystemProvider in application-akka.actor.default-dispatcher-8 - Starting application default Akka system: application
+2016-01-17 20:47:02,430 [INFO] from play.api.Play$ in application-akka.actor.default-dispatcher-8 - Application started (Dev)
