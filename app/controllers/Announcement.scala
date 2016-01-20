@@ -1,10 +1,14 @@
 package controllers
 
+import java.awt.image.BufferedImage
+import java.io.File
 import java.sql.Timestamp
+import java.util.logging.Logger
 import javax.inject.Inject
 
 import models.Tables._
 import org.joda.time.{UTCDateTimeZone, LocalDateTime, DateTimeZone, DateTime}
+import play.api
 import play.api.Play
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfig}
 import play.api.libs.json._
@@ -15,6 +19,8 @@ import slick.driver.JdbcProfile
 import slick.driver.MySQLDriver.api._
 import scala.concurrent.duration._
 import java.nio.file._
+import javax.imageio.ImageIO
+import org.imgscalr.Scalr
 import org.apache.commons.codec.binary.Base64
 import play.api.libs.functional.syntax._
 import scala.concurrent.{Await, Future}
@@ -33,6 +39,10 @@ class Announcement extends Controller  with HasDatabaseConfig[JdbcProfile] {
 
   def notFound = Action {
     Ok(views.html.announcement.notfound())
+  }
+
+  def edit = Action {
+    Ok(views.html.announcement.editannouncement())
   }
 
   case class NewAnnouncement (_type: String, title: String, category: String, contact: String, description: String, email: String, region: Int, city: Int, base64: String, filetype: String, phone: String)
@@ -83,6 +93,95 @@ class Announcement extends Controller  with HasDatabaseConfig[JdbcProfile] {
     )
   }
 
+  case class UpdateAnnouncement (id: Int, _type: String, title: String, category: String, contact: String, description: String, email: String, region: Int, city: Int, base64: String, filetype: String, phone: String)
+  implicit val updAn2Reads: Reads[UpdateAnnouncement] = (
+    (JsPath \ "id").read[Int] and
+    (JsPath \ "_type").read[String] and
+      (JsPath \ "title").read[String] and
+      (JsPath \ "category").read[String] and
+      (JsPath \ "contact").read[String] and
+      (JsPath \ "description").read[String] and
+      (JsPath \ "email").read[String] and
+      (JsPath \ "region").read[Int] and
+      (JsPath \ "city").read[Int] and
+      (JsPath \ "base64").read[String] and
+      (JsPath \ "filetype").read[String] and
+      (JsPath \ "phone").read[String]
+    )(UpdateAnnouncement.apply _)
+
+  def updateAnnouncement() = Action.async(parse.json) { implicit request =>
+    request.body.validate[UpdateAnnouncement].fold (
+      errors => {
+        Future.successful(BadRequest("Invalid json:" + JsError.toJson(errors)))
+      },
+      announcement => {
+        request.session.get("id").map { user =>
+          val q = db.run(Users.filter(f => f.sessionId === user).map(m=>m.id).result.headOption)
+
+          q.map(
+            res => {
+              val getUserId = db.run(Announcements.filter(_.id === announcement.id).map(m=>m.userId).result.head)
+              val userId = Await.result(getUserId, Duration(15, SECONDS))
+              if(userId.get == res.get){
+                if(announcement.base64 != ""){
+                  val photoPath = saveImage(announcement.base64, announcement.filetype)
+                  val updateQuery = db.run(Announcements.filter(f=> f.id === announcement.id)
+                    .map(m=>(m.`type`, m.title, m.categoryId, m.contact, m.cityId, m.regionId, m.description, m.phone, m.photo))
+                    .update((announcement._type, announcement.title, announcement.category.toInt, announcement.contact, announcement.city.toInt, announcement.region.toInt, announcement.description, announcement.phone, photoPath)))
+                }
+                else{
+                  val updateQuery = db.run(Announcements.filter(f=> f.id === announcement.id).map(m=>(m.`type`, m.title, m.categoryId, m.contact, m.cityId, m.regionId, m.description, m.phone))
+                    .update((announcement._type, announcement.title, announcement.category.toInt, announcement.contact, announcement.city.toInt, announcement.region.toInt, announcement.description, announcement.phone)))
+                }
+                Ok(Json.obj("error" -> ""))
+              }
+              else{
+                Unauthorized(Json.obj("error" -> "forbidden"))
+              }
+            }
+          )
+        }.getOrElse {
+          Future.successful(Unauthorized(Json.obj("error" -> "forbidden")))
+        }
+      }
+    )
+  }
+
+  def deleteAnnouncementById() = Action.async(parse.json) { implicit request =>
+    request.body.validate[AnParam].fold (
+      errors => {
+        Future.successful(BadRequest("Invalid json:" + JsError.toJson(errors)))
+      },
+      param => {
+        request.session.get("id").map { user =>
+          val q = db.run(Users.filter(f => f.sessionId === user).map(m=>m.id).result.headOption)
+
+          q.map(
+            res => {
+              val getUserId = db.run(Announcements.filter(_.id === param.id.toInt).map(m=>m.userId).result.head)
+              val userId = Await.result(getUserId, Duration(15, SECONDS))
+              if(userId.get == res.get){
+                val deleteQuery = db.run(Announcements.filter(_.id === param.id.toInt).delete)
+                val deleteRes = Await.result(deleteQuery, Duration(15, SECONDS))
+                if(deleteRes > 0){
+                  Ok(Json.obj("error"->""))
+                }
+                else{
+                  Ok(Json.obj("error"->"empty result"))
+                }
+              }
+              else{
+                Unauthorized(Json.obj("error" -> "forbidden"))
+              }
+            }
+          )
+        }.getOrElse {
+          Future.successful(Unauthorized(Json.obj("error" -> "forbidden")))
+        }
+      }
+    )
+  }
+
   def saveImage(base64: String, filetype: String) = {
     var path = ""
     if(base64.isEmpty){
@@ -92,8 +191,15 @@ class Announcement extends Controller  with HasDatabaseConfig[JdbcProfile] {
       val ext = filetype.split('/')(1)
       val filename = System.currentTimeMillis.toString+"."+ext
       path = "images/"+filename
-      val byteArr : Array[Byte] = Base64.decodeBase64(base64)
-      Files.write(Paths.get("public/"+path), byteArr, StandardOpenOption.CREATE)
+      try{
+        val byteArr : Array[Byte] = Base64.decodeBase64(base64)
+        Files.write(Paths.get("public/"+path), byteArr, StandardOpenOption.CREATE)
+        val originalImg = ImageIO.read(new File("public/"+path))
+        val resizedImg = Scalr.resize(originalImg, 800, Scalr.OP_ANTIALIAS)
+        ImageIO.write(resizedImg, ext,  new File("public/"+path))
+      }catch {
+        case e: Exception => api.Logger.warn("Can't save image " + e.toString)
+      }
     }
     path
   }
@@ -108,9 +214,9 @@ class Announcement extends Controller  with HasDatabaseConfig[JdbcProfile] {
     (JsPath \ "id").read[String]
     )(AnParam.apply _)
 
-  implicit val announcementWrites = new Writes[(Int, String, String, String, String, String, String, String, String, String, String, Option[Timestamp], Int)] {
-    def writes(t: (Int, String, String, String, String, String, String, String, String, String, String, Option[Timestamp], Int)) =
-      Json.obj("id" -> t._1, "title" -> t._2, "description"->t._3, "contact"->t._4, "photo"->t._5, "email"->t._6, "phone"->t._7, "category"->t._8, "region"->t._9, "city"->t._10, "type"->t._11, "timestamp"->t._12, "categoryId"->t._13)
+  implicit val announcementWrites = new Writes[(Int, String, String, String, String, String, String, String, Int, String, Int, String, String, Option[Timestamp], Int)] {
+    def writes(t: (Int, String, String, String, String, String, String, String, Int, String, Int, String, String, Option[Timestamp], Int)) =
+      Json.obj("id" -> t._1, "title" -> t._2, "description"->t._3, "contact"->t._4, "photo"->t._5, "email"->t._6, "phone"->t._7, "category"->t._8, "regionId"->t._9, "region"->t._10, "cityId"->t._11, "city"->t._12, "type"->t._13, "timestamp"->t._14, "categoryId"->t._15)
   }
 
   def loadAd = Action.async(parse.json) { implicit request =>
@@ -122,7 +228,7 @@ class Announcement extends Controller  with HasDatabaseConfig[JdbcProfile] {
         val q = db.run(Announcements.filter(_.id === param.id.toInt).join(Categories).on(_.categoryId === _.id)
           .join(Regions).on(_._1.regionId === _.id)
           .join(Cities).on(_._1._1.cityId === _.id)
-          .map(m=>(m._1._1._1.id, m._1._1._1.title, m._1._1._1.description, m._1._1._1.contact, m._1._1._1.photo, m._1._1._1.email, m._1._1._1.phone, m._1._1._2.name, m._1._2.name, m._2.name, m._1._1._1.`type`, m._1._1._1.date, m._1._1._2.id)).result)
+          .map(m=>(m._1._1._1.id, m._1._1._1.title, m._1._1._1.description, m._1._1._1.contact, m._1._1._1.photo, m._1._1._1.email, m._1._1._1.phone, m._1._1._2.name, m._1._2.id, m._1._2.name, m._2.id, m._2.name, m._1._1._1.`type`, m._1._1._1.date, m._1._1._2.id)).result)
 
         q.map(
           res => Ok(Json.toJson(res))
@@ -435,27 +541,6 @@ class Announcement extends Controller  with HasDatabaseConfig[JdbcProfile] {
     )
   }
 
-  def deleteAnnouncementById() = Action.async(parse.json) { implicit request =>
-    request.body.validate[AnParam].fold (
-      errors => {
-        Future.successful(BadRequest("Invalid json:" + JsError.toJson(errors)))
-      },
-      param => {
-        val q = db.run(Announcements.filter(_.id === param.id.toInt).delete)
-
-        q.map(
-          res =>
-            if(res > 0){
-              Ok(Json.obj("error"->""))
-            }
-            else{
-              Ok(Json.obj("error"->"empty result"))
-            }
-        )
-      }
-    )
-  }
-
   case class MoreAnParam (id:Int, email: String)
   implicit val moreAnParam2Reads: Reads[MoreAnParam] = (
     (JsPath \ "id").read[Int] and
@@ -481,6 +566,50 @@ class Announcement extends Controller  with HasDatabaseConfig[JdbcProfile] {
         )
       }
     )
+  }
+
+  def dbGetUserAnnouncements(email : String) = {
+    val q = db.run(Announcements.join(Categories).on(_.categoryId === _.id)
+      .join(Regions).on(_._1.regionId === _.id)
+      .join(Cities).on(_._1._1.cityId === _.id)
+      .join(Users).on(_._1._1._1.userId === _.id).filter(_._2.email === email)
+      .map(m=>(m._1._1._1._1.id, m._1._1._1._1.title, m._1._1._1._1.description, m._1._1._1._1.contact, m._1._1._1._1.photo, m._1._1._1._1.email, m._1._1._1._2.name, m._1._1._2.name, m._1._2.name, m._1._1._1._1.`type`, m._1._1._1._1.date, m._1._1._1._2.id)).sortBy(s => s._11.desc).result)
+
+     q.map{m=>m}
+  }
+
+  case class UserAnParam (action:String, email: String)
+  implicit val userAnParam2Reads: Reads[UserAnParam] = (
+    (JsPath \ "action").read[String] and
+      (JsPath \ "email").read[String]
+    )(UserAnParam.apply _)
+
+  def getUserAnnouncements = Action.async(parse.json) {implicit request =>
+    request.session.get("id").map { id =>
+      val user = db.run(Users.filter(_.sessionId === id).result)
+
+      user.map(
+        res=>
+          if(res.nonEmpty){
+            request.body.validate[UserAnParam].fold(
+              errors => {
+                BadRequest("Invalid json:" + JsError.toJson(errors))
+              },
+              success => {
+                val email = success.email
+
+                val res = Await.result(dbGetUserAnnouncements(email), Duration(15, SECONDS))
+                Ok(Json.obj("count"->res.length,"result"->Json.toJsFieldJsValueWrapper(res)))
+              }
+            )
+          }
+          else{
+            Unauthorized(Json.obj("error"->"access denied"))
+          }
+      )
+    }.getOrElse {
+      Future.successful(Unauthorized(Json.obj("error"->"access denied")))
+    }
   }
 
 }

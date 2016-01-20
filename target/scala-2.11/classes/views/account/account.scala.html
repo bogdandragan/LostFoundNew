@@ -1,13 +1,6 @@
 
 @main("Профиль") {
-        <section class="main no-padding" ng-controller="accountCtrl">
-            <div class="account-header">
-                <div class="container">
-                    <div class="row">
-
-                    </div> <!-- / .row -->
-                </div> <!-- / .container -->
-            </div>
+        <section class="main no-padding" style="margin-top: 100px;" ng-controller="accountCtrl">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-3">
@@ -17,8 +10,8 @@
                             </div>
                             <div class="widget-body" ng-controller="mainCtrl">
                                 <ul class="author-menus">
-                                    <li><a href="account_posts.html">Обьявления</a></li>
-                                    <li><a href="account_create_post.html">Сообщения</a></li>
+                                    <li><a href="/account/announcements">Обьявления</a></li>
+                                    <!--<li><a href="account_create_post.html">Сообщения</a></li>-->
                                     <li><a href="account_profile.html">Настройки</a></li>
                                     <li><a href="" ng-click="doLogout()">Выход</a></li>
                                 </ul>
@@ -28,10 +21,10 @@
                     <div class="col-md-9 col-sm-9">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title"> <a href="#collapseB1" data-toggle="collapse"> Мой профиль </a> </h4>
+                                <h4 class="panel-title">Мой профиль</h4>
                             </div>
 
-                            <form accept-charset="utf-8" method="post" enctype="multipart/form-data" id="UserProfileForm" class="form-horizontal">
+                            <form accept-charset="utf-8" id="UserProfileForm" class="form-horizontal" ng-submit="updateUser(this.email)">
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Email-адрес</label>
@@ -42,23 +35,23 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Контактное лицо</label>
                                         <div class="col-sm-9">
-                                            <input type="text" required="required"  value="" class="form-control" ng-model="contact">                                   </div>
+                                            <input type="text" value="" class="form-control" ng-model="contact">                                   </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Телефон</label>
                                         <div class="col-sm-9">
-                                            <input type="tel"  value="" maxlength="100" class="form-control" ng-model="phone">                                  </div>
+                                            <input type="tel"  value="" class="form-control" ng-model="phone" pattern="\d{7,12}" title="Номер телефона">                                  </div>
                                     </div>
                                     <div class="form-group">
                                         <label  class="col-sm-3 control-label">Пароль</label>
                                         <div class="col-sm-9">
-                                            <input type="password" class="form-control" placeholder="Оставьте пустым если не хотите изменить пароль" value="" >                                         <span class="help-block"></span>
+                                            <input type="password" class="form-control" ng-model="password" placeholder="Оставьте пустым если не хотите изменять пароль" value="" >                                         <span class="help-block"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label  class="col-sm-3 control-label">Подтвердите пароль</label>
                                         <div class="col-sm-9">
-                                            <input type="password" class="form-control" >                                           <span class="help-block"></span>
+                                            <input type="password" ng-model="confpassword" class="form-control" >
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -70,6 +63,8 @@
                                     <div class="row">
                                         <div class="col-sm-offset-3 col-sm-9">
                                             <button type="submit" class="btn btn-custom"><i class="fa fa-save"></i>Сохранить</button>
+                                            <p id="error" style="display: inline-block; color: red; margin-left: 10px;" ng-cloak><i class="fa fa-remove"></i> {{error}}</p>
+                                            <p id="success" style="display: inline-block; color: green; margin-left: 10px;" ng-cloak><i class="fa fa-check"></i> {{success}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -81,26 +76,6 @@
         </section>
 
     <script>
-    /*    $.ajax({
-            type: 'POST',
-            url: '@routes.Account.checkSession()',
-            success: function(data){
-                if(data.error == ""){
-                    var name = data.email.substring(0, data.email.lastIndexOf("@@"));
-                    var menu = "<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>"+name+"<span class='caret'></span></a>"+
-                                "<ul class='dropdown-menu' role='menu'>"+
-                                "<li><a href='/account'>Профиль</a></li>"+
-                                "<li><a href='#'>Another action</a></li>"+
-                                "<li class='divider'></li>"+
-                                "<li id='signOut'><a href='#'>Выход</a></li>"+
-                                "</ul>";
-                    $("#profile-link").html(menu);
-
-                }else{
-                     $("#profile-link").html("<a href='/account/signin'>Профиль</a></li>");
-                }
-            }
-        });*/
         angular.module('lostfoundApp', ['ui.bootstrap'])
         .controller('mainCtrl', function($scope, $http, $timeout) {
 
@@ -131,24 +106,59 @@
                 }
         })
         .controller('accountCtrl', function($scope, $http) {
-                $http.post('@routes.Account.checkSession()')
-                 .success(function(data){
-                    if(data.error == ""){
-                        $scope.email = data.email;
-                        $scope.contact = data.contact;
-                        $scope.phone = data.phone;
-                    }
-                    else{
-                        window.location.replace("/account/signin");
-                    }
-                 }).error(function(data, status){
-                    console.log(data);
-                 });
+                $scope.phone = "";
+                $scope.password = "";
+                $scope.сonfpassword = "";
+                $("#error").hide();
+                $("#success").hide();
+                $scope.loadUserData = function(){
+                    $http.post('@routes.Account.checkSession()')
+                    .success(function(data){
+                        if(data.error == ""){
+                            $scope.email = data.email;
+                            $scope.contact = data.contact;
+                            $scope.phone = data.phone;
+                        }
+                        else{
+                            window.location.replace("/account/signin");
+                        }
+                        }).error(function(data, status){
+                            console.log(data);
+                    });
+                }
+                $scope.loadUserData();
 
                  $scope.doLogout = function(){
                     $http.post('@routes.Account.logout()')
                     .success(function(data){
                         window.location.replace("/");
+                    }).error(function(data, status){
+                        console.log(data);
+                    });
+                 }
+
+                 $scope.updateUser = function(email){
+                    if($scope.password != "" && $scope.password != $scope.confpassword){
+                        $scope.error = "Пароли не совпадают";
+                        $("#error").show().delay(3000).fadeOut("slow");
+                        return;
+                    }
+
+                    if($scope.contact == null){
+                        $scope.contact = "";
+                    }
+                    var request =  {"email":$scope.email,"contact":$scope.contact,"phone":$scope.phone,"password":$scope.password};
+                    $http.post('@routes.Account.updateUser()', request)
+                    .success(function(data){
+                        if(data.error == ""){
+                            $scope.loadUserData();
+                            $scope.success = "Профиль успешно обновлен";
+                            $("#success").show().delay(3000).fadeOut("slow");
+                        }
+                        else{
+                            $scope.error = "Не удалось обновить профиль";
+                            $("#error").show().delay(3000).fadeOut("slow");
+                        }
                     }).error(function(data, status){
                         console.log(data);
                     });

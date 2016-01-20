@@ -4,7 +4,7 @@
 		module="lostfound$sources_javadoc_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20160117200850"
+		publication="20160118201439"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
@@ -290,6 +290,10 @@
 		<dependency org="joda-time" name="joda-time" rev="2.9.1" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
 			<artifact name="joda-time" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="joda-time" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="org.imgscalr" name="imgscalr-lib" rev="4.2" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
+			<artifact name="imgscalr-lib" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="imgscalr-lib" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="com.typesafe.play" name="play-test_2.11" rev="2.4.0" transitive="false" conf="test->default(compile);test-internal->default(compile)">
 			<artifact name="play-test_2.11" type="src" ext="jar" conf="sources" e:classifier="sources"/>

@@ -166,4 +166,52 @@ class Administration extends Controller with HasDatabaseConfig[JdbcProfile]{
     }
   }
 
+  case class AnParam (action:String, id: String)
+  implicit val anParam2Reads: Reads[AnParam] = (
+    (JsPath \ "action").read[String] and
+      (JsPath \ "id").read[String]
+    )(AnParam.apply _)
+
+  def deleteAnnouncementById() = Action.async(parse.json) { implicit request =>
+    request.body.validate[AnParam].fold (
+      errors => {
+        Future.successful(BadRequest("Invalid json:" + JsError.toJson(errors)))
+      },
+      param => {
+        val q = db.run(Announcements.filter(_.id === param.id.toInt).delete)
+
+        q.map(
+          res =>
+            if(res > 0){
+              Ok(Json.obj("error"->""))
+            }
+            else{
+              Ok(Json.obj("error"->"empty result"))
+            }
+        )
+      }
+    )
+  }
+
+  def deleteUserById() = Action.async(parse.json) { implicit request =>
+    request.body.validate[AnParam].fold (
+      errors => {
+        Future.successful(BadRequest("Invalid json:" + JsError.toJson(errors)))
+      },
+      param => {
+        val q = db.run(Users.filter(_.id === param.id.toInt).delete)
+
+        q.map(
+          res =>
+            if(res > 0){
+              Ok(Json.obj("error"->""))
+            }
+            else{
+              Ok(Json.obj("error"->"empty result"))
+            }
+        )
+      }
+    )
+  }
+
 }

@@ -3,63 +3,70 @@
 # ~~~~
 
 # Home page
-GET         /                                  @controllers.Home.index
-POST        /authorize                         @controllers.Home.authorize()
-POST        /notification                      @controllers.Home.notification()
+GET         /                                         @controllers.Home.index
+POST        /authorize                                @controllers.Home.authorize()
+POST        /notification                             @controllers.Home.notification()
 
 
-POST        /test                              @controllers.Home.postAnnouncement()
-POST        /test2                             @controllers.Home.doFilter()
+POST        /test                                     @controllers.Home.postAnnouncement()
+POST        /test2                                    @controllers.Home.doFilter()
 
 #Account
-GET         /account                           @controllers.Account.index
-GET         /account/register                  @controllers.Account.register
-POST        /account/register                  @controllers.Account.doRegister
-GET         /account/register/confirm          @controllers.Account.regConfirm
-POST        /account/register/confirm          @controllers.Account.checkRegistration
-GET         /account/signin                    @controllers.Account.signin
-POST        /account/signin                    @controllers.Account.doSignin
-GET         /account/signin/forgot             @controllers.Account.forgot
-POST        /account/signin/forgot             @controllers.Account.doForgot
-GET         /account/signin/newpassword        @controllers.Account.newPassword
-POST        /account/signin/newpassword        @controllers.Account.doNewPassword
-POST        /account/checkSession              @controllers.Account.checkSession
-POST        /account/logout                    @controllers.Account.logout
-GET         /account/getuser                   @controllers.Account.getUserData
-POST        /account/deleteUserById            @controllers.Account.deleteUserById()
-POST        /account/updateUser                @controllers.Account.updateUser()
-GET         /account/announcements             @controllers.Account.myAnnouncements()
+GET         /account                                  @controllers.Account.index
+GET         /account/register                         @controllers.Account.register
+POST        /account/register                         @controllers.Account.doRegister
+GET         /account/register/confirm                 @controllers.Account.regConfirm
+POST        /account/register/confirm                 @controllers.Account.checkRegistration
+GET         /account/signin                           @controllers.Account.signin
+POST        /account/signin                           @controllers.Account.doSignin
+GET         /account/signin/forgot                    @controllers.Account.forgot
+POST        /account/signin/forgot                    @controllers.Account.doForgot
+GET         /account/signin/newpassword               @controllers.Account.newPassword
+POST        /account/signin/newpassword               @controllers.Account.doNewPassword
+POST        /account/checkSession                     @controllers.Account.checkSession
+POST        /account/checkMyAnnouncement              @controllers.Account.checkMyAnnouncement
+POST        /account/logout                           @controllers.Account.logout
+GET         /account/getuser                          @controllers.Account.getUserData
+POST        /account/updateUser                       @controllers.Account.updateUser()
+GET         /account/announcements                    @controllers.Account.myAnnouncements()
 
 #Announcement
-GET         /announcement/new                  @controllers.Announcement.newAnnouncement
-POST        /announcement/new                  @controllers.Announcement.postAnnouncement
-GET         /announcement/addconfirm           @controllers.Announcement.newConfirm
-GET         /announcement/getaddress           @controllers.Announcement.getAddress
-GET         /announcement/getcategories        @controllers.Announcement.getCategories
-GET         /announcement/getrecent            @controllers.Announcement.getLast12
-GET         /announcement/show                 @controllers.Announcement.showAd(id: Option[String] ?= None)
-POST        /announcement/show                 @controllers.Announcement.loadAd()
-POST        /announcement/showMore             @controllers.Announcement.loadMoreAd()
-POST        /announcement/getCity              @controllers.Announcement.getCityById()
-POST        /announcement/getRegion            @controllers.Announcement.getRegionById()
-POST        /announcement/getCategory          @controllers.Announcement.getCategoryById()
-POST        /announcement/deleteById           @controllers.Announcement.deleteAnnouncementById()
-GET         /announcement/notfound             @controllers.Announcement.notFound()
+GET         /announcement/new                         @controllers.Announcement.newAnnouncement
+POST        /announcement/new                         @controllers.Announcement.postAnnouncement
+GET         /announcement/addconfirm                  @controllers.Announcement.newConfirm
+GET         /announcement/getaddress                  @controllers.Announcement.getAddress
+GET         /announcement/getcategories               @controllers.Announcement.getCategories
+GET         /announcement/getrecent                   @controllers.Announcement.getLast12
+GET         /announcement/show                        @controllers.Announcement.showAd(id: Option[String] ?= None)
+POST        /announcement/show                        @controllers.Announcement.loadAd()
+POST        /announcement/showMore                    @controllers.Announcement.loadMoreAd()
+POST        /announcement/deleteById                  @controllers.Announcement.deleteAnnouncementById()
+POST        /announcement/getCity                     @controllers.Announcement.getCityById()
+POST        /announcement/getRegion                   @controllers.Announcement.getRegionById()
+POST        /announcement/getCategory                 @controllers.Announcement.getCategoryById()
+POST        /announcement/deleteById                  @controllers.Announcement.deleteAnnouncementById()
+GET         /announcement/notfound                    @controllers.Announcement.notFound()
+POST        /announcement/getUserAnnouncements        @controllers.Announcement.getUserAnnouncements()
+GET         /announcement/edit                        @controllers.Announcement.edit()
+POST        /announcement/edit                        @controllers.Announcement.updateAnnouncement()
 
 #Search
-GET         /results                           @controllers.Home.searchResult(key: Option[String] ?= None, regionId: Option[Int] ?= None, cityId: Option[Int] ?= None, categoryId: Option[Int] ?= None)
-POST        /results                           @controllers.Announcement.doFilter()
+GET         /results                                  @controllers.Home.searchResult(key: Option[String] ?= None, regionId: Option[Int] ?= None, cityId: Option[Int] ?= None, categoryId: Option[Int] ?= None)
+POST        /results                                  @controllers.Announcement.doFilter()
 
 #Management
-POST        /management/announcements          @controllers.Administration.getAdminAnnouncements()
-POST        /management/users                  @controllers.Administration.getAdminUsers()
-GET         /management/announcements          @controllers.Administration.index()
-GET         /management/users                  @controllers.Administration.users()
-GET         /management                        @controllers.Administration.loginAdmin()
-POST        /management/checkRole              @controllers.Administration.checkAdminRole
-POST        /management/login                  @controllers.Administration.doAdminLogin()
-POST        /management/logout                 @controllers.Administration.doAdminLogout()
+POST        /management/announcements                 @controllers.Administration.getAdminAnnouncements()
+POST        /management/users                         @controllers.Administration.getAdminUsers()
+GET         /management/announcements                 @controllers.Administration.index()
+GET         /management/users                         @controllers.Administration.users()
+GET         /management                               @controllers.Administration.loginAdmin()
+POST        /management/checkRole                     @controllers.Administration.checkAdminRole
+POST        /management/login                         @controllers.Administration.doAdminLogin()
+POST        /management/logout                        @controllers.Administration.doAdminLogout()
+POST        /management/deleteAnnouncementById        @controllers.Administration.deleteAnnouncementById()
+POST        /management/deleteUserById                @controllers.Administration.deleteUserById()
+
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file                      controllers.Assets.at(path="/public", file)
+GET         /assets/*file                             controllers.Assets.at(path="/public", file)
     

@@ -273,7 +273,7 @@
         }
 
         $scope.deleteConfirm = function(){
-            var url = '@routes.Announcement.deleteAnnouncementById()';
+            var url = '@routes.Administration.deleteAnnouncementById()';
             var request = $http.post(url,{"action" : "deleteAnnouncement", "id": $scope.indexToDelete.toString()});
 
             request.success(function(data, status, headers, config) {

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/bogdan/IdeaProjects/LostFoundNew/conf/routes
-// @DATE:Sun Jan 17 12:42:33 EET 2016
+// @DATE:Thu Jan 21 00:21:22 EET 2016
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -12,14 +12,14 @@ import _root_.controllers.Assets.Asset
 // @LINE:6
 package controllers {
 
-  // @LINE:64
+  // @LINE:71
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:64
+    // @LINE:71
     def at(file:String): Call = {
       implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
@@ -40,10 +40,22 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "announcement/addconfirm")
     }
   
+    // @LINE:49
+    def getUserAnnouncements(): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "announcement/getUserAnnouncements")
+    }
+  
     // @LINE:34
     def newAnnouncement(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "announcement/new")
+    }
+  
+    // @LINE:50
+    def edit(): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "announcement/edit")
     }
   
     // @LINE:40
@@ -52,7 +64,7 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "announcement/show" + queryString(List(if(id == None) None else Some(implicitly[QueryStringBindable[Option[String]]].unbind("id", id)))))
     }
   
-    // @LINE:44
+    // @LINE:45
     def getRegionById(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "announcement/getRegion")
@@ -76,13 +88,13 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "announcement/getrecent")
     }
   
-    // @LINE:51
+    // @LINE:55
     def doFilter(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "results")
     }
   
-    // @LINE:47
+    // @LINE:48
     def notFound(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "announcement/notfound")
@@ -100,16 +112,30 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "announcement/getaddress")
     }
   
-    // @LINE:43
+    // @LINE:44
     def getCityById(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "announcement/getCity")
     }
   
-    // @LINE:46
-    def deleteAnnouncementById(): Call = {
+    // @LINE:51
+    def updateAnnouncement(): Call = {
       import ReverseRouteContext.empty
-      Call("POST", _prefix + { _defaultPrefix } + "announcement/deleteById")
+      Call("POST", _prefix + { _defaultPrefix } + "announcement/edit")
+    }
+  
+    // @LINE:43
+    def deleteAnnouncementById(): Call = {
+    
+      () match {
+      
+        // @LINE:43
+        case ()  =>
+          import ReverseRouteContext.empty
+          Call("POST", _prefix + { _defaultPrefix } + "announcement/deleteById")
+      
+      }
+    
     }
   
     // @LINE:42
@@ -118,7 +144,7 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "announcement/showMore")
     }
   
-    // @LINE:45
+    // @LINE:46
     def getCategoryById(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "announcement/getCategory")
@@ -126,56 +152,68 @@ package controllers {
   
   }
 
-  // @LINE:54
+  // @LINE:58
   class ReverseAdministration(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:60
+    // @LINE:67
+    def deleteUserById(): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "management/deleteUserById")
+    }
+  
+    // @LINE:64
     def doAdminLogin(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "management/login")
     }
   
-    // @LINE:61
+    // @LINE:65
     def doAdminLogout(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "management/logout")
     }
   
-    // @LINE:57
+    // @LINE:61
     def users(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "management/users")
     }
   
-    // @LINE:54
+    // @LINE:58
     def getAdminAnnouncements(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "management/announcements")
     }
   
-    // @LINE:55
+    // @LINE:66
+    def deleteAnnouncementById(): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "management/deleteAnnouncementById")
+    }
+  
+    // @LINE:59
     def getAdminUsers(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "management/users")
     }
   
-    // @LINE:58
+    // @LINE:62
     def loginAdmin(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "management")
     }
   
-    // @LINE:59
+    // @LINE:63
     def checkAdminRole(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "management/checkRole")
     }
   
-    // @LINE:56
+    // @LINE:60
     def index(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "management/announcements")
@@ -202,7 +240,7 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "notification")
     }
   
-    // @LINE:50
+    // @LINE:54
     def searchResult(key:Option[String] = None, regionId:Option[Int] = None, cityId:Option[Int] = None, categoryId:Option[Int] = None): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "results" + queryString(List(if(key == None) None else Some(implicitly[QueryStringBindable[Option[String]]].unbind("key", key)), if(regionId == None) None else Some(implicitly[QueryStringBindable[Option[Int]]].unbind("regionId", regionId)), if(cityId == None) None else Some(implicitly[QueryStringBindable[Option[Int]]].unbind("cityId", cityId)), if(categoryId == None) None else Some(implicitly[QueryStringBindable[Option[Int]]].unbind("categoryId", categoryId)))))
@@ -265,10 +303,10 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "account/register/confirm")
     }
   
-    // @LINE:29
-    def deleteUserById(): Call = {
+    // @LINE:27
+    def checkMyAnnouncement(): Call = {
       import ReverseRouteContext.empty
-      Call("POST", _prefix + { _defaultPrefix } + "account/deleteUserById")
+      Call("POST", _prefix + { _defaultPrefix } + "account/checkMyAnnouncement")
     }
   
     // @LINE:21
@@ -289,7 +327,7 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "account/register")
     }
   
-    // @LINE:27
+    // @LINE:28
     def logout(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "account/logout")
@@ -325,7 +363,7 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "account/signin/forgot")
     }
   
-    // @LINE:28
+    // @LINE:29
     def getUserData(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "account/getuser")

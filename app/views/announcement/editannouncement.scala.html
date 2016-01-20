@@ -1,0 +1,249 @@
+@main("Редактирование объявления") {
+
+    <section class="main no-padding" style="margin-top: 100px;" ng-controller="editAnnouncementCtrl">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-md-push-9 col-sm-push-9">
+                    <div class="widget alert alert-warning-custom">
+                        <section><i class="fa fa-warning"></i> Для избежания мошенничества,
+                            не прикрепляйте фото, на которых видно все детали найденных Вами вещей.</section>
+                    </div>
+                </div>
+                <div class="col-md-9 col-sm-9 col-md-pull-3 col-sm-pull-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Редактирование обьявления</h4>
+                        </div>
+
+                        <form accept-charset="utf-8" ng-submit="submit()" class="form-horizontal" name="form">
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Заголовок<i class="required-field">*</i></label>
+                                    <div class="col-sm-9">
+                                        <input ng-model="title" type="text" name="title" id="title" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Тип<i class="required-field">*</i></label>
+                                    <div class="col-sm-4">
+                                        <label class="radio-inline">
+                                            <input ng-model="type" type="radio" name="type" id="lostRadio" value="lost"> Потеряно
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input ng-model="type" type="radio" name="type" id="foundRadio" value="found"> Найдено
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Раздел<i class="required-field">*</i></label>
+                                    <div class="col-sm-4">
+                                        <select ng-model="category" name="category" id="category" class="form-control" required>
+                                            <option value=""></option>
+                                            <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Описание<i class="required-field">*</i></label>
+                                    <div class="col-sm-9">
+                                        <textarea ng-model="description" name="description" id="description" class="form-control" rows="5" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Адрес<i class="required-field">*</i></label>
+                                    <div class="col-sm-5">
+                                        <input type="text" ng-model="selectedAddr"
+                                        typeahead="address as address.formatted_address for address in locations | limitTo:10"
+                                        typeahead-loading="loadingLocations"
+                                        typeahead-no-results="noResults"
+                                        class="form-control"
+                                        autocomplete="off" required/>
+                                        <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh" ng-cloak></i>
+                                        <div ng-show="noResults" style="color: red;" ng-cloak>
+                                            <i class="glyphicon glyphicon-remove"></i> Выберите адрес
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Фото</label>
+                                    <div class="col-sm-5">
+                                        <input ng-model="photo" type="file" class="filestyle" name="photo" id="photo" maxsize="1024" data-buttonName="btn-default" data-buttonText=""
+                                        base-sixty-four-input accept="image/jpeg, image/png"/>
+                                        <span class="help-block" ng-show="form.photo.$error.maxsize">Фото должно быть не больше 1024КБ</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Контактное лицо<i class="required-field">*</i></label>
+                                    <div class="col-sm-4">
+                                        <input ng-model="contact" type="text" name="name" id="name" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Email-адрес<i class="required-field">*</i></label>
+                                    <div class="col-sm-4">
+                                        <input ng-model="email" type="email" name="email" id="email" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Номер телефона<i class="required-field">*</i></label>
+                                    <div class="col-sm-4">
+                                        <input ng-model="phone" type="tel" name="phone" id="phone" class="form-control" pattern="\d{7,12}" title="Номер телефона" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-offset-3 col-sm-9">
+                                        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Опубликовать</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/assets/plugins/filestyle/bootstrap-filestyle.min.js"></script>
+
+    <script>
+
+          angular.module('lostfoundApp', ['ui.bootstrap', 'naif.base64'])
+          .controller('mainCtrl', function($scope, $http, $timeout) {
+
+                $scope.checkSession = function(){
+                    $scope.showUserMenu = false;
+                    $scope.showProfileLink = false;
+                    $http.post('@routes.Account.checkSession()')
+                    .success(function(data){
+                        if(data.error == ""){
+                            $scope.showUserMenu = true;
+                            $scope.profile = data.email.substring(0, data.email.lastIndexOf("@@"));
+                            $scope.email = data.email;
+                            $scope.phone = data.phone;
+                            $scope.contact = data.contact;
+                            $('#email').prop('readonly', true);
+                        }
+                        else{
+                            $scope.showProfileLink = true;
+                        }
+                    }).error(function(data){
+                        console.log(data);
+                    });
+                }
+
+                $scope.doLogout = function(){
+                    $http.post('@routes.Account.logout()')
+                    .success(function(data){
+                        window.location.replace("/");
+                    }).error(function(data, status){
+                        console.log(data);
+                    });
+                }
+        })
+
+        .controller('editAnnouncementCtrl', function($scope, $http) {
+            var idToUpdate = url('?id');
+
+            $http.get('@routes.Announcement.getCategories()')
+            .success(function(data){
+                console.log(data);
+                $scope.categories = data;
+            }).error(function(data){
+                console.log(data);
+            });
+
+            $scope.loadAnn = function(){
+                var params = {"action":"load","id":idToUpdate};
+                $http.post("@routes.Announcement.loadAd()", params)
+                .success(function(data){
+                    if(data.length == 0){
+                        window.location.replace("/announcement/notfound");
+                    }
+                    console.log(data);
+                    $scope.title = data[0].title;
+                    $scope.type = data[0].type;
+                    $scope.category = data[0].categoryId.toString();
+                    $scope.description = data[0].description;
+                    $scope.selectedAddr = {"regionId":data[0].regionId,"cityId":data[0].cityId, formatted_address:data[0].city+", "+data[0].region};
+                    $scope.contact = data[0].contact;
+                    $scope.phone = data[0].phone;
+                }).error(function(data){
+                    console.log(data);
+                });
+            }
+
+            var params = {"action":"check","id":idToUpdate};
+
+            $http.post("@routes.Account.checkMyAnnouncement()", params)
+            .success(function(data){
+                console.log(data);
+                if(data.error == ""){
+                    $scope.loadAnn();
+                }
+                else{
+                   window.location.replace('@routes.Account.signin()');
+                }
+            }).error(function(data){
+                console.log(data);
+                window.location.replace('@routes.Account.signin()');
+            });
+
+
+            $scope.$watch('selectedAddr', function() {
+               return $http.get('@routes.Announcement.getAddress()', {
+                params: {
+                q: $scope.selectedAddr
+                  }
+                })
+               .then(function(response){
+                    console.log(response);
+                    $scope.locations = response.data;
+               });
+            });
+
+
+            $scope.submit = function(){
+                console.log($scope.selectedAddr);
+
+                if(typeof($scope.selectedAddr.regionId) == 'undefined'){
+                    $scope.noResults = true;
+                    return;
+                }
+
+                if($scope.photo == null){
+                    $scope.photo = {"base64":"",filetype:""}
+                }
+                console.log($scope.photo);
+
+                var post_data = {"id":parseInt(idToUpdate), "_type" : $scope.type,
+                                                  "title" : $scope.title,
+                                                  "category" : $scope.category,
+                                                  "description" : $scope.description,
+                                                  "region" : $scope.selectedAddr.regionId,
+                                                  "city" : $scope.selectedAddr.cityId,
+                                                  "base64" : $scope.photo.base64,
+                                                  "filetype":$scope.photo.filetype,
+                                                  "contact" : $scope.contact,
+                                                  "email" : $scope.email,
+                                                  "phone" : $scope.phone};
+                console.log(post_data);
+                $http.post('@routes.Announcement.updateAnnouncement()', post_data)
+                .success(function(data){
+                    console.log(data);
+                    if(data.error == ""){
+                        window.location.replace('@routes.Account.myAnnouncements()');
+                    }
+                }).error(function(data){
+                    console.log(data);
+                });
+            }
+
+        })
+
+    </script>
+
+}

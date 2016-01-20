@@ -82,7 +82,7 @@
                                                 <a href="#">Потеря</a>
                                             </div>
                                             <div class="item-img">
-                                                <a ng-href="/announcement/show?id={{announcement.id}}"><img alt="" ng-src="/assets/{{announcement.photo}}"></a>
+                                                <a ng-href="/announcement/show?id={{announcement.id}}"><img alt="" ng-src="https://www.znahidka.pp.ua:8080/{{announcement.photo}}"></a>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-7 col-md-9">
@@ -315,7 +315,7 @@
             }
 
             $scope.convertToLocalDate = function(timestamp){
-                var t = timestamp + moment(timestamp).utcOffset()*60000;
+                var t = timestamp //+ moment(timestamp).utcOffset()*60000;
                 var current =  moment(moment(t) - moment().utcOffset()).format('DD-MM-YYYY HH:mm:ss');
                 return current;
             };

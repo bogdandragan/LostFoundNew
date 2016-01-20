@@ -5,19 +5,9 @@
 
             <div class="row">
                 <div class="col-md-3 col-sm-3 col-md-push-9 col-sm-push-9">
-                    <div class="widget">
-                        <div class="widget-header">
-                            <h3>Author Menus</h3>
-                        </div>
-                        <div class="widget-body">
-                            <ul class="author-menus">
-
-                                <li><a href="account_posts.html">My Ads</a></li>
-                                <li><a href="account_create_post.html">Create New Ads</a></li>
-                                <li><a href="account_profile.html">My Profile</a></li>
-                                <li><a href="index.html">Signout</a></li>
-                            </ul>
-                        </div>
+                    <div class="widget alert alert-warning-custom">
+                        <section><i class="fa fa-warning"></i> Для избежания мошенничества,
+                            не прикрепляете фото, на которых видно все детали найденных Вами вещей.</section>
                     </div>
                 </div>
                 <div class="col-md-9 col-sm-9 col-md-pull-3 col-sm-pull-3">
@@ -26,16 +16,16 @@
                             <h4 class="panel-title">Создание нового обьявления</h4>
                         </div>
 
-                        <form accept-charset="utf-8" ng-submit="submit()" class="form-horizontal">
+                        <form accept-charset="utf-8" ng-submit="submit()" class="form-horizontal" name="form">
                             <div class="panel-body">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Заголовок</label>
+                                    <label class="col-sm-3 control-label">Заголовок<i class="required-field">*</i></label>
                                     <div class="col-sm-9">
                                         <input ng-model="title" type="text" name="title" id="title" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Тип</label>
+                                    <label class="col-sm-3 control-label">Тип<i class="required-field">*</i></label>
                                     <div class="col-sm-4">
                                         <label class="radio-inline">
                                             <input ng-model="type" type="radio" name="type" id="lostRadio" value="lost"> Потеряно
@@ -46,7 +36,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                     <label class="col-sm-3 control-label">Раздел</label>
+                                     <label class="col-sm-3 control-label">Раздел<i class="required-field">*</i></label>
                                      <div class="col-sm-4">
                                          <select ng-model="category" name="category" id="category" class="form-control" required>
                                              <option value=""></option>
@@ -56,13 +46,13 @@
                                      </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Описание</label>
+                                    <label class="col-sm-3 control-label">Описание<i class="required-field">*</i></label>
                                     <div class="col-sm-9">
                                         <textarea ng-model="description" name="description" id="description" class="form-control" rows="5" required></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Адрес</label>
+                                    <label class="col-sm-3 control-label">Адрес<i class="required-field">*</i></label>
                                     <div class="col-sm-5">
                                         <input type="text" ng-model="selectedAddr"
                                         typeahead="address as address.formatted_address for address in locations | limitTo:10"
@@ -79,25 +69,25 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Фото</label>
                                     <div class="col-sm-5">
-                                        <input ng-model="photo" type="file" class="filestyle" name="photo" id="photo" data-buttonName="btn-default" data-buttonText=""
+                                        <input ng-model="photo" type="file" class="filestyle" name="photo" id="photo" maxsize="1024" data-buttonName="btn-default" data-buttonText=""
                                         base-sixty-four-input accept="image/jpeg, image/png"/>
-                                        <span class="help-block"></span>
+                                        <span class="help-block" ng-show="form.photo.$error.maxsize">Фото должно быть не больше 1024КБ</span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Контактное лицо</label>
+                                    <label class="col-sm-3 control-label">Контактное лицо<i class="required-field">*</i></label>
                                     <div class="col-sm-4">
-                                        <input ng-model="name" type="text" name="name" id="name" class="form-control" required>
+                                        <input ng-model="contact" type="text" name="name" id="name" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Email-адрес</label>
+                                    <label class="col-sm-3 control-label">Email-адрес<i class="required-field">*</i></label>
                                     <div class="col-sm-4">
                                         <input ng-model="email" type="email" name="email" id="email" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Номер телефона</label>
+                                    <label class="col-sm-3 control-label">Номер телефона<i class="required-field">*</i></label>
                                     <div class="col-sm-4">
                                         <input ng-model="phone" type="tel" name="phone" id="phone" class="form-control" pattern="\d{7,12}" title="Номер телефона" required>
                                     </div>
@@ -202,7 +192,7 @@
                                                   "city" : $scope.selectedAddr.cityId,
                                                   "base64" : $scope.photo.base64,
                                                   "filetype":$scope.photo.filetype,
-                                                  "contact" : $scope.name,
+                                                  "contact" : $scope.contact,
                                                   "email" : $scope.email,
                                                   "phone" : $scope.phone};
                 console.log(post_data);

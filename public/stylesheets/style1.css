@@ -163,7 +163,7 @@ a:hover{
 }
 
 .hero-title{
-	font-weight: 800;
+	font-weight: 600;
 	text-transform: uppercase;
 	margin-top: 40px;
 }
@@ -296,8 +296,8 @@ a:hover{
 .shortcut h3{
 	font-size: 14px;
 	margin-top: 10px;
-	font-weight: 700;
-	letter-spacing: 0.3px;
+	font-weight: 600;
+	letter-spacing: 0.2px;
 }
 
 .total-items{
@@ -580,12 +580,12 @@ h2.product-title{
 }
 
 .pagination li a:hover{
-	color: #398110;
+	color: #0F5E89;
 }
 
 .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover{
-	background-color: #58b325;
-	border-color: #58b325;
+	background-color: #2F99D2;
+	border-color: #2F99D2;
 }
 
 .pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:focus, .pagination > li > span:hover{

@@ -10,7 +10,7 @@
                             <div class="panel-body">
                                 <form ng-submit="doForgot()">
                                     <div class="form-group">
-                                        <input type="email" placeholder="Email-адрес" ng-model="email" class="form-control input-lg" required>
+                                        <input id="email" type="email" placeholder="Email-адрес" ng-model="email" class="form-control input-lg" required>
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-block btn-custom" id="submitbutton">Отправить</button>
@@ -77,6 +77,10 @@
                         $("#error").css("display","block");
                     }
                  }).error(function(data){
+                    $( "#submitbutton" ).prop( "disabled", false );
+                       $("#error").text("Не удалось отправить e-mail");
+    				    $("#error").addClass('alert-danger').removeClass('alert-success').delay(3000).fadeOut("slow");
+                        $("#error").css("display","block");
                     console.log(data);
                  });
 		    }

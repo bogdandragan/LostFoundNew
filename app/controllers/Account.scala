@@ -13,7 +13,8 @@ import slick.driver.JdbcProfile
 import slick.driver.MySQLDriver.api._
 
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.Future
+import scala.concurrent.duration._
+import scala.concurrent.{Await, Future}
 import play.api.libs.functional.syntax._
 
 
@@ -70,6 +71,40 @@ class Account @Inject()(mailer: MailerClient) extends Controller  with HasDataba
       )
     }.getOrElse {
       Future.successful(Ok(Json.obj("error" -> "invalid session")).withNewSession)
+    }
+  }
+
+  case class AcParam (action:String, id: String)
+  implicit val anParam2Reads: Reads[AcParam] = (
+    (JsPath \ "action").read[String] and
+      (JsPath \ "id").read[String]
+    )(AcParam.apply _)
+
+  def checkMyAnnouncement = Action.async(parse.json) { implicit request =>
+    request.session.get("id").map { id =>
+      request.body.validate[AcParam].fold (
+        errors => {
+          Future.successful(BadRequest("Invalid json:" + JsError.toJson(errors)))
+        },
+        param => {
+          val q = db.run(Users.filter(f => f.sessionId === id).map(m=>m.id).result.headOption)
+
+          q.map(
+            res => {
+              val getUserId = db.run(Announcements.filter(_.id === param.id.toInt).map(m=>m.userId).result.headOption)
+              val userId = Await.result(getUserId, Duration(15, SECONDS))
+              if(userId.get == res){
+                Ok(Json.obj("error" -> ""))
+              }
+              else{
+                Unauthorized(Json.obj("error" -> "Forbidden")).withNewSession
+              }
+            }
+          )
+        }
+      )
+    }.getOrElse {
+      Future.successful(Unauthorized(Json.obj("error" -> "Forbidden")).withNewSession)
     }
   }
 
@@ -252,33 +287,6 @@ class Account @Inject()(mailer: MailerClient) extends Controller  with HasDataba
 
   }
 
-  case class AcParam (action:String, id: String)
-  implicit val anParam2Reads: Reads[AcParam] = (
-    (JsPath \ "action").read[String] and
-      (JsPath \ "id").read[String]
-    )(AcParam.apply _)
-
-  def deleteUserById() = Action.async(parse.json) { implicit request =>
-    request.body.validate[AcParam].fold (
-      errors => {
-        Future.successful(BadRequest("Invalid json:" + JsError.toJson(errors)))
-      },
-      param => {
-        val q = db.run(Users.filter(_.id === param.id.toInt).delete)
-
-        q.map(
-          res =>
-            if(res > 0){
-              Ok(Json.obj("error"->""))
-            }
-            else{
-              Ok(Json.obj("error"->"empty result"))
-            }
-        )
-      }
-    )
-  }
-
   case class UpdateUserParam (email:String, contact: String, phone: String, password: String)
   implicit val updateUserParam2Reads: Reads[UpdateUserParam] = (
     (JsPath \ "email").read[String] and
@@ -322,22 +330,22 @@ class Account @Inject()(mailer: MailerClient) extends Controller  with HasDataba
 
   def sendRegConfirmation(sendTo: String, hash: String){
     val email = Email(
-      "Confirm registration email",
-      "info@znahidka.pp.ua <info@znahidka.pp.ua>",
+      "Подтверждение регистрации",
+      "Бюро находок Украина <info.znahidka@gmail.com>",
       Seq("<"+sendTo+">"),
-      bodyText = Some(play.Play.application().configuration().getString("application.baseUrl")+"account/register/confirm?email="+sendTo+"&hash="+hash),
-      bodyHtml = Some("<html><body><p>"+play.Play.application().configuration().getString("application.baseUrl")+"account/register/confirm?email="+sendTo+"&hash="+hash+"</p></body></html>")
+      bodyText = Some("Спасибо за регистрацию! Для подтверждения e-mail адреса пройдите по следуйщей ссылке: "+play.Play.application().configuration().getString("application.baseUrl")+"account/register/confirm?email="+sendTo+"&hash="+hash),
+      bodyHtml = Some("<html><body><p>Спасибо за регистрацию! Для подтверждения e-mail адреса пройдите по следуйщей ссылке: "+play.Play.application().configuration().getString("application.baseUrl")+"account/register/confirm?email="+sendTo+"&hash="+hash+"</p></body></html>")
     )
     val id = mailer.send(email)
   }
 
   def sendForgotEmail(sendTo: String, hash: String){
     val email = Email(
-      "Restore password email",
-      "info@znahidka.pp.ua <info@znahidka.pp.ua>",
+      "Восстановление пароля",
+      "Бюро находок Украина <info.znahidka@gmail.com>",
       Seq("<"+sendTo+">"),
-      bodyText = Some("Restore password link: "+play.Play.application().configuration().getString("application.baseUrl")+"account/signin/newpassword?email="+sendTo+"&hash="+hash),
-      bodyHtml = Some("<html><body><p>"+"Restore password link: "+play.Play.application().configuration().getString("application.baseUrl")+"account/signin/newpassword?email="+sendTo+"&hash="+hash+"</p></body></html>")
+      bodyText = Some("Ваша ссылка для установки нового пароля: "+play.Play.application().configuration().getString("application.baseUrl")+"account/signin/newpassword?email="+sendTo+"&hash="+hash),
+      bodyHtml = Some("<html><body><p>"+"Ваша ссылка для установки нового пароля: "+play.Play.application().configuration().getString("application.baseUrl")+"account/signin/newpassword?email="+sendTo+"&hash="+hash+"</p></body></html>")
     )
     val id = mailer.send(email)
   }

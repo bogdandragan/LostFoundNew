@@ -26,99 +26,65 @@
                         <div class="panel-body">
                             <div class="before-table">
                                 <div class="row">
-                                    <div class="col-xs-6">
-                                        <a href="account_create_post.html" class="btn btn-custom"><i class="fa fa-plus"></i> New Ads</a>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <form class="form-inline pull-right">
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <input type="text" name="q" placeholder="Type keyword ..." class="form-control">
-                                                    <div class="input-group-addon"><i class="fa fa-search"></i></div>
-                                                </div>
-                                            </div>
-                                        </form>
+                                    <div class="col-xs-12" ng-cloak>
+                                        <div ng-show="noAds" class="alert alert-warning">У Вас пока нет обьяволений</div>
                                     </div>
                                 </div>
                             </div>
-                            <table class="table table-bordered">
+                            <table class="table table-bordered" ng-cloak>
                                 <thead>
                                     <tr>
-                                        <th><input id="checkAll" type="checkbox" /></th>
-                                        <th>Photo
-                                        <th>Details</th>
-                                        <th>Price</th>
-                                        <th>Status</th>
-                                        <th style="width:10%">Option</th>
+                                        <th>Фото</th>
+                                        <th>Детали</th>
+                                        <th>Тип</th>
+                                        <th style="width:10%">Действия</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td><img alt="" class="thumb-img img-responsive" src="assets/img/products/product-6.jpg"></td>
+                                    <tr dir-paginate="announcement in announcements | itemsPerPage:4">
+                                        <td><img alt="" style="max-height : 100px;" class="thumb-img img-responsive" ng-src="http://localhost:8080/{{announcement.photo}}"></td>
                                         <td>
-                                            <div class="item-title"><a href="detail.html" target="_blank"><strong>Samsung Tab 3 V 116</strong></a></div>
+                                            <div class="item-title"><a ng-href="/announcement/show?id={{announcement.id}}" target="_blank"><strong>{{announcement.title}}</strong></a></div>
                                             <div class="item-meta">
                                                 <ul>
-                                                    <li class="item-date"><i class="fa fa-clock-o"></i> Today 10.35 am</li>
-                                                    <li class="item-location"><a href="category.html"><i class="fa fa-map-marker"></i> Manchester</a></li>
-                                                    <li class="item-type"><i class="fa fa-bookmark"></i> Used</li>
+                                                    <li class="item-date"><i class="fa fa-clock-o"></i>{{convertToLocalDate(announcement.timestamp)}}</li>
+                                                    <li class="item-location"><a href=""><i class="fa fa-map-marker"></i>{{announcement.city}}, {{announcement.region}}</a></li>
                                                 </ul>
                                             </div>
                                         </td>
-                                        <td><strong>$50</strong></td>
-                                        <td>Active</td>
+                                        <td>
+                                            <strong ng-if="announcement.type == 'lost'">Потеря</strong>
+                                            <strong ng-if="announcement.type == 'found'">Находка</strong>
+                                        </td>
                                         <td>
                                             <ul class="actions-table">
-                                                <li><a class="label label-success"><i class="fa fa-pencil"></i> edit</a></li>
-                                                <li><a class="label label-warning"><i class="fa fa-close"></i> disable</a></li>
-                                                <li><a href="#" class="label label-danger" onclick="return confirm('Remove this item?')"><i class="fa fa-trash"></i> delete</a></li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td><img alt="" class="thumb-img img-responsive" src="assets/img/products/item-1.jpg"></td>
-                                        <td>
-                                            <div class="item-title">
-                                                <a href="detail.html" target="_blank"><strong>Laptop Lenovo Thinkpad Core i3</strong></a>
-                                            </div>
-                                            <div class="item-meta">
-                                                <ul>
-                                                    <li class="item-date"><i class="fa fa-clock-o"></i> Today 10.35 am</li>
-                                                    <li class="item-location"><a href="category.html"><i class="fa fa-map-marker"></i> Manchester</a></li>
-                                                    <li class="item-type"><i class="fa fa-bookmark"></i> New</li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                        <td><strong>$300</strong></td>
-                                        <td>Active</td>
-                                        <td>
-                                            <ul class="actions-table">
-                                                <li><a class="label label-success"><i class="fa fa-pencil"></i> edit</a></li>
-                                                <li><a class="label label-warning"><i class="fa fa-close"></i> disable</a></li>
-                                                <li><a href="#" class="label label-danger" onclick="return confirm('Remove this item?')"><i class="fa fa-trash"></i> delete</a></li>
+                                                <li><a ng-href="/announcement/edit?id={{announcement.id}}" style="width: 100%" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> Изменить</a></li>
+                                                <li><a style="width: 100%" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#deleteModal" ng-click="deleteReq(announcement)"><i class="fa fa-trash"></i> Удалить</a></li>
                                             </ul>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                             <div class="row">
-                                <div class="col-xs-3">
-                                    <select class="form-control">
-                                        <option selected="">Bulk Action</option>
-                                        <option>Block</option>
-                                        <option>Delete</option>
-                                    </select>
+                                <div class="col-xs-12  text-right">
+                                    <dir-pagination-controls
+                                    max-size="10"
+                                    direction-links="true"
+                                    boundary-links="true" >
+                                    </dir-pagination-controls>
                                 </div>
-                                <div class="col-xs-9 text-right">
-                                    <ul class="pagination table-pagination">
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li class="active"><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                    </ul>
+                            </div>
+                            <div id="deleteModal" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <h4>Удалить это обьявление?</h4>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" ng-click="deleteConfirm()">Удалить</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -128,8 +94,10 @@
         </div>
     </section>
 
+    <script src="/assets/javascripts/dirPagination.js"></script>
+
     <script>
-        angular.module('lostfoundApp', ['ui.bootstrap'])
+        angular.module('lostfoundApp', ['ui.bootstrap', 'angularUtils.directives.dirPagination'])
         .controller('mainCtrl', function($scope, $http, $timeout) {
 
                 $scope.checkSession = function(){
@@ -159,18 +127,28 @@
                 }
         })
         .controller('accountCtrl', function($scope, $http) {
-                $scope.phone = "";
-                $scope.password = "";
-                $scope.сonfpassword = "";
-                $("#error").hide();
-                $("#success").hide();
+                $scope.noAds = false;
+
+                $scope.getUserAnnouncements = function(){
+                    $http.post('@routes.Announcement.getUserAnnouncements()', {"action":"userAnnouncements", "email":$scope.email})
+                    .success(function(data){
+                            if(data.result.length == 0){
+                                $scope.noAds = true;
+                                return;
+                            }
+                            $scope.announcements = data.result;
+                            console.log($scope.announcements);
+                        }).error(function(data, status){
+                            console.log(data);
+                    });
+                }
+
                 $scope.loadUserData = function(){
                     $http.post('@routes.Account.checkSession()')
                     .success(function(data){
                         if(data.error == ""){
                             $scope.email = data.email;
-                            $scope.contact = data.contact;
-                            $scope.phone = data.phone;
+                            $scope.getUserAnnouncements();
                         }
                         else{
                             window.location.replace("/account/signin");
@@ -179,7 +157,30 @@
                             console.log(data);
                     });
                 }
+
                 $scope.loadUserData();
+
+                $scope.deleteReq = function(announcement){
+                    $scope.currentIndex = $scope.announcements.indexOf(announcement);
+                    $scope.indexToDelete = announcement.id;
+                }
+
+                $scope.deleteConfirm = function(){
+                    var url = '@routes.Announcement.deleteAnnouncementById()';
+                    var request = $http.post(url,{"action" : "deleteAnnouncement", "id": $scope.indexToDelete.toString()});
+
+                    request.success(function(data, status, headers, config) {
+                        if(data.error == ""){
+                            console.log($scope.currentIndex);
+                             $scope.announcements.splice($scope.currentIndex, 1);
+                        }
+                        $('#deleteModal').modal('hide');
+                    });
+                    request.error(function(data, status, headers, config) {
+                        console.log("error:"+status);
+                    });
+                }
+
 
                  $scope.doLogout = function(){
                     $http.post('@routes.Account.logout()')
@@ -190,32 +191,12 @@
                     });
                  }
 
-                 $scope.updateUser = function(email){
-                    if($scope.password != "" && $scope.password != $scope.confpassword){
-                        $scope.error = "Пароли не совпадают";
-                        $("#error").show().delay(3000).fadeOut("slow");
-                        return;
-                    }
+                 $scope.convertToLocalDate = function(timestamp){
+                    var t = timestamp// + moment(timestamp).utcOffset()*60000;
+                    var current =  moment(moment(t) - moment().utcOffset()).format('DD-MM-YYYY HH:mm:ss');
+                    return current;
+                 };
 
-                    if($scope.contact == null){
-                        $scope.contact = "";
-                    }
-                    var request =  {"email":$scope.email,"contact":$scope.contact,"phone":$scope.phone,"password":$scope.password};
-                    $http.post('@routes.Account.updateUser()', request)
-                    .success(function(data){
-                        if(data.error == ""){
-                            $scope.loadUserData();
-                            $scope.success = "Профиль успешно обновлен";
-                            $("#success").show().delay(3000).fadeOut("slow");
-                        }
-                        else{
-                            $scope.error = "Не удалось обновить профиль";
-                            $("#error").show().delay(3000).fadeOut("slow");
-                        }
-                    }).error(function(data, status){
-                        console.log(data);
-                    });
-                 }
 		})
     </script>
 

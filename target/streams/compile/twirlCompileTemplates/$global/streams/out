@@ -1,4 +1,4 @@
-[error] /home/bogdan/IdeaProjects/LostFoundNew/app/views/management/login.scala.html:82: Not parsed?
-[error]         })
-[error]         ^
+[error] /home/bogdan/IdeaProjects/LostFoundNew/app/views/announcement/editannouncement.scala.html:217: Expected ending '}'
+[error]              /*   $http.post('@//routes.Announcement.updateAnnouncement()', post_data)
+[error]                               ^
 [error] (compile:twirlCompileTemplates) Twirl compilation failed

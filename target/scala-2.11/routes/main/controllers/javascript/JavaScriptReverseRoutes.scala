@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/bogdan/IdeaProjects/LostFoundNew/conf/routes
-// @DATE:Sun Jan 17 12:42:33 EET 2016
+// @DATE:Thu Jan 21 00:21:22 EET 2016
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -14,7 +14,7 @@ import _root_.controllers.Assets.Asset
 package controllers.javascript {
   import ReverseRouteContext.empty
 
-  // @LINE:64
+  // @LINE:71
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -22,7 +22,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:64
+    // @LINE:71
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """
@@ -52,12 +52,32 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:49
+    def getUserAnnouncements: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Announcement.getUserAnnouncements",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "announcement/getUserAnnouncements"})
+        }
+      """
+    )
+  
     // @LINE:34
     def newAnnouncement: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Announcement.newAnnouncement",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "announcement/new"})
+        }
+      """
+    )
+  
+    // @LINE:50
+    def edit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Announcement.edit",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "announcement/edit"})
         }
       """
     )
@@ -72,7 +92,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:44
+    // @LINE:45
     def getRegionById: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Announcement.getRegionById",
       """
@@ -112,7 +132,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:51
+    // @LINE:55
     def doFilter: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Announcement.doFilter",
       """
@@ -122,7 +142,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:47
+    // @LINE:48
     def notFound: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Announcement.notFound",
       """
@@ -152,7 +172,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:43
+    // @LINE:44
     def getCityById: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Announcement.getCityById",
       """
@@ -162,12 +182,26 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:46
+    // @LINE:51
+    def updateAnnouncement: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Announcement.updateAnnouncement",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "announcement/edit"})
+        }
+      """
+    )
+  
+    // @LINE:43
     def deleteAnnouncementById: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Announcement.deleteAnnouncementById",
       """
         function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "announcement/deleteById"})
+        
+          if (true) {
+            return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "announcement/deleteById"})
+          }
+        
         }
       """
     )
@@ -182,7 +216,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:45
+    // @LINE:46
     def getCategoryById: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Announcement.getCategoryById",
       """
@@ -194,7 +228,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:54
+  // @LINE:58
   class ReverseAdministration(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -202,7 +236,17 @@ package controllers.javascript {
     }
 
   
-    // @LINE:60
+    // @LINE:67
+    def deleteUserById: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Administration.deleteUserById",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "management/deleteUserById"})
+        }
+      """
+    )
+  
+    // @LINE:64
     def doAdminLogin: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Administration.doAdminLogin",
       """
@@ -212,7 +256,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:61
+    // @LINE:65
     def doAdminLogout: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Administration.doAdminLogout",
       """
@@ -222,7 +266,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:57
+    // @LINE:61
     def users: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Administration.users",
       """
@@ -232,7 +276,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:54
+    // @LINE:58
     def getAdminAnnouncements: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Administration.getAdminAnnouncements",
       """
@@ -242,7 +286,17 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:55
+    // @LINE:66
+    def deleteAnnouncementById: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Administration.deleteAnnouncementById",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "management/deleteAnnouncementById"})
+        }
+      """
+    )
+  
+    // @LINE:59
     def getAdminUsers: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Administration.getAdminUsers",
       """
@@ -252,7 +306,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:58
+    // @LINE:62
     def loginAdmin: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Administration.loginAdmin",
       """
@@ -262,7 +316,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:59
+    // @LINE:63
     def checkAdminRole: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Administration.checkAdminRole",
       """
@@ -272,7 +326,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:56
+    // @LINE:60
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Administration.index",
       """
@@ -312,7 +366,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:50
+    // @LINE:54
     def searchResult: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Home.searchResult",
       """
@@ -412,12 +466,12 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:29
-    def deleteUserById: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Account.deleteUserById",
+    // @LINE:27
+    def checkMyAnnouncement: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Account.checkMyAnnouncement",
       """
         function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "account/deleteUserById"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "account/checkMyAnnouncement"})
         }
       """
     )
@@ -452,7 +506,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:27
+    // @LINE:28
     def logout: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Account.logout",
       """
@@ -512,7 +566,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:28
+    // @LINE:29
     def getUserData: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Account.getUserData",
       """
