@@ -193,10 +193,12 @@ class Announcement extends Controller  with HasDatabaseConfig[JdbcProfile] {
       path = "images/"+filename
       try{
         val byteArr : Array[Byte] = Base64.decodeBase64(base64)
-        Files.write(Paths.get("public/"+path), byteArr, StandardOpenOption.CREATE)
-        val originalImg = ImageIO.read(new File("public/"+path))
+        val bis = new java.io.ByteArrayInputStream(byteArr)
+        //Files.write(Paths.get("../../../public/"+path), byteArr, StandardOpenOption.CREATE)
+        //Files.write(Paths.get(filename), byteArr, StandardOpenOption.CREATE)
+        val originalImg = ImageIO.read(bis)
         val resizedImg = Scalr.resize(originalImg, 800, Scalr.OP_ANTIALIAS)
-        ImageIO.write(resizedImg, ext,  new File("public/"+path))
+        ImageIO.write(resizedImg, ext,  new File("./public/"+path))
       }catch {
         case e: Exception => api.Logger.warn("Can't save image " + e.toString)
       }

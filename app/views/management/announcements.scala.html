@@ -131,7 +131,7 @@
                 <tbody>
                     <tr dir-paginate="announcement in announcements |orderBy:sortKey:reverse | filter: search | itemsPerPage:10" ng-class="(announcement.type=='found') ? 'success' : 'warning'">
                         <td>{{announcement.id}}</td>
-                        <td><img ng-src="/assets/{{announcement.photo}}" style="max-width : 100px;"/></td>
+                        <td><img ng-src="https://www.znahidka.pp.ua:8080/{{announcement.photo}}" style="max-width : 100px;"/></td>
                         <td>{{announcement.title}}</td>
                         <td>{{announcement.description | limitTo:30}}{{announcement.description.length > 30 ? '...' : ''}}</td>
                         <td>{{announcement.city}}, {{announcement.region}}</td>

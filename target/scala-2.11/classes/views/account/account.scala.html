@@ -116,6 +116,8 @@
                     .success(function(data){
                         if(data.error == ""){
                             $scope.email = data.email;
+                            localStorage.setItem("EMAIL",data.email);
+                            localStorage.setItem("CONTACT",data.contact);
                             $scope.contact = data.contact;
                             $scope.phone = data.phone;
                         }

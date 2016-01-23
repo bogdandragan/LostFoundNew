@@ -1,13 +1,18 @@
 package controllers
 
+import java.security.MessageDigest
+import java.sql.Timestamp
 import javax.inject.Inject
 
 import models.Tables._
+import org.joda.time.{DateTime, DateTimeZone}
 import org.mindrot.jbcrypt.BCrypt
 import play.api.Play
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfig}
+import play.api.libs.Codecs
 import play.api.libs.json.{JsPath, Reads, JsError, Json}
 import play.api.libs.mailer._
+import play.api.libs.ws.ssl.certificate2X509Certificate
 import play.api.mvc._
 import slick.driver.JdbcProfile
 import slick.driver.MySQLDriver.api._
@@ -328,6 +333,78 @@ class Account @Inject()(mailer: MailerClient) extends Controller  with HasDataba
     )
   }
 
+  case class SendMessageParam (announcementId: Int, from:String, name_from: String, name_to: String, to: String, message: String)
+  implicit val sendMessageParam2Reads: Reads[SendMessageParam] = (
+    (JsPath \ "announcementId").read[Int] and
+    (JsPath \ "from").read[String] and
+      (JsPath \ "name_from").read[String] and
+      (JsPath \ "name_to").read[String] and
+      (JsPath \ "to").read[String] and
+      (JsPath \ "message").read[String]
+    )(SendMessageParam.apply _)
+
+  def sendMessage() = Action.async(parse.json) { implicit request =>
+    request.body.validate[SendMessageParam].fold (
+      errors => {
+        Future.successful(BadRequest("Invalid json:" + JsError.toJson(errors)))
+      },
+      param => {
+        val tz = DateTimeZone.getDefault
+        val dt : DateTime = DateTime.now
+        val timestamp : Timestamp = new Timestamp(tz.convertLocalToUTC(dt.getMillis, false))
+
+        val str = timestamp+param.from
+        val hash = Codecs.md5(str.getBytes)
+        val newMsg = new MessagesRow(0, param.announcementId, param.from, param.to, param.name_from, param.name_to, hash, param.message, Option(timestamp))
+        val insertQuery = db.run(Messages += newMsg)
+
+        insertQuery.map(
+          res =>
+            if(res > 0){
+              sendEmailMessage(param.to, param.name_from, hash)
+              Ok(Json.obj("error"->""))
+            }
+            else{
+              InternalServerError(Json.obj("error"->"empty result"))
+            }
+        )
+      }
+    )
+  }
+
+  def getMessage() = Action.async(parse.json) { implicit request =>
+    request.body.validate[AcParam].fold (
+      errors => {
+        Future.successful(BadRequest("Invalid json:" + JsError.toJson(errors)))
+      },
+      param => {
+          val message = db.run(Messages.filter(f=>f.hash === param.id).map(m=>(m.emailTo, m.emailFrom, m.nameTo, m.nameFrom, m.message, m.date, m.announcementId)).result.headOption)
+
+          message.map{
+            res=>
+              if(!res.isEmpty){
+                Ok(Json.obj("emailTo"->res.get._1, "emailFrom"->res.get._2, "nameTo"->res.get._3, "nameFrom"->res.get._4, "message"->res.get._5, "timestamp"->res.get._6.get, "announcementId"->res.get._7))
+              }
+              else{
+                InternalServerError(Json.obj("error"->"empty result"))
+              }
+          }
+      }
+    )
+  }
+
+  def sendEmailMessage(to: String, name: String, hash: String){
+    val email = Email(
+      "Новое сообщение",
+      "Бюро находок Украина <info.znahidka@gmail.com>",
+      Seq("<"+to+">"),
+      bodyText = Some("Вы получили новое сообщение от "+name+" на сайте поиска потерянных вещей www.znahidka.pp.ua. Чтоб посмотреть сообщение нажмите на ссылку: "+play.Play.application().configuration().getString("application.baseUrl")+"account/showmessage#"+hash),
+      bodyHtml = Some("<html><body><p>Вы получили новое сообщение от <b>"+name+"</b> на сайте поиска потерянных вещей <b>www.znahidka.pp.ua</b>. Чтоб посмотреть сообщение нажмите на "+"<a href="+"'"+play.Play.application().configuration().getString("application.baseUrl")+"account/showmessage#"+hash+"'"+">ссылку</a></p></body></html>")
+    )
+    val id = mailer.send(email)
+  }
+
+
   def sendRegConfirmation(sendTo: String, hash: String){
     val email = Email(
       "Подтверждение регистрации",
@@ -349,5 +426,15 @@ class Account @Inject()(mailer: MailerClient) extends Controller  with HasDataba
     )
     val id = mailer.send(email)
   }
+
+  def showMessage = Action {
+    Ok(views.html.account.showmessage())
+  }
+
+  def messageNotFound = Action {
+    Ok(views.html.account.messagenotfound())
+  }
+
+
 
 }

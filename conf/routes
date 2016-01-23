@@ -4,12 +4,9 @@
 
 # Home page
 GET         /                                         @controllers.Home.index
-POST        /authorize                                @controllers.Home.authorize()
-POST        /notification                             @controllers.Home.notification()
-
-
-POST        /test                                     @controllers.Home.postAnnouncement()
-POST        /test2                                    @controllers.Home.doFilter()
+GET         /about                                    @controllers.Home.about
+GET         /contact                                  @controllers.Home.contact
+POST        /sendprivatemessage                       @controllers.Home.sendPrivateMessage()
 
 #Account
 GET         /account                                  @controllers.Account.index
@@ -29,6 +26,10 @@ POST        /account/logout                           @controllers.Account.logou
 GET         /account/getuser                          @controllers.Account.getUserData
 POST        /account/updateUser                       @controllers.Account.updateUser()
 GET         /account/announcements                    @controllers.Account.myAnnouncements()
+POST        /account/sendmessage                      @controllers.Account.sendMessage()
+GET         /account/showmessage                      @controllers.Account.showMessage()
+GET         /account/messagenotfound                  @controllers.Account.messageNotFound()
+POST        /account/getMessage                       @controllers.Account.getMessage()
 
 #Announcement
 GET         /announcement/new                         @controllers.Announcement.newAnnouncement

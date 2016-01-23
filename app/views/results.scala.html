@@ -6,7 +6,7 @@
             <div class="row category-search-box">
                 <form ng-submit="search()">
                     <div class="col-md-3 col-sm-3  cat-search-input">
-                        <input type="text" ng-model="key" class="form-control" id="searchkey" placeholder="Введите колючевое слово">
+                        <input type="text" ng-model="key" class="form-control" id="searchkey" placeholder="">
                     </div>
                     <div class="col-md-3 col-sm-3  cat-search-input">
                         <input id="citysel" ng-model="selectedAddr" ng-change="cityInput()" type="text"
@@ -70,10 +70,10 @@
                     <div class="list-results" ng-cloak>
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="item-result" dir-paginate="announcement in results | filter:filterByType | itemsPerPage:10">
-
+                                <h1 class="text-center" ng-show="loading"><i class="fa fa-spinner fa-spin"></i></h1>
+                                <h1 class="text-center" ng-show="emptyresult">Ничего не найдено</h1>
+                                <div ng-show="!loading" class="item-result" dir-paginate="announcement in results | filter:filterByType | itemsPerPage:10">
                                     <div class="row">
-
                                         <div class="col-xs-12 col-sm-5 col-md-3 item-img-wrap">
                                             <div ng-if="announcement.type == 'found'"  class="item-badge found-ads">
                                                 <a href="#">Находка</a>
@@ -195,12 +195,20 @@
             }
 
             $scope.doFilter = function(){
+                    $scope.loading = true;
+                    $scope.emptyresult = false;
                 $http.post('@routes.Announcement.doFilter()', params)
                     .success(function(data){
                     console.log(data);
+                        $scope.loading = false;
+                    if(data.length == 0){
+                        $scope.emptyresult = true;
+                    }
                     $scope.results = data;
                 }).error(function(data){
                     console.log(data);
+                    $scope.loading = false;
+                    $scope.emptyresult = true;
                 });
             }
 
@@ -285,7 +293,7 @@
                 var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + newQuery;
                 window.history.pushState({path:newUrl},'',newUrl);
                  $scope.setRegionFilter();
-
+                 $scope.initTopLinks();
             }
 
             $scope.cityInput = function(){

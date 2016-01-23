@@ -1005,3 +1005,54 @@ body {
 .required-field{
 	color: red;
 }
+
+.message-container{
+	padding: 15px;
+}
+
+.message-box{
+	height: auto;
+	padding: 15px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	position: relative;
+	background-color: #BDF065;
+	border: 1px solid #BDF065;
+}
+
+.message-box::after{
+	bottom: 10%;
+	left: -25px;
+	border: solid transparent;
+	content: " ";
+	position: absolute;
+	border-right-color: #BDF065;
+	border-width: 15px;
+}
+
+.custom-link{
+	color: #2F99D2
+}
+
+.custom-link:hover{
+	text-decoration: underline;
+}
+
+@media (min-width:320px){
+	.tel{
+		display: block;
+	}
+	.desktop{
+		display: none;
+	}
+}
+
+@media (min-width:1025px){
+	.tel{
+		display: none;
+	}
+	.desktop{
+		display: block;
+	}
+}

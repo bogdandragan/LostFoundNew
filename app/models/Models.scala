@@ -17,7 +17,7 @@ trait Tables {
   import slick.jdbc.{GetResult => GR}
 
   /** DDL for all tables. Call .create to execute. */
-  lazy val schema = Array(Admins.schema, Announcements.schema, Categories.schema, Cities.schema, Regions.schema, Users.schema).reduceLeft(_ ++ _)
+  lazy val schema = Array(Admins.schema, Announcements.schema, Categories.schema, Cities.schema, Messages.schema, Regions.schema, Users.schema).reduceLeft(_ ++ _)
   @deprecated("Use .schema instead of .ddl", "3.0")
   def ddl = schema
 
@@ -162,6 +162,53 @@ trait Tables {
   }
   /** Collection-like TableQuery object for table Cities */
   lazy val Cities = new TableQuery(tag => new Cities(tag))
+
+  /** Entity class storing rows of table Messages
+    *  @param id Database column id SqlType(INT), AutoInc, PrimaryKey
+    *  @param announcementId Database column announcement_id SqlType(INT)
+    *  @param emailFrom Database column email_from SqlType(VARCHAR), Length(50,true)
+    *  @param emailTo Database column email_to SqlType(VARCHAR), Length(50,true)
+    *  @param nameFrom Database column name_from SqlType(VARCHAR), Length(50,true)
+    *  @param nameTo Database column name_to SqlType(VARCHAR), Length(50,true)
+    *  @param hash Database column hash SqlType(VARCHAR), Length(150,true)
+    *  @param message Database column message SqlType(VARCHAR), Length(1000,true)
+    *  @param date Database column date SqlType(TIMESTAMP), Default(None) */
+  case class MessagesRow(id: Int, announcementId: Int, emailFrom: String, emailTo: String, nameFrom: String, nameTo: String, hash: String, message: String, date: Option[java.sql.Timestamp] = None)
+  /** GetResult implicit for fetching MessagesRow objects using plain SQL queries */
+  implicit def GetResultMessagesRow(implicit e0: GR[Int], e1: GR[String], e2: GR[Option[java.sql.Timestamp]]): GR[MessagesRow] = GR{
+    prs => import prs._
+      MessagesRow.tupled((<<[Int], <<[Int], <<[String], <<[String], <<[String], <<[String], <<[String], <<[String], <<?[java.sql.Timestamp]))
+  }
+  /** Table description of table messages. Objects of this class serve as prototypes for rows in queries. */
+  class Messages(_tableTag: Tag) extends Table[MessagesRow](_tableTag, "messages") {
+    def * = (id, announcementId, emailFrom, emailTo, nameFrom, nameTo, hash, message, date) <> (MessagesRow.tupled, MessagesRow.unapply)
+    /** Maps whole row to an option. Useful for outer joins. */
+    def ? = (Rep.Some(id), Rep.Some(announcementId), Rep.Some(emailFrom), Rep.Some(emailTo), Rep.Some(nameFrom), Rep.Some(nameTo), Rep.Some(hash), Rep.Some(message), date).shaped.<>({r=>import r._; _1.map(_=> MessagesRow.tupled((_1.get, _2.get, _3.get, _4.get, _5.get, _6.get, _7.get, _8.get, _9)))}, (_:Any) =>  throw new Exception("Inserting into ? projection not supported."))
+
+    /** Database column id SqlType(INT), AutoInc, PrimaryKey */
+    val id: Rep[Int] = column[Int]("id", O.AutoInc, O.PrimaryKey)
+    /** Database column announcement_id SqlType(INT) */
+    val announcementId: Rep[Int] = column[Int]("announcement_id")
+    /** Database column email_from SqlType(VARCHAR), Length(50,true) */
+    val emailFrom: Rep[String] = column[String]("email_from", O.Length(50,varying=true))
+    /** Database column email_to SqlType(VARCHAR), Length(50,true) */
+    val emailTo: Rep[String] = column[String]("email_to", O.Length(50,varying=true))
+    /** Database column name_from SqlType(VARCHAR), Length(50,true) */
+    val nameFrom: Rep[String] = column[String]("name_from", O.Length(50,varying=true))
+    /** Database column name_to SqlType(VARCHAR), Length(50,true) */
+    val nameTo: Rep[String] = column[String]("name_to", O.Length(50,varying=true))
+    /** Database column hash SqlType(VARCHAR), Length(150,true) */
+    val hash: Rep[String] = column[String]("hash", O.Length(150,varying=true))
+    /** Database column message SqlType(VARCHAR), Length(1000,true) */
+    val message: Rep[String] = column[String]("message", O.Length(1000,varying=true))
+    /** Database column date SqlType(TIMESTAMP), Default(None) */
+    val date: Rep[Option[java.sql.Timestamp]] = column[Option[java.sql.Timestamp]]("date", O.Default(None))
+
+    /** Foreign key referencing Announcements (database name messages_ibfk_1) */
+    lazy val announcementsFk = foreignKey("messages_ibfk_1", announcementId, Announcements)(r => r.id, onUpdate=ForeignKeyAction.NoAction, onDelete=ForeignKeyAction.Cascade)
+  }
+  /** Collection-like TableQuery object for table Messages */
+  lazy val Messages = new TableQuery(tag => new Messages(tag))
 
   /** Entity class storing rows of table Regions
     *  @param id Database column id SqlType(INT), AutoInc, PrimaryKey

@@ -7,7 +7,7 @@
                 <div class="col-md-3 col-sm-3 col-md-push-9 col-sm-push-9">
                     <div class="widget alert alert-warning-custom">
                         <section><i class="fa fa-warning"></i> Для избежания мошенничества,
-                            не прикрепляете фото, на которых видно все детали найденных Вами вещей.</section>
+                            не прикрепляйте фото, на которых видно все детали найденных Вами вещей.</section>
                     </div>
                 </div>
                 <div class="col-md-9 col-sm-9 col-md-pull-3 col-sm-pull-3">
@@ -48,7 +48,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Описание<i class="required-field">*</i></label>
                                     <div class="col-sm-9">
-                                        <textarea ng-model="description" name="description" id="description" class="form-control" rows="5" required></textarea>
+                                        <textarea ng-model="description" name="description" id="description" class="form-control" maxlength="999" rows="5" required></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -96,7 +96,7 @@
                             <div class="panel-footer">
                                 <div class="row">
                                     <div class="col-sm-offset-3 col-sm-9">
-                                        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Опубликовать</button>
+                                        <button type="submit" class="btn btn-success"><i class="fa fa-check" ng-show="!loading"></i><i class="fa fa-spinner fa-spin" ng-show="loading"></i> Опубликовать</button>
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +147,7 @@
 
         .controller('newAnnouncementCtrl', function($scope, $http) {
                 $scope.type = "lost";
-
+                $scope.loading = false;
                 //get categories
                 $http.get('@routes.Announcement.getCategories()')
                  .success(function(data){
@@ -195,9 +195,11 @@
                                                   "contact" : $scope.contact,
                                                   "email" : $scope.email,
                                                   "phone" : $scope.phone};
-                console.log(post_data);
+                console.log(post_data)
+                $scope.loading = true;
                 $http.post('@routes.Announcement.postAnnouncement()', post_data)
                 .success(function(data){
+                    $scope.loading = false;
                     console.log(data);
                     if(data.error == ""){
                        window.location.href = "/announcement/addconfirm?id="+data.id;

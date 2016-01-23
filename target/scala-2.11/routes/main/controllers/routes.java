@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/bogdan/IdeaProjects/LostFoundNew/conf/routes
-// @DATE:Thu Jan 21 00:21:22 EET 2016
+// @DATE:Sat Jan 23 13:48:00 EET 2016
 
 package controllers;
 

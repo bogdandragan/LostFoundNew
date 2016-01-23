@@ -64,7 +64,7 @@
                                     <h2>Еще обьявления {{announcement.contact}}</h2>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4" ng-repeat="announcement in moreAnn">
+                                    <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="announcement in moreAnn">
                                         <div class="item-ads-grid">
                                             <div ng-if="announcement.type == 'lost'" class="item-badge-grid lost-ads">
                                                 <a ng-href="/announcement/show?id={{announcement.id}}">Потеря</a>
@@ -103,7 +103,8 @@
                             <div class="widget-footer">
                                 <div class="row">
                                     <div class="col-sm-12" style="margin-bottom: 5px;">
-                                        <button class="btn btn-info btn-block"><i class="fa fa-whatsapp"></i> {{announcement.phone}}</button>
+                                        <a class="btn btn-info btn-block tel" ng-href="tel:{{announcement.phone}}"><i class="fa fa-whatsapp"></i> {{announcement.phone}}</a>
+                                        <a class="btn btn-info btn-block desktop" ng-href=""><i class="fa fa-whatsapp"></i> {{announcement.phone}}</a>
                                     </div>
                                     <div class="col-sm-12">
                                         <button class="btn btn-success btn-block" data-target="#sendMessageModal" data-toggle="modal"><i class="fa fa-envelope"></i> Написать</button>
@@ -131,39 +132,47 @@
                     </div>
                 </div>
             </div>
-        </section>
 
-    <!-- Send Message Modal -->
-    <div aria-labelledby="sendMessageModalLabel" role="dialog" tabindex="-1" id="sendMessageModal" class="modal fade in">
-        <div role="document" class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span></button>
-                    <h4 id="sendMessageModalLabel" class="modal-title">Send Message</h4>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label class="control-label">Name:</label>
-                            <input type="text" class="form-control input-lg" placeholder="Your name" required>
+
+                <!-- Send Message Modal -->
+            <div aria-labelledby="sendMessageModalLabel" role="dialog" tabindex="-1" id="sendMessageModal" class="modal fade in">
+                <div role="document" class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span></button>
+                            <h4 id="sendMessageModalLabel" class="modal-title">Сообщение</h4>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label">Email:</label>
-                            <input type="email" class="form-control input-lg" placeholder="Your email" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="message-text">Message:</label>
-                            <textarea id="message-text" class="form-control input-lg" placeholder="Your message" required></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
-                    <button class="btn btn-custom" type="button"><i class="fa fa-paper-plane"></i> Send</button>
+                        <form ng-submit="sendMessage(announcement.id, announcement.email, announcement.contact)">
+                            <div class="modal-body">
+
+                                <div class="form-group">
+                                    <label class="control-label">Имя</label>
+                                    <input type="text" ng-model="message.name" class="form-control input-lg" placeholder="Имя" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Email-адрес:</label>
+                                    <input type="email" ng-model="message.email" class="form-control input-lg" placeholder="Email-адрес" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="message-text">Сообщение:</label>
+                                    <textarea id="message-text" ng-model="message.text" class="form-control input-lg" placeholder="Сообщение" required></textarea>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <p id="error" style="display: inline-block; color: red; margin-right: 10px;" ng-cloak><i class="fa fa-remove"></i> {{error}}</p>
+                                <p id="success" style="display: inline-block; color: green; margin-right: 10px;" ng-cloak><i class="fa fa-check"></i> {{success}}</p>
+                                <button data-dismiss="modal" class="btn btn-default" type="button">Отмена</button>
+                                <button class="btn btn-custom" type="submit"><i class="fa fa-spinner fa-spin" ng-show="sending"></i>
+                                    <i class="fa fa-paper-plane" ng-show="!sending"></i> Отправить</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+
+
 
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56997e9e63975794" async="async"></script>
 
@@ -203,6 +212,10 @@
         })
 
         .controller('showAnCtrl', function($scope, $http) {
+            $scope.message = {
+                "email" : localStorage.getItem("EMAIL"),
+                "name"  : localStorage.getItem("CONTACT")
+            }
 
             $scope.getMoreUserAnnouncements = function(){
                 console.log({"id":$scope.announcement.id,"email":$scope.announcement.email});
@@ -225,8 +238,7 @@
                     $scope.getMoreUserAnnouncements();
                     var city = $scope.announcement.city.replace(/\s+/g, '');
                     var region = $scope.announcement.region.replace(/\s+/g, '');
-                    $http.get("http://maps.googleapis.com/maps/api/geocode/json?address="+city+","+region+"&sensor=false")
-                    .success(function(data){
+                    $http.get("https://maps.googleapis.com/maps/api/geocode/json?address="+encodeURIComponent(city+","+region))                    .success(function(data){
                         console.log(data);
                         var lat = data.results[0].geometry.location.lat;
                         var lng = data.results[0].geometry.location.lng;
@@ -255,10 +267,34 @@
                  });
 
                 $scope.convertToLocalDate = function(timestamp){
-                    var t = timestamp //+ moment(timestamp).utcOffset()*60000;
+                    var t = timestamp; //+ moment(timestamp).utcOffset()*60000;
                     var current =  moment(moment(t) - moment().utcOffset()).format('DD-MM-YYYY HH:mm:ss');
                     return current;
                 };
+
+
+                $("#error").hide();
+                $("#success").hide();
+                $scope.sending = false;
+                $scope.sendMessage = function(id, email, name_to){
+                    var params = {"announcementId":id,"from":$scope.message.email, "to":email, "name_from":$scope.message.name,"name_to":name_to, "message":$scope.message.text };
+                    $scope.sending = true;
+                    $http.post('@routes.Account.sendMessage()', params)
+                    .success(function(data){
+                        if(data.error == ""){
+                            $scope.sending = false;
+                            $scope.success = "Сообщение отправлено";
+                            var myModalTimeout = setTimeout(function() {
+                                $('#sendMessageModal').modal('hide');
+                            }, 4000);
+                            $("#success").show().delay(3000).fadeOut("slow");
+                        }
+                    }).error(function(data){
+                        $scope.sending = false;
+                        $scope.error = "Не удалось отправить сообщение";
+                        $("#error").show().delay(3000).fadeOut("slow");
+                    });
+                }
 
             });
 
