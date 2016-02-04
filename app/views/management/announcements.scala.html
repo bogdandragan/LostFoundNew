@@ -179,13 +179,13 @@
             $("#dateFrom").on("dp.change", function (e) {
                 $('#dateTo').data("DateTimePicker").minDate(e.date);
                 var moment = $('#dateFrom').data("DateTimePicker").date();
-                fromTimestamp = moment.unix()*1000 - moment.utcOffset()*60000;
+                fromTimestamp = moment.unix()*1000; //- moment.utcOffset()*60000;
                 console.log(fromTimestamp);
             });
             $("#dateTo").on("dp.change", function (e) {
                 $('#dateFrom').data("DateTimePicker").maxDate(e.date);
                 var moment = $('#dateTo').data("DateTimePicker").date();
-                toTimestamp = moment.unix()*1000 - moment.utcOffset()*60000;
+                toTimestamp = moment.unix()*1000; //- moment.utcOffset()*60000;
                 console.log(toTimestamp);
             });
 
@@ -201,8 +201,9 @@
         console.log($scope.period);
 
         $scope.getAnnouncements = function(){
-            $scope.startDate = moment(fromTimestamp+moment().utcOffset()*60000).format("DD-MM-YYYY HH:mm");
-            $scope.endDate = moment(toTimestamp+moment().utcOffset()*60000).format("DD-MM-YYYY HH:mm");
+        //moment().utcOffset()*60000
+            $scope.startDate = moment(fromTimestamp).format("DD-MM-YYYY HH:mm");
+            $scope.endDate = moment(toTimestamp).format("DD-MM-YYYY HH:mm");
             console.log(new Date(fromTimestamp));
             console.log(new Date(toTimestamp));
             var url = '@routes.Administration.getAdminAnnouncements()';
@@ -301,7 +302,7 @@
         };
 
          $scope.convertToLocalDate = function(timestamp){
-            var t = timestamp + moment(timestamp).utcOffset()*60000;
+            var t = timestamp;
             var current =  moment(moment(t) - moment().utcOffset()).format('DD-MM-YYYY HH:mm:ss');
             return current;
          };

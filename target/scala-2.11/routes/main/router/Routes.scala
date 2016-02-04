@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/bogdan/IdeaProjects/LostFoundNew/conf/routes
-// @DATE:Sat Jan 23 13:48:00 EET 2016
+// @DATE:Sun Jan 31 16:44:15 EET 2016
 
 package router
 
@@ -23,8 +23,10 @@ class Routes(
   Announcement_1: javax.inject.Provider[controllers.Announcement],
   // @LINE:59
   Administration_2: javax.inject.Provider[controllers.Administration],
-  // @LINE:72
-  Assets_4: controllers.Assets,
+  // @LINE:71
+  Seo_4: javax.inject.Provider[controllers.Seo],
+  // @LINE:75
+  Assets_5: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
 
@@ -38,15 +40,17 @@ class Routes(
     Announcement_1: javax.inject.Provider[controllers.Announcement],
     // @LINE:59
     Administration_2: javax.inject.Provider[controllers.Administration],
-    // @LINE:72
-    Assets_4: controllers.Assets
-  ) = this(errorHandler, Home_3, Account_0, Announcement_1, Administration_2, Assets_4, "/")
+    // @LINE:71
+    Seo_4: javax.inject.Provider[controllers.Seo],
+    // @LINE:75
+    Assets_5: controllers.Assets
+  ) = this(errorHandler, Home_3, Account_0, Announcement_1, Administration_2, Seo_4, Assets_5, "/")
 
   import ReverseRouteContext.empty
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, Home_3, Account_0, Announcement_1, Administration_2, Assets_4, prefix)
+    new Routes(errorHandler, Home_3, Account_0, Announcement_1, Administration_2, Seo_4, Assets_5, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -81,7 +85,7 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """account/getMessage""", """@controllers.Account@.getMessage()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """announcement/new""", """@controllers.Announcement@.newAnnouncement"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """announcement/new""", """@controllers.Announcement@.postAnnouncement"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """announcement/addconfirm""", """@controllers.Announcement@.newConfirm"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """announcement/addconfirm""", """@controllers.Announcement@.newConfirm(id:Option[String] ?= None)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """announcement/getaddress""", """@controllers.Announcement@.getAddress"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """announcement/getcategories""", """@controllers.Announcement@.getCategories"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """announcement/getrecent""", """@controllers.Announcement@.getLast12"""),
@@ -109,6 +113,8 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """management/logout""", """@controllers.Administration@.doAdminLogout()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """management/deleteAnnouncementById""", """@controllers.Administration@.deleteAnnouncementById()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """management/deleteUserById""", """@controllers.Administration@.deleteUserById()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """announcement/showseo""", """@controllers.Seo@.showAnSeo(id:Option[String] ?= None)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """resultsseo""", """@controllers.Seo@.searchResultSeo(key:Option[String] ?= None, regionId:Option[Int] ?= None, cityId:Option[Int] ?= None, categoryId:Option[Int] ?= None)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -581,12 +587,12 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("announcement/addconfirm")))
   )
   private[this] lazy val controllers_Announcement_newConfirm27_invoker = createInvoker(
-    Announcement_1.get.newConfirm,
+    Announcement_1.get.newConfirm(fakeValue[Option[String]]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Announcement",
       "newConfirm",
-      Nil,
+      Seq(classOf[Option[String]]),
       "GET",
       """""",
       this.prefix + """announcement/addconfirm"""
@@ -1052,12 +1058,46 @@ class Routes(
     )
   )
 
+  // @LINE:71
+  private[this] lazy val controllers_Seo_showAnSeo55_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("announcement/showseo")))
+  )
+  private[this] lazy val controllers_Seo_showAnSeo55_invoker = createInvoker(
+    Seo_4.get.showAnSeo(fakeValue[Option[String]]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.Seo",
+      "showAnSeo",
+      Seq(classOf[Option[String]]),
+      "GET",
+      """Seo""",
+      this.prefix + """announcement/showseo"""
+    )
+  )
+
   // @LINE:72
-  private[this] lazy val controllers_Assets_at55_route = Route("GET",
+  private[this] lazy val controllers_Seo_searchResultSeo56_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("resultsseo")))
+  )
+  private[this] lazy val controllers_Seo_searchResultSeo56_invoker = createInvoker(
+    Seo_4.get.searchResultSeo(fakeValue[Option[String]], fakeValue[Option[Int]], fakeValue[Option[Int]], fakeValue[Option[Int]]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.Seo",
+      "searchResultSeo",
+      Seq(classOf[Option[String]], classOf[Option[Int]], classOf[Option[Int]], classOf[Option[Int]]),
+      "GET",
+      """""",
+      this.prefix + """resultsseo"""
+    )
+  )
+
+  // @LINE:75
+  private[this] lazy val controllers_Assets_at57_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at55_invoker = createInvoker(
-    Assets_4.at(fakeValue[String], fakeValue[String]),
+  private[this] lazy val controllers_Assets_at57_invoker = createInvoker(
+    Assets_5.at(fakeValue[String], fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Assets",
@@ -1236,8 +1276,8 @@ class Routes(
   
     // @LINE:37
     case controllers_Announcement_newConfirm27_route(params) =>
-      call { 
-        controllers_Announcement_newConfirm27_invoker.call(Announcement_1.get.newConfirm)
+      call(params.fromQuery[Option[String]]("id", Some(None))) { (id) =>
+        controllers_Announcement_newConfirm27_invoker.call(Announcement_1.get.newConfirm(id))
       }
   
     // @LINE:38
@@ -1402,10 +1442,22 @@ class Routes(
         controllers_Administration_deleteUserById54_invoker.call(Administration_2.get.deleteUserById())
       }
   
+    // @LINE:71
+    case controllers_Seo_showAnSeo55_route(params) =>
+      call(params.fromQuery[Option[String]]("id", Some(None))) { (id) =>
+        controllers_Seo_showAnSeo55_invoker.call(Seo_4.get.showAnSeo(id))
+      }
+  
     // @LINE:72
-    case controllers_Assets_at55_route(params) =>
+    case controllers_Seo_searchResultSeo56_route(params) =>
+      call(params.fromQuery[Option[String]]("key", Some(None)), params.fromQuery[Option[Int]]("regionId", Some(None)), params.fromQuery[Option[Int]]("cityId", Some(None)), params.fromQuery[Option[Int]]("categoryId", Some(None))) { (key, regionId, cityId, categoryId) =>
+        controllers_Seo_searchResultSeo56_invoker.call(Seo_4.get.searchResultSeo(key, regionId, cityId, categoryId))
+      }
+  
+    // @LINE:75
+    case controllers_Assets_at57_route(params) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at55_invoker.call(Assets_4.at(path, file))
+        controllers_Assets_at57_invoker.call(Assets_5.at(path, file))
       }
   }
 }

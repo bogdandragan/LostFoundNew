@@ -22,14 +22,32 @@ class newconfirm extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,
       {
 
 
-Seq[Any](_display_(/*1.2*/main("Новое обьявление")/*1.26*/ {_display_(Seq[Any](format.raw/*1.28*/("""
+Seq[Any](_display_(/*1.2*/main("Новое обьявление - Поиск потерянных вещей. Бюро находок Украина")/*1.73*/ {_display_(Seq[Any](format.raw/*1.75*/("""
+ """),format.raw/*2.2*/("""<!--   <script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
+    <script language="javascript">
+    VK.init("""),format.raw/*4.13*/("""{"""),format.raw/*4.14*/("""
+        """),format.raw/*5.9*/("""apiId: 5251562 // id созданного вами приложения вконтакте
+    """),format.raw/*6.5*/("""}"""),format.raw/*6.6*/(""");
 
-    """),format.raw/*3.5*/("""<section class="main no-padding" style="margin-top: 100px;" ng-controller="newSuccessCtrl">
+
+    //function sendwallpost(mydata) """),format.raw/*9.37*/("""{"""),format.raw/*9.38*/("""
+        """),format.raw/*10.9*/("""VK.api("wall.post", """),format.raw/*10.29*/("""{"""),format.raw/*10.30*/("""
+            """),format.raw/*11.13*/("""owner_id: '-112053472',
+            access_token: '503ba63b6762154fcab6d03b77e06069eafa717a46a1ede6cbb0b2d9054d32bbec7c11ba4041f39b23e2c',
+            message: 'test message',
+            from_group: 1
+        """),format.raw/*15.9*/("""}"""),format.raw/*15.10*/(""", function (data) """),format.raw/*15.28*/("""{"""),format.raw/*15.29*/("""
+        """),format.raw/*16.9*/("""console.log(data);
+        """),format.raw/*17.9*/("""}"""),format.raw/*17.10*/(""");
+    //"""),format.raw/*18.7*/("""}"""),format.raw/*18.8*/("""
+"""),format.raw/*19.1*/("""</script>-->
+    <section class="main no-padding" style="margin-top: 100px;" ng-controller="newSuccessCtrl">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 alert alert-success" style="font-size: 20px;">
                    <i class="fa fa-check"></i> Обьявление опубликовано!
-                       <a ng-href="/announcement/show?id="""),format.raw/*8.58*/("""{"""),format.raw/*8.59*/("""{"""),format.raw/*8.60*/("""newId"""),format.raw/*8.65*/("""}"""),format.raw/*8.66*/("""}"""),format.raw/*8.67*/("""" style="color: #2F99D2;" class="successMessage">посмотреть</a>
+                       <a ng-href="/announcement/show?id="""),format.raw/*25.58*/("""{"""),format.raw/*25.59*/("""{"""),format.raw/*25.60*/("""newId"""),format.raw/*25.65*/("""}"""),format.raw/*25.66*/("""}"""),format.raw/*25.67*/("""" style="color: #2F99D2;" class="successMessage">посмотреть</a>
+                    <p>А также в соцсетях: <br><b>Вконтакте:</b> <a href="http://www.vk.com/znahidkaua">vk.com/znahidkaua</a><br><b>Facebook:</b> <a href="http://www.facebook.com/znahidkaua">facebook.com/znahidkaua</a></p>
                 </div>
             </div>
         </div>
@@ -37,44 +55,44 @@ Seq[Any](_display_(/*1.2*/main("Новое обьявление")/*1.26*/ {_disp
 
     <script>
         angular.module('lostfoundApp', ['ui.bootstrap'])
-        .controller('mainCtrl', function($scope, $http, $timeout) """),format.raw/*16.67*/("""{"""),format.raw/*16.68*/("""
-
-                """),format.raw/*18.17*/("""$scope.checkSession = function()"""),format.raw/*18.49*/("""{"""),format.raw/*18.50*/("""
-                    """),format.raw/*19.21*/("""$scope.showUserMenu = false;
+        .controller('mainCtrl', function($scope, $http, $timeout, $rootScope) """),format.raw/*34.79*/("""{"""),format.raw/*34.80*/("""
+                """),format.raw/*35.17*/("""$rootScope.title = "Новое обьявление - ";
+                $scope.checkSession = function()"""),format.raw/*36.49*/("""{"""),format.raw/*36.50*/("""
+                    """),format.raw/*37.21*/("""$scope.showUserMenu = false;
                     $scope.showProfileLink = false;
-                    $http.post('"""),_display_(/*21.34*/routes/*21.40*/.Account.checkSession()),format.raw/*21.63*/("""')
-                    .success(function(data)"""),format.raw/*22.44*/("""{"""),format.raw/*22.45*/("""
-                        """),format.raw/*23.25*/("""if(data.error == "")"""),format.raw/*23.45*/("""{"""),format.raw/*23.46*/("""
-                            """),format.raw/*24.29*/("""$scope.showUserMenu = true;
+                    $http.post('"""),_display_(/*39.34*/routes/*39.40*/.Account.checkSession()),format.raw/*39.63*/("""')
+                    .success(function(data)"""),format.raw/*40.44*/("""{"""),format.raw/*40.45*/("""
+                        """),format.raw/*41.25*/("""if(data.error == "")"""),format.raw/*41.45*/("""{"""),format.raw/*41.46*/("""
+                            """),format.raw/*42.29*/("""$scope.showUserMenu = true;
                             $scope.profile = data.email.substring(0, data.email.lastIndexOf("@"));
-                       """),format.raw/*26.24*/("""}"""),format.raw/*26.25*/("""
-                        """),format.raw/*27.25*/("""else"""),format.raw/*27.29*/("""{"""),format.raw/*27.30*/("""
-                            """),format.raw/*28.29*/("""$scope.showProfileLink = true;
-                        """),format.raw/*29.25*/("""}"""),format.raw/*29.26*/("""
-                    """),format.raw/*30.21*/("""}"""),format.raw/*30.22*/(""").error(function(data)"""),format.raw/*30.44*/("""{"""),format.raw/*30.45*/("""
-                        """),format.raw/*31.25*/("""console.log(data);
-                    """),format.raw/*32.21*/("""}"""),format.raw/*32.22*/(""");
-                """),format.raw/*33.17*/("""}"""),format.raw/*33.18*/("""
+                       """),format.raw/*44.24*/("""}"""),format.raw/*44.25*/("""
+                        """),format.raw/*45.25*/("""else"""),format.raw/*45.29*/("""{"""),format.raw/*45.30*/("""
+                            """),format.raw/*46.29*/("""$scope.showProfileLink = true;
+                        """),format.raw/*47.25*/("""}"""),format.raw/*47.26*/("""
+                    """),format.raw/*48.21*/("""}"""),format.raw/*48.22*/(""").error(function(data)"""),format.raw/*48.44*/("""{"""),format.raw/*48.45*/("""
+                        """),format.raw/*49.25*/("""console.log(data);
+                    """),format.raw/*50.21*/("""}"""),format.raw/*50.22*/(""");
+                """),format.raw/*51.17*/("""}"""),format.raw/*51.18*/("""
 
-                """),format.raw/*35.17*/("""$scope.doLogout = function()"""),format.raw/*35.45*/("""{"""),format.raw/*35.46*/("""
-                    """),format.raw/*36.21*/("""$http.post('"""),_display_(/*36.34*/routes/*36.40*/.Account.logout()),format.raw/*36.57*/("""')
-                    .success(function(data)"""),format.raw/*37.44*/("""{"""),format.raw/*37.45*/("""
-                        """),format.raw/*38.25*/("""window.location.replace("/");
-                    """),format.raw/*39.21*/("""}"""),format.raw/*39.22*/(""").error(function(data, status)"""),format.raw/*39.52*/("""{"""),format.raw/*39.53*/("""
-                        """),format.raw/*40.25*/("""console.log(data);
-                    """),format.raw/*41.21*/("""}"""),format.raw/*41.22*/(""");
-                """),format.raw/*42.17*/("""}"""),format.raw/*42.18*/("""
-        """),format.raw/*43.9*/("""}"""),format.raw/*43.10*/(""")
+                """),format.raw/*53.17*/("""$scope.doLogout = function()"""),format.raw/*53.45*/("""{"""),format.raw/*53.46*/("""
+                    """),format.raw/*54.21*/("""$http.post('"""),_display_(/*54.34*/routes/*54.40*/.Account.logout()),format.raw/*54.57*/("""')
+                    .success(function(data)"""),format.raw/*55.44*/("""{"""),format.raw/*55.45*/("""
+                        """),format.raw/*56.25*/("""window.location.replace("/");
+                    """),format.raw/*57.21*/("""}"""),format.raw/*57.22*/(""").error(function(data, status)"""),format.raw/*57.52*/("""{"""),format.raw/*57.53*/("""
+                        """),format.raw/*58.25*/("""console.log(data);
+                    """),format.raw/*59.21*/("""}"""),format.raw/*59.22*/(""");
+                """),format.raw/*60.17*/("""}"""),format.raw/*60.18*/("""
+        """),format.raw/*61.9*/("""}"""),format.raw/*61.10*/(""")
 
-        .controller('newSuccessCtrl', function($scope, $http) """),format.raw/*45.63*/("""{"""),format.raw/*45.64*/("""
-            """),format.raw/*46.13*/("""console.log(url('?id'));
-            if(url('?id') == "" || url('?id') == null || typeof(url('?id')) == 'undefined' || url('?id') == 'null')"""),format.raw/*47.116*/("""{"""),format.raw/*47.117*/("""
-                """),format.raw/*48.17*/("""window.location.replace('/');
-            """),format.raw/*49.13*/("""}"""),format.raw/*49.14*/("""
+        .controller('newSuccessCtrl', function($scope, $http) """),format.raw/*63.63*/("""{"""),format.raw/*63.64*/("""
+            """),format.raw/*64.13*/("""console.log(url('?id'));
+            if(url('?id') == "" || url('?id') == null || typeof(url('?id')) == 'undefined' || url('?id') == 'null')"""),format.raw/*65.116*/("""{"""),format.raw/*65.117*/("""
+                """),format.raw/*66.17*/("""window.location.replace('/');
+            """),format.raw/*67.13*/("""}"""),format.raw/*67.14*/("""
 
-            """),format.raw/*51.13*/("""$scope.newId = url('?id');
+            """),format.raw/*69.13*/("""$scope.newId = url('?id');
 
-        """),format.raw/*53.9*/("""}"""),format.raw/*53.10*/(""")
+        """),format.raw/*71.9*/("""}"""),format.raw/*71.10*/(""")
     </script>
 
 """)))}))
@@ -97,11 +115,11 @@ Seq[Any](_display_(/*1.2*/main("Новое обьявление")/*1.26*/ {_disp
 object newconfirm extends newconfirm_Scope0.newconfirm
               /*
                   -- GENERATED --
-                  DATE: Sun Jan 10 21:40:00 EET 2016
+                  DATE: Sun Jan 31 13:52:05 EET 2016
                   SOURCE: /home/bogdan/IdeaProjects/LostFoundNew/app/views/announcement/newconfirm.scala.html
-                  HASH: e48b2c99d9bc4c28903ac42ae705523cc82fa57b
-                  MATRIX: 632->1|664->25|703->27|735->33|1140->411|1168->412|1196->413|1228->418|1256->419|1284->420|1585->693|1614->694|1660->712|1720->744|1749->745|1798->766|1939->880|1954->886|1998->909|2072->955|2101->956|2154->981|2202->1001|2231->1002|2288->1031|2466->1182|2495->1183|2548->1208|2580->1212|2609->1213|2666->1242|2749->1297|2778->1298|2827->1319|2856->1320|2906->1342|2935->1343|2988->1368|3055->1407|3084->1408|3131->1427|3160->1428|3206->1446|3262->1474|3291->1475|3340->1496|3380->1509|3395->1515|3433->1532|3507->1578|3536->1579|3589->1604|3667->1654|3696->1655|3754->1685|3783->1686|3836->1711|3903->1750|3932->1751|3979->1770|4008->1771|4044->1780|4073->1781|4166->1846|4195->1847|4236->1860|4405->2000|4435->2001|4480->2018|4550->2060|4579->2061|4621->2075|4684->2111|4713->2112
-                  LINES: 25->1|25->1|25->1|27->3|32->8|32->8|32->8|32->8|32->8|32->8|40->16|40->16|42->18|42->18|42->18|43->19|45->21|45->21|45->21|46->22|46->22|47->23|47->23|47->23|48->24|50->26|50->26|51->27|51->27|51->27|52->28|53->29|53->29|54->30|54->30|54->30|54->30|55->31|56->32|56->32|57->33|57->33|59->35|59->35|59->35|60->36|60->36|60->36|60->36|61->37|61->37|62->38|63->39|63->39|63->39|63->39|64->40|65->41|65->41|66->42|66->42|67->43|67->43|69->45|69->45|70->46|71->47|71->47|72->48|73->49|73->49|75->51|77->53|77->53
+                  HASH: f0534a6215d2ec80601321d56d922bd60f1ea96f
+                  MATRIX: 632->1|711->72|750->74|778->76|933->204|961->205|996->214|1084->276|1111->277|1179->318|1207->319|1243->328|1291->348|1320->349|1361->362|1598->572|1627->573|1673->591|1702->592|1738->601|1792->628|1821->629|1857->638|1885->639|1913->640|2336->1035|2365->1036|2394->1037|2427->1042|2456->1043|2485->1044|3021->1552|3050->1553|3095->1570|3213->1660|3242->1661|3291->1682|3432->1796|3447->1802|3491->1825|3565->1871|3594->1872|3647->1897|3695->1917|3724->1918|3781->1947|3959->2098|3988->2099|4041->2124|4073->2128|4102->2129|4159->2158|4242->2213|4271->2214|4320->2235|4349->2236|4399->2258|4428->2259|4481->2284|4548->2323|4577->2324|4624->2343|4653->2344|4699->2362|4755->2390|4784->2391|4833->2412|4873->2425|4888->2431|4926->2448|5000->2494|5029->2495|5082->2520|5160->2570|5189->2571|5247->2601|5276->2602|5329->2627|5396->2666|5425->2667|5472->2686|5501->2687|5537->2696|5566->2697|5659->2762|5688->2763|5729->2776|5898->2916|5928->2917|5973->2934|6043->2976|6072->2977|6114->2991|6177->3027|6206->3028
+                  LINES: 25->1|25->1|25->1|26->2|28->4|28->4|29->5|30->6|30->6|33->9|33->9|34->10|34->10|34->10|35->11|39->15|39->15|39->15|39->15|40->16|41->17|41->17|42->18|42->18|43->19|49->25|49->25|49->25|49->25|49->25|49->25|58->34|58->34|59->35|60->36|60->36|61->37|63->39|63->39|63->39|64->40|64->40|65->41|65->41|65->41|66->42|68->44|68->44|69->45|69->45|69->45|70->46|71->47|71->47|72->48|72->48|72->48|72->48|73->49|74->50|74->50|75->51|75->51|77->53|77->53|77->53|78->54|78->54|78->54|78->54|79->55|79->55|80->56|81->57|81->57|81->57|81->57|82->58|83->59|83->59|84->60|84->60|85->61|85->61|87->63|87->63|88->64|89->65|89->65|90->66|91->67|91->67|93->69|95->71|95->71
                   -- GENERATED --
               */
           

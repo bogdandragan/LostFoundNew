@@ -1,4 +1,4 @@
-[error] /home/bogdan/IdeaProjects/LostFoundNew/app/views/announcement/editannouncement.scala.html:217: Expected ending '}'
-[error]              /*   $http.post('@//routes.Announcement.updateAnnouncement()', post_data)
-[error]                               ^
+[error] /home/bogdan/IdeaProjects/LostFoundNew/app/views/results.scala.html:335: Not parsed?
+[error] }
+[error] ^
 [error] (compile:twirlCompileTemplates) Twirl compilation failed

@@ -1,4 +1,4 @@
-@main("Сообщение"){
+@main("Сообщение - Поиск потерянных вещей. Бюро находок Украина"){
     <section class="main no-padding" style="margin-top: 100px;" ng-controller="messageCtrl">
         <div class="container">
             <div class="panel panel-default">
@@ -36,8 +36,8 @@
 
     <script>
         angular.module('lostfoundApp', ['ui.bootstrap'])
-        .controller('mainCtrl', function($scope, $http, $timeout) {
-
+        .controller('mainCtrl', function($scope, $http, $timeout, $rootScope) {
+                $rootScope.title = "Сообщение - ";
                 $scope.checkSession = function(){
                     $scope.showUserMenu = false;
                     $scope.showProfileLink = false;
@@ -87,7 +87,7 @@
             $("#success").hide();
             $scope.sending = false;
             $scope.sendMessage = function(){
-                var params = {"announcementId":$scope.announcementId,"from":$scope.emailFrom, "to":$scope.emailTo, "name_from":$scope.nameFrom,"name_to":$scope.nameTo, "message":$scope.sendText };
+                var params = {"announcementId":$scope.announcementId,"from":$scope.emailTo, "to":$scope.emailFrom, "name_from":$scope.nameTo,"name_to":$scope.nameFrom, "message":$scope.sendText };
                 $scope.sending = true;
                 $http.post('@routes.Account.sendMessage()', params)
                 .success(function(data){

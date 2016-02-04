@@ -13,6 +13,7 @@ import play.api.Play
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfig}
 import play.api.libs.json._
 import play.api.libs.json.Json
+import play.api.libs.ws.WS
 import play.api.mvc.{Result, Action, Controller}
 import play.api.libs.mailer._
 import slick.driver.JdbcProfile
@@ -25,6 +26,7 @@ import org.apache.commons.codec.binary.Base64
 import play.api.libs.functional.syntax._
 import scala.concurrent.{Await, Future}
 import scala.concurrent.ExecutionContext.Implicits.global
+import play.api.Play.current
 
 class Announcement extends Controller  with HasDatabaseConfig[JdbcProfile] {
   val dbConfig = DatabaseConfigProvider.get[JdbcProfile](Play.current)
@@ -33,7 +35,40 @@ class Announcement extends Controller  with HasDatabaseConfig[JdbcProfile] {
     Ok(views.html.announcement.newannouncement())
   }
 
-  def newConfirm = Action {
+
+  def dbGetAnnouncement(id : Int) = {
+    val q = db.run(Announcements.filter(_.id === id.toInt).join(Categories).on(_.categoryId === _.id)
+      .join(Regions).on(_._1.regionId === _.id)
+      .join(Cities).on(_._1._1.cityId === _.id)
+      .map(m=>(m._1._1._1.id, m._1._1._1.title, m._1._1._1.description, m._1._1._1.contact, m._1._1._1.photo, m._1._1._1.email, m._1._1._1.phone, m._1._1._2.name, m._1._2.id, m._1._2.name, m._2.id, m._2.name, m._1._1._1.`type`, m._1._1._1.date, m._1._1._2.id)).result.head)
+
+    q.map{m=>m}
+  }
+
+  def newConfirm(id: Option[String]) = Action {
+    val announcement = Await.result(dbGetAnnouncement(id.get.toInt), Duration(15, SECONDS))
+
+    var anType = ""
+    if(announcement._13 == "lost"){
+      anType = "Потеряно"
+    }
+    else{
+      anType = "Найдено"
+    }
+    val link = "https://www.znahidka.pp.ua/announcement/show?id="+announcement._1.toString
+    val message = anType.toUpperCase+"! "+announcement._12.toUpperCase+", "+announcement._10.toUpperCase+"\n"+announcement._2+"\n"+announcement._3
+
+    val result = WS.url("https://api.vk.com/method/wall.post").withQueryString("owner_id" -> "-112053472","access_token" -> "503ba63b6762154fcab6d03b77e06069eafa717a46a1ede6cbb0b2d9054d32bbec7c11ba4041f39b23e2c", "message" -> message, "from_group" -> "1","attachments" -> link)
+     .get()
+
+    val data = Json.obj(
+      "access_token" -> "CAAOoiOuDqnoBAGxZAcrcrVl4VLyPw5l4ZCWYl5HQ1gt9SFek1JEPjoXJ7SyVdVyWQZCy4uHAxgMAzRzrs4H0IwHZAh3rxfxxYsoKpOJ1uLi1xa5yZCrbcK7m9kkJmlUoQdKRaKlwAev7MOnon8GvlafFM8prUMFjrea6cNZBb5BrpP8xnj5B34B9ZAttr1ECTk54ZAWwImAwsAZDZD",
+      "message" -> message,
+      "link" -> link
+    )
+    val result1 = WS.url("https://graph.facebook.com/818262094968326/feed")
+      .post(data)
+
     Ok(views.html.announcement.newconfirm())
   }
 
@@ -86,12 +121,54 @@ class Announcement extends Controller  with HasDatabaseConfig[JdbcProfile] {
           val newAnn = new AnnouncementsRow(0,announcement.title,announcement._type,announcement.category.toInt,announcement.description,announcement.region,announcement.city,announcement.contact,announcement.email, photoPath, Some(timestamp), announcement.phone)
           val insertQuery = db.run(Announcements.returning(Announcements.map(_.id)) += newAnn)
           val id = Await.result(insertQuery, Duration(15, SECONDS))
+          //post to vk wall
+      //    var anType = ""
+      //    if(announcement._type == "lost"){
+      //      anType = "Потеряно"
+      //    }
+      //    else{
+      //      anType = "Найдено"
+      //    }
+      //    val getRegion = db.run(Regions.filter(_.id === announcement.region).map(m=>m.name).result.head)
+      //    val getCity = db.run(Cities.filter(_.id === announcement.city).map(m=>m.name).result.head)
+
+      //    val region = Await.result(getRegion, Duration(15, SECONDS))
+      //    val city = Await.result(getCity, Duration(15, SECONDS))
+
+      //    val vkpost = Await.result(postVkWall(id, anType, city, region, announcement.title, announcement.description), Duration(15, SECONDS))
+      //    val fbpost = Await.result(postFbWall(id, anType, city, region, announcement.title, announcement.description), Duration(15, SECONDS))
+
           Future.successful(Ok(Json.obj("error"->"", "id"->id)))
         }
 
       }
     )
   }
+
+  /*def postVkWall(id : Int, _type : String, city : String, region : String, title : String, description : String) = {
+    val link = "https://www.znahidka.pp.ua/announcement/show?id="+id.toString
+
+    val message = _type.toUpperCase+"! "+city.toUpperCase+", "+region.toUpperCase+"\n"+title+"\n"+description
+
+    WS.url("https://api.vk.com/method/wall.post").withQueryString("owner_id" -> "-112053472","access_token" -> "503ba63b6762154fcab6d03b77e06069eafa717a46a1ede6cbb0b2d9054d32bbec7c11ba4041f39b23e2c", "message" -> message, "from_group" -> "1","attachments" -> link)
+      .get()
+
+  }
+
+  def postFbWall(id : Int, _type : String, city : String, region : String, title : String, description : String) = {
+    val link = "https://www.znahidka.pp.ua/announcement/show?id="+id.toString
+
+    val message = _type.toUpperCase+"! "+city.toUpperCase+", "+region.toUpperCase+"\n"+title+"\n"+description
+
+    val data = Json.obj(
+      "access_token" -> "CAAOoiOuDqnoBAGxZAcrcrVl4VLyPw5l4ZCWYl5HQ1gt9SFek1JEPjoXJ7SyVdVyWQZCy4uHAxgMAzRzrs4H0IwHZAh3rxfxxYsoKpOJ1uLi1xa5yZCrbcK7m9kkJmlUoQdKRaKlwAev7MOnon8GvlafFM8prUMFjrea6cNZBb5BrpP8xnj5B34B9ZAttr1ECTk54ZAWwImAwsAZDZD",
+      "message" -> message,
+      "link" -> link
+    )
+    WS.url("https://graph.facebook.com/818262094968326/feed")
+      .post(data)
+  }*/
+
 
   case class UpdateAnnouncement (id: Int, _type: String, title: String, category: String, contact: String, description: String, email: String, region: Int, city: Int, base64: String, filetype: String, phone: String)
   implicit val updAn2Reads: Reads[UpdateAnnouncement] = (
@@ -197,7 +274,7 @@ class Announcement extends Controller  with HasDatabaseConfig[JdbcProfile] {
         //Files.write(Paths.get("../../../public/"+path), byteArr, StandardOpenOption.CREATE)
         //Files.write(Paths.get(filename), byteArr, StandardOpenOption.CREATE)
         val originalImg = ImageIO.read(bis)
-        val resizedImg = Scalr.resize(originalImg, 800, Scalr.OP_ANTIALIAS)
+        val resizedImg = Scalr.resize(originalImg, 599, Scalr.OP_ANTIALIAS)
         ImageIO.write(resizedImg, ext,  new File("./public/"+path))
       }catch {
         case e: Exception => api.Logger.warn("Can't save image " + e.toString)

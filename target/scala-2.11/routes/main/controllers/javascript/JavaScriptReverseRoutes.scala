@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/bogdan/IdeaProjects/LostFoundNew/conf/routes
-// @DATE:Sat Jan 23 13:48:00 EET 2016
+// @DATE:Sun Jan 31 16:44:15 EET 2016
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -14,8 +14,8 @@ import _root_.controllers.Assets.Asset
 package controllers.javascript {
   import ReverseRouteContext.empty
 
-  // @LINE:72
-  class ReverseAssets(_prefix: => String) {
+  // @LINE:71
+  class ReverseSeo(_prefix: => String) {
 
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
@@ -23,6 +23,36 @@ package controllers.javascript {
 
   
     // @LINE:72
+    def searchResultSeo: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Seo.searchResultSeo",
+      """
+        function(key,regionId,cityId,categoryId) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "resultsseo" + _qS([(key == null ? null : (""" + implicitly[QueryStringBindable[Option[String]]].javascriptUnbind + """)("key", key)), (regionId == null ? null : (""" + implicitly[QueryStringBindable[Option[Int]]].javascriptUnbind + """)("regionId", regionId)), (cityId == null ? null : (""" + implicitly[QueryStringBindable[Option[Int]]].javascriptUnbind + """)("cityId", cityId)), (categoryId == null ? null : (""" + implicitly[QueryStringBindable[Option[Int]]].javascriptUnbind + """)("categoryId", categoryId))])})
+        }
+      """
+    )
+  
+    // @LINE:71
+    def showAnSeo: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Seo.showAnSeo",
+      """
+        function(id) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "announcement/showseo" + _qS([(id == null ? null : (""" + implicitly[QueryStringBindable[Option[String]]].javascriptUnbind + """)("id", id))])})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:75
+  class ReverseAssets(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:75
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """
@@ -41,16 +71,6 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
-  
-    // @LINE:37
-    def newConfirm: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Announcement.newConfirm",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "announcement/addconfirm"})
-        }
-      """
-    )
   
     // @LINE:50
     def getUserAnnouncements: JavaScriptReverseRoute = JavaScriptReverseRoute(
@@ -222,6 +242,16 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "announcement/getCategory"})
+        }
+      """
+    )
+  
+    // @LINE:37
+    def newConfirm: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Announcement.newConfirm",
+      """
+        function(id) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "announcement/addconfirm" + _qS([(id == null ? null : (""" + implicitly[QueryStringBindable[Option[String]]].javascriptUnbind + """)("id", id))])})
         }
       """
     )

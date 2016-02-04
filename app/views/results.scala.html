@@ -1,12 +1,12 @@
 
-@main("Поиск") {
+@main("Результаты поиска - Бюро находок Украина") {
 <section ng-controller="searchCtrl">
     <div class="category-search">
         <div class="container">
             <div class="row category-search-box">
                 <form ng-submit="search()">
                     <div class="col-md-3 col-sm-3  cat-search-input">
-                        <input type="text" ng-model="key" class="form-control" id="searchkey" placeholder="">
+                        <input type="text" ng-model="key" class="form-control" id="searchkey" placeholder="Ключевое слово">
                     </div>
                     <div class="col-md-3 col-sm-3  cat-search-input">
                         <input id="citysel" ng-model="selectedAddr" ng-change="cityInput()" type="text"
@@ -72,6 +72,7 @@
                             <div class="col-sm-12">
                                 <h1 class="text-center" ng-show="loading"><i class="fa fa-spinner fa-spin"></i></h1>
                                 <h1 class="text-center" ng-show="emptyresult">Ничего не найдено</h1>
+                                <h4 class="text-center"><a href="/announcement/new" ng-show="emptyresult" style = "color: #2F99D2; text-decoration: underline">Подать обьявление</a></h4>
                                 <div ng-show="!loading" class="item-result" dir-paginate="announcement in results | filter:filterByType | itemsPerPage:10">
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-5 col-md-3 item-img-wrap">
@@ -170,7 +171,7 @@
                 }
         })
 
-        .controller('searchCtrl', function($scope, $http) {
+        .controller('searchCtrl', function($scope, $http, $rootScope) {
 
             var params = {"key":url('?key'), "region":url('?regionId'), "city":url('?cityId'), "category":url('?categoryId')};
             $scope.selectedAddr = {"regionId":0,"cityId":0, formatted_address:""};
@@ -236,20 +237,22 @@
 
             $http.get('@routes.Announcement.getCategories()')
             .success(function(data){
-                console.log(data);
+                //console.log(data);
                 var availableCat = data;
                 availableCat.unshift({"id":0,"name":"Все рубрики"});
                 var categories = {"availableCat":availableCat, "selectedCat":{"id":0,"name":"Все рубрики"}};
                 $scope.categories = categories;
                 $scope.initTopLinks();
                 if(url('?categoryId')>0){
-                    console.log($scope.categories);
+                    //console.log($scope.categories);
                     $http.post('@routes.Announcement.getCategoryById()', {"action":"getCategory", "id":url('?categoryId')})
                     .success(function(data){
                         $scope.categories.selectedCat.id = url('?categoryId');
                         $scope.categories.selectedCat.name = data.category;
                         $scope.selectedCategory = $scope.categories.selectedCat.name;
                         $scope.selectedCategoryId = $scope.categories.selectedCat.id;
+
+                        $rootScope.title = "Результаты поиска - "+$scope.selectedCategory+". ";
                     }).error(function(data){
                         console.log(data);
                     });
@@ -270,7 +273,7 @@
                   }
                 })
                .then(function(response){
-                    console.log(response);
+                    //console.log(response);
                     $scope.locations = response.data;
                });
             });
@@ -287,7 +290,7 @@
                 }
 
                 params = {"key":$scope.key, "region":$scope.selectedAddr.regionId.toString(), "city":$scope.selectedAddr.cityId.toString(), "category":$scope.categories.selectedCat.id.toString()};
-                console.log(params);
+                //console.log(params);
                 $scope.doFilter();
                 var newQuery = "?key="+$scope.key+"&regionId="+$scope.selectedAddr.regionId+"&cityId="+$scope.selectedAddr.cityId+"&categoryId="+$scope.categories.selectedCat.id;
                 var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + newQuery;
@@ -315,7 +318,7 @@
 
             $scope.filterAllRegion = function(){
                 params = {"key":$scope.key, "region":$scope.selectedAddr.regionId.toString(), "city":"0", "category":$scope.categories.selectedCat.id.toString()};
-                console.log(params);
+                //console.log(params);
                 $scope.doFilter();
                 var newQuery = "?key="+$scope.key+"&regionId="+$scope.selectedAddr.regionId+"&cityId="+0+"&categoryId="+$scope.categories.selectedCat.id;
                 var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + newQuery;

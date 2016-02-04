@@ -4,7 +4,7 @@
 		module="lostfound$sources_javadoc_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20160123114922"
+		publication="20160128222913"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>

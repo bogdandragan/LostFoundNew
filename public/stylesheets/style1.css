@@ -10,10 +10,19 @@ body{
 }
 
 .main-logo{
-	background: url("../images/mainlogo.png") no-repeat;
-	height: 65px !important;
-	width: 65px;
+	background: url("../images/mainlogo1.png") no-repeat;
+	height: 68px !important;
+	width: 275px;
 	margin-bottom: 8px;
+}
+
+@media (max-width:480px){
+	.main-logo{
+		background: url("../images/mainlogo1.png") no-repeat;
+		height: 68px !important;
+		width: 68px;
+		margin-bottom: 8px;
+	}
 }
 
 a{

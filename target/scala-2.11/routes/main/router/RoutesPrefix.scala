@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/bogdan/IdeaProjects/LostFoundNew/conf/routes
-// @DATE:Sat Jan 23 13:48:00 EET 2016
+// @DATE:Sun Jan 31 16:44:15 EET 2016
 
 
 package router {

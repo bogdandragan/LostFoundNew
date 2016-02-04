@@ -1,5 +1,5 @@
 
-@main("Профиль") {
+@main("Профиль - Поиск потерянных вещей. Бюро находок Украина") {
         <section class="main no-padding" style="margin-top: 100px;" ng-controller="accountCtrl">
             <div class="container">
                 <div class="row">
@@ -10,9 +10,9 @@
                             </div>
                             <div class="widget-body" ng-controller="mainCtrl">
                                 <ul class="author-menus">
-                                    <li><a href="/account/announcements">Обьявления</a></li>
                                     <!--<li><a href="account_create_post.html">Сообщения</a></li>-->
-                                    <li><a href="account_profile.html">Настройки</a></li>
+                                    <li><a href="/account">Мой профиль</a></li>
+                                    <li><a href="/account/announcements">Обьявления</a></li>
                                     <li><a href="" ng-click="doLogout()">Выход</a></li>
                                 </ul>
                             </div>
@@ -35,17 +35,20 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Контактное лицо</label>
                                         <div class="col-sm-9">
-                                            <input type="text" value="" class="form-control" ng-model="contact">                                   </div>
+                                            <input type="text" value="" class="form-control" ng-model="contact">
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Телефон</label>
                                         <div class="col-sm-9">
-                                            <input type="tel"  value="" class="form-control" ng-model="phone" pattern="\d{7,12}" title="Номер телефона">                                  </div>
+                                            <input type="tel"  value="" class="form-control" ng-model="phone" pattern="\d{7,12}" title="Номер телефона">
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label  class="col-sm-3 control-label">Пароль</label>
                                         <div class="col-sm-9">
-                                            <input type="password" class="form-control" ng-model="password" placeholder="Оставьте пустым если не хотите изменять пароль" value="" >                                         <span class="help-block"></span>
+                                            <input type="password" class="form-control" ng-model="password" placeholder="Оставьте пустым если не хотите изменять пароль" value="">
+                                            <span class="help-block"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -62,7 +65,7 @@
                                 <div class="panel-footer">
                                     <div class="row">
                                         <div class="col-sm-offset-3 col-sm-9">
-                                            <button type="submit" class="btn btn-custom"><i class="fa fa-save"></i>Сохранить</button>
+                                            <button type="submit" class="btn btn-success"><i class="fa fa-save" ng-show="!loading"></i><i class="fa fa-spinner fa-spin" ng-show="loading"></i> Сохранить</button>
                                             <p id="error" style="display: inline-block; color: red; margin-left: 10px;" ng-cloak><i class="fa fa-remove"></i> {{error}}</p>
                                             <p id="success" style="display: inline-block; color: green; margin-left: 10px;" ng-cloak><i class="fa fa-check"></i> {{success}}</p>
                                         </div>
@@ -77,8 +80,8 @@
 
     <script>
         angular.module('lostfoundApp', ['ui.bootstrap'])
-        .controller('mainCtrl', function($scope, $http, $timeout) {
-
+        .controller('mainCtrl', function($scope, $http, $timeout, $rootScope) {
+                $rootScope.title = "Профиль - ";
                 $scope.checkSession = function(){
                     $scope.showUserMenu = false;
                     $scope.showProfileLink = false;
@@ -139,9 +142,16 @@
                     });
                  }
 
+                 $scope.loading = false;
                  $scope.updateUser = function(email){
                     if($scope.password != "" && $scope.password != $scope.confpassword){
                         $scope.error = "Пароли не совпадают";
+                        $("#error").show().delay(3000).fadeOut("slow");
+                        return;
+                    }
+
+                    if($scope.password != "" && $scope.password.length < 6){
+                        $scope.error = "Минимальная длина пароля - 6 символов";
                         $("#error").show().delay(3000).fadeOut("slow");
                         return;
                     }
@@ -150,8 +160,10 @@
                         $scope.contact = "";
                     }
                     var request =  {"email":$scope.email,"contact":$scope.contact,"phone":$scope.phone,"password":$scope.password};
+                    $scope.loading = true;
                     $http.post('@routes.Account.updateUser()', request)
                     .success(function(data){
+                        $scope.loading = false;
                         if(data.error == ""){
                             $scope.loadUserData();
                             $scope.success = "Профиль успешно обновлен";
@@ -162,6 +174,9 @@
                             $("#error").show().delay(3000).fadeOut("slow");
                         }
                     }).error(function(data, status){
+                        $scope.loading = false;
+                        $scope.error = "Не удалось обновить профиль";
+                        $("#error").show().delay(3000).fadeOut("slow");
                         console.log(data);
                     });
                  }

@@ -1,5 +1,5 @@
 
-@main("Профиль") {
+@main("Профиль - Поиск потерянных вещей. Бюро находок Украина") {
         <section class="main no-padding" style="margin-top: 100px;" ng-controller="accountCtrl">
             <div class="container">
                 <div class="row">
@@ -80,8 +80,8 @@
 
     <script>
         angular.module('lostfoundApp', ['ui.bootstrap'])
-        .controller('mainCtrl', function($scope, $http, $timeout) {
-
+        .controller('mainCtrl', function($scope, $http, $timeout, $rootScope) {
+                $rootScope.title = "Профиль - ";
                 $scope.checkSession = function(){
                     $scope.showUserMenu = false;
                     $scope.showProfileLink = false;

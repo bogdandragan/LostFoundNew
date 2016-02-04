@@ -1,4 +1,4 @@
-@main("Регистрация") {
+@main("Регистрация - Поиск потерянных вещей. Бюро находок Украина") {
         <section class="main">
             <div class="container" ng-controller="regConfirmCtrl">
                 <div class="row">
@@ -12,8 +12,8 @@
     <script>
 
          angular.module('lostfoundApp', ['ui.bootstrap'])
-         .controller('mainCtrl', function($scope, $http, $timeout) {
-
+         .controller('mainCtrl', function($scope, $http, $timeout, $rootScope) {
+                $rootScope.title = "Регистрация - ";
                 $scope.checkSession = function(){
                     $scope.showUserMenu = false;
                     $scope.showProfileLink = false;

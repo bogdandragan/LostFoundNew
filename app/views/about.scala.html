@@ -1,4 +1,4 @@
-@main("О нас") {
+@main("О Проекте - Поиск потерянных вещей. Онлайн бюро находок Украина") {
 
     <section class="main">
         <div class="container">
@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <ul class="breadcrumb pull-left">
                         <li><a href="/">Главная</a></li>
-                        <li>О Нас</li>
+                        <li>О Проекте</li>
                     </ul>
                 </div>
             </div>
@@ -16,15 +16,24 @@
 
                     <div class="post">
                         <div class="post-title">
-                            <h2>About</h2>
+                            <h2>О проекте</h2>
                         </div>
                         <div class="post-body">
                             <p>
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                                А Вы когда-нибудь <strong>теряли</strong> или <strong>находили</strong> вещи или животных? Наверняка это случалось, и в этом случае Вы могли рассказать об этом лишь своим друзьям, знакомым или родственникам, поскольку круг контактов одного человека слишком ограничен.
                             </p>
-                            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur
+                            <p>
+                                Если вы <strong>потеряли</strong> или <strong>нашли</strong> документы, права, паспорт, животных, людей или какую-нибудь важную вещь, то наш сервис <strong>"Онлайн бюро находок по всей Украине"</strong> поможет вам в возврате потери или поиске владельца. Все что вам нужно - опубликовать обьявление и заполнить необходимую информацию. После этого ваше обьявление станет доступно на сайте,
+                                    а также, чтоб о нем узнало больше людей оно будет автоматически опубликовано в наших сообществах в соцсетях <a style="color: #2F99D2" href="http://www.vk.com/znahidkaua">vk.com/znahidkaua</a>, <a style="color: #2F99D2" href="http://www.facebook.com/znahidkaua">facebook.com/znahidkaua</a>
                             </p>
-                            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur
+                            <p>
+                                В нашей базе собраны обьявления со <strong>всей Украины</strong> и для того чтобы облегчить поиск Вы можете воспользоваться фильтром по городам или выбрать необходимую рубрику.
+                            </p>
+                            <p>Также вы можете зарегистрироваться на сайте чтобы иметь возможность просматривать, редактировать и удалять свои обьявления.
+                            </p>
+                            <p>Все объявления, которые публикуются на портале, проверяются модератором и могут быть удалены в случае мошенничества или спама.
+                            </p>
+                            <p>Мы надеемся, что сервис <strong>"Онлайн бюро находок по всей Украине"</strong> <a style="color: #2F99D2" href="https://www.znahidka.pp.ua">www.znahidka.pp.ua</a> поможет Вам найти то, что вы потеряли, а также вернуть найденные вещи владельцам.
                             </p>
                         </div>
                     </div>
@@ -35,8 +44,8 @@
 
     <script>
         angular.module('lostfoundApp', ['ui.bootstrap'])
-        .controller('mainCtrl', function($scope, $http, $timeout) {
-
+        .controller('mainCtrl', function($scope, $http, $timeout, $rootScope) {
+                $rootScope.title = "О Проекте - ";
                 $scope.checkSession = function(){
                     $scope.showUserMenu = false;
                     $scope.showProfileLink = false;

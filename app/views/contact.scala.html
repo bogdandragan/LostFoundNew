@@ -1,4 +1,4 @@
-@main("Контакты") {
+@main("Контакты - Поиск потерянных вещей. Бюро находок Украина") {
 
     <section class="main" ng-controller="contactCtrl">
         <div class="container">
@@ -22,10 +22,10 @@
                                     <form ng-submit="sendPrivateMessage()">
                                         <p>Вопросы, пожелания, предложения? Свяжитесь с нами! </p>
                                         <div class="row">
-                                            <div class="col-xs-6">
+                                            <div class="col-md-6">
                                                 <input type="text" ng-model="name" placeholder="Имя" class="form-control input-lg" required>
                                             </div>
-                                            <div class="col-xs-6">
+                                            <div class="col-md-6">
                                                 <input type="email" ng-model="email" placeholder="Email-адрес" class="form-control input-lg" required>
                                             </div>
                                         </div>
@@ -55,8 +55,8 @@
 
     <script>
         angular.module('lostfoundApp', ['ui.bootstrap'])
-        .controller('mainCtrl', function($scope, $http, $timeout) {
-
+        .controller('mainCtrl', function($scope, $http, $timeout, $rootScope) {
+                $rootScope.title = "Контакты - ";
                 $scope.checkSession = function(){
                     $scope.showUserMenu = false;
                     $scope.showProfileLink = false;

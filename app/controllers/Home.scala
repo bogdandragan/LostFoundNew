@@ -9,11 +9,11 @@ import play.api.Play
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfig}
 import play.api.libs.json.Json
 import play.api.libs.mailer.{MailerClient, Email}
+import play.api.libs.ws.WS
 import play.api.mvc.{Result, Action, Controller}
 import slick.driver.JdbcProfile
 import slick.driver.MySQLDriver.api._
 import play.api.libs.json._
-
 
 import scala.concurrent.duration._
 import scala.util.Success
@@ -22,6 +22,7 @@ import scala.util.Success
 import play.api.libs.functional.syntax._
 import scala.concurrent.{Await, Future}
 import scala.concurrent.ExecutionContext.Implicits.global
+import play.api.Play.current
 
 class Home @Inject()(mailer: MailerClient) extends Controller with HasDatabaseConfig[JdbcProfile]{
   val dbConfig = DatabaseConfigProvider.get[JdbcProfile](Play.current)

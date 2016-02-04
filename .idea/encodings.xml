@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/app/controllers/Account.scala" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/controllers/Announcement.scala" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/controllers/Home.scala" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/controllers/Seo.scala" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/about.scala.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/account/announcements.scala.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/account/forgot.scala.html" charset="UTF-8" />
@@ -17,10 +18,12 @@
     <file url="file://$PROJECT_DIR$/app/views/announcement/newconfirm.scala.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/announcement/notfound.scala.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/announcement/showdetails.scala.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/announcement/showdetailsseo.scala.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/contact.scala.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/management/announcements.scala.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/management/users.scala.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/notfoundpage.scala.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/results.scala.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/resultsseo.scala.html" charset="UTF-8" />
   </component>
 </project>

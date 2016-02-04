@@ -1,5 +1,5 @@
 
-@main("Регистрация") {
+@main("Регистрация - Поиск потерянных вещей. Бюро находок Украина") {
         <section class="main">
             <div class="container">
                 <div class="row">
@@ -20,7 +20,7 @@
                                         <input type="password" placeholder="Повторите пароль" ng-model="confpassword" class="form-control input-lg" required>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-block btn-custom" id="sendbutton">Отправить</button>
+                                        <button class="btn btn-block btn-custom" id="sendbutton"><i class="fa fa-spinner fa-spin" ng-show="loading"></i>Отправить</button>
                                     </div>
                                 </form>
                                 <div class="alert alert-danger" id="error" style="display: none;">
@@ -39,8 +39,8 @@
 
     <script>
 		angular.module('lostfoundApp', ['ui.bootstrap'])
-		.controller('mainCtrl', function($scope, $http, $timeout) {
-
+		.controller('mainCtrl', function($scope, $http, $timeout, $rootScope) {
+                $rootScope.title = "Регистрация - ";
                 $scope.checkSession = function(){
                     $scope.showUserMenu = false;
                     $scope.showProfileLink = false;
@@ -68,31 +68,31 @@
                 }
         })
 		.controller('registerCtrl', function($scope, $http) {
-
+                $scope.loading = false;
 		    $scope.doRegister = function(){
 		        if($scope.password != $scope.confpassword){
                     $("#error").text("Пароли не совпадают").delay(3000).fadeOut("slow");
                     $("#error").css("display","block");
                     return;
                 }
-                $( "#sendbutton" ).prop( "disabled", true );
+                $scope.loading = true;
                 var request = {"action":"register", "params":{"email":$scope.email, "password":$scope.password}};
                 $http.post('@routes.Account.doRegister()', request)
                  .success(function(data){
                     if(data.error == ""){
-                        $( "#sendbutton" ).prop( "disabled", false );
+                        $scope.loading = false;
                         $("#error").text("Проверте Ваш е-mail для завершения регистрации");
                        $("#error").addClass('alert-success').removeClass('alert-danger').delay(3000).fadeOut("slow");
                         $("#error").css("display","block");
                     }
                     else{
-                       $( "#sendbutton" ).prop( "disabled", false );
+                       $scope.loading = false;
                        $("#error").text(data.error);
     				     $("#error").addClass('alert-danger').removeClass('alert-success').delay(3000).fadeOut("slow");
                         $("#error").css("display","block");
                     }
                  }).error(function(data){
-                    $( "#sendbutton" ).prop( "disabled", false );
+                        $scope.loading = false;
                        $("#error").text("Не удалось отправить e-mail");
     				    $("#error").addClass('alert-danger').removeClass('alert-success').delay(3000).fadeOut("slow");
                         $("#error").css("display","block");

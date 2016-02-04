@@ -27,6 +27,7 @@ lostfound/javascripts/bootstrap-datetimepicker.min.js:1449652526000:/home/bogdan
 lostfound/stylesheets/bootstrap-datetimepicker.min.css:1449653570000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/stylesheets/bootstrap-datetimepicker.min.css
 lostfound/images/1450527796948.jpeg:1452183108000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/images/1450527796948.jpeg
 lostfound/fonts/glyphicons-halflings-regular.eot:1440272536000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/fonts/glyphicons-halflings-regular.eot
+lostfound/images/1453544442719.png:1453544443000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/images/1453544442719.png
 lostfound/javascripts/angular.js:1441042858000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/javascripts/angular.js
 lostfound/images/1450636529600.png:1452182810000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/images/1450636529600.png
 lostfound/plugins/font-awesome/fonts/fontawesome-webfont.woff:1438518286000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/plugins/font-awesome/fonts/fontawesome-webfont.woff
@@ -56,11 +57,12 @@ lostfound/plugins/owl-carousel/owl.theme.css:1389658588000:/home/bogdan/IdeaProj
 lostfound/images/up.png:1450023647000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/images/up.png
 lostfound/images/1453325474869.jpeg:1453325475000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/images/1453325474869.jpeg
 lostfound/images/1453325609027.png:1453325609000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/images/1453325609027.png
-lostfound/stylesheets/style1.css:1453493129000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/stylesheets/style1.css
+lostfound/stylesheets/style1.css:1453650487000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/stylesheets/style1.css
 lostfound/plugins/flexslider/fonts/flexslider-icon.woff:1435237974000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/plugins/flexslider/fonts/flexslider-icon.woff
 lostfound/javascripts/jquery-1.11.1.min.js:1440272536000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/javascripts/jquery-1.11.1.min.js
 lostfound/images/hero.jpg:1452974912000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/images/hero.jpg
 lostfound/images/1450636067459.png:1452182870000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/images/1450636067459.png
+lostfound/images/mainlogo1.png:1453669183000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/images/mainlogo1.png
 lostfound/stylesheets/main.css:1452716433000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/stylesheets/main.css
 lostfound/plugins/font-awesome/css/font-awesome.css:1438518286000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/plugins/font-awesome/css/font-awesome.css
 lostfound/images/1450526056975.jpeg:1452183048000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/images/1450526056975.jpeg
@@ -71,6 +73,7 @@ lostfound/plugins/owl-carousel/owl.transitions.css:1389658508000:/home/bogdan/Id
 lostfound/plugins/owl-carousel/owl.carousel.js:1389658588000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/plugins/owl-carousel/owl.carousel.js
 lostfound/images/1450636744682.png:1452182725000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/images/1450636744682.png
 lostfound/images/favicon.png:1440272536000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/images/favicon.png
+lostfound/images/mainlogo2.png:1453649736000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/images/mainlogo2.png
 lostfound/plugins/owl-carousel/grabbing.png:1377830992000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/plugins/owl-carousel/grabbing.png
 lostfound/plugins/flexslider/jquery.flexslider-min.js:1435237974000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/plugins/flexslider/jquery.flexslider-min.js
 lostfound/javascripts/angular-base64-upload.min.js:1441227998000:/home/bogdan/IdeaProjects/LostFoundNew/target/web/classes/main/META-INF/resources/webjars/lostfound/1.0/javascripts/angular-base64-upload.min.js

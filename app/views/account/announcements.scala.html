@@ -1,5 +1,5 @@
 
-@main("Мои обьявления") {
+@main("Мои обьявления - Поиск потерянных вещей. Бюро находок Украина") {
     <section class="main no-padding" style="margin-top: 100px;" ng-controller="accountCtrl">
         <div class="container">
             <div class="row">
@@ -10,9 +10,8 @@
                         </div>
                         <div class="widget-body" ng-controller="mainCtrl">
                             <ul class="author-menus">
+                                <li><a href="/account">Мой профиль</a></li>
                                 <li><a href="/account/announcements">Обьявления</a></li>
-                                    <!--<li><a href="account_create_post.html">Сообщения</a></li>-->
-                                <li><a href="account_profile.html">Настройки</a></li>
                                 <li><a href="" ng-click="doLogout()">Выход</a></li>
                             </ul>
                         </div>
@@ -42,7 +41,7 @@
                                 </thead>
                                 <tbody>
                                     <tr dir-paginate="announcement in announcements | itemsPerPage:4">
-                                        <td><img alt="" style="max-height : 100px;" class="thumb-img img-responsive" ng-src="http://localhost:8080/{{announcement.photo}}"></td>
+                                        <td><img alt="" style="max-height : 100px;" class="thumb-img img-responsive" ng-src="https://www.znahidka.pp.ua:8080/{{announcement.photo}}"></td>
                                         <td>
                                             <div class="item-title"><a ng-href="/announcement/show?id={{announcement.id}}" target="_blank"><strong>{{announcement.title}}</strong></a></div>
                                             <div class="item-meta">
@@ -98,8 +97,8 @@
 
     <script>
         angular.module('lostfoundApp', ['ui.bootstrap', 'angularUtils.directives.dirPagination'])
-        .controller('mainCtrl', function($scope, $http, $timeout) {
-
+        .controller('mainCtrl', function($scope, $http, $timeout, $rootScope) {
+                $rootScope.title = "Мои обьявления - ";
                 $scope.checkSession = function(){
                     $scope.showUserMenu = false;
                     $scope.showProfileLink = false;

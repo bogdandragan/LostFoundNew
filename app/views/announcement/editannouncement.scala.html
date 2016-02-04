@@ -1,4 +1,4 @@
-@main("Редактирование объявления") {
+@main("Редактирование объявления - Поиск потерянных вещей. Бюро находок Украина") {
 
     <section class="main no-padding" style="margin-top: 100px;" ng-controller="editAnnouncementCtrl">
         <div class="container">
@@ -96,7 +96,7 @@
                             <div class="panel-footer">
                                 <div class="row">
                                     <div class="col-sm-offset-3 col-sm-9">
-                                        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Опубликовать</button>
+                                        <button type="submit" class="btn btn-success"><i class="fa fa-check" ng-show="!loading"></i><i class="fa fa-spinner fa-spin" ng-show="loading"></i>Опубликовать</button>
                                     </div>
                                 </div>
                             </div>
@@ -112,8 +112,8 @@
     <script>
 
           angular.module('lostfoundApp', ['ui.bootstrap', 'naif.base64'])
-          .controller('mainCtrl', function($scope, $http, $timeout) {
-
+          .controller('mainCtrl', function($scope, $http, $timeout, $rootScope) {
+                $rootScope.title = "Редактирование обьявления - ";
                 $scope.checkSession = function(){
                     $scope.showUserMenu = false;
                     $scope.showProfileLink = false;
@@ -147,7 +147,7 @@
 
         .controller('editAnnouncementCtrl', function($scope, $http) {
             var idToUpdate = url('?id');
-
+            $scope.loading = false;
             $http.get('@routes.Announcement.getCategories()')
             .success(function(data){
                 console.log(data);
@@ -230,14 +230,16 @@
                                                   "contact" : $scope.contact,
                                                   "email" : $scope.email,
                                                   "phone" : $scope.phone};
-                console.log(post_data);
+                $scope.loading = true;
                 $http.post('@routes.Announcement.updateAnnouncement()', post_data)
                 .success(function(data){
+                    $scope.loading = false;
                     console.log(data);
                     if(data.error == ""){
                         window.location.replace('@routes.Account.myAnnouncements()');
                     }
                 }).error(function(data){
+                    $scope.loading = false;
                     console.log(data);
                 });
             }

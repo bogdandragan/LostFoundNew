@@ -14,7 +14,7 @@
 [debug] == resolving dependencies for lostfound#lostfound$sources_javadoc_2.11;1.0 [compile]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-lang#scala-library;2.11.6 [compile->default(compile)]
 [info] Resolving org.scala-lang#scala-library;2.11.6 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7647e4f8
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7fb39b00
 [debug] sbt-chain: module revision found in cache: org.scala-lang#scala-library;2.11.6
 [debug] 	found org.scala-lang#scala-library;2.11.6 in sbt-chain
 [debug] 	[2.11.6] org.scala-lang#scala-library;2.11.6
@@ -23,7 +23,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-lang#scala-library;2.11.6 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#twirl-api_2.11;1.1.1 [compile->default(compile)]
 [info] Resolving com.typesafe.play#twirl-api_2.11;1.1.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@759346ef
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2becdfeb
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#twirl-api_2.11;1.1.1
 [debug] 	found com.typesafe.play#twirl-api_2.11;1.1.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#twirl-api_2.11;1.1.1 [compile->runtime]
@@ -31,7 +31,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#twirl-api_2.11;1.1.1 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.commons#commons-lang3;3.4 [compile->default(compile)]
 [info] Resolving org.apache.commons#commons-lang3;3.4 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1449e7d9
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@53c90004
 [debug] sbt-chain: module revision found in cache: org.apache.commons#commons-lang3;3.4
 [debug] 	found org.apache.commons#commons-lang3;3.4 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.commons#commons-lang3;3.4 [compile->runtime]
@@ -39,7 +39,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.commons#commons-lang3;3.4 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-lang.modules#scala-xml_2.11;1.0.1 [compile->default(compile)]
 [info] Resolving org.scala-lang.modules#scala-xml_2.11;1.0.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@348b8714
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@60dc70f4
 [debug] sbt-chain: module revision found in cache: org.scala-lang.modules#scala-xml_2.11;1.0.1
 [debug] 	found org.scala-lang.modules#scala-xml_2.11;1.0.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-lang.modules#scala-xml_2.11;1.0.1 [compile->runtime]
@@ -47,7 +47,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-lang.modules#scala-xml_2.11;1.0.1 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-server_2.11;2.4.0 [compile->default(compile)]
 [info] Resolving com.typesafe.play#play-server_2.11;2.4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3661da96
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7ba78347
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#play-server_2.11;2.4.0
 [debug] 	found com.typesafe.play#play-server_2.11;2.4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-server_2.11;2.4.0 [compile->runtime]
@@ -55,7 +55,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-server_2.11;2.4.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play_2.11;2.4.0 [compile->default(compile)]
 [info] Resolving com.typesafe.play#play_2.11;2.4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5ebade94
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@70d721ce
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#play_2.11;2.4.0
 [debug] 	found com.typesafe.play#play_2.11;2.4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play_2.11;2.4.0 [compile->runtime]
@@ -63,7 +63,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play_2.11;2.4.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#build-link;2.4.0 [compile->default(compile)]
 [info] Resolving com.typesafe.play#build-link;2.4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3992079c
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6449d821
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#build-link;2.4.0
 [debug] 	found com.typesafe.play#build-link;2.4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#build-link;2.4.0 [compile->runtime]
@@ -71,7 +71,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#build-link;2.4.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-exceptions;2.4.0 [compile->default(compile)]
 [info] Resolving com.typesafe.play#play-exceptions;2.4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2ccb6c18
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@44495592
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#play-exceptions;2.4.0
 [debug] 	found com.typesafe.play#play-exceptions;2.4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-exceptions;2.4.0 [compile->runtime]
@@ -79,7 +79,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-exceptions;2.4.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.javassist#javassist;3.19.0-GA [compile->default(compile)]
 [info] Resolving org.javassist#javassist;3.19.0-GA ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@506f10cc
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1c3355f0
 [debug] sbt-chain: module revision found in cache: org.javassist#javassist;3.19.0-GA
 [debug] 	found org.javassist#javassist;3.19.0-GA in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.javassist#javassist;3.19.0-GA [compile->runtime]
@@ -87,7 +87,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.javassist#javassist;3.19.0-GA [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-iteratees_2.11;2.4.0 [compile->default(compile)]
 [info] Resolving com.typesafe.play#play-iteratees_2.11;2.4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@123be979
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@11208a05
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#play-iteratees_2.11;2.4.0
 [debug] 	found com.typesafe.play#play-iteratees_2.11;2.4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-iteratees_2.11;2.4.0 [compile->runtime]
@@ -95,7 +95,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-iteratees_2.11;2.4.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-stm#scala-stm_2.11;0.7 [compile->default(compile)]
 [info] Resolving org.scala-stm#scala-stm_2.11;0.7 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@9bb5d80
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@4d30f854
 [debug] sbt-chain: module revision found in cache: org.scala-stm#scala-stm_2.11;0.7
 [debug] 	found org.scala-stm#scala-stm_2.11;0.7 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-stm#scala-stm_2.11;0.7 [compile->runtime]
@@ -103,7 +103,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-stm#scala-stm_2.11;0.7 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe#config;1.3.0 [compile->default(compile)]
 [info] Resolving com.typesafe#config;1.3.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5eaeec24
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@35353e9b
 [debug] sbt-chain: module revision found in cache: com.typesafe#config;1.3.0
 [debug] 	found com.typesafe#config;1.3.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe#config;1.3.0 [compile->runtime]
@@ -111,7 +111,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe#config;1.3.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-json_2.11;2.4.0 [compile->default(compile)]
 [info] Resolving com.typesafe.play#play-json_2.11;2.4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@489c9a49
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@16c38570
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#play-json_2.11;2.4.0
 [debug] 	found com.typesafe.play#play-json_2.11;2.4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-json_2.11;2.4.0 [compile->runtime]
@@ -119,7 +119,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-json_2.11;2.4.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-functional_2.11;2.4.0 [compile->default(compile)]
 [info] Resolving com.typesafe.play#play-functional_2.11;2.4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5aea922f
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@75dc3dd3
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#play-functional_2.11;2.4.0
 [debug] 	found com.typesafe.play#play-functional_2.11;2.4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-functional_2.11;2.4.0 [compile->runtime]
@@ -127,7 +127,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-functional_2.11;2.4.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-datacommons_2.11;2.4.0 [compile->default(compile)]
 [info] Resolving com.typesafe.play#play-datacommons_2.11;2.4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@f10abe9
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1762171d
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#play-datacommons_2.11;2.4.0
 [debug] 	found com.typesafe.play#play-datacommons_2.11;2.4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-datacommons_2.11;2.4.0 [compile->runtime]
@@ -135,7 +135,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-datacommons_2.11;2.4.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.joda#joda-convert;1.7 [compile->default(compile)]
 [info] Resolving org.joda#joda-convert;1.7 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5e206562
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7a1663c2
 [debug] sbt-chain: module revision found in cache: org.joda#joda-convert;1.7
 [debug] 	found org.joda#joda-convert;1.7 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.joda#joda-convert;1.7 [compile->runtime]
@@ -143,7 +143,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.joda#joda-convert;1.7 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-lang#scala-reflect;2.11.6 [compile->default(compile)]
 [info] Resolving org.scala-lang#scala-reflect;2.11.6 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@67c1109f
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@71bae16f
 [debug] sbt-chain: module revision found in cache: org.scala-lang#scala-reflect;2.11.6
 [debug] 	found org.scala-lang#scala-reflect;2.11.6 in sbt-chain
 [debug] 	[2.11.6] org.scala-lang#scala-reflect;2.11.6
@@ -152,7 +152,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-lang#scala-reflect;2.11.6 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.fasterxml.jackson.core#jackson-core;2.5.3 [compile->default(compile)]
 [info] Resolving com.fasterxml.jackson.core#jackson-core;2.5.3 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@76ca945d
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@483e789c
 [debug] sbt-chain: module revision found in cache: com.fasterxml.jackson.core#jackson-core;2.5.3
 [debug] 	found com.fasterxml.jackson.core#jackson-core;2.5.3 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.fasterxml.jackson.core#jackson-core;2.5.3 [compile->runtime]
@@ -160,7 +160,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.fasterxml.jackson.core#jackson-core;2.5.3 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.fasterxml.jackson.core#jackson-annotations;2.5.3 [compile->default(compile)]
 [info] Resolving com.fasterxml.jackson.core#jackson-annotations;2.5.3 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1c839e6
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3ec486d0
 [debug] sbt-chain: module revision found in cache: com.fasterxml.jackson.core#jackson-annotations;2.5.3
 [debug] 	found com.fasterxml.jackson.core#jackson-annotations;2.5.3 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.fasterxml.jackson.core#jackson-annotations;2.5.3 [compile->runtime]
@@ -168,7 +168,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.fasterxml.jackson.core#jackson-annotations;2.5.3 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.fasterxml.jackson.core#jackson-databind;2.5.3 [compile->default(compile)]
 [info] Resolving com.fasterxml.jackson.core#jackson-databind;2.5.3 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@b4f8b1b
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2f89c760
 [debug] sbt-chain: module revision found in cache: com.fasterxml.jackson.core#jackson-databind;2.5.3
 [debug] 	found com.fasterxml.jackson.core#jackson-databind;2.5.3 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.fasterxml.jackson.core#jackson-databind;2.5.3 [compile->runtime]
@@ -176,7 +176,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.fasterxml.jackson.core#jackson-databind;2.5.3 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.fasterxml.jackson.datatype#jackson-datatype-jdk8;2.5.3 [compile->default(compile)]
 [info] Resolving com.fasterxml.jackson.datatype#jackson-datatype-jdk8;2.5.3 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1888c912
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7effea1a
 [debug] sbt-chain: module revision found in cache: com.fasterxml.jackson.datatype#jackson-datatype-jdk8;2.5.3
 [debug] 	found com.fasterxml.jackson.datatype#jackson-datatype-jdk8;2.5.3 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.fasterxml.jackson.datatype#jackson-datatype-jdk8;2.5.3 [compile->runtime]
@@ -184,7 +184,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.fasterxml.jackson.datatype#jackson-datatype-jdk8;2.5.3 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.fasterxml.jackson.datatype#jackson-datatype-jsr310;2.5.3 [compile->default(compile)]
 [info] Resolving com.fasterxml.jackson.datatype#jackson-datatype-jsr310;2.5.3 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@42c0ea15
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@596dc5ab
 [debug] sbt-chain: module revision found in cache: com.fasterxml.jackson.datatype#jackson-datatype-jsr310;2.5.3
 [debug] 	found com.fasterxml.jackson.datatype#jackson-datatype-jsr310;2.5.3 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.fasterxml.jackson.datatype#jackson-datatype-jsr310;2.5.3 [compile->runtime]
@@ -192,7 +192,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.fasterxml.jackson.datatype#jackson-datatype-jsr310;2.5.3 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-netty-utils;2.4.0 [compile->default(compile)]
 [info] Resolving com.typesafe.play#play-netty-utils;2.4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@4ef9f019
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3199f6b8
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#play-netty-utils;2.4.0
 [debug] 	found com.typesafe.play#play-netty-utils;2.4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-netty-utils;2.4.0 [compile->runtime]
@@ -200,7 +200,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-netty-utils;2.4.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.slf4j#slf4j-api;1.7.12 [compile->default(compile)]
 [info] Resolving org.slf4j#slf4j-api;1.7.12 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@19cddb5e
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@33c6666f
 [debug] sbt-chain: module revision found in cache: org.slf4j#slf4j-api;1.7.12
 [debug] 	found org.slf4j#slf4j-api;1.7.12 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.slf4j#slf4j-api;1.7.12 [compile->runtime]
@@ -208,7 +208,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.slf4j#slf4j-api;1.7.12 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.slf4j#jul-to-slf4j;1.7.12 [compile->default(compile)]
 [info] Resolving org.slf4j#jul-to-slf4j;1.7.12 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@27670067
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@67848fde
 [debug] sbt-chain: module revision found in cache: org.slf4j#jul-to-slf4j;1.7.12
 [debug] 	found org.slf4j#jul-to-slf4j;1.7.12 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.slf4j#jul-to-slf4j;1.7.12 [compile->runtime]
@@ -216,7 +216,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.slf4j#jul-to-slf4j;1.7.12 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.slf4j#jcl-over-slf4j;1.7.12 [compile->default(compile)]
 [info] Resolving org.slf4j#jcl-over-slf4j;1.7.12 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2778ebe6
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@38be5a37
 [debug] sbt-chain: module revision found in cache: org.slf4j#jcl-over-slf4j;1.7.12
 [debug] 	found org.slf4j#jcl-over-slf4j;1.7.12 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.slf4j#jcl-over-slf4j;1.7.12 [compile->runtime]
@@ -224,7 +224,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.slf4j#jcl-over-slf4j;1.7.12 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 [compile->default(compile)]
 [info] Resolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@71db0d07
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7a8a984d
 [debug] sbt-chain: module revision found in cache: org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1
 [debug] 	found org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 [compile->runtime]
@@ -232,7 +232,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->ch.qos.logback#logback-core;1.1.3 [compile->default(compile)]
 [info] Resolving ch.qos.logback#logback-core;1.1.3 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7b5014c7
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@422bfa5b
 [debug] sbt-chain: module revision found in cache: ch.qos.logback#logback-core;1.1.3
 [debug] 	found ch.qos.logback#logback-core;1.1.3 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->ch.qos.logback#logback-core;1.1.3 [compile->runtime]
@@ -240,7 +240,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->ch.qos.logback#logback-core;1.1.3 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->ch.qos.logback#logback-classic;1.1.3 [compile->default(compile)]
 [info] Resolving ch.qos.logback#logback-classic;1.1.3 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2a9d56bc
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@32ce9bf4
 [debug] sbt-chain: module revision found in cache: ch.qos.logback#logback-classic;1.1.3
 [debug] 	found ch.qos.logback#logback-classic;1.1.3 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->ch.qos.logback#logback-classic;1.1.3 [compile->runtime]
@@ -248,7 +248,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->ch.qos.logback#logback-classic;1.1.3 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.akka#akka-actor_2.11;2.3.11 [compile->default(compile)]
 [info] Resolving com.typesafe.akka#akka-actor_2.11;2.3.11 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@569a4607
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6eb89450
 [debug] sbt-chain: module revision found in cache: com.typesafe.akka#akka-actor_2.11;2.3.11
 [debug] 	found com.typesafe.akka#akka-actor_2.11;2.3.11 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.akka#akka-actor_2.11;2.3.11 [compile->runtime]
@@ -256,7 +256,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.akka#akka-actor_2.11;2.3.11 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.akka#akka-slf4j_2.11;2.3.11 [compile->default(compile)]
 [info] Resolving com.typesafe.akka#akka-slf4j_2.11;2.3.11 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@513078fc
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@12e06f63
 [debug] sbt-chain: module revision found in cache: com.typesafe.akka#akka-slf4j_2.11;2.3.11
 [debug] 	found com.typesafe.akka#akka-slf4j_2.11;2.3.11 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.akka#akka-slf4j_2.11;2.3.11 [compile->runtime]
@@ -264,7 +264,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.akka#akka-slf4j_2.11;2.3.11 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->commons-codec#commons-codec;1.10 [compile->default(compile)]
 [info] Resolving commons-codec#commons-codec;1.10 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@67412c03
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6ddc43ca
 [debug] sbt-chain: module revision found in cache: commons-codec#commons-codec;1.10
 [debug] 	found commons-codec#commons-codec;1.10 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->commons-codec#commons-codec;1.10 [compile->runtime]
@@ -272,7 +272,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->commons-codec#commons-codec;1.10 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->xerces#xercesImpl;2.11.0 [compile->default(compile)]
 [info] Resolving xerces#xercesImpl;2.11.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6b5549e0
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1c229afa
 [debug] sbt-chain: module revision found in cache: xerces#xercesImpl;2.11.0
 [debug] 	found xerces#xercesImpl;2.11.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->xerces#xercesImpl;2.11.0 [compile->runtime]
@@ -280,7 +280,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->xerces#xercesImpl;2.11.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->xml-apis#xml-apis;1.4.01 [compile->default(compile)]
 [info] Resolving xml-apis#xml-apis;1.4.01 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2b4b9cd6
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6e5bb052
 [debug] sbt-chain: module revision found in cache: xml-apis#xml-apis;1.4.01
 [debug] 	found xml-apis#xml-apis;1.4.01 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->xml-apis#xml-apis;1.4.01 [compile->runtime]
@@ -288,7 +288,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->xml-apis#xml-apis;1.4.01 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->javax.transaction#jta;1.1 [compile->default(compile)]
 [info] Resolving javax.transaction#jta;1.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@66a7ace6
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5d1f42aa
 [debug] sbt-chain: module revision found in cache: javax.transaction#jta;1.1
 [debug] 	found javax.transaction#jta;1.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->javax.transaction#jta;1.1 [compile->runtime]
@@ -296,7 +296,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->javax.transaction#jta;1.1 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.google.inject#guice;4.0 [compile->default(compile)]
 [info] Resolving com.google.inject#guice;4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@38bdb624
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@66e69a7e
 [debug] sbt-chain: module revision found in cache: com.google.inject#guice;4.0
 [debug] 	found com.google.inject#guice;4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.google.inject#guice;4.0 [compile->runtime]
@@ -304,7 +304,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.google.inject#guice;4.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->javax.inject#javax.inject;1 [compile->default(compile)]
 [info] Resolving javax.inject#javax.inject;1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@44973f55
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@434350ee
 [debug] sbt-chain: module revision found in cache: javax.inject#javax.inject;1
 [debug] 	found javax.inject#javax.inject;1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->javax.inject#javax.inject;1 [compile->runtime]
@@ -312,7 +312,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->javax.inject#javax.inject;1 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->aopalliance#aopalliance;1.0 [compile->default(compile)]
 [info] Resolving aopalliance#aopalliance;1.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6c105b83
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@73561f46
 [debug] sbt-chain: module revision found in cache: aopalliance#aopalliance;1.0
 [debug] 	found aopalliance#aopalliance;1.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->aopalliance#aopalliance;1.0 [compile->runtime]
@@ -320,9 +320,9 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->aopalliance#aopalliance;1.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.google.inject.extensions#guice-assistedinject;4.0 [compile->default(compile)]
 [info] Resolving com.google.inject.extensions#guice-assistedinject;4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@39dda4c4
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5faaaddd
 [info] Resolving com.google.inject.extensions#guice-assistedinject;4.0 ...
-[debug] sbt-chain-delegate: Checking cache for: sbt.ivyint.MergedDescriptors@39dda4c4
+[debug] sbt-chain-delegate: Checking cache for: sbt.ivyint.MergedDescriptors@5faaaddd
 [debug] 		tried /home/bogdan/.ivy2/local/com.google.inject.extensions/guice-assistedinject/4.0/ivys/ivy.xml
 [debug] 	local: no ivy file found for com.google.inject.extensions#guice-assistedinject;4.0
 [debug] 		tried https://repo1.maven.org/maven2/com/google/inject/extensions/guice-assistedinject/4.0/guice-assistedinject-4.0.pom
@@ -332,7 +332,7 @@
 [debug] 	public: downloading https://repo1.maven.org/maven2/com/google/inject/extensions/guice-assistedinject/4.0/guice-assistedinject-4.0.pom
 [debug] 	public: downloading https://repo1.maven.org/maven2/com/google/inject/extensions/guice-assistedinject/4.0/guice-assistedinject-4.0.pom.sha1
 [debug] sha1 OK for https://repo1.maven.org/maven2/com/google/inject/extensions/guice-assistedinject/4.0/guice-assistedinject-4.0.pom
-[debug] 	[SUCCESSFUL ] com.google.inject.extensions#guice-assistedinject;4.0!guice-assistedinject.pom(pom.original) (245ms)
+[debug] 	[SUCCESSFUL ] com.google.inject.extensions#guice-assistedinject;4.0!guice-assistedinject.pom(pom.original) (178ms)
 [info] Resolving com.google.inject.extensions#extensions-parent;4.0 ...
 [debug] sbt-chain: Checking cache for: dependency: com.google.inject.extensions#extensions-parent;4.0 {}
 [debug] sbt-chain: module revision found in cache: com.google.inject.extensions#extensions-parent;4.0
@@ -342,7 +342,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.google.inject.extensions#guice-assistedinject;4.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-netty-server_2.11;2.4.0 [compile->default(compile)]
 [info] Resolving com.typesafe.play#play-netty-server_2.11;2.4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@584c5f8b
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@4bace643
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#play-netty-server_2.11;2.4.0
 [debug] 	found com.typesafe.play#play-netty-server_2.11;2.4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-netty-server_2.11;2.4.0 [compile->runtime]
@@ -350,7 +350,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-netty-server_2.11;2.4.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->io.netty#netty;3.10.3.Final [compile->default(compile)]
 [info] Resolving io.netty#netty;3.10.3.Final ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6ee51b9d
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@58e50b98
 [debug] sbt-chain: module revision found in cache: io.netty#netty;3.10.3.Final
 [debug] 	found io.netty#netty;3.10.3.Final in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->io.netty#netty;3.10.3.Final [compile->runtime]
@@ -358,7 +358,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->io.netty#netty;3.10.3.Final [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.netty#netty-http-pipelining;1.1.4 [compile->default(compile)]
 [info] Resolving com.typesafe.netty#netty-http-pipelining;1.1.4 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1df68b56
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6664f51b
 [debug] sbt-chain: module revision found in cache: com.typesafe.netty#netty-http-pipelining;1.1.4
 [debug] 	found com.typesafe.netty#netty-http-pipelining;1.1.4 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.netty#netty-http-pipelining;1.1.4 [compile->runtime]
@@ -366,7 +366,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.netty#netty-http-pipelining;1.1.4 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-jdbc_2.11;2.4.0 [compile->default(compile)]
 [info] Resolving com.typesafe.play#play-jdbc_2.11;2.4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@308bbbbf
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@19e3a832
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#play-jdbc_2.11;2.4.0
 [debug] 	found com.typesafe.play#play-jdbc_2.11;2.4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-jdbc_2.11;2.4.0 [compile->runtime]
@@ -374,7 +374,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-jdbc_2.11;2.4.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-jdbc-api_2.11;2.4.0 [compile->default(compile)]
 [info] Resolving com.typesafe.play#play-jdbc-api_2.11;2.4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7f03e783
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@33bb99af
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#play-jdbc-api_2.11;2.4.0
 [debug] 	found com.typesafe.play#play-jdbc-api_2.11;2.4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-jdbc-api_2.11;2.4.0 [compile->runtime]
@@ -382,7 +382,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-jdbc-api_2.11;2.4.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.jolbox#bonecp;0.8.0.RELEASE [compile->default(compile)]
 [info] Resolving com.jolbox#bonecp;0.8.0.RELEASE ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@220fa0a7
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3399ea6b
 [debug] sbt-chain: module revision found in cache: com.jolbox#bonecp;0.8.0.RELEASE
 [debug] 	found com.jolbox#bonecp;0.8.0.RELEASE in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.jolbox#bonecp;0.8.0.RELEASE [compile->runtime]
@@ -390,7 +390,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.jolbox#bonecp;0.8.0.RELEASE [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.zaxxer#HikariCP;2.3.7 [compile->default(compile)]
 [info] Resolving com.zaxxer#HikariCP;2.3.7 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7f0fc84a
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6e50f26a
 [debug] sbt-chain: module revision found in cache: com.zaxxer#HikariCP;2.3.7
 [debug] 	found com.zaxxer#HikariCP;2.3.7 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.zaxxer#HikariCP;2.3.7 [compile->runtime]
@@ -398,7 +398,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.zaxxer#HikariCP;2.3.7 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.h2database#h2;1.4.187 [compile->default(compile)]
 [info] Resolving com.h2database#h2;1.4.187 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5b084be9
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2167b303
 [debug] sbt-chain: module revision found in cache: com.h2database#h2;1.4.187
 [debug] 	found com.h2database#h2;1.4.187 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.h2database#h2;1.4.187 [compile->runtime]
@@ -406,7 +406,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.h2database#h2;1.4.187 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-cache_2.11;2.4.0 [compile->default(compile)]
 [info] Resolving com.typesafe.play#play-cache_2.11;2.4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@4c1a9520
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@49f9c8fd
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#play-cache_2.11;2.4.0
 [debug] 	found com.typesafe.play#play-cache_2.11;2.4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-cache_2.11;2.4.0 [compile->runtime]
@@ -414,7 +414,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-cache_2.11;2.4.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.sf.ehcache#ehcache-core;2.6.11 [compile->default(compile)]
 [info] Resolving net.sf.ehcache#ehcache-core;2.6.11 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6fa02e41
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@504cc446
 [debug] sbt-chain: module revision found in cache: net.sf.ehcache#ehcache-core;2.6.11
 [debug] 	found net.sf.ehcache#ehcache-core;2.6.11 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.sf.ehcache#ehcache-core;2.6.11 [compile->runtime]
@@ -422,7 +422,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.sf.ehcache#ehcache-core;2.6.11 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-ws_2.11;2.4.0 [compile->default(compile)]
 [info] Resolving com.typesafe.play#play-ws_2.11;2.4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3c31db71
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@74b6dc0a
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#play-ws_2.11;2.4.0
 [debug] 	found com.typesafe.play#play-ws_2.11;2.4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-ws_2.11;2.4.0 [compile->runtime]
@@ -430,7 +430,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-ws_2.11;2.4.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.google.guava#guava;18.0 [compile->default(compile)]
 [info] Resolving com.google.guava#guava;18.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@133f8192
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@360a731e
 [debug] sbt-chain: module revision found in cache: com.google.guava#guava;18.0
 [debug] 	found com.google.guava#guava;18.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.google.guava#guava;18.0 [compile->runtime]
@@ -438,7 +438,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.google.guava#guava;18.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.ning#async-http-client;1.9.21 [compile->default(compile)]
 [info] Resolving com.ning#async-http-client;1.9.21 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@eb51a03
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3aa10c2
 [debug] sbt-chain: module revision found in cache: com.ning#async-http-client;1.9.21
 [debug] 	found com.ning#async-http-client;1.9.21 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.ning#async-http-client;1.9.21 [compile->runtime]
@@ -446,7 +446,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.ning#async-http-client;1.9.21 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->oauth.signpost#signpost-core;1.2.1.2 [compile->default(compile)]
 [info] Resolving oauth.signpost#signpost-core;1.2.1.2 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@4318907d
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@585650f9
 [debug] sbt-chain: module revision found in cache: oauth.signpost#signpost-core;1.2.1.2
 [debug] 	found oauth.signpost#signpost-core;1.2.1.2 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->oauth.signpost#signpost-core;1.2.1.2 [compile->runtime]
@@ -454,7 +454,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->oauth.signpost#signpost-core;1.2.1.2 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->oauth.signpost#signpost-commonshttp4;1.2.1.2 [compile->default(compile)]
 [info] Resolving oauth.signpost#signpost-commonshttp4;1.2.1.2 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@219d036b
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@493853f4
 [debug] sbt-chain: module revision found in cache: oauth.signpost#signpost-commonshttp4;1.2.1.2
 [debug] 	found oauth.signpost#signpost-commonshttp4;1.2.1.2 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->oauth.signpost#signpost-commonshttp4;1.2.1.2 [compile->runtime]
@@ -462,7 +462,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->oauth.signpost#signpost-commonshttp4;1.2.1.2 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.httpcomponents#httpcore;4.0.1 [compile->default(compile)]
 [info] Resolving org.apache.httpcomponents#httpcore;4.0.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@10e243c9
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@331bfc4
 [debug] sbt-chain: module revision found in cache: org.apache.httpcomponents#httpcore;4.0.1
 [debug] 	found org.apache.httpcomponents#httpcore;4.0.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.httpcomponents#httpcore;4.0.1 [compile->runtime]
@@ -470,7 +470,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.httpcomponents#httpcore;4.0.1 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.httpcomponents#httpclient;4.0.1 [compile->default(compile)]
 [info] Resolving org.apache.httpcomponents#httpclient;4.0.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@fe060c1
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6706844d
 [debug] sbt-chain: module revision found in cache: org.apache.httpcomponents#httpclient;4.0.1
 [debug] 	found org.apache.httpcomponents#httpclient;4.0.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.httpcomponents#httpclient;4.0.1 [compile->runtime]
@@ -478,7 +478,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.httpcomponents#httpclient;4.0.1 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->commons-logging#commons-logging;1.1.1 [compile->default(compile)]
 [info] Resolving commons-logging#commons-logging;1.1.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@561577e2
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@20b7dd60
 [debug] sbt-chain: module revision found in cache: commons-logging#commons-logging;1.1.1
 [debug] 	found commons-logging#commons-logging;1.1.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->commons-logging#commons-logging;1.1.1 [compile->runtime]
@@ -486,7 +486,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->commons-logging#commons-logging;1.1.1 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-slick_2.11;1.0.1 [compile->default(compile)]
 [info] Resolving com.typesafe.play#play-slick_2.11;1.0.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1e0e99c5
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@378eaba2
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#play-slick_2.11;1.0.1
 [debug] 	found com.typesafe.play#play-slick_2.11;1.0.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-slick_2.11;1.0.1 [compile->runtime]
@@ -494,7 +494,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-slick_2.11;1.0.1 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.slick#slick_2.11;3.0.1 [compile->default(compile)]
 [info] Resolving com.typesafe.slick#slick_2.11;3.0.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@39414b95
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7d46d68
 [debug] sbt-chain: module revision found in cache: com.typesafe.slick#slick_2.11;3.0.1
 [debug] 	found com.typesafe.slick#slick_2.11;3.0.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.slick#slick_2.11;3.0.1 [compile->runtime]
@@ -502,7 +502,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.slick#slick_2.11;3.0.1 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.reactivestreams#reactive-streams;1.0.0 [compile->default(compile)]
 [info] Resolving org.reactivestreams#reactive-streams;1.0.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@4d9f3a16
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@61937048
 [debug] sbt-chain: module revision found in cache: org.reactivestreams#reactive-streams;1.0.0
 [debug] 	found org.reactivestreams#reactive-streams;1.0.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.reactivestreams#reactive-streams;1.0.0 [compile->runtime]
@@ -510,7 +510,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.reactivestreams#reactive-streams;1.0.0 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.zaxxer#HikariCP-java6;2.3.7 [compile->default(compile)]
 [info] Resolving com.zaxxer#HikariCP-java6;2.3.7 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2b65c021
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5e683ab
 [debug] sbt-chain: module revision found in cache: com.zaxxer#HikariCP-java6;2.3.7
 [debug] 	found com.zaxxer#HikariCP-java6;2.3.7 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.zaxxer#HikariCP-java6;2.3.7 [compile->runtime]
@@ -518,7 +518,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.zaxxer#HikariCP-java6;2.3.7 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.slick#slick-codegen_2.11;3.0.1 [compile->default(compile)]
 [info] Resolving com.typesafe.slick#slick-codegen_2.11;3.0.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@60726ed
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3fc27cf3
 [debug] sbt-chain: module revision found in cache: com.typesafe.slick#slick-codegen_2.11;3.0.1
 [debug] 	found com.typesafe.slick#slick-codegen_2.11;3.0.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.slick#slick-codegen_2.11;3.0.1 [compile->runtime]
@@ -526,7 +526,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.slick#slick-codegen_2.11;3.0.1 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.mindrot#jbcrypt;0.3m [compile->default(compile)]
 [info] Resolving org.mindrot#jbcrypt;0.3m ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@56a6a131
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1b60060c
 [debug] sbt-chain: module revision found in cache: org.mindrot#jbcrypt;0.3m
 [debug] 	found org.mindrot#jbcrypt;0.3m in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.mindrot#jbcrypt;0.3m [compile->runtime]
@@ -534,7 +534,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.mindrot#jbcrypt;0.3m [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.commons#commons-email;1.3.3 [compile->default(compile)]
 [info] Resolving org.apache.commons#commons-email;1.3.3 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@66dd8e6c
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6fb3c518
 [debug] sbt-chain: module revision found in cache: org.apache.commons#commons-email;1.3.3
 [debug] 	found org.apache.commons#commons-email;1.3.3 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.commons#commons-email;1.3.3 [compile->runtime]
@@ -542,7 +542,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.commons#commons-email;1.3.3 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->javax.mail#mail;1.4.5 [compile->default(compile)]
 [info] Resolving javax.mail#mail;1.4.5 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3d4d791d
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@54f1c1ee
 [debug] sbt-chain: module revision found in cache: javax.mail#mail;1.4.5
 [debug] 	found javax.mail#mail;1.4.5 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->javax.mail#mail;1.4.5 [compile->runtime]
@@ -550,7 +550,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->javax.mail#mail;1.4.5 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->javax.activation#activation;1.1.1 [compile->default(compile)]
 [info] Resolving javax.activation#activation;1.1.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@542c1a49
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@54de7802
 [debug] sbt-chain: module revision found in cache: javax.activation#activation;1.1.1
 [debug] 	found javax.activation#activation;1.1.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->javax.activation#activation;1.1.1 [compile->runtime]
@@ -558,7 +558,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->javax.activation#activation;1.1.1 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-mailer_2.11;3.0.1 [compile->default(compile)]
 [info] Resolving com.typesafe.play#play-mailer_2.11;3.0.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2c3b7154
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@26b2a5ac
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#play-mailer_2.11;3.0.1
 [debug] 	found com.typesafe.play#play-mailer_2.11;3.0.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-mailer_2.11;3.0.1 [compile->runtime]
@@ -566,7 +566,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-mailer_2.11;3.0.1 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->joda-time#joda-time;2.9.1 [compile->default(compile)]
 [info] Resolving joda-time#joda-time;2.9.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5a63ab81
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2e42bf58
 [debug] sbt-chain: module revision found in cache: joda-time#joda-time;2.9.1
 [debug] 	found joda-time#joda-time;2.9.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->joda-time#joda-time;2.9.1 [compile->runtime]
@@ -574,7 +574,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->joda-time#joda-time;2.9.1 [compile->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.imgscalr#imgscalr-lib;4.2 [compile->default(compile)]
 [info] Resolving org.imgscalr#imgscalr-lib;4.2 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@68ff3ff2
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@73828c51
 [debug] sbt-chain: module revision found in cache: org.imgscalr#imgscalr-lib;4.2
 [debug] 	found org.imgscalr#imgscalr-lib;4.2 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.imgscalr#imgscalr-lib;4.2 [compile->runtime]
@@ -1919,7 +1919,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.imgscalr#imgscalr-lib;4.2 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-test_2.11;2.4.0 [test->default(compile)]
 [info] Resolving com.typesafe.play#play-test_2.11;2.4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6ff383df
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@27a48638
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#play-test_2.11;2.4.0
 [debug] 	found com.typesafe.play#play-test_2.11;2.4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-test_2.11;2.4.0 [test->runtime]
@@ -1927,7 +1927,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-test_2.11;2.4.0 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->junit#junit;4.12 [test->default(compile)]
 [info] Resolving junit#junit;4.12 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1c98880b
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2b3fa2c2
 [debug] sbt-chain: module revision found in cache: junit#junit;4.12
 [debug] 	found junit#junit;4.12 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->junit#junit;4.12 [test->runtime]
@@ -1935,7 +1935,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->junit#junit;4.12 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.hamcrest#hamcrest-core;1.3 [test->default(compile)]
 [info] Resolving org.hamcrest#hamcrest-core;1.3 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@4500759
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@27b9d831
 [debug] sbt-chain: module revision found in cache: org.hamcrest#hamcrest-core;1.3
 [debug] 	found org.hamcrest#hamcrest-core;1.3 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.hamcrest#hamcrest-core;1.3 [test->runtime]
@@ -1943,7 +1943,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.hamcrest#hamcrest-core;1.3 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.novocode#junit-interface;0.11 [test->default(compile)]
 [info] Resolving com.novocode#junit-interface;0.11 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@4fd6cd6a
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6303506c
 [debug] sbt-chain: module revision found in cache: com.novocode#junit-interface;0.11
 [debug] 	found com.novocode#junit-interface;0.11 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.novocode#junit-interface;0.11 [test->runtime]
@@ -1951,7 +1951,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.novocode#junit-interface;0.11 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-sbt#test-interface;1.0 [test->default(compile)]
 [info] Resolving org.scala-sbt#test-interface;1.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@4a8e5aa6
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5e786e6f
 [debug] sbt-chain: module revision found in cache: org.scala-sbt#test-interface;1.0
 [debug] 	found org.scala-sbt#test-interface;1.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-sbt#test-interface;1.0 [test->runtime]
@@ -1959,7 +1959,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-sbt#test-interface;1.0 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.google.code.findbugs#jsr305;2.0.3 [test->default(compile)]
 [info] Resolving com.google.code.findbugs#jsr305;2.0.3 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@26b159df
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@76ef458d
 [debug] sbt-chain: module revision found in cache: com.google.code.findbugs#jsr305;2.0.3
 [debug] 	found com.google.code.findbugs#jsr305;2.0.3 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.google.code.findbugs#jsr305;2.0.3 [test->runtime]
@@ -1967,7 +1967,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.google.code.findbugs#jsr305;2.0.3 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.fluentlenium#fluentlenium-core;0.10.3 [test->default(compile)]
 [info] Resolving org.fluentlenium#fluentlenium-core;0.10.3 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@111c2b29
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@10bd23ca
 [debug] sbt-chain: module revision found in cache: org.fluentlenium#fluentlenium-core;0.10.3
 [debug] 	found org.fluentlenium#fluentlenium-core;0.10.3 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.fluentlenium#fluentlenium-core;0.10.3 [test->runtime]
@@ -1975,7 +1975,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.fluentlenium#fluentlenium-core;0.10.3 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-java;2.44.0 [test->default(compile)]
 [info] Resolving org.seleniumhq.selenium#selenium-java;2.44.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5df3a57a
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7c552f07
 [debug] sbt-chain: module revision found in cache: org.seleniumhq.selenium#selenium-java;2.44.0
 [debug] 	found org.seleniumhq.selenium#selenium-java;2.44.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-java;2.44.0 [test->runtime]
@@ -1983,7 +1983,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-java;2.44.0 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-chrome-driver;2.44.0 [test->default(compile)]
 [info] Resolving org.seleniumhq.selenium#selenium-chrome-driver;2.44.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2230760b
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@17a4bee6
 [debug] sbt-chain: module revision found in cache: org.seleniumhq.selenium#selenium-chrome-driver;2.44.0
 [debug] 	found org.seleniumhq.selenium#selenium-chrome-driver;2.44.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-chrome-driver;2.44.0 [test->runtime]
@@ -1991,7 +1991,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-chrome-driver;2.44.0 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-remote-driver;2.44.0 [test->default(compile)]
 [info] Resolving org.seleniumhq.selenium#selenium-remote-driver;2.44.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@af1bda
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5d040028
 [debug] sbt-chain: module revision found in cache: org.seleniumhq.selenium#selenium-remote-driver;2.44.0
 [debug] 	found org.seleniumhq.selenium#selenium-remote-driver;2.44.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-remote-driver;2.44.0 [test->runtime]
@@ -1999,7 +1999,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-remote-driver;2.44.0 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->cglib#cglib-nodep;2.1_3 [test->default(compile)]
 [info] Resolving cglib#cglib-nodep;2.1_3 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@292f7ebe
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@44e76217
 [debug] sbt-chain: module revision found in cache: cglib#cglib-nodep;2.1_3
 [debug] 	found cglib#cglib-nodep;2.1_3 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->cglib#cglib-nodep;2.1_3 [test->runtime]
@@ -2007,7 +2007,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->cglib#cglib-nodep;2.1_3 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.google.code.gson#gson;2.3 [test->default(compile)]
 [info] Resolving com.google.code.gson#gson;2.3 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@223ee366
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@4e60a4c6
 [debug] sbt-chain: module revision found in cache: com.google.code.gson#gson;2.3
 [debug] 	found com.google.code.gson#gson;2.3 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.google.code.gson#gson;2.3 [test->runtime]
@@ -2015,7 +2015,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.google.code.gson#gson;2.3 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-api;2.44.0 [test->default(compile)]
 [info] Resolving org.seleniumhq.selenium#selenium-api;2.44.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@373f310e
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3f0f73ee
 [debug] sbt-chain: module revision found in cache: org.seleniumhq.selenium#selenium-api;2.44.0
 [debug] 	found org.seleniumhq.selenium#selenium-api;2.44.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-api;2.44.0 [test->runtime]
@@ -2023,7 +2023,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-api;2.44.0 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.httpcomponents#httpclient;4.3.4 [test->default(compile)]
 [info] Resolving org.apache.httpcomponents#httpclient;4.3.4 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@65f41b07
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@717d33b0
 [debug] sbt-chain: module revision found in cache: org.apache.httpcomponents#httpclient;4.3.4
 [debug] 	found org.apache.httpcomponents#httpclient;4.3.4 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.httpcomponents#httpclient;4.3.4 [test->runtime]
@@ -2031,7 +2031,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.httpcomponents#httpclient;4.3.4 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.httpcomponents#httpcore;4.3.2 [test->default(compile)]
 [info] Resolving org.apache.httpcomponents#httpcore;4.3.2 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7e4762db
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7fe5bcbc
 [debug] sbt-chain: module revision found in cache: org.apache.httpcomponents#httpcore;4.3.2
 [debug] 	found org.apache.httpcomponents#httpcore;4.3.2 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.httpcomponents#httpcore;4.3.2 [test->runtime]
@@ -2039,7 +2039,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.httpcomponents#httpcore;4.3.2 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->commons-logging#commons-logging;1.1.3 [test->default(compile)]
 [info] Resolving commons-logging#commons-logging;1.1.3 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7a27c842
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2cc83362
 [debug] sbt-chain: module revision found in cache: commons-logging#commons-logging;1.1.3
 [debug] 	found commons-logging#commons-logging;1.1.3 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->commons-logging#commons-logging;1.1.3 [test->runtime]
@@ -2047,7 +2047,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->commons-logging#commons-logging;1.1.3 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.commons#commons-exec;1.1 [test->default(compile)]
 [info] Resolving org.apache.commons#commons-exec;1.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@65d37872
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1d8638d7
 [debug] sbt-chain: module revision found in cache: org.apache.commons#commons-exec;1.1
 [debug] 	found org.apache.commons#commons-exec;1.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.commons#commons-exec;1.1 [test->runtime]
@@ -2055,7 +2055,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.commons#commons-exec;1.1 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.java.dev.jna#jna;3.4.0 [test->default(compile)]
 [info] Resolving net.java.dev.jna#jna;3.4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7e0a9c07
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5e05627c
 [debug] sbt-chain: module revision found in cache: net.java.dev.jna#jna;3.4.0
 [debug] 	found net.java.dev.jna#jna;3.4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.java.dev.jna#jna;3.4.0 [test->runtime]
@@ -2063,7 +2063,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.java.dev.jna#jna;3.4.0 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.java.dev.jna#platform;3.4.0 [test->default(compile)]
 [info] Resolving net.java.dev.jna#platform;3.4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@25a4d27f
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@334132f0
 [debug] sbt-chain: module revision found in cache: net.java.dev.jna#platform;3.4.0
 [debug] 	found net.java.dev.jna#platform;3.4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.java.dev.jna#platform;3.4.0 [test->runtime]
@@ -2071,7 +2071,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.java.dev.jna#platform;3.4.0 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-htmlunit-driver;2.44.0 [test->default(compile)]
 [info] Resolving org.seleniumhq.selenium#selenium-htmlunit-driver;2.44.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5ea7b716
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@209473d0
 [debug] sbt-chain: module revision found in cache: org.seleniumhq.selenium#selenium-htmlunit-driver;2.44.0
 [debug] 	found org.seleniumhq.selenium#selenium-htmlunit-driver;2.44.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-htmlunit-driver;2.44.0 [test->runtime]
@@ -2079,7 +2079,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-htmlunit-driver;2.44.0 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.sourceforge.htmlunit#htmlunit;2.15 [test->default(compile)]
 [info] Resolving net.sourceforge.htmlunit#htmlunit;2.15 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@355d4c8
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5e59583d
 [debug] sbt-chain: module revision found in cache: net.sourceforge.htmlunit#htmlunit;2.15
 [debug] 	found net.sourceforge.htmlunit#htmlunit;2.15 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.sourceforge.htmlunit#htmlunit;2.15 [test->runtime]
@@ -2087,7 +2087,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.sourceforge.htmlunit#htmlunit;2.15 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->xalan#xalan;2.7.1 [test->default(compile)]
 [info] Resolving xalan#xalan;2.7.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@60c37ce8
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5726f8b7
 [debug] sbt-chain: module revision found in cache: xalan#xalan;2.7.1
 [debug] 	found xalan#xalan;2.7.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->xalan#xalan;2.7.1 [test->runtime]
@@ -2095,7 +2095,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->xalan#xalan;2.7.1 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->commons-collections#commons-collections;3.2.1 [test->default(compile)]
 [info] Resolving commons-collections#commons-collections;3.2.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7fe2cbd7
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@11d7c1cb
 [debug] sbt-chain: module revision found in cache: commons-collections#commons-collections;3.2.1
 [debug] 	found commons-collections#commons-collections;3.2.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->commons-collections#commons-collections;3.2.1 [test->runtime]
@@ -2103,7 +2103,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->commons-collections#commons-collections;3.2.1 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.httpcomponents#httpmime;4.3.3 [test->default(compile)]
 [info] Resolving org.apache.httpcomponents#httpmime;4.3.3 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@785ca872
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@351d764e
 [debug] sbt-chain: module revision found in cache: org.apache.httpcomponents#httpmime;4.3.3
 [debug] 	found org.apache.httpcomponents#httpmime;4.3.3 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.httpcomponents#httpmime;4.3.3 [test->runtime]
@@ -2111,7 +2111,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.apache.httpcomponents#httpmime;4.3.3 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.sourceforge.htmlunit#htmlunit-core-js;2.15 [test->default(compile)]
 [info] Resolving net.sourceforge.htmlunit#htmlunit-core-js;2.15 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@753c5482
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3c1c506f
 [debug] sbt-chain: module revision found in cache: net.sourceforge.htmlunit#htmlunit-core-js;2.15
 [debug] 	found net.sourceforge.htmlunit#htmlunit-core-js;2.15 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.sourceforge.htmlunit#htmlunit-core-js;2.15 [test->runtime]
@@ -2119,7 +2119,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.sourceforge.htmlunit#htmlunit-core-js;2.15 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.sourceforge.nekohtml#nekohtml;1.9.21 [test->default(compile)]
 [info] Resolving net.sourceforge.nekohtml#nekohtml;1.9.21 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@8955655
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@29bd66c
 [debug] sbt-chain: module revision found in cache: net.sourceforge.nekohtml#nekohtml;1.9.21
 [debug] 	found net.sourceforge.nekohtml#nekohtml;1.9.21 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.sourceforge.nekohtml#nekohtml;1.9.21 [test->runtime]
@@ -2127,7 +2127,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.sourceforge.nekohtml#nekohtml;1.9.21 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.sourceforge.cssparser#cssparser;0.9.14 [test->default(compile)]
 [info] Resolving net.sourceforge.cssparser#cssparser;0.9.14 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3e646374
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@679a992f
 [debug] sbt-chain: module revision found in cache: net.sourceforge.cssparser#cssparser;0.9.14
 [debug] 	found net.sourceforge.cssparser#cssparser;0.9.14 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.sourceforge.cssparser#cssparser;0.9.14 [test->runtime]
@@ -2135,7 +2135,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->net.sourceforge.cssparser#cssparser;0.9.14 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.w3c.css#sac;1.3 [test->default(compile)]
 [info] Resolving org.w3c.css#sac;1.3 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@44b366d8
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5f106722
 [debug] sbt-chain: module revision found in cache: org.w3c.css#sac;1.3
 [debug] 	found org.w3c.css#sac;1.3 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.w3c.css#sac;1.3 [test->runtime]
@@ -2143,7 +2143,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.w3c.css#sac;1.3 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->commons-io#commons-io;2.4 [test->default(compile)]
 [info] Resolving commons-io#commons-io;2.4 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@8cd67f3
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7292b1fa
 [debug] sbt-chain: module revision found in cache: commons-io#commons-io;2.4
 [debug] 	found commons-io#commons-io;2.4 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->commons-io#commons-io;2.4 [test->runtime]
@@ -2151,7 +2151,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->commons-io#commons-io;2.4 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.eclipse.jetty#jetty-websocket;8.1.15.v20140411 [test->default(compile)]
 [info] Resolving org.eclipse.jetty#jetty-websocket;8.1.15.v20140411 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@614d64d5
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@17afc61d
 [debug] sbt-chain: module revision found in cache: org.eclipse.jetty#jetty-websocket;8.1.15.v20140411
 [debug] 	found org.eclipse.jetty#jetty-websocket;8.1.15.v20140411 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.eclipse.jetty#jetty-websocket;8.1.15.v20140411 [test->runtime]
@@ -2159,7 +2159,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.eclipse.jetty#jetty-websocket;8.1.15.v20140411 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.eclipse.jetty#jetty-util;8.1.15.v20140411 [test->default(compile)]
 [info] Resolving org.eclipse.jetty#jetty-util;8.1.15.v20140411 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2a9a6b89
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1d819ac4
 [debug] sbt-chain: module revision found in cache: org.eclipse.jetty#jetty-util;8.1.15.v20140411
 [debug] 	found org.eclipse.jetty#jetty-util;8.1.15.v20140411 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.eclipse.jetty#jetty-util;8.1.15.v20140411 [test->runtime]
@@ -2167,7 +2167,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.eclipse.jetty#jetty-util;8.1.15.v20140411 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.eclipse.jetty#jetty-io;8.1.15.v20140411 [test->default(compile)]
 [info] Resolving org.eclipse.jetty#jetty-io;8.1.15.v20140411 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@162019e9
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7b5a87e6
 [debug] sbt-chain: module revision found in cache: org.eclipse.jetty#jetty-io;8.1.15.v20140411
 [debug] 	found org.eclipse.jetty#jetty-io;8.1.15.v20140411 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.eclipse.jetty#jetty-io;8.1.15.v20140411 [test->runtime]
@@ -2175,7 +2175,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.eclipse.jetty#jetty-io;8.1.15.v20140411 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.eclipse.jetty#jetty-http;8.1.15.v20140411 [test->default(compile)]
 [info] Resolving org.eclipse.jetty#jetty-http;8.1.15.v20140411 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@57d3a08d
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@4d443fd2
 [debug] sbt-chain: module revision found in cache: org.eclipse.jetty#jetty-http;8.1.15.v20140411
 [debug] 	found org.eclipse.jetty#jetty-http;8.1.15.v20140411 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.eclipse.jetty#jetty-http;8.1.15.v20140411 [test->runtime]
@@ -2183,7 +2183,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.eclipse.jetty#jetty-http;8.1.15.v20140411 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-firefox-driver;2.44.0 [test->default(compile)]
 [info] Resolving org.seleniumhq.selenium#selenium-firefox-driver;2.44.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@583464ff
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5bd73ff
 [debug] sbt-chain: module revision found in cache: org.seleniumhq.selenium#selenium-firefox-driver;2.44.0
 [debug] 	found org.seleniumhq.selenium#selenium-firefox-driver;2.44.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-firefox-driver;2.44.0 [test->runtime]
@@ -2191,7 +2191,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-firefox-driver;2.44.0 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-ie-driver;2.44.0 [test->default(compile)]
 [info] Resolving org.seleniumhq.selenium#selenium-ie-driver;2.44.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1edde407
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@680a0695
 [debug] sbt-chain: module revision found in cache: org.seleniumhq.selenium#selenium-ie-driver;2.44.0
 [debug] 	found org.seleniumhq.selenium#selenium-ie-driver;2.44.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-ie-driver;2.44.0 [test->runtime]
@@ -2199,7 +2199,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-ie-driver;2.44.0 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-safari-driver;2.44.0 [test->default(compile)]
 [info] Resolving org.seleniumhq.selenium#selenium-safari-driver;2.44.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7932510
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7699bb10
 [debug] sbt-chain: module revision found in cache: org.seleniumhq.selenium#selenium-safari-driver;2.44.0
 [debug] 	found org.seleniumhq.selenium#selenium-safari-driver;2.44.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-safari-driver;2.44.0 [test->runtime]
@@ -2207,7 +2207,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-safari-driver;2.44.0 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.webbitserver#webbit;0.4.14 [test->default(compile)]
 [info] Resolving org.webbitserver#webbit;0.4.14 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7227b3a5
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7cb670e4
 [debug] sbt-chain: module revision found in cache: org.webbitserver#webbit;0.4.14
 [debug] 	found org.webbitserver#webbit;0.4.14 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.webbitserver#webbit;0.4.14 [test->runtime]
@@ -2215,7 +2215,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.webbitserver#webbit;0.4.14 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-support;2.44.0 [test->default(compile)]
 [info] Resolving org.seleniumhq.selenium#selenium-support;2.44.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@21ca5ec4
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@45bf4b14
 [debug] sbt-chain: module revision found in cache: org.seleniumhq.selenium#selenium-support;2.44.0
 [debug] 	found org.seleniumhq.selenium#selenium-support;2.44.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-support;2.44.0 [test->runtime]
@@ -2223,7 +2223,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.seleniumhq.selenium#selenium-support;2.44.0 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-specs2_2.11;2.4.0 [test->default(compile)]
 [info] Resolving com.typesafe.play#play-specs2_2.11;2.4.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1296b1c3
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@aaca8d0
 [debug] sbt-chain: module revision found in cache: com.typesafe.play#play-specs2_2.11;2.4.0
 [debug] 	found com.typesafe.play#play-specs2_2.11;2.4.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-specs2_2.11;2.4.0 [test->runtime]
@@ -2231,7 +2231,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->com.typesafe.play#play-specs2_2.11;2.4.0 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.specs2#specs2-core_2.11;3.6 [test->default(compile)]
 [info] Resolving org.specs2#specs2-core_2.11;3.6 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@77b86ab3
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6526ad82
 [debug] sbt-chain: module revision found in cache: org.specs2#specs2-core_2.11;3.6
 [debug] 	found org.specs2#specs2-core_2.11;3.6 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.specs2#specs2-core_2.11;3.6 [test->runtime]
@@ -2239,7 +2239,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.specs2#specs2-core_2.11;3.6 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.specs2#specs2-matcher_2.11;3.6 [test->default(compile)]
 [info] Resolving org.specs2#specs2-matcher_2.11;3.6 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@4980f1c9
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@427cf2b0
 [debug] sbt-chain: module revision found in cache: org.specs2#specs2-matcher_2.11;3.6
 [debug] 	found org.specs2#specs2-matcher_2.11;3.6 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.specs2#specs2-matcher_2.11;3.6 [test->runtime]
@@ -2247,7 +2247,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.specs2#specs2-matcher_2.11;3.6 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.specs2#specs2-common_2.11;3.6 [test->default(compile)]
 [info] Resolving org.specs2#specs2-common_2.11;3.6 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@308bfeb3
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@35fdde4e
 [debug] sbt-chain: module revision found in cache: org.specs2#specs2-common_2.11;3.6
 [debug] 	found org.specs2#specs2-common_2.11;3.6 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.specs2#specs2-common_2.11;3.6 [test->runtime]
@@ -2255,7 +2255,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.specs2#specs2-common_2.11;3.6 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scalaz#scalaz-core_2.11;7.1.1 [test->default(compile)]
 [info] Resolving org.scalaz#scalaz-core_2.11;7.1.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@b0edff0
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@57893705
 [debug] sbt-chain: module revision found in cache: org.scalaz#scalaz-core_2.11;7.1.1
 [debug] 	found org.scalaz#scalaz-core_2.11;7.1.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scalaz#scalaz-core_2.11;7.1.1 [test->runtime]
@@ -2263,7 +2263,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scalaz#scalaz-core_2.11;7.1.1 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.2 [test->default(compile)]
 [info] Resolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.2 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@4f67a8c
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@502abc28
 [debug] sbt-chain: module revision found in cache: org.scala-lang.modules#scala-parser-combinators_2.11;1.0.2
 [debug] 	found org.scala-lang.modules#scala-parser-combinators_2.11;1.0.2 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.2 [test->runtime]
@@ -2271,7 +2271,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.2 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-lang.modules#scala-xml_2.11;1.0.2 [test->default(compile)]
 [info] Resolving org.scala-lang.modules#scala-xml_2.11;1.0.2 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@618a9faf
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7ae80cf9
 [debug] sbt-chain: module revision found in cache: org.scala-lang.modules#scala-xml_2.11;1.0.2
 [debug] 	found org.scala-lang.modules#scala-xml_2.11;1.0.2 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-lang.modules#scala-xml_2.11;1.0.2 [test->runtime]
@@ -2279,7 +2279,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scala-lang.modules#scala-xml_2.11;1.0.2 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scalaz#scalaz-concurrent_2.11;7.1.1 [test->default(compile)]
 [info] Resolving org.scalaz#scalaz-concurrent_2.11;7.1.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6e23dbd6
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@15b3f195
 [debug] sbt-chain: module revision found in cache: org.scalaz#scalaz-concurrent_2.11;7.1.1
 [debug] 	found org.scalaz#scalaz-concurrent_2.11;7.1.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scalaz#scalaz-concurrent_2.11;7.1.1 [test->runtime]
@@ -2287,7 +2287,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scalaz#scalaz-concurrent_2.11;7.1.1 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scalaz#scalaz-effect_2.11;7.1.1 [test->default(compile)]
 [info] Resolving org.scalaz#scalaz-effect_2.11;7.1.1 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@54490da8
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@729e87dc
 [debug] sbt-chain: module revision found in cache: org.scalaz#scalaz-effect_2.11;7.1.1
 [debug] 	found org.scalaz#scalaz-effect_2.11;7.1.1 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scalaz#scalaz-effect_2.11;7.1.1 [test->runtime]
@@ -2295,7 +2295,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scalaz#scalaz-effect_2.11;7.1.1 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scalaz.stream#scalaz-stream_2.11;0.7a [test->default(compile)]
 [info] Resolving org.scalaz.stream#scalaz-stream_2.11;0.7a ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6e3b1a32
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7016a1d3
 [debug] sbt-chain: module revision found in cache: org.scalaz.stream#scalaz-stream_2.11;0.7a
 [debug] 	found org.scalaz.stream#scalaz-stream_2.11;0.7a in sbt-chain
 [debug] 	[0.7a] org.scalaz.stream#scalaz-stream_2.11;0.7a
@@ -2304,7 +2304,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scalaz.stream#scalaz-stream_2.11;0.7a [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scodec#scodec-bits_2.11;1.0.6 [test->default(compile)]
 [info] Resolving org.scodec#scodec-bits_2.11;1.0.6 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1f256957
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@25c1ec0a
 [debug] sbt-chain: module revision found in cache: org.scodec#scodec-bits_2.11;1.0.6
 [debug] 	found org.scodec#scodec-bits_2.11;1.0.6 in sbt-chain
 [debug] 	[1.0.6] org.scodec#scodec-bits_2.11;1.0.6
@@ -2313,7 +2313,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.scodec#scodec-bits_2.11;1.0.6 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.specs2#specs2-junit_2.11;3.6 [test->default(compile)]
 [info] Resolving org.specs2#specs2-junit_2.11;3.6 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7fe77f31
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@517c62f1
 [debug] sbt-chain: module revision found in cache: org.specs2#specs2-junit_2.11;3.6
 [debug] 	found org.specs2#specs2-junit_2.11;3.6 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.specs2#specs2-junit_2.11;3.6 [test->runtime]
@@ -2321,7 +2321,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.specs2#specs2-junit_2.11;3.6 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.specs2#specs2-mock_2.11;3.6 [test->default(compile)]
 [info] Resolving org.specs2#specs2-mock_2.11;3.6 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@197b2467
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1ae8e295
 [debug] sbt-chain: module revision found in cache: org.specs2#specs2-mock_2.11;3.6
 [debug] 	found org.specs2#specs2-mock_2.11;3.6 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.specs2#specs2-mock_2.11;3.6 [test->runtime]
@@ -2329,7 +2329,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.specs2#specs2-mock_2.11;3.6 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.mockito#mockito-core;1.9.5 [test->default(compile)]
 [info] Resolving org.mockito#mockito-core;1.9.5 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@64c74cdf
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@472802b4
 [debug] sbt-chain: module revision found in cache: org.mockito#mockito-core;1.9.5
 [debug] 	found org.mockito#mockito-core;1.9.5 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.mockito#mockito-core;1.9.5 [test->runtime]
@@ -2337,7 +2337,7 @@
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.mockito#mockito-core;1.9.5 [test->master]
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.objenesis#objenesis;1.0 [test->default(compile)]
 [info] Resolving org.objenesis#objenesis;1.0 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@152cbfd0
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@213de52
 [debug] sbt-chain: module revision found in cache: org.objenesis#objenesis;1.0
 [debug] 	found org.objenesis#objenesis;1.0 in sbt-chain
 [debug] == resolving dependencies lostfound#lostfound$sources_javadoc_2.11;1.0->org.objenesis#objenesis;1.0 [test->runtime]
@@ -5592,8 +5592,8 @@
 [debug] 	[NOT REQUIRED] com.typesafe.play#play-iteratees_2.11;2.4.0!play-iteratees_2.11.jar
 [debug] 	[NOT REQUIRED] com.typesafe.play#play-iteratees_2.11;2.4.0!play-iteratees_2.11.jar(src)
 [debug] 	[NOT REQUIRED] com.typesafe.play#play-iteratees_2.11;2.4.0!play-iteratees_2.11.jar(doc)
-[debug] 	[NOT REQUIRED] org.scala-stm#scala-stm_2.11;0.7!scala-stm_2.11.jar
 [debug] 	[NOT REQUIRED] org.scala-stm#scala-stm_2.11;0.7!scala-stm_2.11.jar(src)
+[debug] 	[NOT REQUIRED] org.scala-stm#scala-stm_2.11;0.7!scala-stm_2.11.jar
 [debug] 	[NOT REQUIRED] org.scala-stm#scala-stm_2.11;0.7!scala-stm_2.11.jar(doc)
 [debug] 	[NOT REQUIRED] com.typesafe#config;1.3.0!config.jar
 [debug] 	[NOT REQUIRED] com.typesafe#config;1.3.0!config.jar(src)
@@ -5755,8 +5755,8 @@
 [debug] 	[NOT REQUIRED] javax.mail#mail;1.4.5!mail.jar(src)
 [debug] 	[NOT REQUIRED] javax.activation#activation;1.1.1!activation.jar
 [debug] 	[NOT REQUIRED] javax.activation#activation;1.1.1!activation.jar(src)
-[debug] 	[NOT REQUIRED] com.typesafe.play#play-mailer_2.11;3.0.1!play-mailer_2.11.jar(src)
 [debug] 	[NOT REQUIRED] com.typesafe.play#play-mailer_2.11;3.0.1!play-mailer_2.11.jar
+[debug] 	[NOT REQUIRED] com.typesafe.play#play-mailer_2.11;3.0.1!play-mailer_2.11.jar(src)
 [debug] 	[NOT REQUIRED] com.typesafe.play#play-mailer_2.11;3.0.1!play-mailer_2.11.jar(doc)
 [debug] 	[NOT REQUIRED] joda-time#joda-time;2.9.1!joda-time.jar(src)
 [debug] 	[NOT REQUIRED] joda-time#joda-time;2.9.1!joda-time.jar
@@ -5952,7 +5952,7 @@
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-parser-combinators_2.11;1.0.3!scala-parser-combinators_2.11.jar(src)
 [debug] 	[NOT REQUIRED] jline#jline;2.12.1!jline.jar(src)
 [debug] 	[NOT REQUIRED] jline#jline;2.12.1!jline.jar(doc)
-[debug] :: resolution report :: resolve 12588ms :: artifacts dl 1007ms
+[debug] :: resolution report :: resolve 15578ms :: artifacts dl 987ms
 [debug] 	report for lostfound#lostfound$sources_javadoc_2.11;1.0 compile produced in /home/bogdan/IdeaProjects/LostFoundNew/target/resolution-cache/reports/lostfound-lostfound$sources_javadoc_2.11-compile.xml
 [debug] 	report for lostfound#lostfound$sources_javadoc_2.11;1.0 runtime produced in /home/bogdan/IdeaProjects/LostFoundNew/target/resolution-cache/reports/lostfound-lostfound$sources_javadoc_2.11-runtime.xml
 [debug] 	report for lostfound#lostfound$sources_javadoc_2.11;1.0 test produced in /home/bogdan/IdeaProjects/LostFoundNew/target/resolution-cache/reports/lostfound-lostfound$sources_javadoc_2.11-test.xml
@@ -5966,4 +5966,4 @@
 [debug] 	report for lostfound#lostfound$sources_javadoc_2.11;1.0 docs produced in /home/bogdan/IdeaProjects/LostFoundNew/target/resolution-cache/reports/lostfound-lostfound$sources_javadoc_2.11-docs.xml
 [debug] 	report for lostfound#lostfound$sources_javadoc_2.11;1.0 pom produced in /home/bogdan/IdeaProjects/LostFoundNew/target/resolution-cache/reports/lostfound-lostfound$sources_javadoc_2.11-pom.xml
 [debug] 	report for lostfound#lostfound$sources_javadoc_2.11;1.0 scala-tool produced in /home/bogdan/IdeaProjects/LostFoundNew/target/resolution-cache/reports/lostfound-lostfound$sources_javadoc_2.11-scala-tool.xml
-[debug] 	resolve done (12588ms resolve - 1007ms download)
+[debug] 	resolve done (15578ms resolve - 987ms download)
